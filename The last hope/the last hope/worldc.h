@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string>
 using namespace std;
+#define _CRT_SECURE_NO_WARNINGS
 
 class room{
 public:
@@ -18,7 +19,11 @@ class exits{
 public:
 	char name[4];
 	char description[300];
-	room dest;
+	room dest1;
+	room dest2;
+	room dest3;
+	room dest4;
+	room dest5;
 	room src;
 };
 
@@ -28,6 +33,7 @@ public:
 
 	char name[20];
 	int hp;
+	room position;
 
 };//class bicho
 class world {

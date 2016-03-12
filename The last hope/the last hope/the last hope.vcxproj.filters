@@ -24,12 +24,21 @@
     <ClCompile Include="world.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="controls.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="exits.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="principal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="worldc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="controls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

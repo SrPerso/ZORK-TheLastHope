@@ -7,7 +7,12 @@
 
 int main() {
 
+	room a;
+	intro();
+	printf("te situas en la habitacion a");
 
+
+	//a=player.position;
 
 	system("pause");
 	return 0;
