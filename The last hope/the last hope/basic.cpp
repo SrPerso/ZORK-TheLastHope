@@ -7,8 +7,9 @@
 
 
 void intro() {
+
 	system("color f3");
 	printf("\n\t Wellcome to the game....\n \n");
 	printf("\t\t'' T h e   L a s t   H o p e '' \n\n\n");
 
-}
+}//intro

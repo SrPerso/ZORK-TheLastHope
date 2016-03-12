@@ -4,16 +4,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
-
-
+using namespace std;
 
 
 world::world() {
 
-	room* rooms = new room[15];
+	rooms = new room[15];
 
-}
+
+}//builder
 world::~world() {
 	delete[] rooms;
+	printf("destruyo\n");
 
-}
+}//destroyer
+
+void world::creatingworld(){
+	
+	strcpy(rooms[sun].name,"");
+}//create the rooms 
+
+
+
+
+
+

@@ -1,26 +1,35 @@
-using namespace std;
-
 
 #include <iostream>
 #include "principal.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
+using namespace std;
 
-room* rooms = nullptr;
+class room{
+public:
+
+	char name[20];
+	char description[300];
+
+};//class room 
+
+
 
 class world {
+	
 public:
 
-	world();
-	~world();
 
-};
+	room* rooms=nullptr;
 
-class room :public world {
-public:
 
-	room() = default;
-	~room()=default;
-};
+
+
+	world();//build
+	~world();// destroy
+	void creatingworld();
+
+};//class world
+
+
