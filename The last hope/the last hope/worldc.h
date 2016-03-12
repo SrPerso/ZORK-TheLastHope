@@ -14,17 +14,29 @@ public:
 
 };//class room 
 
+class exits{
+public:
+	char name[4];
+	char description[300];
+	room dest;
+	room src;
+};
 
 
-class world {
-	
+class bicho{
 public:
 
+	char name[20];
+	int hp;
 
-	room* rooms=nullptr;
+};//class bicho
+class world {
 
+	bicho* player = nullptr;
+	room* rooms = nullptr;
+	exits* exit = nullptr;
 
-
+public:
 
 	world();//build
 	~world();// destroy
