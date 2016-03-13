@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include "principal.h"
 #include "worldc.h"
 #include <stdio.h>
@@ -7,11 +7,14 @@
 
 
 void intro(){
-	int i,j;
-	for (j = 0; j < 2; j++){
+	int i, j;
+	for (j = 0; j <=1; j++){
 		for (i = 0; i < 30; i++){
+
 			system("cls");
-			system("color f0");
+
+			system("color f0");//white black
+
 			printf("\t------------------------------------------------------------------ \n");
 			printf("\t------------------------------------------------------------------ \n");
 			printf("\t------------------------------------------------------------------ \n");

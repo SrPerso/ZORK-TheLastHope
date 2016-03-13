@@ -18,16 +18,16 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="basic.cpp">
+    <ClCompile Include="world.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="world.cpp">
+    <ClCompile Include="exits.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="controls.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="exits.cpp">
+    <ClCompile Include="basic.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>

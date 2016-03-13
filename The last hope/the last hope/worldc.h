@@ -10,7 +10,7 @@ using namespace std;
 class room{
 public:
 
-	char name[20];
+	char name[30];
 	char description[300];
 
 };//class room 
@@ -24,6 +24,7 @@ public:
 	room dest3;
 	room dest4;
 	room dest5;
+	room dest6;
 	room src;
 };
 
@@ -37,16 +38,17 @@ public:
 
 };//class bicho
 class world {
-
+public:
 	bicho* player = nullptr;
 	room* rooms = nullptr;
 	exits* exit = nullptr;
 
-public:
-
 	world();//build
 	~world();// destroy
+
+
 	void creatingworld();
+
 
 };//class world
 
