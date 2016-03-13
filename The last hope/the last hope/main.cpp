@@ -6,9 +6,9 @@
 
 
 int main() {
-
-	room a;
 	intro();
+	room a;
+	getchar();
 	printf("te situas en la habitacion a");
 
 

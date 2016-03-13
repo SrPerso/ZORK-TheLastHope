@@ -5,20 +5,20 @@
 #include <stdlib.h>
 #include <string>
 using namespace std;
-
+#define _CRT_SECURE_NO_WARNINGS
 
 int controls(){
 	char move, go, look ;
 
 	printf("what do you want to do?");
-	scanf("%c", &move);
+	scanf_s("%c", &move);
 
 	switch (move){
 
 		case 'g':// GO  --------------------------------
 		
 			printf("witch direction do you want to go?");
-			scanf("%c", &go);
+			scanf_s("%c", &go);
 			switch (go)
 
 			{
@@ -54,7 +54,7 @@ int controls(){
 		case 'l':// LOOK  --------------------------------
 		
 			printf("witch direction do you want to look?");
-			scanf("%c", &look);
+			scanf_s("%c", &look);
 			switch (look)
 			{
 
@@ -90,7 +90,7 @@ int controls(){
 
 		case 'c':			//CLOSE
 
-			return;
+		
 
 
 			break;
