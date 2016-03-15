@@ -8,6 +8,20 @@
 #define  _FUNTIONS_
 
 
-
+void reader(char *token1,char *token2);
 void intro();
 #endif
+
+
+#ifndef _CONTROLS_
+#define  _CONTROLS_
+
+int checkings(char *token1, char *token2);
+void help();
+void go(char comand);
+
+
+enum comands{ GO, LOOK, HELP, EXIT };
+#endif
+
+

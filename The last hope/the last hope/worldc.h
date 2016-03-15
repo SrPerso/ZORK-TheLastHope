@@ -7,25 +7,32 @@
 using namespace std;
 #define _CRT_SECURE_NO_WARNINGS
 
+enum dir {
+	NORTH,
+	SOUTH,
+	EAST,
+	WEST,
+	UP,
+	DOWN
+};
+
+
 class room{
 public:
 
 	char name[30];
-	char description[300];
+	char description[400];
 
 };//class room 
 
 class exits{
 public:
-	char name[4];
+	char name[5];
 	char description[300];
-	room dest1;
-	room dest2;
-	room dest3;
-	room dest4;
-	room dest5;
-	room dest6;
-	room src;
+	room* dest;
+	room* src;
+	dir direction;
+	bool open;
 };
 
 
@@ -33,8 +40,8 @@ class bicho{
 public:
 
 	char name[20];
-	int hp;
-	room position;
+	//int hp;
+	room* position;
 
 };//class bicho
 class world {

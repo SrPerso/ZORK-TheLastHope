@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controls.h" />
+    <ClInclude Include="memorytleaks.h" />
     <ClInclude Include="principal.h" />
     <ClInclude Include="worldc.h" />
   </ItemGroup>

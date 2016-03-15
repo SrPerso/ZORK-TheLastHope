@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
-
+#define _CRT_SECURE_NO_WARNINGS
 
 void intro(){
 	int i, j;
@@ -57,3 +57,26 @@ void intro(){
 	system("pause");
 	system("cls");
 }//intro
+
+void reader(char *token1, char*token2){
+
+
+	char recep[80]="NULL", seps[3]= " ,";
+	token1 = NULL;
+	token2 = NULL;
+	printf("comand?\n");
+	fflush(stdin);
+
+	gets_s(recep);
+	
+
+	fflush(stdin);
+	token1 = strtok_s(recep, seps, &token2);
+
+	/*while (token1 != NULL){
+		printf("\t %s\n", token1);
+		token1 = strtok_s(NULL, seps, &token2);
+
+	}*/
+
+}

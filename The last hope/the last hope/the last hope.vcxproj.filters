@@ -41,5 +41,8 @@
     <ClInclude Include="controls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="memorytleaks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
