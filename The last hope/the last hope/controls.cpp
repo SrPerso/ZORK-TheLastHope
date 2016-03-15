@@ -1,39 +1,59 @@
-//- -------- system -----------------
 #include <iostream>
+#include "principal.h"
+#include "worldc.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//-----------headers------------------
-#include "principal.h"
-#include "worldc.h"
-#include "rooms.h"
-#include "controls.h"
-#include "exits.h"
-#include "bicho.h"
-//------------------------
+using namespace std;
 
-int checkings(char *token1, char *token2){
 
-	//char comand2;
-	//int comand= 0 ;
+int checkings(char *token, char *firstword){
+
+	char comand, comand2;
+
 	// COMAND LIST FIRST WORD-------
 
-	if (token1 == "go" || token1 == "Go"){ printf("go"); return 1; }
+	if (firstword == "go" || firstword == "Go"){ comand = GO; }
+	if (firstword == "look" || firstword == "Look"){ comand = LOOK; }
+	if (firstword == "help" || firstword == "Help"){ comand = HELP; }
+	if (firstword == "exit" || firstword == "Exit"){ comand = EXIT; }
 
-	if (token1 == "look" || token1 == "Look"){ printf("look");	return 1; }
+	if (token == "east" || token == "East"){ comand2 = EAST; }
+	if (token == "west" || token == "West"){ comand2 = WEST; }
+	if (token == "north" || token == "North"){ comand2 = NORTH; }
+	if (token == "south" || token == "South"){ comand2 = SOUTH; }
+	if (token == "down" || token == "Down"){ comand2 = DOWN; }
+	if (token == "up" || token == "Up"){ comand2 = UP; }
 
-	if (token1 == "help" || token1 == "Help"){ printf("help"); help(); return 1; }
 
-	if (token1 == "exit" || token1 == "Exit"){ printf("exit"); return 0; }
+	switch (comand){
 
-	/*if (token2 == "east" || token2 == "East"){ comand2 = EAST; }
-	if (token2 == "west" || token2 == "West"){ comand2 = WEST; }
-	if (token2 == "north" || token2 == "North"){ comand2 = NORTH; }
-	if (token2 == "south" || token2 == "South"){ comand2 = SOUTH; }
-	if (token2 == "down" || token2 == "Down"){ comand2 = DOWN; }
-	if (token2 == "up" || token2 == "Up"){ comand2 = UP; }*/
-	 
-	
+	case GO://--------------GO
+
+		go(comand2);//-
+		break;
+
+	case LOOK://--------------LOOK
+
+
+		break;
+
+	case HELP: //--------------HELP
+
+		help();//-
+		break;
+
+	case EXIT://--------------EXIT
+
+		return 0;//-
+		break;
+
+	default:
+		printf(" there is a problem");
+		break;
+
+	}//switchcase first word
+
 }// void checkings
 
 

@@ -1,9 +1,12 @@
-//-----------headers------------------
+
+#include <iostream>
 #include "principal.h"
-#include "bicho.h"
-#include "rooms.h"
-#include "exits.h"
-//------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+using namespace std;
+#define _CRT_SECURE_NO_WARNINGS
+
 enum dir {
 	NORTH,
 	SOUTH,
@@ -13,9 +16,34 @@ enum dir {
 	DOWN
 };
 
-#ifndef _WORLD_
-#define  _WORLD_
 
+class room{
+public:
+
+	char name[30];
+	char description[400];
+
+};//class room 
+
+class exits{
+public:
+	char name[5];
+	char description[300];
+	room* dest;
+	room* src;
+	dir direction;
+	bool open;
+};
+
+
+class bicho{
+public:
+
+	char name[20];
+	//int hp;
+	room* position;
+
+};//class bicho
 class world {
 public:
 	bicho* player = nullptr;
@@ -26,9 +54,9 @@ public:
 	~world();// destroy
 
 
-	void creatingrooms();
-	void creatingexits();
-	void creatingbichos();
+	void creatingworld();
+
+
 };//class world
 
-#endif
+

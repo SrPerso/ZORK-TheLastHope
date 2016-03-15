@@ -1,16 +1,10 @@
-//- -------- system -----------------
 #include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-//-----------headers------------------
 #include "principal.h"
 #include "worldc.h"
-#include "rooms.h"
-#include "controls.h"
-#include "exits.h"
-#include "bicho.h"
-//------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+#define _CRT_SECURE_NO_WARNINGS
 
 void intro(){
 	int i, j;
@@ -64,25 +58,22 @@ void intro(){
 	system("cls");
 }//intro
 
-void reader(char *token1, char*token2){
+void reader(char *token, char *firstword){
 
+	char recep[20];
 
-	char recep[80]="NULL", seps[3]= " ,";
-	token1 = NULL;
-	token2 = NULL;
 	printf("comand?\n");
-	fflush(stdin);
-
-	gets_s(recep);
-	
 
 	fflush(stdin);
-	token1 = strtok_s(recep, seps, &token2);
 
-	/*while (token1 != NULL){
-		printf("\t %s\n", token1);
-		token1 = strtok_s(NULL, seps, &token2);
+	scanf_s("%s", &recep);
 
-	}*/
+	token = strtok(recep, " ");
 
+	if (token == NULL){
+		printf("I dont know this comand");
+	}
+
+	token = firstword;
+	token = strtok(recep, " ");
 }
