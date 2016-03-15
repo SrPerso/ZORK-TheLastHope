@@ -44,5 +44,14 @@
     <ClInclude Include="memorytleaks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="exits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bicho.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rooms.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,10 +1,16 @@
+//- -------- system -----------------
 #include <iostream>
-#include "principal.h"
-#include "worldc.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string>
-#define _CRT_SECURE_NO_WARNINGS
+#include <string.h>
+//-----------headers------------------
+#include "principal.h"
+#include "worldc.h"
+#include "rooms.h"
+#include "controls.h"
+#include "exits.h"
+#include "bicho.h"
+//------------------------
 
 void intro(){
 	int i, j;

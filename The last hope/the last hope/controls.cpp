@@ -1,11 +1,16 @@
+//- -------- system -----------------
 #include <iostream>
-#include "principal.h"
-#include "worldc.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-using namespace std;
-
+//-----------headers------------------
+#include "principal.h"
+#include "worldc.h"
+#include "rooms.h"
+#include "controls.h"
+#include "exits.h"
+#include "bicho.h"
+//------------------------
 
 int checkings(char *token1, char *token2){
 
