@@ -1,10 +1,22 @@
+//- -------- system -----------------
+
 #include <iostream>
-#include "principal.h"
-#include "worldc.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "memorytleaks.h"
 #include <ctype.h>
+
+//-----------headers------------------
+
+#include "principal.h"
+#include "worldc.h"
+#include "rooms.h"
+#include "controls.h"
+#include "exits.h"
+#include "bicho.h"
+
+//------------------------
 
 int main() {
 	//intro();
@@ -13,21 +25,20 @@ int main() {
 
 	world World;
 	bicho* player = nullptr;
-
-	World.creatingworld();
 	
-	char *token, *firstword, comand;
+	bool comand;
 
-
-
-
+	World.creatingrooms();//create rooms
+	World.creatingexits();//create exits
+	World.creatingbichos();//crate bichos
+	
 do{
-
-	reader(token, firstword);
 	
-	comand = checkings(token, firstword);
+	
+	
+	comand = World.checkings();
 
-}while(comand != 0);
+}while(comand != false);
 
 
 return 0;

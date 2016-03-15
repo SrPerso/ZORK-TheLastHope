@@ -12,6 +12,17 @@
 #include "bicho.h"
 //------------------------
 
+bicho::bicho(){
+
+	position = new room;
+
+}
+bicho::~bicho(){
+
+	delete[] position;
+
+}
+
 
 void world::creatingbichos(){
 
@@ -27,6 +38,5 @@ void world::creatingbichos(){
 
 
 }
-
 
 

@@ -65,15 +65,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="basic.cpp" />
+    <ClCompile Include="bichos.cpp" />
     <ClCompile Include="controls.cpp" />
     <ClCompile Include="exits.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="world.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bicho.h" />
     <ClInclude Include="controls.h" />
+    <ClInclude Include="exits.h" />
     <ClInclude Include="memorytleaks.h" />
     <ClInclude Include="principal.h" />
+    <ClInclude Include="rooms.h" />
     <ClInclude Include="worldc.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

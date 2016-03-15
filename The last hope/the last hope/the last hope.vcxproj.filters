@@ -30,6 +30,9 @@
     <ClCompile Include="basic.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="bichos.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="principal.h">
@@ -42,6 +45,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="memorytleaks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="exits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bicho.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rooms.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

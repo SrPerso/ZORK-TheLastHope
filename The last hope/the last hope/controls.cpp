@@ -1,94 +1,188 @@
+//- -------- system -----------------
 #include <iostream>
-#include "principal.h"
-#include "worldc.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-using namespace std;
+#include <cstring>
+//-----------headers------------------
+#include "principal.h"
+#include "worldc.h"
+#include "rooms.h"
+#include "controls.h"
+#include "exits.h"
+#include "bicho.h"
+//------------------------
+
+bool world::checkings(){
+
+	char *token1 = NULL, *token2 = NULL;
+
+	//bicho->reader(token1, token2);
 
 
-int checkings(char *token, char *firstword){
+	char recep[80] = "NULL", seps[3] = " ,";
+	token1 = NULL;
+	token2 = NULL;
+	printf("comand?\n");
+	fflush(stdin);
 
-	char comand, comand2;
+	gets_s(recep);
 
-	// COMAND LIST FIRST WORD-------
+	token1 = strtok_s(recep, seps, &token2);
+	
+	// COMAND LIST---------------------------------------------------------------------------------
 
-	if (firstword == "go" || firstword == "Go"){ comand = GO; }
-	if (firstword == "look" || firstword == "Look"){ comand = LOOK; }
-	if (firstword == "help" || firstword == "Help"){ comand = HELP; }
-	if (firstword == "exit" || firstword == "Exit"){ comand = EXIT; }
+	if (strcmp(token1, "go") == 0 || strcmp(token1, "GO") == 0){
+	
+		if (strcmp(token1, "east") == 0  || strcmp(token1, "EAST")  == 0)	{	player->go(this, EAST);		}
+		if (strcmp(token1, "north") == 0 || strcmp(token1, "NORTH") == 0)	{	player->go(this, NORTH);	}
+		if (strcmp(token1, "west") == 0  || strcmp(token1, "WEST")  == 0)	{	player->go(this, WEST);		}
+		if (strcmp(token1, "south") == 0 || strcmp(token1, "SOUTH") == 0)	{  player->go(this, SOUTH); 	}
 
-	if (token == "east" || token == "East"){ comand2 = EAST; }
-	if (token == "west" || token == "West"){ comand2 = WEST; }
-	if (token == "north" || token == "North"){ comand2 = NORTH; }
-	if (token == "south" || token == "South"){ comand2 = SOUTH; }
-	if (token == "down" || token == "Down"){ comand2 = DOWN; }
-	if (token == "up" || token == "Up"){ comand2 = UP; }
+		return true;
+	}//go to one place---------------------------------------------------------------------------------
 
+	else if (strcmp(token1, "look") == 0 || strcmp(token1, "LOOK")  == 0){
+		
+		if (strcmp(token1, "east") == 0  || strcmp(token1, "EAST")  == 0)	{ player->lookdoor(this, EAST); }
+		if (strcmp(token1, "north") == 0 || strcmp(token1, "NORTH") == 0)	{ player->lookdoor(this, NORTH);}
+		if (strcmp(token1, "west") == 0  || strcmp(token1, "WEST")  == 0)	{ player->lookdoor(this, WEST); }
+		if (strcmp(token1, "south") == 0 || strcmp(token1, "SOUTH") == 0)	{ player->lookdoor(this, SOUTH);}
+	
+		return true;
+	}//if else look to the door---------------------------------------------------------------------------------
 
-	switch (comand){
+	else if (strcmp(token1, "open") == 0 || strcmp(token1, "OPEN") == 0){ 
+	
+		if (token2 == NULL){
+			printf("Which door do you want to open?? \n\t");
+			scanf_s("%s", &token2);
+		}
+		if (strcmp(token1, "east") == 0  || strcmp(token1, "EAST") == 0)	{ player->open(this, EAST);  }
+		if (strcmp(token1, "north") == 0 || strcmp(token1, "NORTH") == 0)	{ player->open(this, NORTH); }
+		if (strcmp(token1, "west") == 0  || strcmp(token1, "WEST") == 0)	{ player->open(this, WEST);  }
+		if (strcmp(token1, "south") == 0 || strcmp(token1, "SOUTH") == 0)	{ player->open(this, SOUTH); }
 
-	case GO://--------------GO
+		return true;
+	}//else if OPEN DOor---------------------------------------------------------------------------------
 
-		go(comand2);//-
-		break;
+	else if (strcmp(token1, "close") == 0 || strcmp(token1, "CLOSE") == 0){ 
+	
+		if (token2 == NULL){
+			printf("Which door do you want to open?? \n\t");
+			scanf_s("%s", &token2);
+		}
+		if (strcmp(token1, "east")  == 0  || strcmp(token1, "EAST")  == 0)	{ player->close(this, EAST);  }
+		if (strcmp(token1, "north") == 0  || strcmp(token1, "NORTH") == 0)	{ player->close(this, NORTH); }
+		if (strcmp(token1, "west")  == 0  || strcmp(token1, "WEST")  == 0)	{ player->close(this, WEST);  }
+		if (strcmp(token1, "south") == 0  || strcmp(token1, "SOUTH") == 0)	{ player->close(this, SOUTH); }
+	
+		return true;
+	}//else if Close Door---------------------------------------------------------------------------------
 
-	case LOOK://--------------LOOK
+	else if (strcmp(token1, "help") == 0 || strcmp(token1, "HELP") == 0){
 
+		help();
+		return true;
+	}//else if help---------------------------------------------------------------------------------
 
-		break;
+	else if (strcmp(token1, "exit") == 0 || strcmp(token1, "EXIT") == 0){ 
+			
+		return false;
+	}
 
-	case HELP: //--------------HELP
-
-		help();//-
-		break;
-
-	case EXIT://--------------EXIT
-
-		return 0;//-
-		break;
-
-	default:
-		printf(" there is a problem");
-		break;
-
-	}//switchcase first word
-
+	return true;
 }// void checkings
 
 
 void help(){
 
-	printf("\n\t\t_____COMAND LIST____\n");
-	printf("\t\t|                   |\n");
-	printf("\t\t|  Go North  -> n   |\n");
-	printf("\t\t|  Go South  -> s   |\n");
-	printf("\t\t|  Go West   -> w   |\n");
-	printf("\t\t|  Go East   -> e   |\n");
-	printf("\t\t|  Go Top    -> t   |\n");
-	printf("\t\t|  Go Bottom -> b   |\n");
-	printf("\t\t|  Go Quit   -> q   |\n");
-	printf("\t\t|  Go Help   -> h   |\n");
-	printf("\t\t|___________________|\n");
+	printf("\n\t\t________| COMAND LIST |________\n");
+	printf("\t\t|			        |\n");
+	printf("\t\t|  GO           |  LOOK		|\n");
+	printf("\t\t|       south   |       south   |\n");
+	printf("\t\t|       West    |       West	|\n");
+	printf("\t\t|       East    |       East	|\n");
+	printf("\t\t|       Top     |       Top     |\n");
+	printf("\t\t|       Bottom  |       Bottom  |\n");
+	printf("\t\t|			     	|\n");
+	printf("\t\t|  OPEN         |  CLOSE	|\n");
+	printf("\t\t|       south   |       south   |\n");
+	printf("\t\t|       West    |       West	|\n");
+	printf("\t\t|       East    |       East	|\n");
+	printf("\t\t|       Top     |       Top	|\n");
+	printf("\t\t|       Bottom  |       Bottom  |\n");
+	printf("\t\t|				|\n");
+	printf("\t\t|  HELP         |  EXIT		|\n");
+	printf("\t\t|_______________________________|\n");
 
 }//help
 
-void go(char comand) {
-
-	printf("%s", comand);
 
 
+void bicho::go(world* World, dir tgo){
 
-	/*
-	
-	for (int i = 0; i < 32; i++){
-		if (player->position == World.exit[i].src && World.exit[i].direction == direct){
+	if (tf == true){
 
-			player->position = World.exit[i].dest;
-		}//if
+		for (int i = 0; i < _NoE_; i++){
 
-	}//for
+			if (World->exit[i].src == position){
 
-	
-	*/
+				if (World->exit[i].direction == tgo){
+
+					if (World->exit[i].open == true){
+
+						position = World->exit[i].dest;
+
+						printf("%s\n%s.\n", World->exit[i].dest->name, World->exit[i].dest->description);
+						tf = false;
+
+						break;
+
+					}//if open
+
+					else{
+
+						printf("hum... this door is close maybe you can open it with a key.. \n");
+						break;
+
+					}//else close
+
+				}//if direccioner
+
+			}//if look the position
+
+			else{
+
+				printf("seem that there is nothing interesting in that way\n");
+
+				break;
+
+			}//else there isnt
+
+		}//for looking every valor
+
+	}// const
+
+}//void GOOO ------------------------------------------------------------
+
+void bicho::look()const{
+
+	printf("\n %s", position->description);
+
+}//look room ------------------------------------------------------------
+
+void bicho::close(world* Wworld, dir close)const{
+
+
+}// close doors---------------------------------------------------------
+
+void bicho::open(world* World, dir open)const{
+
+
+}// close doors---------------------------------------------------------
+void bicho::lookdoor(world* World, dir look)const{
+
+
+
 }

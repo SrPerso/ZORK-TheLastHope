@@ -1,27 +1,21 @@
-#ifndef NULL
-#define NULL 0
-#endif 
 #define _CRT_SECURE_NO_WARNINGS
-
 
 #ifndef _FUNTIONS_
 #define  _FUNTIONS_
 
+enum comands{
+	GO,
+	LOOK,
+	HELP,
+	EXIT
+};
 
-void reader(char *token,char *firstword);
+
 void intro();
 #endif
 
+#define _NoR_ 15 //number of Rooms
+#define _NoB_ 1 //number of bichos
+#define _NoE_ 32 // number of Exits
 
-#ifndef _CONTROLS_
-#define  _CONTROLS_
-
-int checkings(char *token, char *firstword);
-void help();
-void go(char comand);
-
-
-enum comands{ GO, LOOK, HELP, EXIT };
-#endif
-
-
+//-------------------- enums 

@@ -1,10 +1,16 @@
+//- -------- system -----------------
 #include <iostream>
-#include "principal.h"
-#include "worldc.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string>
-#define _CRT_SECURE_NO_WARNINGS
+#include <string.h>
+//-----------headers------------------
+#include "principal.h"
+#include "worldc.h"
+#include "rooms.h"
+#include "controls.h"
+#include "exits.h"
+#include "bicho.h"
+//------------------------
 
 void intro(){
 	int i, j;
@@ -58,22 +64,20 @@ void intro(){
 	system("cls");
 }//intro
 
-void reader(char *token, char *firstword){
+/*
+void bicho::reader(char *token1, char *token2){
 
-	char recep[20];
-
+	//char* token;
+	char recep[80]="NULL", seps[3]= " ,";
+	token1 = NULL;
+	token2 = NULL;
 	printf("comand?\n");
-
 	fflush(stdin);
 
-	scanf_s("%s", &recep);
+	gets_s(recep);
+	
+	token1 = strtok_s(recep, seps, &token2);
+	//token2 = strtok_s(recep, seps, &token);
 
-	token = strtok(recep, " ");
 
-	if (token == NULL){
-		printf("I dont know this comand");
-	}
-
-	token = firstword;
-	token = strtok(recep, " ");
-}
+}*/

@@ -1,5 +1,5 @@
 //-----------headers------------------
-#include "principal.h"
+
 //------------------------
 #ifndef _ROOMS_
 #define  _ROOMS_
