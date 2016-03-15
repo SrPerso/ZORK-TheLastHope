@@ -63,21 +63,59 @@ void intro(){
 	system("pause");
 	system("cls");
 }//intro
+void preintro(){
+	printf("\n\n\n\n\n\n\t\t\tThis game can cause epileptic seizures,\n");
+	printf("\t\t\tif you are prone to suffer one of these\n ");
+	printf("\t\t\tattacks should skip the intro\n\n");
+	int in;
+	printf("\t Skip the intro? (y/n) \n\n\t\t");
+	scanf_s("%i", &in);
 
-/*
-void bicho::reader(char *token1, char *token2){
+	if (in == 115 || in == 121){ intro(); }//if
+}
 
-	//char* token;
-	char recep[80]="NULL", seps[3]= " ,";
-	token1 = NULL;
-	token2 = NULL;
-	printf("comand?\n");
-	fflush(stdin);
 
-	gets_s(recep);
+void closedoorFX(){
+	int i;
+
+	for (i = 0; i < 7; i++){
+		system("cls");
+		printf("KBOOOOOOM!\n");
+		printf("KBOOOOOOM!\n");
+		printf("KBOOOOOOM!\n");
+		printf("KBOOOOOOM!\n");
+		printf("KBOOOOOOM!\n");
+		if (i==2){
+			system("color f4");//white red
+		}//if
+		if (i == 4){
+			system("color 0A");//black green
+		}//if
+		if (i == 6){
+			system("color f4");//white red
+		}//if
+		else{
+			system("color 0A");//black green
+			
+		}//if
+	}//for
 	
-	token1 = strtok_s(recep, seps, &token2);
-	//token2 = strtok_s(recep, seps, &token);
+}//close door FX
 
-
-}*/
+void credits(){
+	system("cls");
+	system("color 4f");
+	printf("\n\t\t ----------------THANKS 4 PLAY-----------------\n");
+	printf("\n\t\t- GAME MADE BY:\n");
+	printf("\n\t\t\t PERSO INDUSTRIES\n");
+	printf("\n\t\t- MANAGEMENT, CODE & DESIGN BY:\n");
+	printf("\n\t\t\t CARLOS PERALTA SOROLLA\n");
+	printf("\n\t\t -FX MADE BY:\n");
+	printf("\n\t\t\t CARLOS PERALTA SOROLLA\n");
+	printf("\n\t\t- OBJETIVES: \n");
+	printf("\n\t\t\t CONQUER THE WORLD & SAVE THE POLAR BEARS\n");
+	printf("\n\t\t- WE GIVE THANKS TO\n");
+	printf("\n\t\t\t MONSTER,BALLANTINES, JACK DANIELS,");
+	printf("\n\t\t\t SOME BEAUTIFUL GIRLS AND RIC PILLOSU\n\n");
+	system("pause");
+} 

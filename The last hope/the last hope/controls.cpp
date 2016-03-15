@@ -171,18 +171,59 @@ void bicho::look()const{
 	printf("\n %s", position->description);
 
 }//look room ------------------------------------------------------------
+void bicho::lookdoor(world* World, dir look)const{
 
-void bicho::close(world* Wworld, dir close)const{
 
+		for (int i = 0; i < _NoE_; i++){
+
+			if (World->exit[i].src == position){
+
+				if (World->exit[i].direction == look){
+
+					printf("%s\n", World->exit[i].description);
+
+				}//if direction to look
+
+			}//position player
+
+		}//for looking every valor
+
+
+}//look door------------------------------------------------------------
+
+void bicho::close(world* World, dir close)const{
+
+	for (int i = 0; i < _NoE_; i++){
+
+		if (World->exit[i].src == position){
+
+			if (World->exit[i].direction == close){
+
+				if (World->exit[i].open == true){
+
+					World->exit[i].open = false;
+
+					closedoorFX();//FX closing door
+
+					printf("\t iii.... KBOOM!!!!!!!!! maybe you close the door too hard...\n", World->exit[i].dest);
+
+				}// close the door
+
+				else{
+
+					printf("You can't do that.\n");
+
+				}//else you cant open the door
+
+			}//direction to close
+
+		}//position of the player
+
+	}//for looking every valor
 
 }// close doors---------------------------------------------------------
 
 void bicho::open(world* World, dir open)const{
 
 
-}// close doors---------------------------------------------------------
-void bicho::lookdoor(world* World, dir look)const{
-
-
-
-}
+}// open doors---------------------------------------------------------

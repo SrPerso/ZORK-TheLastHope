@@ -9,9 +9,12 @@ enum comands{
 	HELP,
 	EXIT
 };
-
-
+void closedoorFX();
+void preintro();
 void intro();
+
+
+void credits();
 #endif
 
 #define _NoR_ 15 //number of Rooms

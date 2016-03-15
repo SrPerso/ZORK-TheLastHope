@@ -19,27 +19,33 @@
 //------------------------
 
 int main() {
-	//intro();
-
-	ReportMemoryLeaks();
-
-	world World;
-	bicho* player = nullptr;
 	
-	bool comand;
+		preintro();
 
-	World.creatingrooms();//create rooms
-	World.creatingexits();//create exits
-	World.creatingbichos();//crate bichos
-	
-do{
-	
-	
-	
-	comand = World.checkings();
+		system("cls");
 
-}while(comand != false);
+		ReportMemoryLeaks();
+
+		world * World = new world;
+		bicho* player = nullptr;
+
+		bool comand;
+
+		World->creatingrooms();//create rooms
+		World->creatingexits();//create exits
+		World->creatingbichos();//crate bichos
+
+		do{
+
+			comand = World->checkings();
+
+		} while (comand != false);
 
 
-return 0;
+		
+		credits();
+		delete[] World;
+
+		return 0;
+	
 }//main
