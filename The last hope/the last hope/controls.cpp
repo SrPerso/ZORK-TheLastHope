@@ -17,6 +17,7 @@ bool world::checkings(){
 
 	char token1[15], token2[15], *token;
 
+	
 
 //	strcpy_s(token2, "void");
 	
@@ -24,7 +25,7 @@ bool world::checkings(){
 
 	char recep[80] = "NULL";
 
-	
+	player->tf = true;
 	printf("\n\t -What do you want to do now?\n\n\t\t");
 
 	strcpy_s(token2, "NULL");
@@ -70,8 +71,7 @@ bool world::checkings(){
 		else{
 			printf("\n  Mmm... There is a sexy giraffe theree... \n\t (this is sarcasm, write better) \n\t");
 		} 
-		
-		
+
 		return true;
 	}//if else look to the door---------------------------------------------------------------------------------
 
@@ -121,7 +121,12 @@ bool world::checkings(){
 		printf("\n Maybe you speak murloc but i am not.. \n");
 	}
 
+	
+	
+	
+	player->tf = true;
 	return true;
+
 }// void checkings
 
 
@@ -186,9 +191,7 @@ void bicho::go(world* World, dir tgo){
 		}//for looking every valor
 
 	}// const
-	else{
-		printf("There's nothing there.\n");
-	}
+
 }//void GOOO ------------------------------------------------------------
 
 void bicho::look()const{
@@ -230,7 +233,7 @@ void bicho::close(world* World, dir close)const{
 
 					closedoorFX();//FX closing door
 
-					printf("\t iii.... KBOOM!!!!!!!!! maybe you close the door too hard...\n", World->exit[i].dest);
+					printf("\t Maybe you close the door too hard...\n", World->exit[i].dest);
 
 				}// close the door
 
@@ -256,9 +259,9 @@ void bicho::open(world* World, dir open)const{
 
 			if (World->exit[i].direction == open){
 
-				if (World->exit[i].open == true){
+				if (World->exit[i].open == false){
 
-					World->exit[i].open = false;
+					World->exit[i].open = true;
 
 
 					printf("\t iii.... the door was open..", World->exit[i].dest);

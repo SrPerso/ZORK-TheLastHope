@@ -9,6 +9,7 @@ enum comands{
 	HELP,
 	EXIT
 };
+void opendoorFX();
 void closedoorFX();
 void preintro();
 void intro();
