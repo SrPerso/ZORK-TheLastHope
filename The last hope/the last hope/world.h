@@ -1,5 +1,5 @@
 //-----------headers------------------
-#include "principal.h"
+#include "global.h"
 #include "bicho.h"
 #include "rooms.h"
 #include "exits.h"
@@ -20,9 +20,8 @@ public:
 	~world();// destroy
 
 
-	void createrooms();
-	void createexits();
-	void createbichos();
+	void createworld();
+
 
 	bool checkings();
 };//class world

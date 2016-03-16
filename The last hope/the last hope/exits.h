@@ -1,5 +1,5 @@
 //-----------headers------------------
-#include "principal.h"
+#include "global.h"
 #include "rooms.h"
 
 //------------------------

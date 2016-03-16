@@ -21,29 +21,17 @@
     <ClCompile Include="world.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="exits.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="controls.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="basic.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="bichos.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="extra.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="principal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="worldc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="controls.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="memorytleaks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -54,6 +42,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rooms.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="world.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

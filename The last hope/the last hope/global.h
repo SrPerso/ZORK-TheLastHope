@@ -13,7 +13,7 @@ void opendoorFX();
 void closedoorFX();
 void preintro();
 void intro();
-
+void help();
 
 void credits();
 #endif

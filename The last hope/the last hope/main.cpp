@@ -9,10 +9,9 @@
 
 //-----------headers------------------
 
-#include "principal.h"
-#include "worldc.h"
+#include "global.h"
+#include "world.h"
 #include "rooms.h"
-#include "controls.h"
 #include "exits.h"
 #include "bicho.h"
 
@@ -20,7 +19,7 @@
 
 int main() {
 	
-		//preintro();
+		preintro();
 
 		system("cls");
 
@@ -31,9 +30,7 @@ int main() {
 
 		bool comand=true;
 
-		World->createrooms();//create rooms
-		World->createexits();//create exits
-		World->createbichos();//crate bichos
+		World->createworld();//create rooms
 
 		do{
 

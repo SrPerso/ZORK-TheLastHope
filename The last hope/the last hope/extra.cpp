@@ -4,10 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 //-----------headers------------------
-#include "principal.h"
-#include "worldc.h"
+#include "global.h"
+#include "world.h"
 #include "rooms.h"
-#include "controls.h"
 #include "exits.h"
 #include "bicho.h"
 //------------------------
@@ -76,6 +75,12 @@ void intro(){
 	}//j for
 	system("pause");
 	system("cls");
+
+	printf("\n\n\tThe New Empire took over the Galaxy causing a horrible place to live \n");
+	printf("\tin peace. On a distant planet from the centre of the Galaxy was a kid \n");
+	printf("\tcalled Perka whose family was murdered by de New Empire. He found a \n");
+	printf("\tmysterious star ship half buried witch he was start a new adventure.\n");
+
 }//intro
 
 
@@ -137,7 +142,7 @@ void opendoorFX(){
 	for (i = 0; i < 4; i++){
 
 		system("cls");
-		system("color f0");//white black
+		
 
 
 		printf("\t---------------------------------------------------------------- \n");
@@ -162,14 +167,14 @@ void opendoorFX(){
 		printf("\t------------------|-|                       |-|----------------- \n");
 		printf("\t------------------|-|                       |-|----------------- \n");
 
-
+		system("color 0A");//black green
 
 		if (i == 2){
-			system("color 0A");//black green
+			system("color f4");//white red
 		}//if
 		if (i == 3){
-
-			system("color f4");//white red
+			system("color 0A");//black green
+			
 		}//if
 		else{
 
