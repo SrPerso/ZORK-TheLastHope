@@ -29,7 +29,7 @@ int main() {
 		world * World = new world;//for asign dinamic 
 		bicho* player = nullptr;
 
-		bool comand;
+		bool comand=true;
 
 		World->createrooms();//create rooms
 		World->createexits();//create exits

@@ -75,7 +75,7 @@ bool world::checkings(){
 		return true;
 	}//if else look to the door---------------------------------------------------------------------------------
 
-	else if (strcmp(token1, "open") == 0 && strcmp(token2, NULL) != 0 || strcmp(token1, "OPEN") == 0 && strcmp(token2, NULL) != 0){
+	else if (strcmp(token1, "open") == 0|| strcmp(token1, "OPEN") == 0 ){
 	
 		if (token2 == NULL){
 			printf("Which door do you want to open?? \n\t");
@@ -88,12 +88,14 @@ bool world::checkings(){
 		if (strcmp(token2, "up") == 0    || strcmp(token2, "UP") == 0)		{ player->open(this, UP); }
 		if (strcmp(token2, "down") == 0  || strcmp(token2, "DOWN") == 0)	{ player->open(this, DOWN); }
 		return true;
+
+
 	}//else if OPEN DOor---------------------------------------------------------------------------------
 
 	else if (strcmp(token1, "close") == 0|| strcmp(token1, "CLOSE") == 0){
 	
 		if (token2 == NULL){
-			printf("Which door do you want to open?? \n\t");
+			printf("Which door do you want to close? \n\t");
 			scanf_s("%s", &token2);
 		}
 		if (strcmp(token2, "east") == 0   || strcmp(token2, "EAST") == 0)	{ player->close(this, EAST); }
@@ -151,8 +153,8 @@ void help(){
 void bicho::go(world* World, dir tgo){
 
 	if (tf == true){
-
-		for (int i = 0; i < _NoE_; i++){
+		int i = 0;
+		for (i = 0; i < (_NoE_); i++){
 
 			if (World->exit[i].src == position){
 
@@ -162,7 +164,8 @@ void bicho::go(world* World, dir tgo){
 
 						position = World->exit[i].dest;
 
-						printf("%s \n %s.\n", World->exit[i].dest->name, World->exit[i].dest->description);
+						printf("\t %s \n\n %s.\n", World->exit[i].dest->name, World->exit[i].dest->description);
+						
 						tf = false;
 
 						break;
@@ -180,18 +183,12 @@ void bicho::go(world* World, dir tgo){
 
 			}//if look the position
 
-			else{
-
-				printf("seem that there is nothing interesting in that way\n");
-
-				break;
-
-			}//else there isnt
-
 		}//for looking every valor
 
 	}// const
-
+	else{
+		printf("There's nothing there.\n");
+	}
 }//void GOOO ------------------------------------------------------------
 
 void bicho::look()const{
