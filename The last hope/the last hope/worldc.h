@@ -20,9 +20,9 @@ public:
 	~world();// destroy
 
 
-	void creatingrooms();
-	void creatingexits();
-	void creatingbichos();
+	void createrooms();
+	void createexits();
+	void createbichos();
 
 	bool checkings();
 };//class world

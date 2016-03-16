@@ -15,7 +15,9 @@
 world::world() {
 
 	rooms = new room[_NoR_];//15  #define _NoR_ 15
+
 	player = new bicho[_NoB_];//1  #define _NoB_ 1
+
 	exit = new exits[_NoE_];//32  #define _NoE_ 32
 
 
@@ -30,7 +32,7 @@ world::~world() {
 
 }//destroyer
 
-void world::creatingrooms(){
+void world::createrooms(){
 
 
 
@@ -88,3 +90,17 @@ void world::creatingrooms(){
 
 
 
+void world::createbichos(){
+
+
+	// main PJ------------------
+
+	strcpy_s(player[0].name, "So-Perca");
+
+	player[0].position = &rooms[1];
+
+	//player[0].hp = 100;
+
+
+
+}

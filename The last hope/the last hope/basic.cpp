@@ -15,7 +15,7 @@
 void intro(){
 	int i, j;
 	for (j = 0; j <=1; j++){
-		for (i = 0; i < 30; i++){
+		for (i = 0; i < 12; i++){
 
 			system("cls");
 
@@ -47,10 +47,10 @@ void intro(){
 			printf("\t------------------------------------------------------------------ \n");
 
 
-			if (i > 10 && i < 20){
+			if (i > 4 && i < 8){
 				system("color f4");//white red
 			}//if
-			if (i > 20){
+			if (i >8){
 
 				system("color 0A");//black green
 			}//if
@@ -67,11 +67,13 @@ void preintro(){
 	printf("\n\n\n\n\n\n\t\t\tThis game can cause epileptic seizures,\n");
 	printf("\t\t\tif you are prone to suffer one of these\n ");
 	printf("\t\t\tattacks should skip the intro\n\n");
-	int in;
+	char in;
 	printf("\t Skip the intro? (y/n) \n\n\t\t");
-	scanf_s("%i", &in);
+	scanf_s("%c", &in);
 
-	if (in == 115 || in == 121){ intro(); }//if
+	if (in != 'y' || in != 's'){
+		intro(); 
+	}//if
 }
 
 

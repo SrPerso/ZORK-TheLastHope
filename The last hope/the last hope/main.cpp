@@ -20,20 +20,20 @@
 
 int main() {
 	
-		preintro();
+		//preintro();
 
 		system("cls");
 
 		ReportMemoryLeaks();
 
-		world * World = new world;
+		world * World = new world;//for asign dinamic 
 		bicho* player = nullptr;
 
 		bool comand;
 
-		World->creatingrooms();//create rooms
-		World->creatingexits();//create exits
-		World->creatingbichos();//crate bichos
+		World->createrooms();//create rooms
+		World->createexits();//create exits
+		World->createbichos();//crate bichos
 
 		do{
 
