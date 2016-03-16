@@ -13,16 +13,40 @@
 
 
 void preintro(){
+
+
 	printf("\n\n\n\n\n\n\t\t\tThis game can cause epileptic seizures,\n");
 	printf("\t\t\tif you are prone to suffer one of these\n ");
 	printf("\t\t\tattacks should skip the intro\n\n");
-	char in;
+	char in='n';
 	printf("\t Skip the intro? (y/n) \n\n\t\t");
+	fflush(stdin);
+
+	getchar();
+
 	scanf_s("%c", &in);
+	fflush(stdin);
+	
+	system("color 0A");//black green
 
 	if (in != 'y' || in != 's'){
+
 		intro();
+
 	}//if
+
+	
+	system("cls");
+
+	printf("\n\n\n\n\n\tThe New Empire took over the Galaxy causing a horrible place to live \n\n");
+	printf("\tin peace. On a distant planet from the centre of the Galaxy was a kid \n\n");
+	printf("\tcalled Perka whose family was murdered by de New Empire. He found a \n\n");
+	printf("\tmysterious star ship half buried witch he was start a new adventure.\n\n\n\n");
+
+	printf("\t you are in the east of the bured ship\n\n");
+	
+	system("pause");
+
 }
 
 void intro(){
@@ -74,13 +98,6 @@ void intro(){
 		}//i for
 	}//j for
 	system("pause");
-	system("cls");
-
-	printf("\n\n\tThe New Empire took over the Galaxy causing a horrible place to live \n");
-	printf("\tin peace. On a distant planet from the centre of the Galaxy was a kid \n");
-	printf("\tcalled Perka whose family was murdered by de New Empire. He found a \n");
-	printf("\tmysterious star ship half buried witch he was start a new adventure.\n");
-
 }//intro
 
 

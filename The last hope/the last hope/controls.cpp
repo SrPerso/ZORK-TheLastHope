@@ -43,15 +43,15 @@ bool world::checkings(){
 
 	// ------------------------------------------  COMAND LIST  ------------------------------------------------
 	
-	if (strcmp(token1, "go") == 0  || strcmp(token1, "GO") == 0){
+	if (strcmp(token1, "go") == 0  || strcmp(token1, "g") == 0){
 
 
-		if (strcmp(token2, "east") == 0  || strcmp(token2, "EAST") == 0)		{ player->go(this, EAST);	}
-		else if (strcmp(token2, "north") == 0 || strcmp(token2, "NORTH") == 0)	{ player->go(this, NORTH);	}
-		else if (strcmp(token2, "west") == 0 || strcmp(token2, "WEST") == 0)	{ player->go(this, WEST);	}
-		else if (strcmp(token2, "south") == 0 || strcmp(token2, "SOUTH") == 0)	{ player->go(this, SOUTH);	}
-		else if (strcmp(token2, "up") == 0 || strcmp(token2, "UP") == 0)		{ player->go(this, UP);		}
-		else if (strcmp(token2, "down") == 0 || strcmp(token2, "DOWN") == 0)	{ player->go(this, DOWN);	}
+		if (strcmp(token2, "east") == 0  || strcmp(token2, "e") == 0)		{ player->go(this, EAST);	}
+		else if (strcmp(token2, "north") == 0 || strcmp(token2, "n") == 0)	{ player->go(this, NORTH);	}
+		else if (strcmp(token2, "west") == 0 || strcmp(token2, "e") == 0)	{ player->go(this, WEST);	}
+		else if (strcmp(token2, "south") == 0 || strcmp(token2, "s") == 0)	{ player->go(this, SOUTH);	}
+		else if (strcmp(token2, "up") == 0 || strcmp(token2, "u") == 0)		{ player->go(this, UP);		}
+		else if (strcmp(token2, "down") == 0 || strcmp(token2, "d") == 0)	{ player->go(this, DOWN);	}
 		else{
 			printf("\n  Whitch dimension do you want to go with this extrange direction..?\n\t (this is sarcasm, write better) \n\t");
 		}
@@ -61,17 +61,17 @@ bool world::checkings(){
 
 	}//go to one place---------------------------------------------
 
-	else if (strcmp(token1, "look") == 0 || strcmp(token1, "LOOK") == 0 ){
+	else if (strcmp(token1, "look") == 0 || strcmp(token1, "l") == 0 ){
 		
 
 		if (strcmp(token2, "NULL") == 0){player->look();}//look around
 
-		else if (strcmp(token2, "east") == 0  || strcmp(token2, "EAST")  == 0)	{ player->lookdoor(this, EAST);		}
-		else if(strcmp(token2, "north") == 0 || strcmp(token2, "NORTH") == 0)	{ player->lookdoor(this, NORTH);	}
-		else if(strcmp(token2, "west") == 0 || strcmp(token2, "WEST") == 0)		{ player->lookdoor(this, WEST);		}
-		else if(strcmp(token2, "south") == 0 || strcmp(token2, "SOUTH") == 0)	{ player->lookdoor(this, SOUTH);	}
-		else if(strcmp(token2, "up") == 0 || strcmp(token2, "UP") == 0)			{ player->lookdoor(this, UP);		}
-		else if(strcmp(token2, "down") == 0 || strcmp(token2, "DOWN") == 0)		{ player->lookdoor(this, DOWN);		}
+		else if (strcmp(token2, "east") == 0  || strcmp(token2, "e")  == 0)	{ player->lookdoor(this, EAST);		}
+		else if(strcmp(token2, "north") == 0 || strcmp(token2, "n") == 0)	{ player->lookdoor(this, NORTH);	}
+		else if(strcmp(token2, "west") == 0 || strcmp(token2, "w") == 0)		{ player->lookdoor(this, WEST);		}
+		else if(strcmp(token2, "south") == 0 || strcmp(token2, "s") == 0)	{ player->lookdoor(this, SOUTH);	}
+		else if(strcmp(token2, "up") == 0 || strcmp(token2, "u") == 0)			{ player->lookdoor(this, UP);		}
+		else if(strcmp(token2, "down") == 0 || strcmp(token2, "d") == 0)		{ player->lookdoor(this, DOWN);		}
 		else{
 			printf("\n  Mmm... There is a sexy giraffe theree... \n\t (this is sarcasm, write better) \n\t");
 		} 
@@ -79,40 +79,40 @@ bool world::checkings(){
 		return true;
 	}//if else look to the door--------------------------------------
 
-	else if (strcmp(token1, "open") == 0|| strcmp(token1, "OPEN") == 0 ){
+	else if (strcmp(token1, "open") == 0|| strcmp(token1, "o") == 0 ){
 	
 		if (token2 == NULL){
 			printf("Which door do you want to open?? \n\t");
 			scanf_s("%s", &token2);
 		}
-		if (strcmp(token2, "east") == 0  || strcmp(token2, "EAST") == 0)	{ player->open(this, EAST);		}
-		if (strcmp(token2, "north") == 0 || strcmp(token2, "NORTH") == 0)	{ player->open(this, NORTH);	}
-		if (strcmp(token2, "west") == 0  || strcmp(token2, "WEST") == 0)	{ player->open(this, WEST);		}
-		if (strcmp(token2, "south") == 0 || strcmp(token2, "SOUTH") == 0)	{ player->open(this, SOUTH);	}
-		if (strcmp(token2, "up") == 0    || strcmp(token2, "UP") == 0)		{ player->open(this, UP);		}
-		if (strcmp(token2, "down") == 0  || strcmp(token2, "DOWN") == 0)	{ player->open(this, DOWN);		}
+		if (strcmp(token2, "east") == 0  || strcmp(token2, "e") == 0)	{ player->open(this, EAST);		}
+		if (strcmp(token2, "north") == 0 || strcmp(token2, "n") == 0)	{ player->open(this, NORTH);	}
+		if (strcmp(token2, "west") == 0  || strcmp(token2, "w") == 0)	{ player->open(this, WEST);		}
+		if (strcmp(token2, "south") == 0 || strcmp(token2, "s") == 0)	{ player->open(this, SOUTH);	}
+		if (strcmp(token2, "up") == 0    || strcmp(token2, "u") == 0)		{ player->open(this, UP);		}
+		if (strcmp(token2, "down") == 0  || strcmp(token2, "d") == 0)	{ player->open(this, DOWN);		}
 		return true;
 
 
 	}//else if OPEN DOor---------------------------------------------
 
-	else if (strcmp(token1, "close") == 0|| strcmp(token1, "CLOSE") == 0){
+	else if (strcmp(token1, "close") == 0|| strcmp(token1, "c") == 0){
 	
 		if (token2 == NULL){
 			printf("Which door do you want to close? \n\t");
 			scanf_s("%s", &token2);
 		}
-		if (strcmp(token2, "east") == 0   || strcmp(token2, "EAST") == 0)	{ player->close(this, EAST);	}
-		if (strcmp(token2, "north") == 0  || strcmp(token2, "NORTH") == 0)	{ player->close(this, NORTH);	}
-		if (strcmp(token2, "west")  == 0  || strcmp(token2, "WEST")  == 0)	{ player->close(this, WEST);	}
-		if (strcmp(token2, "south") == 0  || strcmp(token2, "SOUTH") == 0)	{ player->close(this, SOUTH);	}
-		if (strcmp(token2, "up") == 0	  || strcmp(token2, "UP") == 0)		{ player->close(this, UP);		}
-		if (strcmp(token2, "down") == 0   || strcmp(token2, "DOWN") == 0)   { player->close(this, DOWN);	}
+		if (strcmp(token2, "east") == 0   || strcmp(token2, "e") == 0)	{ player->close(this, EAST);	}
+		if (strcmp(token2, "north") == 0  || strcmp(token2, "n") == 0)	{ player->close(this, NORTH);	}
+		if (strcmp(token2, "west")  == 0  || strcmp(token2, "w")  == 0)	{ player->close(this, WEST);	}
+		if (strcmp(token2, "south") == 0  || strcmp(token2, "s") == 0)	{ player->close(this, SOUTH);	}
+		if (strcmp(token2, "up") == 0	  || strcmp(token2, "u") == 0)		{ player->close(this, UP);		}
+		if (strcmp(token2, "down") == 0   || strcmp(token2, "d") == 0)   { player->close(this, DOWN);	}
 		return true;
 	}//else if Close Door-----------------------------------------------
 
 
-	else if (strcmp(token1, "help") == 0 || strcmp(token1, "HELP") == 0){
+	else if (strcmp(token1, "help") == 0 || strcmp(token1, "h") == 0){
 
 		help();
 		return true;
@@ -120,7 +120,7 @@ bool world::checkings(){
 
 
 
-	else if (strcmp(token1, "clean") == 0 || strcmp(token1, "CLEAN") == 0){
+	else if (strcmp(token1, "clean") == 0 || strcmp(token1, "cl") == 0){
 	
 		system("cls");
 	
@@ -128,7 +128,7 @@ bool world::checkings(){
 	}//else if clean-----------------------------------------------------
 
 
-	else if (strcmp(token1, "exit") == 0 || strcmp(token1, "EXIT") == 0){ 
+	else if (strcmp(token1, "exit") == 0 || strcmp(token1, "e") == 0){ 
 			
 		return false;
 	}//else if exit-------------------------------------------------------
