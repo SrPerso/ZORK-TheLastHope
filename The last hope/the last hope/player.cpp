@@ -13,10 +13,11 @@ CPlayer::CPlayer(){
 
 	position = new room;
 
+
 }
 CPlayer::~CPlayer(){
 
-	delete[] position;
+	delete position;
 
 }
 

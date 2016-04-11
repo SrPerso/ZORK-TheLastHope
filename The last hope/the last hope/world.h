@@ -22,7 +22,7 @@ public:
 
 	void CreateWorld()const;
 	void CreateExits()const;
-	void CreatePlayer()const;
+	void CreatePlayer();
 	bool checkings();
 };//class world
 

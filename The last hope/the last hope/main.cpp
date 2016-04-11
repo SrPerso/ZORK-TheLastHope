@@ -19,7 +19,7 @@
 
 int main() {
 	
-		preintro(); //intro
+		//preintro(); //intro
 
 		system("cls");
 
@@ -40,7 +40,7 @@ int main() {
 
 
 		
-		credits();  //credits
+		//credits();  //credits
 		delete World;
 
 		return 0;

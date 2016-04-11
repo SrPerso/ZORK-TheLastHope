@@ -402,11 +402,11 @@ void world::CreateExits()const{
 	strcpy_s(exit[31].description, "well i think that we just land off in the hall LoL");
 
 }
-void world::CreatePlayer()const{
+void world::CreatePlayer(){
 
 
-	strcpy_s(player[0].name, "So-Perca");
-
+	player->name=("So-Perca");
+	printf("%s",player->name);
 	player[0].position = &rooms[1];
 
 

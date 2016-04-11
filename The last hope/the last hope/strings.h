@@ -4,6 +4,7 @@
 class mString{
 
 	char* buffer = nullptr;
+	unsigned int maxCapacity;
 
 public:
 
@@ -13,11 +14,18 @@ public:
 	~mString();//destroyer
 
 
-	unsigned int lenght()const;
+	unsigned int length()const;
 	const char* C_str()const;
 	bool empty()const;
 
 	bool operator==(const mString str)const;
+	bool operator == (const char* str)const;
+	void operator += (const mString& str);
+	void operator =(const mString& str);
+	mString operator + (const mString& str)const;
+	void clean();
+	unsigned int capacity()const;
+	void shrink_to_fit();
 };
 
 #endif

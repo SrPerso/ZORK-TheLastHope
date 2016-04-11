@@ -2,6 +2,7 @@
 
 #include "rooms.h"
 #include "exits.h"
+#include "strings.h"
 //------------------------
 
 #ifndef _PLAYER_
@@ -11,9 +12,10 @@ class world;
 class CPlayer{
 public:
 
-	char name[20];
-	//int hp;
-	room* position;
+	mString* name= nullptr;
+
+	room* position= nullptr;
+
 	bool tf = true;
 
 	//void reader(char *token1, char *token2);
