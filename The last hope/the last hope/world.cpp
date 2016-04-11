@@ -8,16 +8,16 @@
 #include "world.h"
 #include "rooms.h"
 #include "exits.h"
-#include "bicho.h"
+#include "player.h"
 //------------------------
 
 world::world() {
 
-	rooms = new room[_NoR_];//15  #define _NoR_ 15
+	rooms = new room[_ROOMSNUMBER_];//15  #define _NoR_ 15
 
-	player = new bicho[_NoB_];//1  #define _NoB_ 1
+	player = new CPlayer[_PLAYERNUMBER_];//1  #define _NoB_ 1
 
-	exit = new exits[_NoE_];//32  #define _NoE_ 32
+	exit = new exits[_EXITSNUMBER_];//32  #define _NoE_ 32
 
 
 
@@ -31,9 +31,7 @@ world::~world() {
 
 }//destroyer
 
-void world::createworld(){
-
-
+void world::CreateWorld()const{
 
 
 	strcpy_s(rooms[0].name, "A buried ship");
@@ -86,7 +84,14 @@ void world::createworld(){
 
 
 
-	
+
+
+
+}//create the rooms 
+
+
+void world::CreateExits()const{
+
 	//-- planet 1;/*--------------*/ ;/*--------------*/ ;/*--------------*/ 
 	//east-south;/*--------------*/ 
 
@@ -396,15 +401,14 @@ void world::createworld(){
 	exit[31].open = true;
 	strcpy_s(exit[31].description, "well i think that we just land off in the hall LoL");
 
+}
+void world::CreatePlayer()const{
 
-	// main PJ------------------
 
 	strcpy_s(player[0].name, "So-Perca");
 
 	player[0].position = &rooms[1];
 
-	//player[0].hp = 100;
-
-}//create the rooms 
 
 
+}

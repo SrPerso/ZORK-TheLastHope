@@ -1,6 +1,6 @@
 //-----------headers------------------
 #include "global.h"
-#include "bicho.h"
+#include "player.h"
 #include "rooms.h"
 #include "exits.h"
 //------------------------
@@ -12,7 +12,7 @@
 
 class world {
 public:
-	bicho* player = nullptr;
+	CPlayer* player = nullptr;
 	room* rooms = nullptr;
 	exits* exit = nullptr;
 
@@ -20,9 +20,9 @@ public:
 	~world();// destroy
 
 
-	void createworld();
-
-
+	void CreateWorld()const;
+	void CreateExits()const;
+	void CreatePlayer()const;
 	bool checkings();
 };//class world
 

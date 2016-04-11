@@ -24,10 +24,13 @@
     <ClCompile Include="controls.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="bichos.cpp">
+    <ClCompile Include="extra.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="extra.cpp">
+    <ClCompile Include="player.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Strings.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,9 +41,6 @@
     <ClInclude Include="exits.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="bicho.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="rooms.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -48,6 +48,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="world.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="strings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

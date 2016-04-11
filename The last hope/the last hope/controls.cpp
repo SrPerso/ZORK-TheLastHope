@@ -9,7 +9,7 @@
 #include "world.h"
 #include "rooms.h"
 #include "exits.h"
-#include "bicho.h"
+#include "player.h"
 //------------------------
 
 bool world::checkings(){

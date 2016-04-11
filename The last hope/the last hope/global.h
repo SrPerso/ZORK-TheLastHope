@@ -9,6 +9,7 @@ enum comands{
 	HELP,
 	EXIT
 };
+
 void opendoorFX();
 void closedoorFX();
 void preintro();
@@ -18,8 +19,8 @@ void help();
 void credits();
 #endif
 
-#define _NoR_ 15 //number of Rooms
-#define _NoB_ 1 //number of bichos
-#define _NoE_ 32 // number of Exits
+#define _ROOMSNUMBER_ 15 //number of Rooms
+#define _PLAYERNUMBER_ 1 //number of PLAYERS
+#define _EXITSNUMBER_ 32 // number of Exits
 
 //-------------------- enums 

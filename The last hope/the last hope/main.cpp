@@ -13,24 +13,24 @@
 #include "world.h"
 #include "rooms.h"
 #include "exits.h"
-#include "bicho.h"
+#include "player.h"
 
 //------------------------
 
 int main() {
 	
-		preintro();
+		preintro(); //intro
 
 		system("cls");
 
 		ReportMemoryLeaks();
 
 		world * World = new world;//for asign dinamic 
-		bicho* player = nullptr;
+		CPlayer* player = nullptr;
 
 		bool comand=true;
 
-		World->createworld();//create rooms
+		World->CreateWorld();//create rooms
 
 		do{
 
@@ -40,8 +40,8 @@ int main() {
 
 
 		
-		credits();
-		delete[] World;
+		credits();  //credits
+		delete World;
 
 		return 0;
 	
