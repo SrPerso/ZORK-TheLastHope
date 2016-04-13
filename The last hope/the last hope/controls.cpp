@@ -89,7 +89,7 @@ bool world::checkings(){
 		if (strcmp(token2, "north") == 0 || strcmp(token2, "n") == 0)	{ player->open(this, NORTH);	}
 		if (strcmp(token2, "west") == 0  || strcmp(token2, "w") == 0)	{ player->open(this, WEST);		}
 		if (strcmp(token2, "south") == 0 || strcmp(token2, "s") == 0)	{ player->open(this, SOUTH);	}
-		if (strcmp(token2, "up") == 0    || strcmp(token2, "u") == 0)		{ player->open(this, UP);		}
+		if (strcmp(token2, "up") == 0    || strcmp(token2, "u") == 0)	{ player->open(this, UP);		}
 		if (strcmp(token2, "down") == 0  || strcmp(token2, "d") == 0)	{ player->open(this, DOWN);		}
 		return true;
 

@@ -9,21 +9,15 @@
 #include "player.h"
 //------------------------
 
-CPlayer::CPlayer(){
+Player::~Player(){
 
-	position = new room;
-
-
-}
-CPlayer::~CPlayer(){
-
-	delete position;
+	delete[] position;
 
 }
 
 
 
-void CPlayer::go(world*World, dir tgo){
+void Player::go(world*World, dir tgo){
 
 	if (tf == true){
 		int i = 0;
@@ -62,12 +56,12 @@ void CPlayer::go(world*World, dir tgo){
 
 }//void GOOO ------------------------------------------------------------
 
-void CPlayer::look()const{
+void Player::look()const{
 
 	printf("\n %s", position->description);
 
 }//look room ------------------------------------------------------------
-void CPlayer::lookdoor(world* World, dir look)const{
+void Player::lookdoor(world* World, dir look)const{
 
 
 	for (int i = 0; i < _EXITSNUMBER_; i++){
@@ -87,7 +81,7 @@ void CPlayer::lookdoor(world* World, dir look)const{
 
 }//look door------------------------------------------------------------
 
-void CPlayer::close(world* World, dir close)const{
+void Player::close(world* World, dir close)const{
 
 	for (int i = 0; i < _EXITSNUMBER_; i++){
 
@@ -119,7 +113,7 @@ void CPlayer::close(world* World, dir close)const{
 
 }// close doors---------------------------------------------------------
 
-void CPlayer::open(world* World, dir open)const{
+void Player::open(world* World, dir open)const{
 
 	for (int i = 0; i < _EXITSNUMBER_; i++){
 
@@ -150,6 +144,3 @@ void CPlayer::open(world* World, dir open)const{
 	}//for looking every valor
 
 }// open doors---------------------------------------------------------
-
-
-

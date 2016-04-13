@@ -2,6 +2,8 @@
 
 #include "rooms.h"
 #include "exits.h"
+#include "Entity.h"
+#include "vector.h"
 #include "strings.h"
 //------------------------
 
@@ -9,13 +11,15 @@
 #define  _PLAYER_
 class world;
 
-class CPlayer{
+class Player/*:public entity*/{
 public:
 
-	mString* name= nullptr;
+	mString* name;
+	mString* description;
+	// poner una propiedad que sea un vector a otras entidades (my_entities
+	
 
-	room* position= nullptr;
-
+	room* position;
 	bool tf = true;
 
 	//void reader(char *token1, char *token2);
@@ -26,8 +30,10 @@ public:
 	void close(world* World, dir close)const;
 	
 public:
-	CPlayer();
-	~CPlayer();
+	
+	Player(const char* name, const char* description):entity(name,description){}
+	~Player();
+
 };//class bicho
 
 #endif

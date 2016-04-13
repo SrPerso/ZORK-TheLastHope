@@ -3,6 +3,9 @@
 //------------------------
 #ifndef _ROOMS_
 #define  _ROOMS_
+
+
+
 class room{
 public:
 
@@ -10,4 +13,5 @@ public:
 	char description[400];
 
 };//class room 
+
 #endif

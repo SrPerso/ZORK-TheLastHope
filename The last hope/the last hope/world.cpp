@@ -13,11 +13,13 @@
 
 world::world() {
 
-	rooms = new room[_ROOMSNUMBER_];//15  #define _NoR_ 15
 
-	player = new CPlayer[_PLAYERNUMBER_];//1  #define _NoB_ 1
 
-	exit = new exits[_EXITSNUMBER_];//32  #define _NoE_ 32
+	rooms = new room[_ROOMSNUMBER_];//15 
+
+//player = new Player[_PLAYERNUMBER_];//1  
+
+	exit = new exits[_EXITSNUMBER_];//32  
 
 
 
@@ -25,7 +27,7 @@ world::world() {
 world::~world() {
 
 	delete[] rooms;
-	delete[] player;
+	
 	delete[] exit;
 
 
@@ -402,11 +404,10 @@ void world::CreateExits()const{
 	strcpy_s(exit[31].description, "well i think that we just land off in the hall LoL");
 
 }
-void world::CreatePlayer(){
+void world::CreatePlayer()const{
 
+	player.push_back(new Player("","") );
 
-	player->name=("So-Perca");
-	printf("%s",player->name);
 	player[0].position = &rooms[1];
 
 

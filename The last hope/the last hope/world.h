@@ -3,6 +3,7 @@
 #include "player.h"
 #include "rooms.h"
 #include "exits.h"
+#include "vector.h"
 //------------------------
 
 
@@ -12,7 +13,11 @@
 
 class world {
 public:
-	CPlayer* player = nullptr;
+
+	Vector <Player*> player;
+
+
+	//Player* player = nullptr;
 	room* rooms = nullptr;
 	exits* exit = nullptr;
 
@@ -22,8 +27,10 @@ public:
 
 	void CreateWorld()const;
 	void CreateExits()const;
-	void CreatePlayer();
+	void CreatePlayer()const;
 	bool checkings();
+
+
 };//class world
 
 #endif

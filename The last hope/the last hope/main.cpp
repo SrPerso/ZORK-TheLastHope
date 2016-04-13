@@ -26,7 +26,7 @@ int main() {
 		ReportMemoryLeaks();
 
 		world * World = new world;//for asign dinamic 
-		CPlayer* player = nullptr;
+		Player* player = nullptr;
 
 		bool comand=true;
 
