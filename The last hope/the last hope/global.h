@@ -10,6 +10,8 @@ enum comands{
 	EXIT
 };
 
+typedef unsigned int uint;
+
 void opendoorFX();
 void closedoorFX();
 void preintro();

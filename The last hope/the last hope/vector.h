@@ -3,6 +3,7 @@
 #define _VECTOR_
 
 
+
 template <class TYPE>
 
 class Vector{
@@ -35,6 +36,7 @@ public:
 		buffer = new TYPE[Capacity];
 
 	}//constructor copy
+	Vector(unsigned int size)
 
 
 	~Vector(){ delete[] buffer;  }//destructor
@@ -98,34 +100,47 @@ public:
 
 	//--------------------------
 
-	const TYPE &operator[](const uint &index) const
-	{
+	TYPE operator[](uint index) const	{
+
 		assert(index >= 0 && index <num_elements);
 		return buffer[index];
-	}
 
-	bool empty() const
-	{
+	}//[] -------------------
+
+	TYPE &operator[](uint index){
+
+		assert(index >= 0 && index <num_elements);
+		return buffer[index];
+
+	}//[] -------------------
+
+	bool empty() const{
+
 		return num_elements == 0;
-	}//took empty 
 
-	void clear()
-	{
+	}//took empty ----------
+
+
+	void clear(){
+
 		num_elements = 0;
-	}//cleaning
 
-	uint size() const
-	{
+	}//cleaning--------
+
+
+	uint size() const{
+
 		return num_elements;
-	}//size
+	}//size------------
 
-	uint capacity()const
-	{
+
+	uint capacity()const{
 		return max_size;
-	}//Capacity
+	}//Capacity----------
 
-	void shrink_to_fit()
-	{
+
+	void shrink_to_fit(){
+
 		if (max_size != n_elements)
 		{
 			TYPE *temp = nullptr;
@@ -139,17 +154,21 @@ public:
 			delete[]buffer;
 			buffer = temp;
 		}//if
-	}//shrink to fit
+	}//shrink to fit------
+	
 
-	void pop_back(){
+	bool pop_back(TYPE& value){
+
 
 		if (num_elements > 0){
 
 			num_elements--;
 
+			return buffer[num_elements];
+
 		}//if
 
-	}//pop_back
+	}//pop_back----------
 
 
 };// VECTOR CLASS
