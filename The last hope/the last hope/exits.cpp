@@ -1,6 +1,6 @@
 #include "exits.h"
 
-exits::exits(const char* name, const char* description, bool open, room* src, room* dest, dir direction): Entity(name, description, EXIT), open(open), source(source), destination(destination), direction(direction)
+exits::exits(const mString name, const mString description, bool open, room* src, room* dest, dir direction) : entity(name, description, EXIT), open(open), src(src), dest(dest), direction(direction)
 {
 	type = EXIT;
 }

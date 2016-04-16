@@ -8,6 +8,9 @@
 #include "world.h"
 #include "player.h"
 //------------------------
+Player::Player(const mString name, const mString description, room* Room): entity(name, description, (entity*)Room){
+	type = PLAYER;
+}
 
 Player::~Player(){}
 
@@ -17,7 +20,7 @@ void Player::go(world*World, dir tgo){
 		int i = 0;
 		for (i = 0; i < (_EXITSNUMBER_); i++){
 
-			if (World->exit[i].src == position){
+			if (entity_->exit[i].src == position){
 
 				if (World->exit[i].direction == tgo){
 

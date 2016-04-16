@@ -78,16 +78,14 @@ world::world() {
 
 
 
-	exit = new exits[_EXITSNUMBER_];//32  
-
 }//builder
 world::~world() {
 
-	delete[] rooms;
-	
-	delete[] exit;
+	unsigned int i = 0;
+	for (entity* it = entity_[i]; it != entity_[entity_.size()]; ++i)
+		delete it;
 
-
+	entity_.clear();
 }//destroyer
 
 

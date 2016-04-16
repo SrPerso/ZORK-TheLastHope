@@ -27,7 +27,7 @@ public:
 
 	Vector<entity*> entity_;//vector of entitys
 
-	entity(const char* name, const char* description, EntityType Histype) :name(name), description(description){}
+	entity(const char* name, const char* description, EntityType Histype); ;
 
 	const mString SayMyName();
 	const mString SayTheDescription();
