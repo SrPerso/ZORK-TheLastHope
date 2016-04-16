@@ -13,7 +13,6 @@ enum dir{ NORTH, SOUTH, EAST, WEST, UP, DOWN };
 class exits:public entity{
 private:
 
-
 	room* dest =nullptr;
 	room* src =nullptr;
 	dir direction;	
@@ -26,7 +25,7 @@ private:
 public:
 
 
-	exits(const mString name, const mString name_dest, const mString description, room* src, room* dest);
+	exits(const mString name, const mString description, const mString name_dest, room* src, room* dest, bool open, dir direction);
 	~exits();
 
 	void Look() const;

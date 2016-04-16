@@ -14,6 +14,10 @@
 class world {
 public:
 
+	
+	Vector<room*> Room;
+	Vector<exits*>Exit;
+	Vector<Player*> player;
 
 	Vector <entity*> entity_;
 

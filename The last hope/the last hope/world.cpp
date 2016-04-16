@@ -14,69 +14,120 @@ world::world() {
 
 	//PLANET 1----------------
 	room* Planet1_Ship = new room("A buried ship", "This old ship has many arrangements, it seems that fought in various space battles");
-	entity_.push_back(Planet1_Ship);
+	Room.push_back(Planet1_Ship);
 
 	room* Planet1_East = new room("East", "Nice place to do a picnic, the clearing is perfect to see the stars at night and imagine a trip around the galaxy. There is a buried ship at west with it I could travel out the planet.");
-	entity_.push_back(Planet1_East);
+	Room.push_back(Planet1_East);
 
 	room* Planet1_West = new room("West", "Trees, trees and more trees… well and the ship at East, maybe if I go west to the forest I will found something more");
-	entity_.push_back(Planet1_West);
+	Room.push_back(Planet1_West);
 
 	room* Planet1_North = new room("North", "At the north there is a cave maybe there is a creature living there, whatever, the buried ship at south seems damaged.");
-	entity_.push_back(Planet1_North);
+	Room.push_back(Planet1_North);
 
 	room* Planet1_South = new room("South", "Trees, trees and more trees… well and the ship at North, maybe if I go to the forest at South I will found something more…");
-	entity_.push_back(Planet1_South);
+	Room.push_back(Planet1_South);
 
 	room* Planet1_Forest = new room("Forest", "Omg! Omg! Omg!!! There is trees everywhere! Maybe is impossible to go out :O ");
-	entity_.push_back(Planet1_Forest);
+	Room.push_back(Planet1_Forest);
 	//PLANET 1-----------------------------
 
 	//SPACE----------------
 	room* Space_Space = new room("Space", "Space, a place where many would be and contemplate each of the planets that reside in the universe.");
-	entity_.push_back(Space_Space);
+	Room.push_back(Space_Space);
 	
 	room* Space_Sun = new room("Rother 732423", "The Huge star Rother 732423 can reach to 100 million of degrees. Everything that arrive here can’t return. Mhmm seems that smells burned…");
-	entity_.push_back(Space_Sun);
+	Room.push_back(Space_Sun);
 	//SPACE -------------------------------
 
 	//PLANET 1----------------
 	room* Planet1_Cave = new room("Cave", "this dark place smells like…");
-	entity_.push_back(Planet1_Cave);
+	Room.push_back(Planet1_Cave);
 	//PLANET 1------------------------------
 
 	//PLANET 2----------------
 	room* Planet2_Ship = new room("The Epic Space ship", "Every time that I am in the ship, I have a very strange feeling..");
-	entity_.push_back(Planet2_Ship);
+	Room.push_back(Planet2_Ship);
 	
 	room* Planet2_Outside = new room("Outside of the castle", "this is like a rock desert, if there were not a giant castle north would say that I'm lost");
-	entity_.push_back(Planet2_Outside);
+	Room.push_back(Planet2_Outside);
 	
 	room* Planet2_Kingstroom = new room("King Room", "The principal room of the castle... where live the hated king of dantooine… maybe if the king dies his subjects will help you to repair the ship.");
-	entity_.push_back(Planet2_Kingstroom);
+	Room.push_back(Planet2_Kingstroom);
 	//PLANET 2-----------------------------
 
 	//PLANET 3----------------
 
 	room* Planet2_Hall = new room("the hall", "the biggest hall that you can see in this galaxy.. with one door at the roof");
-	entity_.push_back(Planet2_Hall);
+	Room.push_back(Planet2_Hall);
 	
 	room* Planet3_Jail = new room("jail", "the princess may be in this dark and wet place");
-	entity_.push_back(Planet3_Jail);
+	Room.push_back(Planet3_Jail);
 	
 	room* Planet3_Ship = new room("The swamp of duro", "Nice place to land the space ship…");
-	entity_.push_back(Planet3_Ship);
+	Room.push_back(Planet3_Ship);
 
 	//PLANET 3-----------------------------
 
 
 
 	/* ---- Player ----*/
-	Player* player = new Player("SO-PERCA", "One normal guy that feels the force", Planet1_East);
-	entity_.push_back(player);
+	Player* Perca = new Player("SO-PERCA", "One normal guy that feels the force", Planet1_East);
+	player.push_back(Perca);
 	/* ---- Player ----*/
 
 
+
+
+// ---- EXITS ---------------------------
+	Exit.push_back(new exits("South", "There is a road to go in front of the ship.","East", Room[4], Room[1],true,NORTH));
+	Exit.push_back(new exits("East", "It seems that the road leads south of the ship", "South", Room[1], Room[4], true, SOUTH));
+
+	Exit.push_back(new exits("East", "This cool door lead outside", "Ship", Room[0], Room[1], false, EAST));
+	Exit.push_back(new exits("Ship", "The ship’s door perhaps with a key could open", "East", Room[1], Room[0], true, WEST));
+
+	Exit.push_back(new exits("East", "It seems that the road leads north of the ship", "North", Room[1], Room[3], true, NORTH));
+	Exit.push_back(new exits("North", "There is a road to go in front of the ship.", "East", Room[3], Room[1], true, WEST));
+
+	Exit.push_back(new exits("North", "the light is shining is a good way to go out the cave..", "cave", Room[8], Room[3], true, DOWN));
+	Exit.push_back(new exits("cave", "This hole seems that leads to a cave", "North", Room[3], Room[8], true,UP ));
+
+	Exit.push_back(new exits("North", "The road is leading to the ship’s back maybe there is something…", "West", Room[3], Room[2], true, WEST));
+	Exit.push_back(new exits("West", "It seems that the road leads north of the ship", "North", Room[2], Room[3], true, NORTH));
+
+	Exit.push_back(new exits("South", "The road is leading to the ship’s back maybe there is something…", "West", Room[4], Room[2], true, WEST));
+	Exit.push_back(new exits("West", "It seems that the road leads south of the ship", "South", Room[2], Room[4], true, SOUTH));
+
+	//forest------
+	Exit.push_back(new exits("East", "There is a road full of herbs and shrubs, it seems to be leading to forest", "Forest", Room[1], Room[5], true, EAST));
+	Exit.push_back(new exits("South", "There is a road full of herbs and shrubs, it seems to be leading to forest", "Forest", Room[4], Room[5], true, NORTH));
+	Exit.push_back(new exits("North", "There is a road full of herbs and shrubs, it seems to be leading to forest", "Forest", Room[3], Room[5], true, NORTH));
+	Exit.push_back(new exits("West", "There is a road full of herbs and shrubs, it seems to be leading to forest", "Forest", Room[2], Room[5], true, NORTH));
+
+	Exit.push_back(new exits("Ship", "i must put all ready to leave the planet", "Space", Room[0], Room[6], true, UP));
+	Exit.push_back(new exits("Space", "This lost planet is really nice from space", "Ship in plab", Room[6], Room[0], true, DOWN));
+	 
+	Exit.push_back(new exits("Space", "mmm this star is perfect for take a SUPER.. HOT.. hollidays", "Sun",Room[6], Room[7], true, NORTH));
+
+	Exit.push_back(new exits("Space", "this dry planet seems the perfect place for take the fuel", "Dantooine", Room[6], Room[9], true, EAST));
+	Exit.push_back(new exits("Dantooine", "space the huge unknown", "Space", Room[9], Room[6], true, UP));
+
+	Exit.push_back(new exits("Outside of the castle", "i love that ship", "Ship ", Room[10], Room[9], true, EAST));
+	Exit.push_back(new exits("Ship ", "this is like a desert but blue.. (da ba dee da ba daaa.... -eiffel 65)", "Outside of the castle", Room[9], Room[10], true, WEST));
+
+	Exit.push_back(new exits("Outside of the castle", "fiuu fiuu this castle reminds me of the castle disney ... but badly build", "Inside of the castle", Room[10], Room[11], true, NORTH));
+	Exit.push_back(new exits("Inside of the castle", "fresh air over there..", "Outside of the castle", Room[11], Room[10], true, SOUTH));
+
+	Exit.push_back(new exits("Space", "UOoUOOoo pretty green planet, maybe i will travel ther when i take some fuel", "Duro", Room[6], Room[14], true, SOUTH));
+	Exit.push_back(new exits("Duro", "Came on camion! i can not wait to travel to the starss!", "Space", Room[14], Room[6], true, UP));
+
+	Exit.push_back(new exits("Jail", "Maybe to arrive fastly to the ship you just have to jump down", "Swamp of Duro", Room[13], Room[14], true, DOWN));
+	
+	Exit.push_back(new exits("Hall", "with this stairs i could ho to the jail", "Jail", Room[12], Room[13], true,EAST));
+	Exit.push_back(new exits("Jail", "oing down i will arrive to the hall", "Hall", Room[13], Room[12], true, WEST));
+
+	Exit.push_back(new exits("Hall", "the ship.. nice way to land off...", "Ship in the Swang", Room[12], Room[14], true, SOUTH));
+	Exit.push_back(new exits("Ship in the Swang", "well i think that we just land off in the hall LoL", "Hall", Room[14], Room[12], true, NORTH));
 
 }//builder
 world::~world() {
@@ -87,327 +138,3 @@ world::~world() {
 
 	entity_.clear();
 }//destroyer
-
-
-
-
-
-
-
-
-
-
-/*
-
-void world::CreateExits()const{
-
-	//-- planet 1;/*--------------
-	//east-south;/*-------------
-
-	strcpy_s(exit[0].name, "41");
-
-	exit[0].dest = &rooms[1];
-	exit[0].src = &rooms[4];
-	exit[0].direction = NORTH;
-	exit[0].open = true;
-	strcpy_s(exit[0].description, "There is a road to go in front of the ship.");
-
-	strcpy_s(exit[1].name, "14");
-
-	exit[1].dest = &rooms[4];
-	exit[1].src = &rooms[1];
-	exit[1].direction = SOUTH;
-	exit[1].open = true;
-	strcpy_s(exit[1].description, "It seems that the road leads south of the ship");
-
-
-	//east ship;/*--------------* 
-
-	strcpy_s(exit[2].name, "01");
-
-	exit[2].dest = &rooms[1];
-	exit[2].src = &rooms[0];
-	exit[2].direction = EAST;
-	exit[2].open = false;
-	strcpy_s(exit[2].description, "01-	This cool door lead outside");
-
-
-	strcpy_s(exit[3].name, "10");
-
-	exit[3].dest = &rooms[0];
-	exit[3].src = &rooms[1];
-	exit[3].direction = WEST;
-	exit[3].open = false;
-	strcpy_s(exit[3].description, "The ship’s door perhaps with a key could open");
-
-	//east  north;/*--------------*
-
-	strcpy_s(exit[4].name, "13");
-
-	exit[4].dest = &rooms[3];
-	exit[4].src = &rooms[1];
-	exit[4].direction = NORTH;
-	exit[4].open = true;
-	strcpy_s(exit[4].description, "It seems that the road leads north of the ship");
-
-
-	strcpy_s(exit[5].name, "31");
-
-	exit[5].dest = &rooms[1];
-	exit[5].src = &rooms[3];
-	exit[5].direction = SOUTH;
-	exit[5].open = true;
-	strcpy_s(exit[5].description, "There is a road to go in front of the ship.");
-
-	//north cave;/*--------------*
-
-	strcpy_s(exit[6].name, "83");
-
-	exit[6].dest = &rooms[3];
-	exit[6].src = &rooms[8];
-	exit[6].direction = UP;
-	exit[6].open = true;
-	strcpy_s(exit[6].description, "the light is shining is a good way to go out the cave..");
-
-
-	strcpy_s(exit[7].name, "38");
-
-	exit[7].dest = &rooms[8];
-	exit[7].src = &rooms[3];
-	exit[7].direction = DOWN;
-	exit[7].open = true;
-	strcpy_s(exit[7].description, "This hole seems that leads to a cave");
-
-	//north west;/*-------------
-
-	strcpy_s(exit[8].name, "32");
-
-	exit[8].dest = &rooms[2];
-	exit[8].src = &rooms[3];
-	exit[8].direction = SOUTH;
-	exit[8].open = true;
-	strcpy_s(exit[8].description, "The road is leading to the ship’s back maybe there is something…");
-
-
-	strcpy_s(exit[9].name, "23");
-
-	exit[9].dest = &rooms[3];
-	exit[9].src = &rooms[2];
-	exit[9].direction = NORTH;
-	exit[9].open = true;
-	strcpy_s(exit[9].description, "It seems that the road leads north of the ship");
-
-	//west south;/*--------------
-
-	strcpy_s(exit[10].name, "42");
-
-	exit[10].dest = &rooms[2];
-	exit[10].src = &rooms[4];
-	exit[10].direction = NORTH;
-	exit[10].open = true;
-	strcpy_s(exit[10].description, "The road is leading to the ship’s back maybe there is something…");
-
-
-	strcpy_s(exit[11].name, "24");
-
-	exit[11].dest = &rooms[4];
-	exit[11].src = &rooms[2];
-	exit[11].direction = SOUTH;
-	exit[11].open = true;
-	strcpy_s(exit[11].description, "It seems that the road leads south of the ship");
-
-	//forest;-------------
-
-	strcpy_s(exit[12].name, "15");
-
-	exit[12].dest = &rooms[5];
-	exit[12].src = &rooms[1];
-	exit[12].direction = EAST;
-	exit[12].open = true;
-	strcpy_s(exit[12].description, "There is a road full of herbs and shrubs, it seems to be leading to forest");
-
-
-	strcpy_s(exit[13].name, "45");
-
-	exit[13].dest = &rooms[5];
-	exit[13].src = &rooms[4];
-	exit[13].direction = SOUTH;
-	exit[13].open = true;
-	strcpy_s(exit[13].description, "There is a road full of herbs and shrubs, it seems to be leading to forest");
-
-
-	strcpy_s(exit[14].name, "35");
-
-	exit[14].dest = &rooms[5];
-	exit[14].src = &rooms[3];
-	exit[14].direction = NORTH;
-	exit[14].open = true;
-	strcpy_s(exit[14].description, "There is a road full of herbs and shrubs, it seems to be leading to forest");
-
-
-	strcpy_s(exit[15].name, "25");
-
-	exit[15].dest = &rooms[5];
-	exit[15].src = &rooms[2];
-	exit[15].direction = WEST;
-	exit[15].open = true;
-	strcpy_s(exit[15].description, "There is a road full of herbs and shrubs, it seems to be leading to forest");
-
-	//-- space;/*-------------
-	// ship space;/*-------------
-
-	strcpy_s(exit[16].name, "06");
-
-	exit[16].dest = &rooms[6];
-	exit[16].src = &rooms[0];
-	exit[16].direction = UP;
-	exit[16].open = true;
-	strcpy_s(exit[16].description, "i must put all ready to leave the planet");
-
-
-	strcpy_s(exit[17].name, "60");
-
-	exit[17].dest = &rooms[0];
-	exit[17].src = &rooms[6];
-	exit[17].direction = DOWN;
-	exit[17].open = true;
-	strcpy_s(exit[17].description, "This lost planet is really nice from space");
-
-	//space sun;/*-------------
-
-	strcpy_s(exit[18].name, "67");
-
-	exit[18].dest = &rooms[7];
-	exit[18].src = &rooms[6];
-	exit[18].direction = NORTH;
-	exit[18].open = true;
-	strcpy_s(exit[18].description, "mmm this star is perfect for take a SUPER.. HOT.. hollidays");
-
-	//space ship 2;/*------------
-
-	strcpy_s(exit[19].name, "69");
-
-	exit[19].dest = &rooms[9];
-	exit[19].src = &rooms[6];
-	exit[19].direction = EAST;
-	exit[19].open = true;
-	strcpy_s(exit[19].description, "this dry planet seems the perfect place for take the fuel");
-
-
-	strcpy_s(exit[20].name, "96");
-
-	exit[20].dest = &rooms[6];
-	exit[20].src = &rooms[9];
-	exit[20].direction = UP;
-	exit[20].open = true;
-	strcpy_s(exit[20].description, "space the huge unknown ");
-
-	//-- planet 2;/*------------
-	//ship outside;/*-------------
-
-	strcpy_s(exit[21].name, "109");
-
-	exit[21].dest = &rooms[9];
-	exit[21].src = &rooms[10];
-	exit[21].direction = WEST;
-	exit[21].open = true;
-	strcpy_s(exit[21].description, "i love that ship");
-
-
-	strcpy_s(exit[22].name, "910");
-
-	exit[22].dest = &rooms[10];
-	exit[22].src = &rooms[9];
-	exit[22].direction = EAST;
-	exit[22].open = true;
-	strcpy_s(exit[22].description, "this is like a desert but blue.. (da ba dee da ba daaa.... -eiffel 65)");
-
-	// outside - castle
-
-	strcpy_s(exit[23].name, "1011");
-
-	exit[23].dest = &rooms[11];
-	exit[23].src = &rooms[10];
-	exit[23].direction = NORTH;
-	exit[23].open = true;
-	strcpy_s(exit[23].description, "fiuu fiuu this castle reminds me of the castle disney ... but badly build");
-
-
-	strcpy_s(exit[24].name, "1110");
-
-	exit[24].dest = &rooms[10];
-	exit[24].src = &rooms[11];
-	exit[24].direction = SOUTH;
-	exit[24].open = true;
-	strcpy_s(exit[24].description, "fresh air over there..");
-
-	//--space;/*--------------
-	//space shi 3;/*--------------
-
-	strcpy_s(exit[25].name, "614");
-
-	exit[25].dest = &rooms[14];
-	exit[25].src = &rooms[6];
-	exit[25].direction = SOUTH;
-	exit[25].open = true;
-	strcpy_s(exit[25].description, "UOoUOOoo pretty green planet, maybe i will traver ther when i take some fuel");
-
-
-	strcpy_s(exit[26].name, "146");
-
-	exit[26].dest = &rooms[6];
-	exit[26].src = &rooms[14];
-	exit[26].direction = UP;
-	exit[26].open = true;
-	strcpy_s(exit[26].description, "Came on camion! i can not wait to travel to the starss!");
-
-	//-- planet 3;/*--------------
-	//jail ship;/*--------------
-
-	strcpy_s(exit[27].name, "1314");
-
-	exit[27].dest = &rooms[14];
-	exit[27].src = &rooms[13];
-	exit[27].direction = DOWN;
-	exit[27].open = true;
-	strcpy_s(exit[27].description, "Maybe to arrive fastly to the ship you just have to jump down ");
-
-	//jail hall;/*-------------
-
-	strcpy_s(exit[28].name, "1213");
-
-	exit[28].dest = &rooms[13];
-	exit[28].src = &rooms[12];
-	exit[28].direction = WEST;
-	exit[28].open = true;
-	strcpy_s(exit[28].description, "with this stairs i could ho to the jail");
-
-
-	strcpy_s(exit[29].name, "1312");
-
-	exit[29].dest = &rooms[12];
-	exit[29].src = &rooms[13];
-	exit[29].direction = EAST;
-	exit[29].open = true;
-	strcpy_s(exit[0].description, "going down i will arrive to the hall");
-
-	// ship hall;/*-------------
-
-	strcpy_s(exit[30].name, "1214");
-
-	exit[30].dest = &rooms[14];
-	exit[30].src = &rooms[12];
-	exit[30].direction = SOUTH;
-	exit[30].open = true;
-	strcpy_s(exit[30].description, "the ship.. nice way to land off... ");
-
-
-	strcpy_s(exit[31].name, "1412");
-
-	exit[31].dest = &rooms[12];
-	exit[31].src = &rooms[14];
-	exit[31].direction = NORTH;
-	exit[31].open = true;
-	strcpy_s(exit[31].description, "well i think that we just land off in the hall LoL");
-	
-	}*/

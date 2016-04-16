@@ -20,23 +20,23 @@
 int main() {
 	
 		//preintro(); //intro
-
 		system("cls");
 
 		ReportMemoryLeaks();
 
-		world TheWorld;//for asign dinamic 
-		TheWorld.Initialize();
+		world* TheWorld=new world;//for asign dinamic 
+		bool comand = true;
 		
-		bool comand=true;
+		
 
 
-		/*do{
+		do{
 
-			comand = World->checkings();
+			comand = TheWorld->checkings();
 
-		} while (comand != false);*/
+		} while (comand != false);
 
+		delete TheWorld;
 		//credits();  //credits
 
 		return 0;
