@@ -114,12 +114,12 @@ public:
 		num_elements = 0;
 	}//cleaning
 
-	uint size() const
+	unsigned int size() const
 	{
 		return num_elements;
 	}//size
 
-	uint capacity()const
+	unsigned int capacity()const
 	{
 		return max_size;
 	}//Capacity

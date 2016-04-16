@@ -26,7 +26,14 @@ public:
 
 	
 
-	entity(const char* name, const char* description) :name(name), description(description);
+	entity(const char* name, const char* description) :name(name), description(description){}
+
+
+	const mString SayMyName();
+	const mString SayTheDescription();
+	const EntityType SaytheType();
+
+	void printer();
 
 	virtual ~entity();
 };
