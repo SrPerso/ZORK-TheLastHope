@@ -25,12 +25,12 @@ int main() {
 
 		ReportMemoryLeaks();
 
-		world * World = new world;//for asign dinamic 
-		Player* player = nullptr;
+		world TheWorld;//for asign dinamic 
+		TheWorld.Initialize();
 
 		bool comand=true;
 
-		World->CreateWorld();//create rooms
+
 
 		do{
 

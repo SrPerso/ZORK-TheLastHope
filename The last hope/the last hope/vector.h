@@ -36,8 +36,9 @@ public:
 
 	}//constructor copy
 
-
 	~Vector(){ delete[] buffer;  }//destructor
+
+	//--------------------------
 
 	void push_back(const TYPE& value){
 
@@ -45,15 +46,12 @@ public:
 
 		if (Capacity == num_elements){
 
-
-			Capacity *= 2;
+			Capacity += 15;
 
 			temp = new TYPE[Capacity];
 
 			for (unsigned int i = 0; i < num_elements; i++){
-
 				*(temp + i) = *(buffer + i);
-
 			}//for
 
 			delete[] buffer;
@@ -96,51 +94,6 @@ public:
 
 	}//push front
 
-	//--------------------------
-
-	const TYPE &operator[](const uint &index) const
-	{
-		assert(index >= 0 && index <num_elements);
-		return buffer[index];
-	}
-
-	bool empty() const
-	{
-		return num_elements == 0;
-	}//took empty 
-
-	void clear()
-	{
-		num_elements = 0;
-	}//cleaning
-
-	unsigned int size() const
-	{
-		return num_elements;
-	}//size
-
-	unsigned int capacity()const
-	{
-		return max_size;
-	}//Capacity
-
-	void shrink_to_fit()
-	{
-		if (max_size != n_elements)
-		{
-			TYPE *temp = nullptr;
-			max_size = num_elements;
-			temp = new TYPE[max_size];
-			for (int i = 0; i < max_size; i++){
-
-				temp[i] = buffer[i];
-			
-			}//for
-			delete[]buffer;
-			buffer = temp;
-		}//if
-	}//shrink to fit
-
 	void pop_back(){
 
 		if (num_elements > 0){
@@ -150,6 +103,64 @@ public:
 		}//if
 
 	}//pop_back
+
+	//--------------------------
+
+	const TYPE operator[](uint &index){
+
+		assert(index >= 0 && index <num_elements);
+
+		return buffer[index];
+
+	}
+
+	const TYPE &operator[] (uint index) const{
+
+		assert(index >= 0 && index <num_elements);
+
+		return buffer[index];
+
+	}
+	
+	//--------------------------
+
+	bool empty() const
+	{
+		return num_elements == 0;
+	}//took empty 
+
+	void clear(){
+		num_elements = 0;
+	}//cleaning
+
+	unsigned int size() const{
+		return num_elements;
+	}//size
+
+	unsigned int capacity()const{
+		return max_size;
+	}//Capacity
+
+	void shrink_to_fit(){
+
+		if (max_size != n_elements){
+
+			TYPE *temp = nullptr;
+			max_size = num_elements;
+			temp = new TYPE[max_size];
+
+			for (int i = 0; i < max_size; i++){
+
+				temp[i] = buffer[i];
+			
+			}//for
+
+			delete[]buffer;
+			buffer = temp;
+		}//if
+	}//shrink to fit
+
+
 
 
 };// VECTOR CLASS

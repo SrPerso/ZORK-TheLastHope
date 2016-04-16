@@ -9,13 +9,7 @@
 #include "player.h"
 //------------------------
 
-Player::~Player(){
-
-	delete[] position;
-
-}
-
-
+Player::~Player(){}
 
 void Player::go(world*World, dir tgo){
 

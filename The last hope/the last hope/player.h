@@ -1,23 +1,17 @@
 //-----------headers------------------
-
 #include "rooms.h"
-#include "exits.h"
 #include "Entity.h"
 #include "vector.h"
 #include "strings.h"
 //------------------------
 
 #ifndef _PLAYER_
-#define  _PLAYER_
+#define _PLAYER_
+
 class world;
 
-class Player/*:public entity*/{
+class Player:public entity{
 public:
-
-	mString* name;
-	mString* description;
-	// poner una propiedad que sea un vector a otras entidades (my_entities
-	
 
 	room* position;
 	bool tf = true;
@@ -31,9 +25,9 @@ public:
 	
 public:
 	
-	Player(const char* name, const char* description):entity(name,description){}
+	Player(const mString* name, const mString* description, room* Room):entity(name,description, (entity*)Room{}
 	~Player();
 
-};//class bicho
+};//class player
 
 #endif

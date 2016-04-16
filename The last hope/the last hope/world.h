@@ -14,15 +14,15 @@
 class world {
 public:
 
-	Vector <Player*> player;
 
-
-	//Player* player = nullptr;
-	room* rooms = nullptr;
-	exits* exit = nullptr;
+	Vector <entity*> entity_;
 
 	world();//build
 	~world();// destroy
+
+	void Initialize();
+
+
 
 
 	void CreateWorld()const;

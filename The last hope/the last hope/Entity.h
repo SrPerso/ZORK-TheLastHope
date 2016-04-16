@@ -1,9 +1,9 @@
 #ifndef _ENTITY_
 #define _ENTITY_
-
+//----------includes------------------
 #include "strings.h"
 #include "vector.h"
-
+//------------------------
 enum EntityType{
 
 		ENTITY,
@@ -13,7 +13,9 @@ enum EntityType{
 		PLAYER,
 
 };
+
 class entity{
+
 private:
 	mString name;
 	mString description;
@@ -23,11 +25,7 @@ public:
 
 	EntityType type = ENTITY;// TYPE ENTITY ENTITY
 
-
-	
-
 	entity(const char* name, const char* description) :name(name), description(description){}
-
 
 	const mString SayMyName();
 	const mString SayTheDescription();

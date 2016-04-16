@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <cstring>
-//-----------headers------------------
+//----------includes------------------
 #include "global.h"
 #include "world.h"
 #include "rooms.h"

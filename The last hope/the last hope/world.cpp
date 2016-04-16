@@ -4,24 +4,40 @@
 #include <stdlib.h>
 #include <string.h>
 //-----------headers------------------
-#include "global.h"
 #include "world.h"
 #include "rooms.h"
-#include "exits.h"
 #include "player.h"
 //------------------------
 
 world::world() {
 
 
+	room* Planet1_Ship = new room("A buried ship", "This old ship has many arrangements, it seems that fought in various space battles");
+	room* Planet1_East = new room("East", "Nice place to do a picnic, the clearing is perfect to see the stars at night and imagine a trip around the galaxy. There is a buried ship at west with it I could travel out the planet.");
+	room* Planet1_West = new room("West", "Trees, trees and more trees… well and the ship at East, maybe if I go west to the forest I will found something more");
+	room* Planet1_North = new room("North", "At the north there is a cave maybe there is a creature living there, whatever, the buried ship at south seems damaged.");
+	room* Planet1_South = new room("South", "Trees, trees and more trees… well and the ship at North, maybe if I go to the forest at South I will found something more…");
+	room* Planet1_Forest = new room("Forest", "Omg! Omg! Omg!!! There is trees everywhere! Maybe is impossible to go out :O ");
 
-	rooms = new room[_ROOMSNUMBER_];//15 
+	room* Space_Space = new room("Space", "Space, a place where many would be and contemplate each of the planets that reside in the universe.");
+	room* Space_Sun = new room("Rother 732423", "The Huge star Rother 732423 can reach to 100 million of degrees. Everything that arrive here can’t return. Mhmm seems that smells burned…");
 
-//player = new Player[_PLAYERNUMBER_];//1  
+	room* Planet1_Cave = new room("Cave", "this dark place smells like…");
+
+
+	room* Planet2_Ship = new room("The Epic Space ship", "Every time that I am in the ship, I have a very strange feeling..");
+	room* Planet1_East = new room("East", "a");
+	room* Planet1_East = new room("East", "a");
+
+
+
+	Player* player = new Player("SO-PERCA", "One normal guy that feels the force", planet1_East);
+	entity_.push_back(player);
+
+
+
 
 	exit = new exits[_EXITSNUMBER_];//32  
-
-
 
 }//builder
 world::~world() {
@@ -36,36 +52,8 @@ world::~world() {
 void world::CreateWorld()const{
 
 
-	strcpy_s(rooms[0].name, "A buried ship");
-	strcpy_s(rooms[0].description, "This old ship has many arrangements, it seems that fought in various space battles ");
 
-	strcpy_s(rooms[1].name, "East");
-	strcpy_s(rooms[1].description, "Nice place to do a picnic, the clearing is perfect to see the stars at night and imagine a trip around the galaxy. There is a buried ship at west with it I could travel out the planet.");
-
-	strcpy_s(rooms[2].name, "West");
-	strcpy_s(rooms[2].description, "Trees, trees and more trees… well and the ship at East, maybe if I go west to the forest I will found something more");
-
-	strcpy_s(rooms[3].name, "North");
-	strcpy_s(rooms[3].description, "At the north there is a cave maybe there is a creature living there, whatever, the buried ship at south seems damaged.");
-
-	strcpy_s(rooms[4].name, "South");
-	strcpy_s(rooms[4].description, "Trees, trees and more trees… well and the ship at North, maybe if I go to the forest at South I will found something more…");
-
-	strcpy_s(rooms[5].name, "Forest");
-	strcpy_s(rooms[5].description, "Omg! Omg! Omg!!! There is trees everywhere! Maybe is impossible to go out :O ");
-
-	strcpy_s(rooms[6].name, "Space");
-	strcpy_s(rooms[6].description, "Space, a place where many would be and contemplate each of the planets that reside in the universe.");
-
-	strcpy_s(rooms[7].name, "Rother 732423");
-	strcpy_s(rooms[7].description, "The Huge star Rother 732423 can reach to 100 million of degrees. Everything that arrive here can’t return. Mhmm seems that smells burned…");
-
-
-	strcpy_s(rooms[8].name, "Cave");
-	strcpy_s(rooms[8].description, "this dark place smells like…");
-
-	strcpy_s(rooms[9].name, "The Epic Space ship");
-	strcpy_s(rooms[9].description, "Every time that I am in the ship, I have a very strange feeling..");
+	strcpy_s(rooms[9].description, "");
 
 	strcpy_s(rooms[10].name, "Outside of the castle");
 	strcpy_s(rooms[10].description, "this is like a rock desert, if there were not a giant castle north would say that I'm lost");
@@ -402,14 +390,5 @@ void world::CreateExits()const{
 	exit[31].direction = NORTH;
 	exit[31].open = true;
 	strcpy_s(exit[31].description, "well i think that we just land off in the hall LoL");
-
-}
-void world::CreatePlayer()const{
-
-	player.push_back(new Player("","") );
-
-	player[0].position = &rooms[1];
-
-
 
 }

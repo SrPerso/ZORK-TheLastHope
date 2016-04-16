@@ -6,12 +6,10 @@
 
 
 
-class room{
+class room:public entity{
 public:
-
-	char name[30];
-	char description[400];
-
+	room(const mString name, const mString description);
+	~room();
 };//class room 
 
 #endif
