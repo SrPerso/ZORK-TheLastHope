@@ -25,7 +25,7 @@ public:
 	
 public:
 	
-	Player(const mString* name, const mString* description, room* Room):entity(name,description, (entity*)Room{}
+	Player(const mString name, const mString description, room* Room);
 	~Player();
 
 };//class player

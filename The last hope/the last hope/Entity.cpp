@@ -1,7 +1,7 @@
 #include "Entity.h"
 #include <stdio.h>
 
-entity::entity(const char* name, const char* description) :name(name), description(description){
+entity::entity(const char* name, const char* description, EntityType Histype):name(name), description(description), HisType(Histype){
 	
 	type = ENTITY;
 

@@ -23,9 +23,6 @@ public:
 	void Initialize();
 
 
-
-
-	void CreateWorld()const;
 	void CreateExits()const;
 	void CreatePlayer()const;
 	bool checkings();

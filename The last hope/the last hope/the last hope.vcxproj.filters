@@ -36,6 +36,9 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="Exits.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="memorytleaks.h">

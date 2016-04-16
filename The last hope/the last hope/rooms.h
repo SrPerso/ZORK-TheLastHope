@@ -1,10 +1,12 @@
 //-----------headers------------------
 
+
+
+#include "vector.h"
+#include "Entity.h"
 //------------------------
 #ifndef _ROOMS_
 #define  _ROOMS_
-
-
 
 class room:public entity{
 public:

@@ -1,20 +1,10 @@
-//- -------- system -----------------
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-//-----------headers------------------
-#include "principal.h"
-#include "worldc.h"
-#include "rooms.h"
-#include "controls.h"
 #include "exits.h"
-#include "bicho.h"
-//------------------------
 
+exits::exits(const char* name, const char* description, bool open, room* src, room* dest, dir direction): Entity(name, description, EXIT), open(open), source(source), destination(destination), direction(direction)
+{
+	type = EXIT;
+}
 
-void world::createexits(){
-
-
+exits::~exits(){
 
 }

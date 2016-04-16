@@ -7,33 +7,74 @@
 #include "world.h"
 #include "rooms.h"
 #include "player.h"
+#include "exits.h"
 //------------------------
 
 world::world() {
 
-
+	//PLANET 1----------------
 	room* Planet1_Ship = new room("A buried ship", "This old ship has many arrangements, it seems that fought in various space battles");
+	entity_.push_back(Planet1_Ship);
+
 	room* Planet1_East = new room("East", "Nice place to do a picnic, the clearing is perfect to see the stars at night and imagine a trip around the galaxy. There is a buried ship at west with it I could travel out the planet.");
+	entity_.push_back(Planet1_East);
+
 	room* Planet1_West = new room("West", "Trees, trees and more trees… well and the ship at East, maybe if I go west to the forest I will found something more");
+	entity_.push_back(Planet1_West);
+
 	room* Planet1_North = new room("North", "At the north there is a cave maybe there is a creature living there, whatever, the buried ship at south seems damaged.");
+	entity_.push_back(Planet1_North);
+
 	room* Planet1_South = new room("South", "Trees, trees and more trees… well and the ship at North, maybe if I go to the forest at South I will found something more…");
+	entity_.push_back(Planet1_South);
+
 	room* Planet1_Forest = new room("Forest", "Omg! Omg! Omg!!! There is trees everywhere! Maybe is impossible to go out :O ");
+	entity_.push_back(Planet1_Forest);
+	//PLANET 1-----------------------------
 
+	//SPACE----------------
 	room* Space_Space = new room("Space", "Space, a place where many would be and contemplate each of the planets that reside in the universe.");
+	entity_.push_back(Space_Space);
+	
 	room* Space_Sun = new room("Rother 732423", "The Huge star Rother 732423 can reach to 100 million of degrees. Everything that arrive here can’t return. Mhmm seems that smells burned…");
+	entity_.push_back(Space_Sun);
+	//SPACE -------------------------------
 
+	//PLANET 1----------------
 	room* Planet1_Cave = new room("Cave", "this dark place smells like…");
+	entity_.push_back(Planet1_Cave);
+	//PLANET 1------------------------------
 
-
+	//PLANET 2----------------
 	room* Planet2_Ship = new room("The Epic Space ship", "Every time that I am in the ship, I have a very strange feeling..");
-	room* Planet1_East = new room("East", "a");
-	room* Planet1_East = new room("East", "a");
+	entity_.push_back(Planet2_Ship);
+	
+	room* Planet2_Outside = new room("Outside of the castle", "this is like a rock desert, if there were not a giant castle north would say that I'm lost");
+	entity_.push_back(Planet2_Outside);
+	
+	room* Planet2_Kingstroom = new room("King Room", "The principal room of the castle... where live the hated king of dantooine… maybe if the king dies his subjects will help you to repair the ship.");
+	entity_.push_back(Planet2_Kingstroom);
+	//PLANET 2-----------------------------
+
+	//PLANET 3----------------
+
+	room* Planet2_Hall = new room("the hall", "the biggest hall that you can see in this galaxy.. with one door at the roof");
+	entity_.push_back(Planet2_Hall);
+	
+	room* Planet3_Jail = new room("jail", "the princess may be in this dark and wet place");
+	entity_.push_back(Planet3_Jail);
+	
+	room* Planet3_Ship = new room("The swamp of duro", "Nice place to land the space ship…");
+	entity_.push_back(Planet3_Ship);
+
+	//PLANET 3-----------------------------
 
 
 
-	Player* player = new Player("SO-PERCA", "One normal guy that feels the force", planet1_East);
+	/* ---- Player ----*/
+	Player* player = new Player("SO-PERCA", "One normal guy that feels the force", Planet1_East);
 	entity_.push_back(player);
-
+	/* ---- Player ----*/
 
 
 
@@ -48,36 +89,6 @@ world::~world() {
 
 
 }//destroyer
-
-void world::CreateWorld()const{
-
-
-
-	strcpy_s(rooms[9].description, "");
-
-	strcpy_s(rooms[10].name, "Outside of the castle");
-	strcpy_s(rooms[10].description, "this is like a rock desert, if there were not a giant castle north would say that I'm lost");
-
-
-	strcpy_s(rooms[11].name, "King Room");
-	strcpy_s(rooms[11].description, "The principal room of the castle... where live the hated king of dantooine… maybe if the king dies his subjects will help you to repair the ship.");
-
-	strcpy_s(rooms[12].name, "the hall");
-	strcpy_s(rooms[12].description, "the biggest hall that you can see in this galaxy.. with one door at the roof");
-
-	strcpy_s(rooms[13].name, "jail");
-	strcpy_s(rooms[13].description, "the princess may be in this dark and wet place ");
-
-	strcpy_s(rooms[14].name, "The swamp of duro");
-	strcpy_s(rooms[14].description, "Nice place to land the space ship…");
-
-
-
-
-
-
-
-}//create the rooms 
 
 
 void world::CreateExits()const{

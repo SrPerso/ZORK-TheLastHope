@@ -1,7 +1,7 @@
 //-----------headers------------------
 #include "global.h"
 #include "rooms.h"
-
+#include "Entity.h"
 //------------------------
 
 
@@ -10,18 +10,19 @@
 class room;
 enum dir{ NORTH, SOUTH, EAST, WEST, UP, DOWN };
 
-class exits{
-public:
-	char name[5];
-	char description[300];
+class exits:public entity{
+private:
+
+
 	room* dest =nullptr;
 	room* src =nullptr;
 	dir direction;
 	bool open;
 
 public:
-	//exits();
-	//~exits();
+	exits(const mString name, const mString description, bool open, room* src, room* dest, dir direction);
+
+	~exits();
 };
 
 #endif

@@ -20,12 +20,14 @@ private:
 	mString name;
 	mString description;
 	entity* parent;
-
+	EntityType HisType;
 public:
 
 	EntityType type = ENTITY;// TYPE ENTITY ENTITY
 
-	entity(const char* name, const char* description) :name(name), description(description){}
+	Vector<entity*> entity_;//vector of entitys
+
+	entity(const char* name, const char* description, EntityType Histype) :name(name), description(description){}
 
 	const mString SayMyName();
 	const mString SayTheDescription();
