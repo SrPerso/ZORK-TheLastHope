@@ -4,6 +4,7 @@
 
 #include "vector.h"
 #include "Entity.h"
+#include "strings.h"
 //------------------------
 #ifndef _ROOMS_
 #define  _ROOMS_

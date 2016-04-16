@@ -8,7 +8,7 @@ enum EntityType{
 
 		ENTITY,
 		ROOM,
-		EXIT,
+		EXITS,
 		ITEM,
 		PLAYER,
 
@@ -20,20 +20,20 @@ private:
 	mString name;
 	mString description;
 	entity* parent;
-	EntityType HisType;
+	
 public:
 
 	EntityType type = ENTITY;// TYPE ENTITY ENTITY
 
 	Vector<entity*> entity_;//vector of entitys
 
-	entity(const char* name, const char* description, EntityType Histype); ;
+	entity(const mString name, const mString description, entity* parent);
 
 	const mString SayMyName();
 	const mString SayTheDescription();
 	const EntityType SaytheType();
 
-	void printer();
+	void Look();
 
 	virtual ~entity();
 };

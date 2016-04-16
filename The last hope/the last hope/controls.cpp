@@ -12,8 +12,8 @@
 #include "player.h"
 //------------------------
 
-bool world::checkings(){
-
+/*bool world::checkings(){
+	
 	char token1[15], token2[15], *token, recep[20] = "NULL" ;
 
 	player->tf = true;//put tf in true valor
@@ -174,3 +174,4 @@ void help(){
 }//help
 
 
+*/

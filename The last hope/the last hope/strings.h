@@ -1,5 +1,6 @@
 #ifndef _STRINGS_
 #define _STRINGS_
+#include "Vector.h"
 
 class mString{
 
@@ -22,7 +23,8 @@ public:
 	unsigned int capacity()const;
 	void clean();
 	void shrink_to_fit();
-	Vector<mString*>Tokenize();
+
+	
 
 	//operators --------------
 	bool operator == (const mString& str)const;
@@ -31,6 +33,7 @@ public:
 	void operator =(const mString& str);
 	mString operator + (const mString& str)const;
 
+	Vector<mString*> Tokenize();
 	
 };
 

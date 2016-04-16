@@ -1,5 +1,5 @@
 //-----------headers------------------
-#include "global.h"
+
 #include "rooms.h"
 #include "Entity.h"
 //------------------------
@@ -16,13 +16,20 @@ private:
 
 	room* dest =nullptr;
 	room* src =nullptr;
-	dir direction;
+	dir direction;	
+	entity* key;
+	mString name_dest;
+
 	bool open;
+	bool locked;
 
 public:
-	exits(const mString name, const mString description, bool open, room* src, room* dest, dir direction);
 
+
+	exits(const mString name, const mString name_dest, const mString description, room* src, room* dest);
 	~exits();
+
+	void Look() const;
 };
 
 #endif

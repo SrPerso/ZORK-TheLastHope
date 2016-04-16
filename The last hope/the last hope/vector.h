@@ -1,8 +1,7 @@
-
 #ifndef _VECTOR_
 #define _VECTOR_
-
-
+#include "global.h"
+#include <assert.h>
 template <class TYPE>
 
 class Vector{
@@ -20,21 +19,29 @@ public:
 
 	}// constructor
 
-	Vector(const Vector<TYPE> &other){
+	Vector(const Vector&other){
 
 
-		num_elements = other.num_elemets;
-		capacity = other.capcity;
-
-		for (i = 0; i < (num_elements); i++)
-
-			buffer[i] = other.buffer[i];
-
-		capacity = i;
-
+		Capacity = other.num_elements;
 		buffer = new TYPE[Capacity];
 
+		if (other.num_elements > 0){
+
+			num_elements = other.num_elements;
+
+			for (unsigned int i = 0; i < num_elements; i++){
+
+				buffer[i] = other.buffer[i];
+
+			}
+		}
+
 	}//constructor copy
+
+
+	Vector(unsigned int size){
+		buffer = new TYPE[size];
+	}
 
 	~Vector(){ delete[] buffer;  }//destructor
 
@@ -106,17 +113,17 @@ public:
 
 	//--------------------------
 
-	const TYPE operator[](uint &index){
+	TYPE operator[](unsigned int &index)const{
 
-		assert(index >= 0 && index <num_elements);
+		assert(index < num_elements);
 
 		return buffer[index];
 
 	}
 
-	const TYPE &operator[] (uint index) const{
+	TYPE &operator[] (unsigned int index) {
 
-		assert(index >= 0 && index <num_elements);
+		assert(index < num_elements);
 
 		return buffer[index];
 

@@ -89,10 +89,20 @@ world::~world() {
 }//destroyer
 
 
+
+
+
+
+
+
+
+
+/*
+
 void world::CreateExits()const{
 
-	//-- planet 1;/*--------------*/ ;/*--------------*/ ;/*--------------*/ 
-	//east-south;/*--------------*/ 
+	//-- planet 1;/*--------------
+	//east-south;/*-------------
 
 	strcpy_s(exit[0].name, "41");
 
@@ -111,7 +121,7 @@ void world::CreateExits()const{
 	strcpy_s(exit[1].description, "It seems that the road leads south of the ship");
 
 
-	//east ship;/*--------------*/ 
+	//east ship;/*--------------* 
 
 	strcpy_s(exit[2].name, "01");
 
@@ -130,7 +140,7 @@ void world::CreateExits()const{
 	exit[3].open = false;
 	strcpy_s(exit[3].description, "The ship’s door perhaps with a key could open");
 
-	//east  north;/*--------------*/ 
+	//east  north;/*--------------*
 
 	strcpy_s(exit[4].name, "13");
 
@@ -149,7 +159,7 @@ void world::CreateExits()const{
 	exit[5].open = true;
 	strcpy_s(exit[5].description, "There is a road to go in front of the ship.");
 
-	//north cave;/*--------------*/ 
+	//north cave;/*--------------*
 
 	strcpy_s(exit[6].name, "83");
 
@@ -168,7 +178,7 @@ void world::CreateExits()const{
 	exit[7].open = true;
 	strcpy_s(exit[7].description, "This hole seems that leads to a cave");
 
-	//north west;/*--------------*/ 
+	//north west;/*-------------
 
 	strcpy_s(exit[8].name, "32");
 
@@ -187,7 +197,7 @@ void world::CreateExits()const{
 	exit[9].open = true;
 	strcpy_s(exit[9].description, "It seems that the road leads north of the ship");
 
-	//west south;/*--------------*/ 
+	//west south;/*--------------
 
 	strcpy_s(exit[10].name, "42");
 
@@ -206,7 +216,7 @@ void world::CreateExits()const{
 	exit[11].open = true;
 	strcpy_s(exit[11].description, "It seems that the road leads south of the ship");
 
-	//forest;/*--------------*/ 
+	//forest;-------------
 
 	strcpy_s(exit[12].name, "15");
 
@@ -243,8 +253,8 @@ void world::CreateExits()const{
 	exit[15].open = true;
 	strcpy_s(exit[15].description, "There is a road full of herbs and shrubs, it seems to be leading to forest");
 
-	//-- space;/*--------------*/ ;/*--------------*/ ;/*--------------*/ 
-	// ship space;/*--------------*/ 
+	//-- space;/*-------------
+	// ship space;/*-------------
 
 	strcpy_s(exit[16].name, "06");
 
@@ -263,7 +273,7 @@ void world::CreateExits()const{
 	exit[17].open = true;
 	strcpy_s(exit[17].description, "This lost planet is really nice from space");
 
-	//space sun;/*--------------*/ 
+	//space sun;/*-------------
 
 	strcpy_s(exit[18].name, "67");
 
@@ -273,7 +283,7 @@ void world::CreateExits()const{
 	exit[18].open = true;
 	strcpy_s(exit[18].description, "mmm this star is perfect for take a SUPER.. HOT.. hollidays");
 
-	//space ship 2;/*--------------*/ 
+	//space ship 2;/*------------
 
 	strcpy_s(exit[19].name, "69");
 
@@ -292,8 +302,8 @@ void world::CreateExits()const{
 	exit[20].open = true;
 	strcpy_s(exit[20].description, "space the huge unknown ");
 
-	//-- planet 2;/*--------------*/ ;/*--------------*/ ;/*--------------*/ 
-	//ship outside;/*--------------*/ 
+	//-- planet 2;/*------------
+	//ship outside;/*-------------
 
 	strcpy_s(exit[21].name, "109");
 
@@ -331,8 +341,8 @@ void world::CreateExits()const{
 	exit[24].open = true;
 	strcpy_s(exit[24].description, "fresh air over there..");
 
-	//--space;/*--------------*/ ;/*--------------*/ ;/*--------------*/ 
-	//space shi 3;/*--------------*/ 
+	//--space;/*--------------
+	//space shi 3;/*--------------
 
 	strcpy_s(exit[25].name, "614");
 
@@ -351,8 +361,8 @@ void world::CreateExits()const{
 	exit[26].open = true;
 	strcpy_s(exit[26].description, "Came on camion! i can not wait to travel to the starss!");
 
-	//-- planet 3;/*--------------*/ ;/*--------------*/ ;/*--------------*/ 
-	//jail ship;/*--------------*/ 
+	//-- planet 3;/*--------------
+	//jail ship;/*--------------
 
 	strcpy_s(exit[27].name, "1314");
 
@@ -362,7 +372,7 @@ void world::CreateExits()const{
 	exit[27].open = true;
 	strcpy_s(exit[27].description, "Maybe to arrive fastly to the ship you just have to jump down ");
 
-	//jail hall;/*--------------*/ 
+	//jail hall;/*-------------
 
 	strcpy_s(exit[28].name, "1213");
 
@@ -381,7 +391,7 @@ void world::CreateExits()const{
 	exit[29].open = true;
 	strcpy_s(exit[0].description, "going down i will arrive to the hall");
 
-	// ship hall;/*--------------*/ 
+	// ship hall;/*-------------
 
 	strcpy_s(exit[30].name, "1214");
 
@@ -399,5 +409,5 @@ void world::CreateExits()const{
 	exit[31].direction = NORTH;
 	exit[31].open = true;
 	strcpy_s(exit[31].description, "well i think that we just land off in the hall LoL");
-
-}
+	
+	}*/

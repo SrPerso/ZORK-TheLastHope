@@ -27,21 +27,17 @@ int main() {
 
 		world TheWorld;//for asign dinamic 
 		TheWorld.Initialize();
-
+		
 		bool comand=true;
 
 
-
-		do{
+		/*do{
 
 			comand = World->checkings();
 
-		} while (comand != false);
+		} while (comand != false);*/
 
-
-		
 		//credits();  //credits
-		delete World;
 
 		return 0;
 	

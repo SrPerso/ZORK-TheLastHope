@@ -20,10 +20,11 @@ void intro();
 void help();
 
 void credits();
-#endif
 
 #define _ROOMSNUMBER_ 15 //number of Rooms
 #define _PLAYERNUMBER_ 1 //number of PLAYERS
 #define _EXITSNUMBER_ 32 // number of Exits
 
+
+#endif
 //-------------------- enums 

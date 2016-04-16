@@ -8,12 +8,21 @@
 #include "world.h"
 #include "player.h"
 //------------------------
-Player::Player(const mString name, const mString description, room* Room): entity(name, description, (entity*)Room){
+
+Player::Player(const mString name, const mString description, room* position): 
+entity(name, description,(entity*)position){
 	type = PLAYER;
 }
 
 Player::~Player(){}
 
+void Player::Look(const Vector<mString>& commands) const{
+	printf("%s\n", &entity::SayMyName);
+	printf("%s\n", &entity::SayTheDescription);
+}
+
+
+/*
 void Player::go(world*World, dir tgo){
 
 	if (tf == true){
@@ -141,3 +150,5 @@ void Player::open(world* World, dir open)const{
 	}//for looking every valor
 
 }// open doors---------------------------------------------------------
+
+*/
