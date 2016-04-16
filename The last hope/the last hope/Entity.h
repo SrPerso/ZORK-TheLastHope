@@ -2,17 +2,33 @@
 #define _ENTITY_
 
 #include "strings.h"
+#include "vector.h"
 
+enum EntityType{
 
+		ENTITY,
+		ROOM,
+		EXIT,
+		ITEM,
+		PLAYER,
+
+};
 class entity{
-public:
-
+private:
 	mString name;
 	mString description;
+	entity* parent;
+
+public:
+
+	EntityType type = ENTITY;// TYPE ENTITY ENTITY
 
 
-	entity(const char* name, const char* description):my_name(name) my_description(description);
-	~entity();
+	
+
+	entity(const char* name, const char* description) :name(name), description(description);
+
+	virtual ~entity();
 };
 
 
