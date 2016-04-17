@@ -32,7 +32,8 @@ public:
 	void close(world* World, const dir close);
 
 	void Inventory()const;
-
+	void Pick(mString item);
+	void drop(mString item);
 	
 };//class player
 

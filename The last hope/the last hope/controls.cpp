@@ -229,6 +229,18 @@ bool world::checkinloop(){
 
 		}//CLOSE------------------------------------------------------------------------------------
 
+		if (*command0 == "Pick" || *command0 == "pick" || *command0 == "PICK"){
+			player[0]->pick(*command1);
+		}
+		if (*command0 == "Drop" || *command0 == "drop" || *command0 == "DROP"){
+			player[0]->drop(*command1);
+
+			if (*command1 == "THEBASS" || *command1 == "thebass"){
+
+				intro(); //EASTEREGG it is going to be modificated
+			}
+		}
+
 	}//if 2--------------------------------------------------
 
 	// --------------------------------------------------

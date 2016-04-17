@@ -171,3 +171,42 @@ void Player::Inventory()const
 		printf("%s\n", this->entity_[i]->SayMyName());
 	}
 }//inventoryy ----------------------------------------------------
+
+void Player::pick(mString item)
+{
+	if (entity_.size() < 1){
+		for (uint i = 0; position->entity_.size() > i; i++)
+		{
+			if (item == position->entity_[i]->SayMyName()){
+				entity_.push_back(position->entity_[i]);
+				printf("You picked up a %s", position->entity_[i]->SayMyName());
+				position->entity_.Remove(i);
+				return;
+			}
+		}
+		printf("There's nothing that you can pick");
+	}
+	else{
+		printf("You have to many things on your bag");
+	}
+}//pickkkk -----------------------------------
+
+
+void Player::drop(mString item)
+{
+	if (entity_.size() > 0){
+		for (unsigned int i = 0; entity_.size() > i; i++)
+		{
+			if (item == entity_[i]->SayMyName()){
+				position->entity_.push_back(entity_[i]);
+				printf("You droped the %s", entity_[i]->SayMyName());
+				entity_.Remove(i);
+				return;
+			}
+		}
+		printf("You don't have this item try with otherone");
+	}
+	else{
+		printf("You Drop all of your objects");
+	}
+}//DROOOPP THE BASSS .----------------------

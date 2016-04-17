@@ -170,7 +170,15 @@ public:
 	}//shrink to fit
 
 	
+	void Remove(unsigned int index){
 
+		for (unsigned int i = index; i < num_elements; i++){
+			buffer[i] = buffer[i + 1];
+		}
+		num_elements--;
+
+		this->shrink_to_fit();
+	}
 
 };// VECTOR CLASS
 
