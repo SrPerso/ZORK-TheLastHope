@@ -159,3 +159,15 @@ void Player::open(world* World,const dir open){
 	}//for looking every valor
 
 }// open doors---------------------------------------------------------
+
+
+void Player::Inventory()const
+{
+	if (entity_.size() == 0){
+		printf("You haven't any items ry now\n");
+	}
+	for (unsigned int i = 0; entity_.size() > i; i++)
+	{
+		printf("%s\n", this->entity_[i]->SayMyName());
+	}
+}//inventoryy ----------------------------------------------------

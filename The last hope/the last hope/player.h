@@ -31,7 +31,7 @@ public:
 	
 	void close(world* World, const dir close);
 
-
+	void Inventory()const;
 
 	
 };//class player

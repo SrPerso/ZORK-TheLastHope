@@ -103,7 +103,9 @@ bool world::checkinloop(){
 			player[0]->go(this, DOWN);
 		}//GO
 
-
+		if (*command0 == "inventory" || *command0 == "inv" || *command0 == "Inventory" || *command0 == "INVENTORY"){
+			player[0]->Inventory();
+		}
 
 		if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
 			printf("try again");
