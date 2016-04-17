@@ -9,6 +9,12 @@ template <class TYPE>
 
 class Vector{
 	friend class mString;
+
+public:
+	TYPE* buffer;
+	unsigned int Capacity;
+	unsigned int num_elements = 0;
+
 public:
 
 	Vector(){
@@ -164,10 +170,7 @@ public:
 		}//if
 	}//shrink to fit
 
-	public:
-		TYPE* buffer;
-		unsigned int Capacity;
-		unsigned int num_elements = 0;
+	
 
 
 };// VECTOR CLASS

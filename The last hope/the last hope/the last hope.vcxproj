@@ -67,6 +67,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Exits.cpp" />
     <ClCompile Include="extra.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="controls.cpp" />
     <ClCompile Include="main.cpp" />
@@ -76,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="exits.h" />
     <ClInclude Include="memorytleaks.h" />

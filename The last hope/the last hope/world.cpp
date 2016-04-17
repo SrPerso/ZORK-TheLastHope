@@ -36,7 +36,7 @@ world::world() {
 	//SPACE----------------
 	room* Space_Space = new room("Space", "Space, a place where many would be and contemplate each of the planets that reside in the universe.");
 	Room.push_back(Space_Space);
-	
+
 	room* Space_Sun = new room("Rother 732423", "The Huge star Rother 732423 can reach to 100 million of degrees. Everything that arrive here can’t return. Mhmm seems that smells burned…");
 	Room.push_back(Space_Sun);
 	//SPACE -------------------------------
@@ -49,10 +49,10 @@ world::world() {
 	//PLANET 2----------------
 	room* Planet2_Ship = new room("The Epic Space ship", "Every time that I am in the ship, I have a very strange feeling..");
 	Room.push_back(Planet2_Ship);
-	
+
 	room* Planet2_Outside = new room("Outside of the castle", "this is like a rock desert, if there were not a giant castle north would say that I'm lost");
 	Room.push_back(Planet2_Outside);
-	
+
 	room* Planet2_Kingstroom = new room("King Room", "The principal room of the castle... where live the hated king of dantooine… maybe if the king dies his subjects will help you to repair the ship.");
 	Room.push_back(Planet2_Kingstroom);
 	//PLANET 2-----------------------------
@@ -61,10 +61,10 @@ world::world() {
 
 	room* Planet2_Hall = new room("the hall", "the biggest hall that you can see in this galaxy.. with one door at the roof");
 	Room.push_back(Planet2_Hall);
-	
+
 	room* Planet3_Jail = new room("jail", "the princess may be in this dark and wet place");
 	Room.push_back(Planet3_Jail);
-	
+
 	room* Planet3_Ship = new room("The swamp of duro", "Nice place to land the space ship…");
 	Room.push_back(Planet3_Ship);
 
@@ -78,10 +78,10 @@ world::world() {
 
 
 
-// ---- EXITS ---------------------------
+	// ---- EXITS ---------------------------
 
 	//PLANET 1 ------
-	Exit.push_back(new exits("South", "There is a road to go in front of the ship.","East", Room[4], Room[1],true,NORTH));
+	Exit.push_back(new exits("South", "There is a road to go in front of the ship.", "East", Room[4], Room[1], true, NORTH));
 	Exit.push_back(new exits("East", "It seems that the road leads south of the ship", "South", Room[1], Room[4], true, SOUTH));
 
 	Exit.push_back(new exits("East", "This cool door lead outside", "Ship", Room[0], Room[1], false, EAST));
@@ -91,7 +91,7 @@ world::world() {
 	Exit.push_back(new exits("North", "There is a road to go in front of the ship.", "East", Room[3], Room[1], true, WEST));
 
 	Exit.push_back(new exits("North", "the light is shining is a good way to go out the cave..", "cave", Room[8], Room[3], true, DOWN));
-	Exit.push_back(new exits("cave", "This hole seems that leads to a cave", "North", Room[3], Room[8], true,UP ));
+	Exit.push_back(new exits("cave", "This hole seems that leads to a cave", "North", Room[3], Room[8], true, UP));
 
 	Exit.push_back(new exits("North", "The road is leading to the ship’s back maybe there is something…", "West", Room[3], Room[2], true, WEST));
 	Exit.push_back(new exits("West", "It seems that the road leads north of the ship", "North", Room[2], Room[3], true, NORTH));
@@ -108,8 +108,8 @@ world::world() {
 	// SPACE----
 	Exit.push_back(new exits("Ship", "i must put all ready to leave the planet", "Space", Room[0], Room[6], true, UP));
 	Exit.push_back(new exits("Space", "This lost planet is really nice from space", "Ship in plab", Room[6], Room[0], true, DOWN));
-	 
-	Exit.push_back(new exits("Space", "mmm this star is perfect for take a SUPER.. HOT.. hollidays", "Sun",Room[6], Room[7], true, NORTH));
+
+	Exit.push_back(new exits("Space", "mmm this star is perfect for take a SUPER.. HOT.. hollidays", "Sun", Room[6], Room[7], true, NORTH));
 	// SPACE----
 
 	//DANTOOINE- --
@@ -128,8 +128,8 @@ world::world() {
 	Exit.push_back(new exits("Duro", "Came on camion! i can not wait to travel to the starss!", "Space", Room[14], Room[6], true, UP));
 
 	Exit.push_back(new exits("Jail", "Maybe to arrive fastly to the ship you just have to jump down", "Swamp of Duro", Room[13], Room[14], true, DOWN));
-	
-	Exit.push_back(new exits("Hall", "with this stairs i could ho to the jail", "Jail", Room[12], Room[13], true,EAST));
+
+	Exit.push_back(new exits("Hall", "with this stairs i could ho to the jail", "Jail", Room[12], Room[13], true, EAST));
 	Exit.push_back(new exits("Jail", "oing down i will arrive to the hall", "Hall", Room[13], Room[12], true, WEST));
 
 	Exit.push_back(new exits("Hall", "the ship.. nice way to land off...", "Ship in the Swang", Room[12], Room[14], true, SOUTH));
@@ -145,5 +145,4 @@ world::~world() {
 	entity_.clear();
 
 }//destroyer
-
 

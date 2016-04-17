@@ -1,14 +1,6 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #ifndef _FUNTIONS_
 #define  _FUNTIONS_
-
-enum comands{
-	GO,
-	LOOK,
-	HELP,
-	EXIT
-};
+#define _CRT_SECURE_NO_WARNINGS
 
 typedef unsigned int uint;
 

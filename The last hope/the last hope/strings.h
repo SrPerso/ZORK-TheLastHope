@@ -3,7 +3,7 @@
 #include "Vector.h"
 
 class mString{
-private:
+	public:
 	char* buffer = nullptr;
 	unsigned int Capacity=1;
 

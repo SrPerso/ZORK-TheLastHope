@@ -90,6 +90,8 @@ Vector<mString*> mString::Tokenize(){
 		return tokens;
 }//tokenizee
 
+
+
 //------------Operators---------------- 
 
 bool mString::operator == (const mString& str)const{

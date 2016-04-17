@@ -16,7 +16,7 @@ bool world::checkinloop(){
 
 	fflush(stdin);
 
-	char str[65];
+	char str[80];
 
 	printf("\n\t -What do you want to do now?\n\n\t\t");
 	fflush(stdin);
@@ -26,20 +26,22 @@ bool world::checkinloop(){
 	mString token1(str);
 
 	if (token1 == "\0"){
+		printf("HODOR\n");
+		return true;
+	}
+
+
+	/*if ( str[0] != NULL && str[0] != ' '){
 		printf("HODOR!\n");
 		return true;
-	}//if
-
-	Vector<mString*> string;
-
-	string = token1.Tokenize();
-
-	string.shrink_to_fit();
+	}//if*/
+	Vector<mString*> commandments = token1.Tokenize();
+	
+	commandments.shrink_to_fit();
 
 	uint size;
-	size = string.size();
+	size = commandments.size();
 
-	Vector<mString*> commandments;
 
 	mString* command0 = nullptr;
 	mString* command1 = nullptr;
@@ -79,25 +81,27 @@ bool world::checkinloop(){
 
 		if (*command0 == "look" || *command0 == "l" || *command0 == "Look" || *command0 == "LOOK"){
 			player[0]->Look();
-		}//look
+		}//LOOK
+
+
 		if (*command0 == "east" || *command0 == "e" || *command0 == "East" || *command0 == "EAST"){
 			player[0]->go(this, EAST);
-		}//go
+		}//GO
 		if (*command0 == "north" || *command0 == "n" || *command0 == "North" || *command0 == "NORTH"){
 			player[0]->go(this, NORTH);
-		}
+		}//GO
 		if (*command0 == "west" || *command0 == "w" || *command0 == "West" || *command0 == "WEST"){
 			player[0]->go(this, WEST);
-		}
+		}//GO
 		if (*command0 == "south" || *command0 == "s" || *command0 == "South" || *command0 == "EAST"){
 			player[0]->go(this, SOUTH);
-		}
+		}//GO
 		if (*command0 == "up" || *command0 == "u" || *command0 == "Up" || *command0 == "UP"){
 			player[0]->go(this, DOWN);
-		}
+		}//GO
 		if (*command0 == "down" || *command0 == "d" || *command0 == "Down" || *command0 == "DOWN"){
 			player[0]->go(this, DOWN);
-		}
+		}//GO
 
 
 
@@ -119,13 +123,16 @@ bool world::checkinloop(){
 			return false;
 		}//QUIT
 
-
+		if (*command0 == "clean" || *command0 == "Cle" || *command0 == "Clean" || *command0 == "CLEAN"){
+			system("cls");
+			return false;
+		}//CLEAN
 	}//if 1---------------------------------------------------
 
 	//---------------------------------------------------
 
 	//if 2--------------------------------------------------
-	if (string.size() == 2 && command2 == nullptr){
+	if (size == 2 && command2 == nullptr){
 
 		if (*command0 == "look" || *command0 == "l" || *command0 == "Look" || *command0 == "LOOK"){
 
@@ -218,15 +225,19 @@ bool world::checkinloop(){
 				player[0]->close(this, DOWN);
 			}
 
-		}//open------------------------------------------------------------------------------------
-
+		}//CLOSE------------------------------------------------------------------------------------
 
 	}//if 2--------------------------------------------------
 
 	// --------------------------------------------------
 
 	//if 3--------------------------------------------------
+	else{
 
+		printf("SALTO\n");
+		return false;
+	}
+	return false;
 }//check in loop
 
 
