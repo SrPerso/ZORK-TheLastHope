@@ -1,20 +1,18 @@
 #ifndef _VECTOR_
 #define _VECTOR_
-#include "global.h"
+
+#define MAX 16
+
 #include <assert.h>
+class mString;
 template <class TYPE>
 
 class Vector{
-private:
-
-	TYPE * buffer;
-	unsigned int Capacity = 10;
-	unsigned int num_elements = 0;
-
+	friend class mString;
 public:
 
 	Vector(){
-
+		Capacity = MAX;
 		buffer = new TYPE[Capacity];
 
 	}// constructor
@@ -37,7 +35,6 @@ public:
 		}
 
 	}//constructor copy
-
 
 	Vector(unsigned int size){
 		buffer = new TYPE[size];
@@ -150,13 +147,13 @@ public:
 
 	void shrink_to_fit(){
 
-		if (max_size != n_elements){
+		if (Capacity != num_elements){
 
 			TYPE *temp = nullptr;
-			max_size = num_elements;
-			temp = new TYPE[max_size];
+			Capacity = num_elements;
+			temp = new TYPE[Capacity];
 
-			for (int i = 0; i < max_size; i++){
+			for (int i = 0; i < Capacity; i++){
 
 				temp[i] = buffer[i];
 			
@@ -167,7 +164,10 @@ public:
 		}//if
 	}//shrink to fit
 
-
+	public:
+		TYPE* buffer;
+		unsigned int Capacity;
+		unsigned int num_elements = 0;
 
 
 };// VECTOR CLASS

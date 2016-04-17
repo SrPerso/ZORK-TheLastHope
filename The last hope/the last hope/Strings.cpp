@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "strings.h"
 #include <iostream>
-#include "vector.h"
+#define _CRT_SECURE_NO_WARNINGS
 //-------------construuctors--------------- 
 mString::mString(){}
 
@@ -12,7 +12,7 @@ mString::mString(const char * str){
 	buffer = new char[Capacity];
 
 	strcpy_s(buffer, Capacity, str);
-	printf("\nbuilded\n");
+
 
 }//builder
 
@@ -24,15 +24,13 @@ mString::mString(const mString & str){
 	buffer = new char[Capacity];
 
 	strcpy_s(buffer, Capacity, str.buffer);
-	printf("\n copy builded\n");
+
 
 }//copybuilder
 
 mString::~mString(){
 
 	delete[] buffer;
-
-	printf("\ndestroyed\n");
 
 }//destroyer
 
@@ -49,6 +47,12 @@ const char* mString::C_str()const{
 
 	return buffer;
 
+}
+
+mString mString::C_C_str()const{
+
+	mString copy(buffer);
+	return copy;
 }
 
 bool mString::empty()const{

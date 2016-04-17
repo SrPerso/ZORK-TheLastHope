@@ -27,12 +27,9 @@ int main() {
 		world* TheWorld=new world;//for asign dinamic 
 		bool comand = true;
 		
-		
-
-
 		do{
 
-			comand = false;//TheWorld->checkings();
+			comand = TheWorld->checkinloop();
 
 		} while (comand != false);
 

@@ -11,6 +11,7 @@
 //------------------------
 
 world::world() {
+	//ROOOMS
 
 	//PLANET 1----------------
 	room* Planet1_Ship = new room("A buried ship", "This old ship has many arrangements, it seems that fought in various space battles");
@@ -70,14 +71,16 @@ world::world() {
 	//PLANET 3-----------------------------
 
 
-	/* ---- Player ----*/
+	// ---- Player ----
 	Player* Perca = new Player("SO-PERCA", "One normal guy that feels the force", Planet1_East);
 	player.push_back(Perca);
-	/* ---- Player ----*/
+	// ---- Player ----
 
 
 
 // ---- EXITS ---------------------------
+
+	//PLANET 1 ------
 	Exit.push_back(new exits("South", "There is a road to go in front of the ship.","East", Room[4], Room[1],true,NORTH));
 	Exit.push_back(new exits("East", "It seems that the road leads south of the ship", "South", Room[1], Room[4], true, SOUTH));
 
@@ -96,17 +99,20 @@ world::world() {
 	Exit.push_back(new exits("South", "The road is leading to the ship’s back maybe there is something…", "West", Room[4], Room[2], true, WEST));
 	Exit.push_back(new exits("West", "It seems that the road leads south of the ship", "South", Room[2], Room[4], true, SOUTH));
 
-	//forest------
 	Exit.push_back(new exits("East", "There is a road full of herbs and shrubs, it seems to be leading to forest", "Forest", Room[1], Room[5], true, EAST));
 	Exit.push_back(new exits("South", "There is a road full of herbs and shrubs, it seems to be leading to forest", "Forest", Room[4], Room[5], true, NORTH));
 	Exit.push_back(new exits("North", "There is a road full of herbs and shrubs, it seems to be leading to forest", "Forest", Room[3], Room[5], true, NORTH));
 	Exit.push_back(new exits("West", "There is a road full of herbs and shrubs, it seems to be leading to forest", "Forest", Room[2], Room[5], true, NORTH));
+	//PLANET 1 ------
 
+	// SPACE----
 	Exit.push_back(new exits("Ship", "i must put all ready to leave the planet", "Space", Room[0], Room[6], true, UP));
 	Exit.push_back(new exits("Space", "This lost planet is really nice from space", "Ship in plab", Room[6], Room[0], true, DOWN));
 	 
 	Exit.push_back(new exits("Space", "mmm this star is perfect for take a SUPER.. HOT.. hollidays", "Sun",Room[6], Room[7], true, NORTH));
+	// SPACE----
 
+	//DANTOOINE- --
 	Exit.push_back(new exits("Space", "this dry planet seems the perfect place for take the fuel", "Dantooine", Room[6], Room[9], true, EAST));
 	Exit.push_back(new exits("Dantooine", "space the huge unknown", "Space", Room[9], Room[6], true, UP));
 
@@ -115,7 +121,9 @@ world::world() {
 
 	Exit.push_back(new exits("Outside of the castle", "fiuu fiuu this castle reminds me of the castle disney ... but badly build", "Inside of the castle", Room[10], Room[11], true, NORTH));
 	Exit.push_back(new exits("Inside of the castle", "fresh air over there..", "Outside of the castle", Room[11], Room[10], true, SOUTH));
+	//DANTOOINE- --
 
+	//DURO--
 	Exit.push_back(new exits("Space", "UOoUOOoo pretty green planet, maybe i will travel ther when i take some fuel", "Duro", Room[6], Room[14], true, SOUTH));
 	Exit.push_back(new exits("Duro", "Came on camion! i can not wait to travel to the starss!", "Space", Room[14], Room[6], true, UP));
 
@@ -126,6 +134,7 @@ world::world() {
 
 	Exit.push_back(new exits("Hall", "the ship.. nice way to land off...", "Ship in the Swang", Room[12], Room[14], true, SOUTH));
 	Exit.push_back(new exits("Ship in the Swang", "well i think that we just land off in the hall LoL", "Hall", Room[14], Room[12], true, NORTH));
+	//DURO--
 
 }//builder
 world::~world() {
@@ -136,3 +145,5 @@ world::~world() {
 	entity_.clear();
 
 }//destroyer
+
+

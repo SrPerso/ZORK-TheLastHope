@@ -21,11 +21,7 @@ public:
 	world();//build
 	~world();// destroy
 
-	/*
-	void Initialize();
-
-	bool checkings();
-	*/
+	bool checkinloop();
 
 };//class world
 

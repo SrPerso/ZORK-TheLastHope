@@ -9,6 +9,7 @@
 #include "player.h"
 #include "rooms.h"
 #include "vector.h"
+#include "global.h"
 //------------------------
 
 Player::Player(const mString name, const mString description, room* position): 

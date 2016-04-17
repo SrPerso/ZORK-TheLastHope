@@ -3,9 +3,9 @@
 #include "Vector.h"
 
 class mString{
-
+private:
 	char* buffer = nullptr;
-	unsigned int Capacity;
+	unsigned int Capacity=1;
 
 public:
 
@@ -19,6 +19,7 @@ public:
 
 	unsigned int length()const;
 	const char* C_str()const;
+	mString C_C_str()const;
 	bool empty()const;
 	unsigned int capacity()const;
 	void clean();
@@ -32,7 +33,7 @@ public:
 	void operator += (const mString& str);
 	void operator =(const mString& str);
 	mString operator + (const mString& str)const;
-
+	
 	Vector<mString*> Tokenize();
 	
 };

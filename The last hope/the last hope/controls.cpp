@@ -3,149 +3,234 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <cstring>
 //----------includes------------------
 #include "global.h"
 #include "world.h"
 #include "rooms.h"
 #include "exits.h"
 #include "player.h"
+#include "vector.h"
 //------------------------
 
-/*bool world::checkings(){
-	
-	char token1[15], token2[15], *token, recep[20] = "NULL" ;
-
-	player->tf = true;//put tf in true valor
-
-	printf("\n\t -What do you want to do now?\n\n\t\t");
-
-	strcpy_s(token2, "NULL");
+bool world::checkinloop(){
 
 	fflush(stdin);
 
-	gets_s(recep);
-		
-		if (strcmp(recep, "\0") == 0){
-			printf("\t\tHODOR!\n");
-			return true;
-		}//if
-	strcpy_s(token1, strtok_s(recep, " ", &token));//first token
-	
-		
+	char str[65];
 
-		if (strcmp(token, "") != 0){
-			strcpy_s(token2, strtok_s(NULL, " ", &token));//second token
-		}//if
+	printf("\n\t -What do you want to do now?\n\n\t\t");
+	fflush(stdin);
 
-	
+	gets_s(str);//takes the str
 
+	mString token1(str);
 
-	// ------------------------------------------  COMAND LIST  ------------------------------------------------
-	
-	if (strcmp(token1, "go") == 0  || strcmp(token1, "g") == 0){
-
-
-		if (strcmp(token2, "east") == 0  || strcmp(token2, "e") == 0)		{ player->go(this, EAST);	}
-		else if (strcmp(token2, "north") == 0 || strcmp(token2, "n") == 0)	{ player->go(this, NORTH);	}
-		else if (strcmp(token2, "west") == 0 || strcmp(token2, "e") == 0)	{ player->go(this, WEST);	}
-		else if (strcmp(token2, "south") == 0 || strcmp(token2, "s") == 0)	{ player->go(this, SOUTH);	}
-		else if (strcmp(token2, "up") == 0 || strcmp(token2, "u") == 0)		{ player->go(this, UP);		}
-		else if (strcmp(token2, "down") == 0 || strcmp(token2, "d") == 0)	{ player->go(this, DOWN);	}
-		else{
-			printf("\n  Whitch dimension do you want to go with this extrange direction..?\n\t (this is sarcasm, write better) \n\t");
-		}
-
-
+	if (token1 == "\0"){
+		printf("HODOR!\n");
 		return true;
+	}//if
 
-	}//go to one place---------------------------------------------
+	Vector<mString*> string;
 
-	else if (strcmp(token1, "look") == 0 || strcmp(token1, "l") == 0 ){
-		
+	string = token1.Tokenize();
 
-		if (strcmp(token2, "NULL") == 0){player->look();}//look around
+	string.shrink_to_fit();
 
-		else if (strcmp(token2, "east") == 0  || strcmp(token2, "e")  == 0)	{ player->lookdoor(this, EAST);		}
-		else if(strcmp(token2, "north") == 0 || strcmp(token2, "n") == 0)	{ player->lookdoor(this, NORTH);	}
-		else if(strcmp(token2, "west") == 0 || strcmp(token2, "w") == 0)		{ player->lookdoor(this, WEST);		}
-		else if(strcmp(token2, "south") == 0 || strcmp(token2, "s") == 0)	{ player->lookdoor(this, SOUTH);	}
-		else if(strcmp(token2, "up") == 0 || strcmp(token2, "u") == 0)			{ player->lookdoor(this, UP);		}
-		else if(strcmp(token2, "down") == 0 || strcmp(token2, "d") == 0)		{ player->lookdoor(this, DOWN);		}
-		else{
-			printf("\n  Mmm... There is a sexy giraffe theree... \n\t (this is sarcasm, write better) \n\t");
-		} 
+	uint size;
+	size = string.size();
 
-		return true;
-	}//if else look to the door--------------------------------------
+	Vector<mString*> commandments;
 
-	else if (strcmp(token1, "open") == 0|| strcmp(token1, "o") == 0 ){
-	
-		if (token2 == NULL){
-			printf("Which door do you want to open?? \n\t");
-			scanf_s("%s", &token2);
-		}
-		if (strcmp(token2, "east") == 0  || strcmp(token2, "e") == 0)	{ player->open(this, EAST);		}
-		if (strcmp(token2, "north") == 0 || strcmp(token2, "n") == 0)	{ player->open(this, NORTH);	}
-		if (strcmp(token2, "west") == 0  || strcmp(token2, "w") == 0)	{ player->open(this, WEST);		}
-		if (strcmp(token2, "south") == 0 || strcmp(token2, "s") == 0)	{ player->open(this, SOUTH);	}
-		if (strcmp(token2, "up") == 0    || strcmp(token2, "u") == 0)	{ player->open(this, UP);		}
-		if (strcmp(token2, "down") == 0  || strcmp(token2, "d") == 0)	{ player->open(this, DOWN);		}
-		return true;
+	mString* command0 = nullptr;
+	mString* command1 = nullptr;
+	mString* command2 = nullptr;
+	mString* command3 = nullptr;
 
 
-	}//else if OPEN DOor---------------------------------------------
-
-	else if (strcmp(token1, "close") == 0|| strcmp(token1, "c") == 0){
-	
-		if (token2 == NULL){
-			printf("Which door do you want to close? \n\t");
-			scanf_s("%s", &token2);
-		}
-		if (strcmp(token2, "east") == 0   || strcmp(token2, "e") == 0)	{ player->close(this, EAST);	}
-		if (strcmp(token2, "north") == 0  || strcmp(token2, "n") == 0)	{ player->close(this, NORTH);	}
-		if (strcmp(token2, "west")  == 0  || strcmp(token2, "w")  == 0)	{ player->close(this, WEST);	}
-		if (strcmp(token2, "south") == 0  || strcmp(token2, "s") == 0)	{ player->close(this, SOUTH);	}
-		if (strcmp(token2, "up") == 0	  || strcmp(token2, "u") == 0)		{ player->close(this, UP);		}
-		if (strcmp(token2, "down") == 0   || strcmp(token2, "d") == 0)   { player->close(this, DOWN);	}
-		return true;
-	}//else if Close Door-----------------------------------------------
-
-
-	else if (strcmp(token1, "help") == 0 || strcmp(token1, "h") == 0){
-
-		help();
-		return true;
-	}//else if help------------------------------------------------------
-
-
-
-	else if (strcmp(token1, "clean") == 0 || strcmp(token1, "cl") == 0){
-	
-		system("cls");
-	
-		return true;
-	}//else if clean-----------------------------------------------------
-
-
-	else if (strcmp(token1, "exit") == 0 || strcmp(token1, "e") == 0){ 
-			
-		return false;
-	}//else if exit-------------------------------------------------------
-
-
+	if (size == 4)
+	{
+		command0 = commandments[0];
+		command1 = commandments[1];
+		command2 = commandments[2];
+		command3 = commandments[3];
+	}
+	else if (size == 3)
+	{
+		command0 = commandments[0];
+		command1 = commandments[1];
+		command2 = commandments[2];
+	}
+	else if (size == 2)
+	{
+		command0 = commandments[0];
+		command1 = commandments[1];
+	}
+	else if (size == 1)
+	{
+		command0 = commandments[0];
+	}
 	else{
-		printf("\n Maybe you speak murloc but i am not.. \n");
+		printf("HODOR\n\n");
+		return true;
+	}
 
-	}//else if doesnt understand the code --------------------------------
 
-	
-	
-	
-	player->tf = true;
-	return true;
+	if (size == 1 && command1 == nullptr){
 
-}// void checkings------------------------------------------
+		if (*command0 == "look" || *command0 == "l" || *command0 == "Look" || *command0 == "LOOK"){
+			player[0]->Look();
+		}//look
+		if (*command0 == "east" || *command0 == "e" || *command0 == "East" || *command0 == "EAST"){
+			player[0]->go(this, EAST);
+		}//go
+		if (*command0 == "north" || *command0 == "n" || *command0 == "North" || *command0 == "NORTH"){
+			player[0]->go(this, NORTH);
+		}
+		if (*command0 == "west" || *command0 == "w" || *command0 == "West" || *command0 == "WEST"){
+			player[0]->go(this, WEST);
+		}
+		if (*command0 == "south" || *command0 == "s" || *command0 == "South" || *command0 == "EAST"){
+			player[0]->go(this, SOUTH);
+		}
+		if (*command0 == "up" || *command0 == "u" || *command0 == "Up" || *command0 == "UP"){
+			player[0]->go(this, DOWN);
+		}
+		if (*command0 == "down" || *command0 == "d" || *command0 == "Down" || *command0 == "DOWN"){
+			player[0]->go(this, DOWN);
+		}
+
+
+
+		if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
+			printf("try again");
+			return true;
+		}//OPEN
+
+		if (*command0 == "close" || *command0 == "c" || *command0 == "Close" || *command0 == "CLOSE"){
+			printf("try again");
+			return true;
+		}//CLOSE
+
+		if (*command0 == "help" || *command0 == "h" || *command0 == "Help" || *command0 == "HELP"){
+			help();
+		}//HELP
+
+		if (*command0 == "quit" || *command0 == "q" || *command0 == "Quit" || *command0 == "QUIT"){
+			return false;
+		}//QUIT
+
+
+	}//if 1---------------------------------------------------
+
+	//---------------------------------------------------
+
+	//if 2--------------------------------------------------
+	if (string.size() == 2 && command2 == nullptr){
+
+		if (*command0 == "look" || *command0 == "l" || *command0 == "Look" || *command0 == "LOOK"){
+
+			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
+				player[0]->lookdoor(this, EAST);
+			}
+			if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
+				player[0]->lookdoor(this, NORTH);
+			}
+			if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
+				player[0]->lookdoor(this, WEST);
+			}
+			if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
+				player[0]->lookdoor(this, SOUTH);
+			}
+			if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
+				player[0]->lookdoor(this, DOWN);
+			}
+			if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
+				player[0]->lookdoor(this, DOWN);
+			}
+
+		}//look------------------------------------------------------------------------------------
+
+
+		if (*command0 == "go" || *command0 == "g" || *command0 == "Go" || *command0 == "GO"){
+
+			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
+				player[0]->go(this, EAST);
+			}
+			if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
+				player[0]->go(this, NORTH);
+			}
+			if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
+				player[0]->go(this, WEST);
+			}
+			if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
+				player[0]->go(this, SOUTH);
+			}
+			if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
+				player[0]->go(this, DOWN);
+			}
+			if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
+				player[0]->go(this, DOWN);
+			}
+
+		}//go------------------------------------------------------------------------------------
+
+		if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
+
+			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
+				player[0]->open(this, EAST);
+			}
+			if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
+				player[0]->open(this, NORTH);
+			}
+			if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
+				player[0]->open(this, WEST);
+			}
+			if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
+				player[0]->open(this, SOUTH);
+			}
+			if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
+				player[0]->open(this, DOWN);
+			}
+			if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
+				player[0]->open(this, DOWN);
+			}
+
+		}//open------------------------------------------------------------------------------------
+
+		if (*command0 == "close" || *command0 == "c" || *command0 == "Close" || *command0 == "CLOSE"){
+
+			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
+				player[0]->close(this, EAST);
+			}
+			if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
+				player[0]->close(this, NORTH);
+			}
+			if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
+				player[0]->close(this, WEST);
+			}
+			if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
+				player[0]->close(this, SOUTH);
+			}
+			if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
+				player[0]->close(this, DOWN);
+			}
+			if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
+				player[0]->close(this, DOWN);
+			}
+
+		}//open------------------------------------------------------------------------------------
+
+
+	}//if 2--------------------------------------------------
+
+	// --------------------------------------------------
+
+	//if 3--------------------------------------------------
+
+}//check in loop
+
+
+
 
 
 void help(){
@@ -174,4 +259,3 @@ void help(){
 }//help
 
 
-*/
