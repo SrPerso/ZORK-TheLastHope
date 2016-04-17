@@ -15,7 +15,6 @@ public:
 	Vector<exits*>Exit;
 	Vector<Player*> player;
 	Vector<Item*> item;
-	Vector <entity*> entity_;
 
 	world();//build
 	~world();// destroy

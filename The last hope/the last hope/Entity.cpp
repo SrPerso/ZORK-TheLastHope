@@ -20,10 +20,11 @@ const EntityType entity::SaytheType(){
 	return type;
 }//return the type of the entity
 
-void entity::Look(){
+void entity::look(){
 
-	printf("The name is: %s\n", name);
-	printf("The description is: \n\t %s\n", description);
+	printf("%s\n", name);
+	printf("%s\n", description);
+
 }//print everywhere the name and the description
 
 entity::~entity(){}

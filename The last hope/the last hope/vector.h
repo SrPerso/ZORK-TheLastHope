@@ -14,7 +14,6 @@ public:
 	TYPE* buffer;
 	unsigned int Capacity;
 	unsigned int num_elements = 0;
-
 public:
 
 	Vector(){

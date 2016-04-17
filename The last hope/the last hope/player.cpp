@@ -32,7 +32,7 @@ void Player::go(world*World,const dir tgo){
 
 					if (World->Exit[i]->open == true){
 
-						this->position = World->Exit[i]->dest;
+						position = World->Exit[i]->dest;
 
 						printf("\t %s \n\n %s.\n", World->Exit[i]->dest->SayMyName(), World->Exit[i]->SayTheDescription());
 
@@ -65,8 +65,15 @@ void Player::look()const{
 
 	printf("\t %s \n\n %s", position->SayMyName(), position->SayTheDescription());
 
-
-
+	if (position->entity_.size() >= 1)
+	{
+		printf("You can see a %s", position->entity_[0]->SayMyName());
+		for (uint i = 1; position->entity_.size() > i; i++)
+		{
+			printf(" and a %s,", position->entity_[i]->SayMyName());
+		}
+		printf(".\n");
+	}
 
 }//look room ------------------------------------------------------------
 void Player::lookdoor(world* World,const dir look)const{

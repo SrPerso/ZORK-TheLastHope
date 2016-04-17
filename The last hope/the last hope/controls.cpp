@@ -80,7 +80,7 @@ bool world::checkinloop(){
 	if (size == 1 && command1 == nullptr){
 
 		if (*command0 == "look" || *command0 == "l" || *command0 == "Look" || *command0 == "LOOK"){
-			player[0]->Look();
+			player[0]->look();
 		}//LOOK
 
 
@@ -125,7 +125,7 @@ bool world::checkinloop(){
 
 		if (*command0 == "clean" || *command0 == "Cle" || *command0 == "Clean" || *command0 == "CLEAN"){
 			system("cls");
-			return false;
+			return true;
 		}//CLEAN
 	}//if 1---------------------------------------------------
 
@@ -232,12 +232,8 @@ bool world::checkinloop(){
 	// --------------------------------------------------
 
 	//if 3--------------------------------------------------
-	else{
 
-		printf("SALTO\n");
-		return false;
-	}
-	return false;
+	return true;
 }//check in loop
 
 

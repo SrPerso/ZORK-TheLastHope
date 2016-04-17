@@ -11,7 +11,7 @@ class room;
 class Player:public entity{
 public:
 
-	room* position;
+	room* position=nullptr;
 	bool tf = true;
 
 public:

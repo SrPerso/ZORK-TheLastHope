@@ -3,7 +3,8 @@
 #include <iostream>
 #define _CRT_SECURE_NO_WARNINGS
 //-------------construuctors--------------- 
-mString::mString(){}
+mString::mString(){
+}
 
 mString::mString(const char * str){
 
@@ -30,7 +31,7 @@ mString::mString(const mString & str){
 
 mString::~mString(){
 
-	delete[] buffer;
+	delete buffer;
 
 }//destroyer
 
@@ -43,16 +44,18 @@ unsigned int mString::length()const{
 
 }
 
-const char* mString::C_str()const{
 
-	return buffer;
-
-}
 
 mString mString::C_C_str()const{
 
 	mString copy(buffer);
 	return copy;
+}
+
+char* mString::C_str()const{
+
+	return buffer;
+
 }
 
 bool mString::empty()const{
@@ -81,13 +84,14 @@ void mString::shrink_to_fit()
 
 Vector<mString*> mString::Tokenize(){
 
-		Vector<mString*> tokens;
+		Vector<mString*> token;
 		char *context = nullptr;
-		tokens.push_back(new mString(strtok_s(this->buffer, " ", &context)));
+		token.push_back(new mString(strtok_s(this->buffer, " ", &context)));
+
 		while (strcmp(context, "") != 0){
-			tokens.push_back(new mString(strtok_s(NULL, " ", &context)));
+			token.push_back(new mString(strtok_s(NULL, " ", &context)));
 		}
-		return tokens;
+		return token;
 }//tokenizee
 
 

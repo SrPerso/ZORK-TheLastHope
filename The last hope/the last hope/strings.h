@@ -3,9 +3,10 @@
 #include "Vector.h"
 
 class mString{
-	public:
-	char* buffer = nullptr;
-	unsigned int Capacity=1;
+public:
+
+	char* buffer=nullptr;
+	unsigned int Capacity=10;
 
 public:
 
@@ -18,7 +19,7 @@ public:
 	//methods------------
 
 	unsigned int length()const;
-	const char* C_str()const;
+	char* C_str()const;
 	mString C_C_str()const;
 	bool empty()const;
 	unsigned int capacity()const;

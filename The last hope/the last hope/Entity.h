@@ -33,7 +33,7 @@ public:
 	const mString SayTheDescription();
 	const EntityType SaytheType();
 
-	void Look();
+	virtual void look();
 
 	virtual ~entity();
 };

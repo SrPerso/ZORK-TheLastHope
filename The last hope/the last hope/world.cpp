@@ -53,8 +53,8 @@ world::world() {
 	room* Planet2_Outside = new room("Outside of the castle", "this is like a rock desert, if there were not a giant castle north would say that I'm lost");
 	Room.push_back(Planet2_Outside);
 
-	room* Planet2_Kingstroom = new room("King Room", "The principal room of the castle... where live the hated king of dantooine… maybe if the king dies his subjects will help you to repair the ship.");
-	Room.push_back(Planet2_Kingstroom);
+	room* Planet2_Kingsroom = new room("King Room", "The principal room of the castle... where live the hated king of dantooine… maybe if the king dies his subjects will help you to repair the ship.");
+	Room.push_back(Planet2_Kingsroom);
 	//PLANET 2-----------------------------
 
 	//PLANET 3----------------
@@ -72,8 +72,8 @@ world::world() {
 
 
 	// ---- Player ----
-	Player* Perca = new Player("SO-PERCA", "One normal guy that feels the force", Planet1_East);
-	player.push_back(Perca);
+
+	player.push_back(new Player("SO-PERCA", "One normal guy that feels the force", Room[1]));
 	// ---- Player ----
 
 
@@ -136,13 +136,40 @@ world::world() {
 	Exit.push_back(new exits("Ship in the Swang", "well i think that we just land off in the hall LoL", "Hall", Room[14], Room[12], true, NORTH));
 	//DURO--
 
+
+	Item* Stone = new Item("Stone", "you can broke a window with it", Planet1_West);
+	item.push_back(Stone);
+
+	Item* Stick = new Item("Stick", " you can use it for kick someone or something", Planet1_East);
+	item.push_back(Stick);
+
+	Item* Target = new Item("Target", "you can enter to some ship.", Planet1_Cave);
+	item.push_back(Target);
+
+	Item* Diamond = new Item("Diamond", "Nice Stone,it seems that belongs to a collection of shiny rocks", Planet1_Forest);
+	item.push_back(Diamond);
+
+	Item* Laser_Sword = new Item("Laser Sword", "old weapon, maybe the rey’ sword, can attack", Planet1_Ship);
+	item.push_back(Laser_Sword);
+
+	Item* Blazzer = new Item("Blazzer", "weapon, pistol, can attack.", Planet2_Outside);
+	item.push_back(Blazzer);
+
+	Item* sensor = new Item("Sensor", "it can scan where is the princess", Planet2_Kingsroom);
+	item.push_back(sensor);
+
+	Item* Cable = new Item("Cable", "maybe could repair a starship", Planet1_South);
+	item.push_back(Cable);
+
+	// ITEMS_------------------------------
+
 }//builder
 world::~world() {
 
 	Room.clear();
 	Exit.clear();
 	player.clear();
-	entity_.clear();
+
 
 }//destroyer
 
