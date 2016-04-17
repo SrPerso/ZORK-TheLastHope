@@ -4,9 +4,11 @@
 #include <stdlib.h>
 #include <string.h>
 //-----------headers------------------
-
+#include "strings.h"
 #include "world.h"
 #include "player.h"
+#include "rooms.h"
+#include "vector.h"
 //------------------------
 
 Player::Player(const mString name, const mString description, room* position): 
@@ -16,28 +18,22 @@ entity(name, description,(entity*)position){
 
 Player::~Player(){}
 
-void Player::Look(const Vector<mString>& commands) const{
-	printf("%s\n", &entity::SayMyName);
-	printf("%s\n", &entity::SayTheDescription);
-}
 
-
-/*
-void Player::go(world*World, dir tgo){
+void Player::go(world*World,const dir tgo){
 
 	if (tf == true){
 		int i = 0;
 		for (i = 0; i < (_EXITSNUMBER_); i++){
 
-			if (entity_->exit[i].src == position){
+			if (World->Exit[i]->src == position){
 
-				if (World->exit[i].direction == tgo){
+				if (World->Exit[i]->direction == tgo){
 
-					if (World->exit[i].open == true){
+					if (World->Exit[i]->open == true){
 
-						position = World->exit[i].dest;
+						this->position = World->Exit[i]->dest;
 
-						printf("\t %s \n\n %s.\n", World->exit[i].dest->name, World->exit[i].dest->description);
+						printf("\t %s \n\n %s.\n", World->Exit[i]->dest->SayMyName(), World->Exit[i]->SayTheDescription());
 
 						tf = false;
 
@@ -48,6 +44,8 @@ void Player::go(world*World, dir tgo){
 					else{
 
 						printf("hum... this door is close maybe you can open it with a key.. \n");
+						
+						tf = false;
 						break;
 
 					}//else close
@@ -64,19 +62,22 @@ void Player::go(world*World, dir tgo){
 
 void Player::look()const{
 
-	printf("\n %s", position->description);
+	printf("\t %s \n\n %s", position->SayMyName(), position->SayTheDescription());
+
+
+
 
 }//look room ------------------------------------------------------------
-void Player::lookdoor(world* World, dir look)const{
+void Player::lookdoor(world* World,const dir look)const{
 
 
 	for (int i = 0; i < _EXITSNUMBER_; i++){
 
-		if (World->exit[i].src == position){
+		if (World->Exit[i]->src == position){
 
-			if (World->exit[i].direction == look){
+			if (World->Exit[i]->direction == look){
 
-				printf("%s\n", World->exit[i].description);
+				printf("%s\n", World->Exit[i]->description);
 
 			}//if direction to look
 
@@ -87,21 +88,21 @@ void Player::lookdoor(world* World, dir look)const{
 
 }//look door------------------------------------------------------------
 
-void Player::close(world* World, dir close)const{
+void Player::close(world* World,const dir close){
 
 	for (int i = 0; i < _EXITSNUMBER_; i++){
 
-		if (World->exit[i].src == position){
+		if (World->Exit[i]->src == position){
 
-			if (World->exit[i].direction == close){
+			if (World->Exit[i]->direction == close){
 
-				if (World->exit[i].open == true){
+				if (World->Exit[i]->open == true){
 
-					World->exit[i].open = false;
+					World->Exit[i]->open = false;
 
 					closedoorFX();//FX closing door
 
-					printf("\n\n\t Maybe you close the door too hard...\n\n", World->exit[i].dest);
+					printf("\n\n\t Maybe you close the door too hard...\n\n", World->Exit[i]->dest);
 
 				}// close the door
 
@@ -119,21 +120,21 @@ void Player::close(world* World, dir close)const{
 
 }// close doors---------------------------------------------------------
 
-void Player::open(world* World, dir open)const{
+void Player::open(world* World,const dir open){
 
 	for (int i = 0; i < _EXITSNUMBER_; i++){
 
-		if (World->exit[i].src == position){
+		if (World->Exit[i]->src == position){
 
-			if (World->exit[i].direction == open){
+			if (World->Exit[i]->direction == open){
 
-				if (World->exit[i].open == false){
+				if (World->Exit[i]->open == false){
 
-					World->exit[i].open = true;
+					World->Exit[i]->open = true;
 
 					opendoorFX();//FX closing door
 
-					printf("\t iii.... the door was open..\n", World->exit[i].dest);
+					printf("\t iii.... the door was open..\n", World->Exit[i]->dest);
 
 				}// close the door
 
@@ -150,5 +151,3 @@ void Player::open(world* World, dir open)const{
 	}//for looking every valor
 
 }// open doors---------------------------------------------------------
-
-*/

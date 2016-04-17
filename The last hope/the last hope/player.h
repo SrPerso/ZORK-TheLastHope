@@ -1,12 +1,10 @@
-//-----------headers------------------
-#include "rooms.h"
-#include "Entity.h"
-
-//------------------------
-
 #ifndef _PLAYER_
 #define _PLAYER_
+//-----------headers------------------
 
+#include "Entity.h"
+#include "exits.h"
+//------------------------
 class world;
 class room;
 
@@ -14,21 +12,28 @@ class Player:public entity{
 public:
 
 	room* position;
-	//bool tf = true;
+	bool tf = true;
 
-	
-	//void go(world* World,const dir tgo);
-	//void look()const;
-	//void lookdoor(world* World, dir look)const;
-	//void open(world* World, dir open)const;
-	//void close(world* World, dir close)const;
-	
 public:
-	
+
+	//constructors-----
 
 	Player(const mString name, const mString description, room* position);
 	~Player();
-	void Look(const Vector<mString>& commands) const;
+
+	//----------
+	
+	void go(world* World, const dir tgo);
+	void look()const;
+	void lookdoor(world* World, const dir look)const;
+
+	void open(world* World, const dir open);
+	
+	void close(world* World, const dir close);
+
+
+
+	
 };//class player
 
 #endif

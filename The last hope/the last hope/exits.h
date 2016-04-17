@@ -11,7 +11,7 @@ class room;
 enum dir{ NORTH, SOUTH, EAST, WEST, UP, DOWN };
 
 class exits:public entity{
-private:
+	public:
 
 	room* dest =nullptr;
 	room* src =nullptr;

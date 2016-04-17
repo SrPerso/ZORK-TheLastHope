@@ -32,7 +32,7 @@ int main() {
 
 		do{
 
-			comand = TheWorld->checkings();
+			comand = false;//TheWorld->checkings();
 
 		} while (comand != false);
 

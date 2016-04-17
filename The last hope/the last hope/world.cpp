@@ -70,12 +70,10 @@ world::world() {
 	//PLANET 3-----------------------------
 
 
-
 	/* ---- Player ----*/
 	Player* Perca = new Player("SO-PERCA", "One normal guy that feels the force", Planet1_East);
 	player.push_back(Perca);
 	/* ---- Player ----*/
-
 
 
 
@@ -132,9 +130,9 @@ world::world() {
 }//builder
 world::~world() {
 
-	unsigned int i = 0;
-	for (entity* it = entity_[i]; it != entity_[entity_.size()]; ++i)
-		delete it;
-
+	Room.clear();
+	Exit.clear();
+	player.clear();
 	entity_.clear();
+
 }//destroyer

@@ -7,11 +7,11 @@ mString::mString(){}
 
 mString::mString(const char * str){
 
-	int len = strlen(str);
+	Capacity = strlen(str)+1;
 
-	buffer = new char[len + 1];
+	buffer = new char[Capacity];
 
-	strcpy_s(buffer, len + 1, str);
+	strcpy_s(buffer, Capacity, str);
 	printf("\nbuilded\n");
 
 }//builder
@@ -19,11 +19,11 @@ mString::mString(const char * str){
 mString::mString(const mString & str){
 
 
-	int len = strlen(buffer);
+	Capacity = strlen(str.buffer)+1;
 
-	buffer = new char[len + 1];
+	buffer = new char[Capacity];
 
-	strcpy_s(buffer, len + 1, buffer);
+	strcpy_s(buffer, Capacity, str.buffer);
 	printf("\n copy builded\n");
 
 }//copybuilder

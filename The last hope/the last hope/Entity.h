@@ -16,7 +16,7 @@ enum EntityType{
 
 class entity{
 
-private:
+public:
 	mString name;
 	mString description;
 	entity* parent;
