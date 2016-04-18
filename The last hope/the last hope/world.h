@@ -17,7 +17,7 @@ public:
 
 	world();//build
 	~world();// destroy
-	//void go(const dir tgo);
+	
 	bool checkinloop();
 	void createWorld();
 };//class world

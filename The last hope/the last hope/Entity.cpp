@@ -19,8 +19,8 @@ EntityType entity::SaytheType(){
 
 void entity::look()const{
 
-	printf("%s\n", name);
-	printf("%s\n", description);
+	printf("\n\t \t%s\n\n", name);
+	printf("\t%s\n\n", description);
 
 }//print everywhere the name and the description
 

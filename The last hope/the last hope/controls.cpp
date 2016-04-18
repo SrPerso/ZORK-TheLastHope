@@ -18,7 +18,7 @@ bool world::checkinloop(){
 
 	char str[80];
 
-	printf("\n\t -What do you want to do now?\n\n\t\t");
+	printf("\n\n\t - What do you want to do now?\n\n\t\t>> ");
 	fflush(stdin);
 
 	gets_s(str);//takes the str
@@ -30,11 +30,6 @@ bool world::checkinloop(){
 		return true;
 	}
 
-	player[0]->tf = false;
-	/*if ( str[0] != NULL && str[0] != ' '){
-		printf("HODOR!\n");
-		return true;
-	}//if*/
 	Vector<mString*> commandments = token1.Tokenize();
 	
 	commandments.shrink_to_fit();
@@ -129,9 +124,12 @@ bool world::checkinloop(){
 			system("cls");
 			return true;
 		}//CLEAN
-		
+
+		else if (*command0 == "stats" || *command0 == "Stats" || *command0 == "sta" || *command0 == "STATS"){
+			player[0]->stats();
+		}//CLEAN
 		else {
-			printf("Maybe you speak Murlok language but im not.. \n");
+			printf("\n      Maybe you speak Murlok language but im not.. \n");
 		}
 
 	}//if 1---------------------------------------------------
@@ -139,7 +137,7 @@ bool world::checkinloop(){
 	//---------------------------------------------------
 
 	//if 2--------------------------------------------------
-	if (size == 2 && command2 == nullptr){
+	else if (size == 2 && command2 == nullptr){
 
 		if (*command0 == "look" || *command0 == "l" || *command0 == "Look" || *command0 == "LOOK"){
 
@@ -241,12 +239,18 @@ bool world::checkinloop(){
 		else if (*command0 == "Drop" || *command0 == "drop" || *command0 == "DROP"){
 			player[0]->drop(*command1);
 
-			if (*command1 == "THEBASS" || *command1 == "thebass"){
-
-				intro(); //EASTEREGG it is going to be modificated
-			}
-
+			if (*command1 == "THEBASS" || *command1 == "thebass"){	intro(); 	}
 		}
+
+		else if (*command0 == "Equip" || *command0 == "equip")
+		{
+			player[0]->equip(this, *command1);
+		}
+		else if (*command0 == "Unequip" || *command0 == "unequip")
+		{
+			player[0]->unequip(this,*command1);
+		}
+
 		else {
 			printf("Maybe you speak Murlok language but im not.. \n");
 		}
@@ -254,23 +258,34 @@ bool world::checkinloop(){
 
 	// --------------------------------------------------
 
-	//if 3--------------------------------------------------
-	/*if (size== 3){
+	//if 3-------------------------
 
+	else if (size == 3){
 
-	else {
-		printf("Maybe you speak Murlok language but im not.. \n");
-	}
-}	*/	
+		if (*command0 == "Drop" || *command0 == "drop" || *command0 == "DROP"){
+
+			if ((*command1 == "THE" || *command1 == "the") && (*command2 == "BASS" || *command2 == "bass")){
+
+				intro(); //EASTEREGG it is going to be modificated
+			}
+			else {
+
+			}
+
+		}
+		else {
+			printf("Maybe you speak Murlok language but im not.. \n");
+		}
+	}		
 	//if 3--------------------------------------------------
 
 	// --------------------------------------------------
 
 	//if 4--------------------------------------------------
-	if (size == 4){
+	else if (size == 4){
 		if ((*command0 == "Get" || *command0 == "get") && (*command2 == "from") && (*command3 == "toolkit" || *command3 == "monkeyshit")){
 		
-			player[0]->get(this, commandments[1]->C_str());
+			player[0]->get(this, commandments[1]->C_str(), commandments[3]->C_str());
 		}
 
 
@@ -278,6 +293,8 @@ bool world::checkinloop(){
 			printf("Maybe you speak Murlok language but im not.. \n");
 		}
 	}
+
+	player[0]->noStop = true;
 	return true;
 }//check in loop
 

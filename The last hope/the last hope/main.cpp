@@ -26,15 +26,16 @@ int main() {
 		ReportMemoryLeaks();
 
 		world* TheWorld=new world;//for asign dinamic 
-		bool comand = true;
+		bool game_on = true;
 		
 		do{
 
-			comand = TheWorld->checkinloop();
+			game_on = TheWorld->checkinloop();
 
-		} while (comand != false);
+		} while (game_on != false);
 
 		delete TheWorld;
+
 		//credits();  //credits
 
 		return 0;

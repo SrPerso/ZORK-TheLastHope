@@ -156,7 +156,7 @@ public:
 			Capacity = num_elements;
 			temp = new TYPE[Capacity];
 
-			for (int i = 0; i < Capacity; i++){
+			for (uint i = 0; i < Capacity; i++){
 
 				temp[i] = buffer[i];
 			

@@ -11,6 +11,11 @@
 //------------------------
 
 world::world() {
+	createWorld();
+}//builder
+
+void world::createWorld(){
+
 	//ROOOMS
 
 	//PLANET 1----------------
@@ -138,11 +143,19 @@ world::world() {
 	//DURO--
 
 
-	Item* Stone = new Item("Stone", "you can broke a window with it", Planet1_West);
+	Item* Stone = new Item("Stone", "you can broke a window with it", Planet1_East);
 	item.push_back(Stone);
+	//[
+	Stone->attack = 15;
+	Stone->attackspeed = 1;
+	//]
 
 	Item* Stick = new Item("Stick", " you can use it for kick someone or something", Planet1_East);
 	item.push_back(Stick);
+	//[
+	Stick->attack = 10;
+	Stick->attackspeed = 2;
+	//]
 
 	Item* Target = new Item("Target", "you can enter to some ship.", Planet1_Cave);
 	item.push_back(Target);
@@ -152,9 +165,17 @@ world::world() {
 
 	Item* Laser_Sword = new Item("Laser Sword", "old weapon, maybe the rey’ sword, can attack", Planet1_Ship);
 	item.push_back(Laser_Sword);
+	//[
+	Laser_Sword->attack = 50;
+	Laser_Sword->attackspeed = 2;
+	//]
 
 	Item* Blazzer = new Item("Blazzer", "weapon, pistol, can attack.", Planet2_Outside);
 	item.push_back(Blazzer);
+	//[
+	Blazzer->attack = 10;
+	Blazzer->attackspeed = 3;
+	//]
 
 	Item* sensor = new Item("Sensor", "it can scan where is the princess", Planet2_Kingsroom);
 	item.push_back(sensor);
@@ -163,14 +184,29 @@ world::world() {
 	item.push_back(Cable);
 
 	// ITEMS_------------------------------
+	Room[1]->RoomItems.push_back(item[0]);//stone
 
-}//builder
+	Room[1]->RoomItems.push_back(item[1]);//stick
+
+	Room[8]->RoomItems.push_back(item[2]);//targed
+
+	Room[5]->RoomItems.push_back(item[3]);//diamond
+
+	Room[0]->RoomItems.push_back(item[4]);//lasser
+
+	Room[3]->RoomItems.push_back(item[5]);//blazzer
+
+	Room[11]->RoomItems.push_back(item[6]);//sensor
+
+	Room[0]->RoomItems.push_back(item[7]);//cable
+
+}
 world::~world() {
 
-/*	Room.clear();
-	Exit.clear();
+	item.clear();
 	player.clear();
+	Room.clear();
+	Exit.clear();
 
-*/
 }//destroyer
 

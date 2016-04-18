@@ -8,14 +8,14 @@ enum EntityType{
 
 		ENTITY,
 		ROOM,
-		EXIT,//exit
+		EXIT,
 		ITEM,
 		PLAYER,
 
 };
 
 class entity{
-private:
+public:
 	mString name;
 	mString description;
 	
@@ -23,7 +23,7 @@ public:
 
 	
 	EntityType type = ENTITY;// TYPE ENTITY ENTITY
-	Vector<entity*> entity_;//vector of entities  //QUITAR
+	Vector<entity*> Entity;//vector of entities  //QUITAR
 
 	entity(const char* name, const char* description, EntityType thetype);//MMAYUS
 
