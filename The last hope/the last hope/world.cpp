@@ -166,10 +166,10 @@ world::world() {
 }//builder
 world::~world() {
 
-	Room.clear();
+/*	Room.clear();
 	Exit.clear();
 	player.clear();
 
-
+*/
 }//destroyer
 

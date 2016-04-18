@@ -12,8 +12,8 @@
 #include "global.h"
 //------------------------
 
-Player::Player(const mString name, const mString description, room* position): 
-entity(name, description,(entity*)position){
+Player::Player(const char* name, const char* description, room* position) :
+entity(name, description,PLAYER),position(position){
 	type = PLAYER;
 }
 
@@ -34,7 +34,7 @@ void Player::go(world*World,const dir tgo){
 
 						position = World->Exit[i]->dest;
 
-						printf("\t %s \n\n %s.\n", World->Exit[i]->dest->SayMyName(), World->Exit[i]->SayTheDescription());
+						printf("\t %s \n\n%s\n", position->SayMyName(), position->SayTheDescription());
 
 						tf = false;
 

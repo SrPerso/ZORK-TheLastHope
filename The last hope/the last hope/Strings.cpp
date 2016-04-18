@@ -3,6 +3,7 @@
 #include <iostream>
 #define _CRT_SECURE_NO_WARNINGS
 //-------------construuctors--------------- 
+
 mString::mString(){
 }
 
@@ -46,12 +47,6 @@ unsigned int mString::length()const{
 
 
 
-mString mString::C_C_str()const{
-
-	mString copy(buffer);
-	return copy;
-}
-
 char* mString::C_str()const{
 
 	return buffer;
@@ -80,6 +75,9 @@ void mString::shrink_to_fit()
 		delete[] buffer;
 		buffer = new char[Capacity];
 	}
+	else{
+		printf("the cap");
+	}
 }
 
 Vector<mString*> mString::Tokenize(){
@@ -93,6 +91,8 @@ Vector<mString*> mString::Tokenize(){
 		}
 		return token;
 }//tokenizee
+
+
 
 
 

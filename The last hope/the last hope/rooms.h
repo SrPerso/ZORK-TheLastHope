@@ -11,7 +11,7 @@
 
 class room:public entity{
 public:
-	room(const mString name, const mString description);
+	room(const char* name, const char* description);
 	~room();
 };//class room 
 

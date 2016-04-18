@@ -3,8 +3,8 @@
 
 
 
-exits::exits(const mString name, const mString name_dest, const mString description, room* origin, room* dest, bool open, dir direction) :
-entity(name, description, (entity*)src), dest(dest), name_dest(name_dest), open(true), locked(false), key(NULL), direction(direction){
+exits::exits(const char* name, const char* name_dest, const char*  description, room* origin, room* dest, bool open, dir direction):
+entity(name, description, EXITS), dest(dest), name_dest(name_dest), open(true), locked(false), key(NULL), direction(direction){
 	type = EXITS;
 
 }

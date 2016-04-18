@@ -15,7 +15,6 @@ enum EntityType{
 };
 
 class entity{
-
 public:
 	mString name;
 	mString description;
@@ -23,14 +22,14 @@ public:
 	
 public:
 
-	EntityType type = ENTITY;// TYPE ENTITY ENTITY
+	EntityType type;// TYPE ENTITY ENTITY
 
 	Vector<entity*> entity_;//vector of entitys
 
-	entity(const mString name, const mString description, entity* parent);
+	entity(const char* name, const char* description, EntityType thetype);
 
-	const mString SayMyName();
-	const mString SayTheDescription();
+	char* SayMyName()const;
+	char* SayTheDescription()const;
 	const EntityType SaytheType();
 
 	virtual void look();

@@ -18,7 +18,7 @@ public:
 
 	//constructors-----
 
-	Player(const mString name, const mString description, room* position);
+	Player(const char* name, const char* description, room* position);
 	~Player();
 
 	//----------
@@ -32,7 +32,7 @@ public:
 	void close(world* World, const dir close);
 
 	void Inventory()const;
-	void Pick(mString item);
+	void pick(mString item);
 	void drop(mString item);
 	
 };//class player

@@ -1,15 +1,13 @@
 #ifndef _VECTOR_
 #define _VECTOR_
 
-#define MAX 16
+#define MAX 20
 
 #include <assert.h>
 class mString;
 template <class TYPE>
 
 class Vector{
-	friend class mString;
-
 public:
 	TYPE* buffer;
 	unsigned int Capacity;

@@ -20,7 +20,6 @@ public:
 
 	unsigned int length()const;
 	char* C_str()const;
-	mString C_C_str()const;
 	bool empty()const;
 	unsigned int capacity()const;
 	void clean();

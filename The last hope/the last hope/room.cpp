@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "strings.h"
 
-room::room(const mString name, const mString description) : entity(name, description,nullptr){
+room::room(const char* name, const char* description) : entity(name, description,ROOM){
 	type = ROOM;
 }
 

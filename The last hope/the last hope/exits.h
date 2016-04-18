@@ -25,7 +25,7 @@ class exits:public entity{
 public:
 
 
-	exits(const mString name, const mString description, const mString name_dest, room* src, room* dest, bool open, dir direction);
+	exits(const char* name, const char*  description, const char* name_dest, room* src, room* dest, bool open, dir direction);
 	~exits();
 
 	void Look() const;

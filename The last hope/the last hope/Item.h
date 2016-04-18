@@ -8,7 +8,8 @@ class Item : public entity
 protected:
 	entity* box;
 public:
-	Item(const mString name, const mString description, entity* box);
+	Item(const char* name, const char* description, entity* box);
+	Item(const  char* name, const  char* description, EntityType thetype, entity* box);
 	~Item();
 
 };

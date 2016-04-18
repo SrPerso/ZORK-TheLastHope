@@ -2,18 +2,18 @@
 #include <stdio.h>
 
 
-entity::entity(const mString name, const mString description,entity* parent):name(name), description(description), parent(parent){
+entity::entity(const char* name, const char* description, EntityType thetype) :name(name), description(description){
 	
 	type = ENTITY;
 
 }
 
-const mString entity::SayMyName(){
-	return name;
+char* entity::SayMyName()const{
+	return name.C_str();
 }//return the name of the entity
 
-const mString  entity::SayTheDescription(){
-	return description;
+char* entity::SayTheDescription()const{
+	return description.C_str();
 }//return the description
 
 const EntityType entity::SaytheType(){
