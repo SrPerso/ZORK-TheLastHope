@@ -84,51 +84,56 @@ bool world::checkinloop(){
 		}//LOOK
 
 
-		if (*command0 == "east" || *command0 == "e" || *command0 == "East" || *command0 == "EAST"){
+		else if (*command0 == "east" || *command0 == "e" || *command0 == "East" || *command0 == "EAST"){
 			player[0]->go(this, EAST);
 		}//GO
-		if (*command0 == "north" || *command0 == "n" || *command0 == "North" || *command0 == "NORTH"){
+		else if (*command0 == "north" || *command0 == "n" || *command0 == "North" || *command0 == "NORTH"){
 			player[0]->go(this, NORTH);
 		}//GO
-		if (*command0 == "west" || *command0 == "w" || *command0 == "West" || *command0 == "WEST"){
+		else if (*command0 == "west" || *command0 == "w" || *command0 == "West" || *command0 == "WEST"){
 			player[0]->go(this, WEST);
 		}//GO
-		if (*command0 == "south" || *command0 == "s" || *command0 == "South" || *command0 == "EAST"){
+		else if (*command0 == "south" || *command0 == "s" || *command0 == "South" || *command0 == "EAST"){
 			player[0]->go(this, SOUTH);
 		}//GO
-		if (*command0 == "up" || *command0 == "u" || *command0 == "Up" || *command0 == "UP"){
+		else if (*command0 == "up" || *command0 == "u" || *command0 == "Up" || *command0 == "UP"){
 			player[0]->go(this, DOWN);
 		}//GO
-		if (*command0 == "down" || *command0 == "d" || *command0 == "Down" || *command0 == "DOWN"){
+		else if (*command0 == "down" || *command0 == "d" || *command0 == "Down" || *command0 == "DOWN"){
 			player[0]->go(this, DOWN);
 		}//GO
 
-		if (*command0 == "inventory" || *command0 == "inv" || *command0 == "Inventory" || *command0 == "INVENTORY"){
+		else if (*command0 == "inventory" || *command0 == "inv" || *command0 == "Inventory" || *command0 == "INVENTORY"){
 			player[0]->Inventory();
 		}
 
-		if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
+		else if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
 			printf("try again");
-			return true;
+
 		}//OPEN
 
-		if (*command0 == "close" || *command0 == "c" || *command0 == "Close" || *command0 == "CLOSE"){
+		else if (*command0 == "close" || *command0 == "c" || *command0 == "Close" || *command0 == "CLOSE"){
 			printf("try again");
-			return true;
+
 		}//CLOSE
 
-		if (*command0 == "help" || *command0 == "h" || *command0 == "Help" || *command0 == "HELP"){
+		else if (*command0 == "help" || *command0 == "h" || *command0 == "Help" || *command0 == "HELP"){
 			help();
 		}//HELP
 
-		if (*command0 == "quit" || *command0 == "q" || *command0 == "Quit" || *command0 == "QUIT"){
+		else if (*command0 == "quit" || *command0 == "q" || *command0 == "Quit" || *command0 == "QUIT"){
 			return false;
 		}//QUIT
 
-		if (*command0 == "clean" || *command0 == "Cle" || *command0 == "Clean" || *command0 == "CLEAN"){
+		else if (*command0 == "clean" || *command0 == "Cle" || *command0 == "Clean" || *command0 == "CLEAN"){
 			system("cls");
 			return true;
 		}//CLEAN
+		
+		else {
+			printf("Maybe you speak Murlok language but im not.. \n");
+		}
+
 	}//if 1---------------------------------------------------
 
 	//---------------------------------------------------
@@ -141,112 +146,138 @@ bool world::checkinloop(){
 			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
 				player[0]->lookdoor(this, EAST);
 			}
-			if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
+			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
 				player[0]->lookdoor(this, NORTH);
 			}
-			if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
+			else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
 				player[0]->lookdoor(this, WEST);
 			}
-			if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
+			else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
 				player[0]->lookdoor(this, SOUTH);
 			}
-			if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
+			else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
 				player[0]->lookdoor(this, DOWN);
 			}
-			if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
+			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
 				player[0]->lookdoor(this, DOWN);
 			}
 
 		}//look------------------------------------------------------------------------------------
 
 
-		if (*command0 == "go" || *command0 == "g" || *command0 == "Go" || *command0 == "GO"){
+		else if (*command0 == "go" || *command0 == "g" || *command0 == "Go" || *command0 == "GO"){
 
 			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
 				player[0]->go(this, EAST);
 			}
-			if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
+			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
 				player[0]->go(this, NORTH);
 			}
-			if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
+			else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
 				player[0]->go(this, WEST);
 			}
-			if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
+			else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
 				player[0]->go(this, SOUTH);
 			}
-			if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
+			else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
 				player[0]->go(this, DOWN);
 			}
-			if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
+			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
 				player[0]->go(this, DOWN);
 			}
 
 		}//go------------------------------------------------------------------------------------
 
-		if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
+		else if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
 
 			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
 				player[0]->open(this, EAST);
 			}
-			if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
+			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
 				player[0]->open(this, NORTH);
 			}
-			if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
+			else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
 				player[0]->open(this, WEST);
 			}
-			if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
+			else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
 				player[0]->open(this, SOUTH);
 			}
-			if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
+			else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
 				player[0]->open(this, DOWN);
 			}
-			if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
+			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
 				player[0]->open(this, DOWN);
 			}
 
 		}//open------------------------------------------------------------------------------------
 
-		if (*command0 == "close" || *command0 == "c" || *command0 == "Close" || *command0 == "CLOSE"){
+		else if (*command0 == "close" || *command0 == "c" || *command0 == "Close" || *command0 == "CLOSE"){
 
 			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
 				player[0]->close(this, EAST);
 			}
-			if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
+			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
 				player[0]->close(this, NORTH);
 			}
-			if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
+			else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
 				player[0]->close(this, WEST);
 			}
-			if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
+			else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
 				player[0]->close(this, SOUTH);
 			}
-			if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
+			else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
 				player[0]->close(this, DOWN);
 			}
-			if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
+			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
 				player[0]->close(this, DOWN);
 			}
 
 		}//CLOSE------------------------------------------------------------------------------------
 
-		if (*command0 == "Pick" || *command0 == "pick" || *command0 == "PICK"){
+		else if (*command0 == "Pick" || *command0 == "pick" || *command0 == "PICK"){
 			player[0]->pick(*command1);
 		}
-		if (*command0 == "Drop" || *command0 == "drop" || *command0 == "DROP"){
+
+		else if (*command0 == "Drop" || *command0 == "drop" || *command0 == "DROP"){
 			player[0]->drop(*command1);
 
 			if (*command1 == "THEBASS" || *command1 == "thebass"){
 
 				intro(); //EASTEREGG it is going to be modificated
 			}
-		}
 
+		}
+		else {
+			printf("Maybe you speak Murlok language but im not.. \n");
+		}
 	}//if 2--------------------------------------------------
 
 	// --------------------------------------------------
 
 	//if 3--------------------------------------------------
+	/*if (size== 3){
 
+
+	else {
+		printf("Maybe you speak Murlok language but im not.. \n");
+	}
+}	*/	
+	//if 3--------------------------------------------------
+
+	// --------------------------------------------------
+
+	//if 4--------------------------------------------------
+	if (size == 4){
+		if ((*command0 == "Get" || *command0 == "get") && (*command2 == "from") && (*command3 == "toolkit" || *command3 == "monkeyshit")){
+		
+			player[0]->get(this, commandments[1]->C_str());
+		}
+
+
+		else {
+			printf("Maybe you speak Murlok language but im not.. \n");
+		}
+	}
 	return true;
 }//check in loop
 

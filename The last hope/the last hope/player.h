@@ -22,7 +22,7 @@ public:
 	~Player();
 
 	//----------
-	
+	//TODO ZORK 1
 	void go(world* World, const dir tgo);
 	void look()const;
 	void lookdoor(world* World, const dir look)const;
@@ -30,11 +30,11 @@ public:
 	void open(world* World, const dir open);
 	
 	void close(world* World, const dir close);
-
+	//TODO ZORK 2
 	void Inventory()const;
 	void pick(mString item);
 	void drop(mString item);
-	
+	void get(world* World, mString item);
 };//class player
 
 #endif

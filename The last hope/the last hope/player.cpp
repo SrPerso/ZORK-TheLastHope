@@ -21,9 +21,10 @@ Player::~Player(){}
 
 
 void Player::go(world*World,const dir tgo){
-
+	
 	if (tf == true){
-		int i = 0;
+
+		uint i = 0;
 		for (i = 0; i < (_EXITSNUMBER_); i++){
 
 			if (World->Exit[i]->src == position){
@@ -34,8 +35,8 @@ void Player::go(world*World,const dir tgo){
 
 						position = World->Exit[i]->dest;
 
-						printf("\t %s \n\n%s\n", position->SayMyName(), position->SayTheDescription());
-
+						printf("\t %s \n\n", position->SayMyName());
+						printf("\t %s \n\n", position->SayTheDescription());
 						tf = false;
 
 						break;
@@ -166,8 +167,8 @@ void Player::Inventory()const
 	if (entity_.size() == 0){
 		printf("You haven't any items ry now\n");
 	}
-	for (unsigned int i = 0; entity_.size() > i; i++)
-	{
+	for (unsigned int i = 0; entity_.size() > i; i++){
+
 		printf("%s\n", this->entity_[i]->SayMyName());
 	}
 }//inventoryy ----------------------------------------------------
@@ -175,13 +176,16 @@ void Player::Inventory()const
 void Player::pick(mString item)
 {
 	if (entity_.size() < 1){
-		for (uint i = 0; position->entity_.size() > i; i++)
-		{
+		for (uint i = 0; position->entity_.size() > i; i++){
+
 			if (item == position->entity_[i]->SayMyName()){
+
 				entity_.push_back(position->entity_[i]);
+
 				printf("You picked up a %s", position->entity_[i]->SayMyName());
-				position->entity_.Remove(i);
-				return;
+				position->entity_.Remove(i);//delete the object in the position
+
+				break;
 			}
 		}
 		printf("There's nothing that you can pick");
@@ -195,13 +199,17 @@ void Player::pick(mString item)
 void Player::drop(mString item)
 {
 	if (entity_.size() > 0){
-		for (unsigned int i = 0; entity_.size() > i; i++)
+		for (uint i = 0; entity_.size() > i; i++)
 		{
 			if (item == entity_[i]->SayMyName()){
+
 				position->entity_.push_back(entity_[i]);
+
 				printf("You droped the %s", entity_[i]->SayMyName());
-				entity_.Remove(i);
-				return;
+
+				entity_.Remove(i);//delete the object in the position
+
+				break;
 			}
 		}
 		printf("You don't have this item try with otherone");
@@ -210,3 +218,45 @@ void Player::drop(mString item)
 		printf("You Drop all of your objects");
 	}
 }//DROOOPP THE BASSS .----------------------
+
+
+void Player::get(world* World, mString item){
+
+	if (position == World->Room[8] || position == World->Room[0]){
+
+		if (entity_.size() < _INVENTORY_SPACE_){
+
+			for (unsigned int i = 0; World->item[7]->entity_.size() > i; i++)
+			{
+				if (item == World->item[2]->entity_[i]->SayMyName() && World->item[2]->entity_[i]->type == ITEM){
+
+					printf("You got a targed from the monkey shit");
+		
+					entity_.push_back(World->item[2]->entity_[i]);//transfer
+
+					World->item[2]->entity_.Remove(i);//delete
+
+					break;
+
+				}
+				else if (item == World->item[7]->entity_[i]->SayMyName() && World->item[7]->entity_[i]->type == ITEM){
+
+					printf("You got a cable from the toolbox");
+
+					entity_.push_back(World->item[7]->entity_[i]);//transfer
+					
+					World->item[7]->entity_.Remove(i);//delete
+
+					break;
+
+				}
+			}
+			printf("Maybe you are wrong, there is nothing here");
+		}
+		
+		else{
+			printf("You have the bagg full");
+		}
+	}
+
+}//get ------------------------------------------------------
