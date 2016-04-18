@@ -10,7 +10,7 @@
 #include "exits.h"
 //------------------------
 
-world::world() {
+world::world(){
 	createWorld();
 }//builder
 
@@ -90,7 +90,7 @@ void world::createWorld(){
 	Exit.push_back(new exits("South", "There is a road to go in front of the ship.", "East", Room[4], Room[1], true, NORTH));
 	Exit.push_back(new exits("East", "It seems that the road leads south of the ship", "South", Room[1], Room[4], true, SOUTH));
 
-	Exit.push_back(new exits("East", "This cool door lead outside", "Ship", Room[0], Room[1], false, WEST));
+	Exit.push_back(new exits("East", "This cool door lead outside", "Ship", Room[0], Room[1], true, WEST));
 	Exit.push_back(new exits("Ship", "The ship’s door perhaps with a key could open", "East", Room[1], Room[0], true, EAST));
 
 	Exit.push_back(new exits("East", "It seems that the road leads north of the ship", "North", Room[1], Room[3], true, NORTH));
@@ -182,7 +182,8 @@ void world::createWorld(){
 
 	Item* Cable = new Item("Cable", "maybe could repair a starship", Planet1_South);
 	item.push_back(Cable);
-
+	Item* BOX = new Item("box", "it contains things", Planet1_Ship);
+	item.push_back(BOX);
 	// ITEMS_------------------------------
 	Room[1]->RoomItems.push_back(item[0]);//stone
 
@@ -199,6 +200,7 @@ void world::createWorld(){
 	Room[11]->RoomItems.push_back(item[6]);//sensor
 
 	Room[0]->RoomItems.push_back(item[7]);//cable
+	
 	Room[0]->RoomItems.push_back(item[8]);// box
 
 	item[8]->BOXItems.push_back(item[7]);

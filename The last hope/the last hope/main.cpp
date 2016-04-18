@@ -19,13 +19,13 @@
 
 int main() {
 	
-		//preintro(); //intro
+		preintro(); //intro
 
 		system("cls");
 
 		ReportMemoryLeaks();
 
-		world* TheWorld=new world;//for asign dinamic 
+		world* TheWorld= new world;//for asign dinamic 
 		bool game_on = true;
 		
 		do{
@@ -36,7 +36,7 @@ int main() {
 
 		delete TheWorld;
 
-		//credits();  //credits
+		credits();  //credits
 
 		return 0;
 	
