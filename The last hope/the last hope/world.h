@@ -9,16 +9,15 @@
 //------------------------
 class world {
 public:
-
-	
+		
 	Vector<room*> Room;
 	Vector<exits*>Exit;
-	Vector<Player*> player;
+	Vector<Player*>player;
 	Vector<Item*> item;
 
 	world();//build
 	~world();// destroy
-
+	//void go(const dir tgo);
 	bool checkinloop();
 	void createWorld();
 };//class world

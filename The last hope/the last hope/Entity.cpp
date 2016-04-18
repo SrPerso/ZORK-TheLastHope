@@ -3,9 +3,6 @@
 
 
 entity::entity(const char* name, const char* description, EntityType thetype) :name(name), description(description){
-	
-	type = ENTITY;
-
 }
 
 char* entity::SayMyName()const{
@@ -16,11 +13,11 @@ char* entity::SayTheDescription()const{
 	return description.C_str();
 }//return the description
 
-const EntityType entity::SaytheType(){
+EntityType entity::SaytheType(){
 	return type;
 }//return the type of the entity
 
-void entity::look(){
+void entity::look()const{
 
 	printf("%s\n", name);
 	printf("%s\n", description);

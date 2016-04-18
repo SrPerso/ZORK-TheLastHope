@@ -178,6 +178,7 @@ public:
 		this->shrink_to_fit();
 	}
 
+
 };// VECTOR CLASS
 
 #endif

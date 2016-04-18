@@ -30,7 +30,7 @@ bool world::checkinloop(){
 		return true;
 	}
 
-
+	player[0]->tf = false;
 	/*if ( str[0] != NULL && str[0] != ' '){
 		printf("HODOR!\n");
 		return true;
@@ -144,22 +144,22 @@ bool world::checkinloop(){
 		if (*command0 == "look" || *command0 == "l" || *command0 == "Look" || *command0 == "LOOK"){
 
 			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
-				player[0]->lookdoor(this, EAST);
+				player[0]->look(this, EAST);
 			}
 			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
-				player[0]->lookdoor(this, NORTH);
+				player[0]->look(this, NORTH);
 			}
 			else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
-				player[0]->lookdoor(this, WEST);
+				player[0]->look(this, WEST);
 			}
 			else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
-				player[0]->lookdoor(this, SOUTH);
+				player[0]->look(this, SOUTH);
 			}
 			else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
-				player[0]->lookdoor(this, DOWN);
+				player[0]->look(this, DOWN);
 			}
 			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
-				player[0]->lookdoor(this, DOWN);
+				player[0]->look(this, DOWN);
 			}
 
 		}//look------------------------------------------------------------------------------------

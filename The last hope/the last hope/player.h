@@ -3,7 +3,6 @@
 //-----------headers------------------
 
 #include "Entity.h"
-#include "exits.h"
 //------------------------
 class world;
 class room;
@@ -22,19 +21,22 @@ public:
 	~Player();
 
 	//----------
-	//TODO ZORK 1
-	void go(world* World, const dir tgo);
-	void look()const;
-	void lookdoor(world* World, const dir look)const;
 
-	void open(world* World, const dir open);
+	//TODO ZORK 1
+	void go(world* World, dir tgo);//quitar const
+	void look()const;
+	void look(world* World, dir look)const;//sobrecargar +
+
+	void open(world* World, dir open);
 	
-	void close(world* World, const dir close);
+	void close(world* World, dir close);
+
 	//TODO ZORK 2
-	void Inventory()const;
-	void pick(mString item);
-	void drop(mString item);
-	void get(world* World, mString item);
+
+	void Inventory()const;//lookinventory
+	void pick(const mString item);//const mString
+	void drop(const mString item);
+	void get(world* World,const mString item);//const mString
 };//class player
 
 #endif

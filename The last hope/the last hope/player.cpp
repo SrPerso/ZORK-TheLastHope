@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+
 //-----------headers------------------
 #include "strings.h"
 #include "world.h"
@@ -10,11 +10,11 @@
 #include "rooms.h"
 #include "vector.h"
 #include "global.h"
+#include "exits.h"
 //------------------------
 
 Player::Player(const char* name, const char* description, room* position) :
 entity(name, description,PLAYER),position(position){
-	type = PLAYER;
 }
 
 Player::~Player(){}
@@ -22,21 +22,21 @@ Player::~Player(){}
 
 void Player::go(world*World,const dir tgo){
 	
-	if (tf == true){
+	if (tf == true){/// quitar
 
-		uint i = 0;
-		for (i = 0; i < (_EXITSNUMBER_); i++){
+		
+		 for (uint i = 0; i < (_EXITSNUMBER_); i++){//size
 
-			if (World->Exit[i]->src == position){
-
+			if (World->Exit[i]->src == position){//negarlo y ponerle continye
+//manteniendo el nivel de anidaccion
 				if (World->Exit[i]->direction == tgo){
 
 					if (World->Exit[i]->open == true){
 
 						position = World->Exit[i]->dest;
-
-						printf("\t %s \n\n", position->SayMyName());
-						printf("\t %s \n\n", position->SayTheDescription());
+						//position->look();
+						printf("\t %s \n\n", World->Exit[i]->dest->SayMyName());
+						printf("\t %s \n\n", World->Exit[i]->dest->SayTheDescription());
 						tf = false;
 
 						break;
@@ -77,7 +77,7 @@ void Player::look()const{
 	}
 
 }//look room ------------------------------------------------------------
-void Player::lookdoor(world* World,const dir look)const{
+void Player::look(world* World,dir look)const{
 
 
 	for (int i = 0; i < _EXITSNUMBER_; i++){
@@ -97,7 +97,7 @@ void Player::lookdoor(world* World,const dir look)const{
 
 }//look door------------------------------------------------------------
 
-void Player::close(world* World,const dir close){
+void Player::close(world* World, dir close){
 
 	for (int i = 0; i < _EXITSNUMBER_; i++){
 
@@ -129,7 +129,7 @@ void Player::close(world* World,const dir close){
 
 }// close doors---------------------------------------------------------
 
-void Player::open(world* World,const dir open){
+void Player::open(world* World,dir open){
 
 	for (int i = 0; i < _EXITSNUMBER_; i++){
 
@@ -173,7 +173,7 @@ void Player::Inventory()const
 	}
 }//inventoryy ----------------------------------------------------
 
-void Player::pick(mString item)
+void Player::pick(const mString item)
 {
 	if (entity_.size() < 1){
 		for (uint i = 0; position->entity_.size() > i; i++){
@@ -196,7 +196,7 @@ void Player::pick(mString item)
 }//pickkkk -----------------------------------
 
 
-void Player::drop(mString item)
+void Player::drop(const mString item)
 {
 	if (entity_.size() > 0){
 		for (uint i = 0; entity_.size() > i; i++)
@@ -220,7 +220,7 @@ void Player::drop(mString item)
 }//DROOOPP THE BASSS .----------------------
 
 
-void Player::get(world* World, mString item){
+void Player::get(world* World,const mString item){
 
 	if (position == World->Room[8] || position == World->Room[0]){
 

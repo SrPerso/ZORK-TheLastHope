@@ -3,7 +3,7 @@
 #include "strings.h"
 
 room::room(const char* name, const char* description) : entity(name, description,ROOM){
-	type = ROOM;
+
 }
 
 room::~room(){
