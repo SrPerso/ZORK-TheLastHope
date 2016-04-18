@@ -90,8 +90,8 @@ void world::createWorld(){
 	Exit.push_back(new exits("South", "There is a road to go in front of the ship.", "East", Room[4], Room[1], true, NORTH));
 	Exit.push_back(new exits("East", "It seems that the road leads south of the ship", "South", Room[1], Room[4], true, SOUTH));
 
-	Exit.push_back(new exits("East", "This cool door lead outside", "Ship", Room[0], Room[1], false, EAST));
-	Exit.push_back(new exits("Ship", "The ship’s door perhaps with a key could open", "East", Room[1], Room[0], true, WEST));
+	Exit.push_back(new exits("East", "This cool door lead outside", "Ship", Room[0], Room[1], false, WEST));
+	Exit.push_back(new exits("Ship", "The ship’s door perhaps with a key could open", "East", Room[1], Room[0], true, EAST));
 
 	Exit.push_back(new exits("East", "It seems that the road leads north of the ship", "North", Room[1], Room[3], true, NORTH));
 	Exit.push_back(new exits("North", "There is a road to go in front of the ship.", "East", Room[3], Room[1], true, WEST));
@@ -199,14 +199,25 @@ void world::createWorld(){
 	Room[11]->RoomItems.push_back(item[6]);//sensor
 
 	Room[0]->RoomItems.push_back(item[7]);//cable
+	Room[0]->RoomItems.push_back(item[8]);// box
 
+	item[8]->BOXItems.push_back(item[7]);
+	
 }
 world::~world() {
 
-	item.clear();
-	player.clear();
+	for (unsigned int i = 0; i < Room.size(); i++){
+		delete Room[i];
+	}
+	for (unsigned int i = 0; i < Exit.size(); i++){
+		delete Exit[i];
+	}
+	for (unsigned int i = 0; i < item.size(); i++){
+		delete item[i];
+	}
 	Room.clear();
 	Exit.clear();
+	item.clear();
 
 }//destroyer
 

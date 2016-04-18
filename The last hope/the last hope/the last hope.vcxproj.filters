@@ -27,9 +27,6 @@
     <ClCompile Include="extra.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="player.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="Strings.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
@@ -43,6 +40,9 @@
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>

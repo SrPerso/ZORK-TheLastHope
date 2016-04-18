@@ -4,13 +4,15 @@
 
 #include "Entity.h"
 #include "exits.h"
+#include "Item.h"
 //------------------------
 class world;
 class room;
 
 class Player:public entity{
 public:
-
+	Vector <Item*>PlayerItems;
+	Vector <Item*>PlayerEquip;
 	room* position=nullptr;
 	bool noStop = true;
 	bool Item_Equiped = false;

@@ -68,9 +68,9 @@
     <ClCompile Include="Exits.cpp" />
     <ClCompile Include="extra.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="player.cpp" />
     <ClCompile Include="controls.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="player.cpp" />
     <ClCompile Include="room.cpp" />
     <ClCompile Include="Strings.cpp" />
     <ClCompile Include="world.cpp" />

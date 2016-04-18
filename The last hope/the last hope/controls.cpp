@@ -14,10 +14,12 @@
 
 bool world::checkinloop(){
 
+
+
 	fflush(stdin);
 
 	char str[80];
-
+	//player[0]->stats();
 	printf("\n\n\t - What do you want to do now?\n\n\t\t>> ");
 	fflush(stdin);
 
@@ -294,7 +296,11 @@ bool world::checkinloop(){
 		}
 	}
 
+
+
 	player[0]->noStop = true;
+
+
 	return true;
 }//check in loop
 
@@ -319,6 +325,9 @@ void help(){
 	printf("\t\t|       East    |       East	|\n");
 	printf("\t\t|       Top     |       Top	|\n");
 	printf("\t\t|       Bottom  |       Bottom  |\n");
+	printf("\t\t|  GET         |  PUT	|\n");
+	printf("\t\t|  PICK         |  DROP	|\n");
+
 	printf("\t\t|				|\n");
 	printf("\t\t|  HELP         |  EXIT		|\n");
 	printf("\t\t|                               |\n");
