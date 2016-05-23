@@ -12,27 +12,31 @@
 //------------------------
 
 
-void preintro(){
+bool preintro(){
 
 
 	printf("\n\n\n\n\n\n\t\t\tThis game can cause epileptic seizures,\n");
 	printf("\t\t\tif you are prone to suffer one of these\n ");
 	printf("\t\t\tattacks should skip the intro\n\n");
-	char* in= "n";
+
+	char in[2];
+
 	printf("\t Skip the intro? (y/n) \n\n\t\t");
-	fflush(stdin);
-
-	getchar();
-
-	scanf_s("%c", &in);
-	fflush(stdin);
 	
+	gets_s(in);
+	
+	mString intr(in);
+
 	system("color 0A");//black green
 
-	if (in != "y" || in != "s"){
+	if (intr != "n" || intr != "y" ){
+		printf("\t mmhh write 'n' or 'y' \nt\t");
+		return false;
+	}//if
 
+	else if (intr == "n"){
 		intro();
-
+		return true;
 	}//if
 
 	
@@ -46,6 +50,7 @@ void preintro(){
 	printf("\t you are in the east of the bured ship\n\n");
 	
 	system("pause");
+
 
 }
 

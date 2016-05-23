@@ -26,6 +26,7 @@ int main() {
 		ReportMemoryLeaks();
 
 		world* TheWorld= new world;//for asign dinamic 
+
 		bool game_on = true;
 		
 		do{

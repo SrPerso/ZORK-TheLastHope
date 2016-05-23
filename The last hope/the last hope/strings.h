@@ -30,6 +30,10 @@ public:
 	//operators --------------
 	bool operator == (const mString& str)const;
 	bool mString::operator == (const char* str)const;
+
+	bool operator != (const mString& str)const;
+	bool mString::operator != (const char* str)const;
+
 	void operator += (const mString& str);
 	void operator =(const mString& str);
 	mString operator + (const mString& str)const;

@@ -110,6 +110,19 @@ bool mString::operator == (const char* str)const{
 
 }
 
+
+bool mString::operator != (const mString& str)const{
+
+	return(strcmp(buffer, str.buffer) != 0);
+
+}
+
+bool mString::operator != (const char* str)const{
+
+	return(strcmp(buffer, str) != 0);
+
+}
+
 void mString::operator += (const mString& str){
 
 	if (str.length() + length() + 1 > Capacity)	{

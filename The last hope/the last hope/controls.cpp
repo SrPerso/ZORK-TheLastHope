@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <Windows.h>
+#include "conio.h"
 //----------includes------------------
 #include "global.h"
 #include "world.h"
@@ -14,16 +16,20 @@
 
 bool world::checkinloop(){
 
-
+	//- ------------------------------------------------------------
 
 	fflush(stdin);
 
 	char str[80];
-	//player[0]->stats();
+	
 	printf("\n\n\t - What do you want to do now?\n\n\t\t>> ");
 	fflush(stdin);
 
 	gets_s(str);//takes the str
+
+
+	//- ------------------------------------------------------------
+	
 
 	mString token1(str);
 
@@ -337,3 +343,60 @@ void help(){
 }//help
 
 
+void kbhit(char& returner){
+
+
+		char command[COMMANDBUFFER];
+
+		bool firsttimeinloop = true;
+
+		unsigned int currenttime = 0, initialtime = 0, charcommandnum = 0;
+
+
+		initialtime = GetTickCount();
+
+		while (1){
+
+			
+			currenttime = GetTickCount();
+			if (currenttime >= (initialtime + DELAY)){
+				printf("mmmh..\n");
+				initialtime = currenttime;
+			}
+
+			if (_kbhit())
+			{
+				if (charcommandnum < (COMMANDBUFFER - 2)){
+
+
+					command[charcommandnum] = _getch();
+					command[charcommandnum + 1] = '\0';
+
+					printf("String: %s\n", command);//print the state
+
+					charcommandnum++;
+
+					if (command[charcommandnum - 1] == '\r'){//if you push intro you send the string
+
+						printf("Your command is: %s\n", command);
+
+						
+
+						command[charcommandnum] = '\0';
+
+						charcommandnum = 0;
+						
+						break;
+					}
+				}
+				else{
+					command[COMMANDBUFFER - 1] = '\0';
+					
+					break;
+				}
+			}
+	
+		}
+
+
+}
