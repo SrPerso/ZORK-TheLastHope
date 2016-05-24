@@ -15,11 +15,11 @@
 #include "exits.h"
 #include "player.h"
 
-//------------------------
+//------------------------------------
 
 int main() {
-	
-		preintro(); //intro
+
+		//preintro(); //intro
 
 		system("cls");
 
@@ -31,7 +31,7 @@ int main() {
 		
 		do{
 
-			game_on = TheWorld->checkinloop();
+			game_on = kbhit(TheWorld);
 
 		} while (game_on != false);
 

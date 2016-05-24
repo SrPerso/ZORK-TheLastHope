@@ -6,6 +6,7 @@
 #include "rooms.h"
 #include "vector.h"
 #include "Item.h"
+#include "strings.h"
 //------------------------
 
 
@@ -20,7 +21,7 @@ public:
 	world();//build
 	~world();// destroy
 	
-	bool checkinloop();
+	bool checkinloop(mString&);
 	void createWorld();
 };//class world
 

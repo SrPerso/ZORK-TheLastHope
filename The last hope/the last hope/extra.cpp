@@ -12,7 +12,7 @@
 //------------------------
 
 
-bool preintro(){
+void preintro(){
 
 
 	printf("\n\n\n\n\n\n\t\t\tThis game can cause epileptic seizures,\n");
@@ -31,12 +31,12 @@ bool preintro(){
 
 	if (intr != "n" || intr != "y" ){
 		printf("\t mmhh write 'n' or 'y' \nt\t");
-		return false;
+		
 	}//if
 
 	else if (intr == "n"){
 		intro();
-		return true;
+		
 	}//if
 
 	
@@ -191,9 +191,9 @@ void closedoorFX(){
 }//close door FX
 
 void opendoorFX(){
-	int i;
+	
 
-	for (i = 0; i < 4; i++){
+	for (int i = 0; i < 4; i++){
 
 		system("cls");
 		
@@ -240,7 +240,42 @@ void opendoorFX(){
 }//open door FX
 
 
+void party(){
+	
 
+	for (int i = 0; i < 7; i++){
+
+		system("cls");
+		system("color f0");//white black
+
+
+		printf("\n\n\n\n\n");
+		printf("\n\t\t\t#####             __              #####\n");
+		printf("\t\t\t#( )# |          _( )__         | #( )#\n");
+		printf("\t\t\t##### |         /_    /         | #####\n");
+		printf("\t\t\t#| |# |     ___m/__ m/_____     | #| |#\n");
+		printf("\t\t\t# O # | ___#-x./++m/.x- #_____ _| # O #\n");
+		printf("\t\t\t#m.m# |/ @  |||###/||| @ ___ _   | #m.m#\n");
+		printf("\t\t\t#####///    ######/     _######  _ #####\n ");
+
+		if (i == 2){
+			system("color 0A");//black green
+		}//if
+		if (i == 4){
+
+			system("color f4");//white red
+		}//if
+		if (i == 6){
+			system("color 0A");//black green
+		}//if
+		else{
+
+			system("color f4");//white red
+
+		}//if
+	}//for
+
+}
 
 void credits(){
 	system("cls");

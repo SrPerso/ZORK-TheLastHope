@@ -32,7 +32,7 @@ mString::mString(const mString & str){
 
 mString::~mString(){
 
-	delete buffer;
+	delete[] buffer;
 
 }//destroyer
 

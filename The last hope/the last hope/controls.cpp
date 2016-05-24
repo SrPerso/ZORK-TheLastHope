@@ -14,26 +14,9 @@
 #include "vector.h"
 //------------------------
 
-bool world::checkinloop(){
+bool world::checkinloop(mString& token1){
 
-	//- ------------------------------------------------------------
-
-	fflush(stdin);
-
-	char str[80];
-	
-	printf("\n\n\t - What do you want to do now?\n\n\t\t>> ");
-	fflush(stdin);
-
-	gets_s(str);//takes the str
-
-
-	//- ------------------------------------------------------------
-	
-
-	mString token1(str);
-
-	if (token1 == "\0"){
+	if (token1.buffer == "\0"){
 		printf("HODOR\n");
 		return true;
 	}
@@ -274,7 +257,7 @@ bool world::checkinloop(){
 
 			if ((*command1 == "THE" || *command1 == "the") && (*command2 == "BASS" || *command2 == "bass")){
 
-				intro(); //EASTEREGG it is going to be modificated
+				party(); //EASTEREGG it is going to be modificated
 			}
 			else {
 
@@ -342,59 +325,61 @@ void help(){
 
 }//help
 
+bool kbhit(world*TheWorld){
 
-void kbhit(char& returner){
+		mString Stringcommands;
 
-
-		char command[COMMANDBUFFER];
-
-		bool firsttimeinloop = true;
+		char command[COMMANDBUFFER],character;
+	
+		bool firsttimeinloop = true, true_or_false = true;
 
 		unsigned int currenttime = 0, initialtime = 0, charcommandnum = 0;
 
-
+		printf("\n\n\t\t");
 		initialtime = GetTickCount();
-
+		
 		while (1){
 
-			
 			currenttime = GetTickCount();
-			if (currenttime >= (initialtime + DELAY)){
-				printf("mmmh..\n");
+
+			if (currenttime >= (initialtime + TIMETOPASS)){
+				printf("\n\t\t mmmh.. maybe you must write something\n\t\t");
 				initialtime = currenttime;
 			}
-
+		
 			if (_kbhit())
 			{
 				if (charcommandnum < (COMMANDBUFFER - 2)){
 
 
 					command[charcommandnum] = _getch();
+
+					character = command[charcommandnum];
+
+					printf("%c", character);
+
 					command[charcommandnum + 1] = '\0';
-
-					printf("String: %s\n", command);//print the state
-
+					
 					charcommandnum++;
 
-					if (command[charcommandnum - 1] == '\r'){//if you push intro you send the string
-
-						printf("Your command is: %s\n", command);
-
+					if (command[charcommandnum - 1] == '\r'){
 						
-
-						command[charcommandnum] = '\0';
+						printf("\n\t\t >> %s\n\t\t\n", command);
+						
+						command[charcommandnum - 1] = '\0';
 
 						charcommandnum = 0;
 						
-						break;
+						Stringcommands.buffer = command;
+
+						true_or_false = TheWorld->checkinloop(Stringcommands);
 					}
 				}
 				else{
 					command[COMMANDBUFFER - 1] = '\0';
-					
-					break;
-				}
+									}
 			}
+		
 	
 		}
 

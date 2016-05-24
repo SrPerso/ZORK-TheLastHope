@@ -182,5 +182,3 @@ public:
 };// VECTOR CLASS
 
 #endif
-
-// en el fondo solo neceitas un solo vector para 

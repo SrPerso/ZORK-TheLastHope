@@ -38,7 +38,7 @@ void world::createWorld(){
 	Room.push_back(Planet1_Forest);
 	//PLANET 1-----------------------------
 
-	//SPACE----------------
+	//SPACE---------------- 
 	room* Space_Space = new room("Space", "Space, a place where many would be and contemplate each of the planets that reside in the universe.");
 	Room.push_back(Space_Space);
 
@@ -185,6 +185,7 @@ void world::createWorld(){
 	Item* BOX = new Item("box", "it contains things", Planet1_Ship);
 	item.push_back(BOX);
 	// ITEMS_------------------------------
+
 	Room[1]->RoomItems.push_back(item[0]);//stone
 
 	Room[1]->RoomItems.push_back(item[1]);//stick
