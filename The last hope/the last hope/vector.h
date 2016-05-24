@@ -14,13 +14,13 @@ public:
 	unsigned int num_elements = 0;
 public:
 
-	Vector(){
+	Vector<TYPE>(){
 		Capacity = MAX;
 		buffer = new TYPE[Capacity];
 
 	}// constructor
 
-	Vector(const Vector&other){
+	Vector<TYPE>(const Vector<TYPE>&other){
 
 
 		Capacity = other.num_elements;
@@ -39,7 +39,7 @@ public:
 
 	}//constructor copy
 
-	Vector(unsigned int size){
+	Vector<TYPE>(unsigned int size){
 		buffer = new TYPE[size];
 	}
 

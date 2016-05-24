@@ -11,7 +11,7 @@
 class room:public entity{
 public:
 
-	Vector <Item*>RoomItems;
+
 	room(const char* name, const char* description);
 	~room();
 };//class room 

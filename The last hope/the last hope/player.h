@@ -4,15 +4,14 @@
 
 #include "Entity.h"
 #include "exits.h"
-#include "Item.h"
 //------------------------
 class world;
 class room;
 
 class Player:public entity{
 public:
-	Vector <Item*>PlayerItems;
-	Vector <Item*>PlayerEquip;
+	Vector <entity*>PlayerItems;
+	Vector <entity*>PlayerEquip;
 	room* position=nullptr;
 	bool noStop = true;
 	bool Item_Equiped = false;
@@ -33,9 +32,9 @@ public:
 	//----------
 
 	//TODO ZORK 1
-	void go(world* World, dir tgo);//quitar const
+	void go(world* World, dir tgo);
 	void look()const;
-	void look(world* World, dir look)const;//sobrecargar +
+	void look(world* World, dir look)const;
 
 	void open(world* World, dir open);
 	

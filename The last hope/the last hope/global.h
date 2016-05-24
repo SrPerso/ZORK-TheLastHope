@@ -1,5 +1,6 @@
 #ifndef _FUNTIONS_
-#define  _FUNTIONS_
+#define _FUNTIONS_
+
 #include "strings.h"
 #include "world.h"
 #include "Entity.h"

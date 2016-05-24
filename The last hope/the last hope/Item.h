@@ -8,9 +8,7 @@ class Item : public entity
 protected:
 	entity* box;
 public:
-
-	Vector <Item*>BOXItems;
-	
+			
 	int InInventory = false;
 	int attack = 0;
 	int attackspeed = 0;

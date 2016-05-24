@@ -1,7 +1,6 @@
 #include "Entity.h"
 #include <stdio.h>
 
-
 entity::entity(const char* name, const char* description, EntityType thetype) :name(name), description(description){
 }
 

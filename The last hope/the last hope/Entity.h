@@ -21,14 +21,20 @@ public:
 	
 public:
 
+	int InInventory = false;
+	int attack = 0;
+	int attackspeed = 0;
+
 	
 	EntityType type = ENTITY;// TYPE ENTITY ENTITY
-	Vector<entity*> Entity;//vector of entities  //QUITAR
+
+	Vector<entity*> theEntity;//vector of entities 
 
 	entity(const char* name, const char* description, EntityType thetype);//MMAYUS
 
 	char* SayMyName()const; //change))
 	char* SayTheDescription()const;
+
 	EntityType SaytheType();
 
 	virtual void look()const;

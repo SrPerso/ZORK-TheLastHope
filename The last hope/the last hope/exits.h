@@ -1,14 +1,16 @@
+
+#ifndef _EXIT_
+#define  _EXIT_
+
 //-----------headers------------------
 
 #include "rooms.h"
 #include "Entity.h"
 //------------------------
 
-
-#ifndef _EXIT_
-#define  _EXIT_
-class room;
-enum dir{ NORTH, SOUTH, EAST, WEST, UP, DOWN };
+enum dir{
+	NORTH, SOUTH, EAST, WEST, UP, DOWN
+};
 
 class exits:public entity{
 	public:

@@ -2,12 +2,13 @@
 #define  _WORLD_
 //-----------headers------------------
 
-#include "player.h"
-#include "rooms.h"
 #include "vector.h"
-#include "Item.h"
-#include "strings.h"
+
 //------------------------
+class room;
+class exits;
+class Player;
+class Item;
 
 
 class world {

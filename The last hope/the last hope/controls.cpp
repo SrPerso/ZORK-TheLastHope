@@ -335,15 +335,16 @@ bool kbhit(world*TheWorld){
 
 		unsigned int currenttime = 0, initialtime = 0, charcommandnum = 0;
 
-		printf("\n\n\t\t");
+
 		initialtime = GetTickCount();
 		
+		printf("\n\n\t\t >>");
 		while (1){
 
 			currenttime = GetTickCount();
 
 			if (currenttime >= (initialtime + TIMETOPASS)){
-				printf("\n\t\t mmmh.. maybe you must write something\n\t\t");
+				printf("\n\t\t mmmh.. maybe you should write something\n");
 				initialtime = currenttime;
 			}
 		
@@ -354,17 +355,17 @@ bool kbhit(world*TheWorld){
 
 					command[charcommandnum] = _getch();
 
-					character = command[charcommandnum];
-
-					printf("%c", character);
+					//printf(" >> %s",command[charcommandnum]);
 
 					command[charcommandnum + 1] = '\0';
+					
+					printf("\t\t >> %s\r ", command);
 					
 					charcommandnum++;
 
 					if (command[charcommandnum - 1] == '\r'){
 						
-						printf("\n\t\t >> %s\n\t\t\n", command);
+						//printf("\n\t\t >> %s\n\t\t\n", command);
 						
 						command[charcommandnum - 1] = '\0';
 

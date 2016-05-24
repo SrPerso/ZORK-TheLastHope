@@ -186,25 +186,25 @@ void world::createWorld(){
 	item.push_back(BOX);
 	// ITEMS_------------------------------
 
-	Room[1]->RoomItems.push_back(item[0]);//stone
+	Room[1]->theEntity.push_back(item[0]);//stone
 
-	Room[1]->RoomItems.push_back(item[1]);//stick
+	Room[1]->theEntity.push_back(item[1]);//stick
 
-	Room[8]->RoomItems.push_back(item[2]);//targed
+	Room[8]->theEntity.push_back(item[2]);//targed
 
-	Room[5]->RoomItems.push_back(item[3]);//diamond
+	Room[5]->theEntity.push_back(item[3]);//diamond
 
-	Room[0]->RoomItems.push_back(item[4]);//lasser
+	Room[0]->theEntity.push_back(item[4]);//lasser
 
-	Room[3]->RoomItems.push_back(item[5]);//blazzer
+	Room[3]->theEntity.push_back(item[5]);//blazzer
 
-	Room[11]->RoomItems.push_back(item[6]);//sensor
+	Room[11]->theEntity.push_back(item[6]);//sensor
 
-	Room[0]->RoomItems.push_back(item[7]);//cable
+	Room[0]->theEntity.push_back(item[7]);//cable
 	
-	Room[0]->RoomItems.push_back(item[8]);// box
+	Room[0]->theEntity.push_back(item[8]);// box
 
-	item[8]->BOXItems.push_back(item[7]);
+	item[8]->theEntity.push_back(item[7]);
 	
 }
 world::~world() {
