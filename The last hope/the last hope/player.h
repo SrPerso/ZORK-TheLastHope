@@ -4,23 +4,26 @@
 
 #include "Entity.h"
 #include "exits.h"
+#include "Creature.h"
 //------------------------
 class world;
 class room;
 
-class Player:public entity{
+class Player:public Creature{
 public:
+
 	Vector <entity*>PlayerItems;
 	Vector <entity*>PlayerEquip;
-	room* position=nullptr;
+
+	room* position = nullptr;
+	
 	bool noStop = true;
 	bool Item_Equiped = false;
 	//Stats
+
 	int hp = 100;
 	int attack = 20;
 	int attackspeed = 1;
-
-	
 
 public:
 

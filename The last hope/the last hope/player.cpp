@@ -15,7 +15,7 @@
 //------------------------
 
 Player::Player(const char* name, const char* description, room* position) :
-entity(name, description, PLAYER), position(position){
+Creature(name, description,nullptr, PLAYER), position(position){
 }
 
 Player::~Player(){}

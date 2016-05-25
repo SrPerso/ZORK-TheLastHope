@@ -1,9 +1,8 @@
 #ifndef _FUNTIONS_
 #define _FUNTIONS_
 
-#include "strings.h"
 #include "world.h"
-#include "Entity.h"
+
 typedef unsigned int uint;
 
 class world;
@@ -16,6 +15,7 @@ void help();
 void credits();
 bool kbhit(world*);
 void party();
+void map();
 
 #define _ROOMSNUMBER_ 15 //number of Rooms
 #define _PLAYERNUMBER_ 1 //number of PLAYERS

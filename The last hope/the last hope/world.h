@@ -11,9 +11,11 @@ class Player;
 class Item;
 
 
-class world {
+class world{
 public:
-		
+	
+//	Vector<entity*>World;
+
 	Vector<room*> Room;
 	Vector<exits*>Exit;
 	Vector<Player*>player;
