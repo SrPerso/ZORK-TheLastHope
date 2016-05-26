@@ -327,8 +327,10 @@ void help(){
 	printf("\t\t|       Top     |       Top	|\n");
 	printf("\t\t|       Bottom  |       Bottom  |\n");
 	printf("\t\t|  GET         |  PUT	|\n");
+	printf("\t\t|				|\n");
 	printf("\t\t|  PICK         |  DROP	|\n");
-
+	printf("\t\t|				|\n");
+	printf("\t\t|  TALK       |  ATTACK	|\n");
 	printf("\t\t|				|\n");
 	printf("\t\t|  HELP         |  EXIT		|\n");
 	printf("\t\t|                               |\n");

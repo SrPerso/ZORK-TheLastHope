@@ -7,7 +7,7 @@
 class Npc : public Creature{
 public:
 	room*position=nullptr;
-	Vector<Npc*> npc;
+
 
 
 public:

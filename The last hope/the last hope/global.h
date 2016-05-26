@@ -30,11 +30,14 @@ void party();
 void map();
 void helpmap();
 
-#define _ROOMSNUMBER_ 15 //number of Rooms
-#define _PLAYERNUMBER_ 1 //number of PLAYERS
-#define _EXITSNUMBER_ 32 // number of Exits
-#define _INVENTORY_SPACE_ 10//number of places in the inventory
-#define _ITEMNUMBER_ 10//number of itms
+#define ROOMSNUMBER 15 //number of Rooms
+#define PLAYERNUMBER 1 //number of PLAYERS
+#define EXITSNUMBER 32 // number of Exits
+#define ITEMNUMBER 10//number of itms
+#define NPCNUMBER 3//number of npcs
+
+#define INVENTORY_SPACE 10//number of places in the inventory
+
 #define TIMETOPASS 10000//time to return to ask 1000 == 1 seg
 #define COMMANDBUFFER 50
 #define TIMETOWAIT 5000//time that must pass without write something 
