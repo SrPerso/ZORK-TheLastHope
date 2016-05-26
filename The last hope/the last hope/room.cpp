@@ -7,11 +7,11 @@ room::room(const char* name, const char* description) : entity(name, description
 
 }
 void room::Update(){
-	if (Npc.position == World->player->position){
+	/*if (Npc.position == World->player->position){
 		printf("There is a Android here! :O");
 
 	}
-
+	*/
 }
 room::~room(){
 

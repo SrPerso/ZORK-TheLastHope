@@ -3,6 +3,7 @@
 //-----------headers------------------
 
 #include "vector.h"
+#include "global.h"
 
 //------------------------
 class room;
@@ -24,8 +25,10 @@ public:
 	world();//build
 	~world();// destroy
 	
-	bool checkinloop(mString&);
+	update_status checkinloop(mString&);
 	void createWorld();
+	bool CleanUp(world*TheWorld);
+
 };//class world
 
 #endif

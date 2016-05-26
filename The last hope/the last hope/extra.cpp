@@ -12,7 +12,7 @@
 //------------------------
 
 
-void preintro(){
+bool preintro(){
 
 
 	printf("\n\n\n\n\n\n\t\t\tThis game can cause epileptic seizures,\n");
@@ -35,11 +35,13 @@ void preintro(){
 	}//if
 
 	else if (intr == "n"){
-		intro();
+		return false;
 		
 	}//if
+}
 
-	
+void intro(){
+
 	system("cls");
 
 	printf("\n\n\n\n\n\tThe New Empire took over the Galaxy causing a horrible place to live \n\n");
@@ -48,13 +50,13 @@ void preintro(){
 	printf("\tmysterious star ship half buried witch he was start a new adventure.\n\n\n\n");
 
 	printf("\t you are in the east of the bured ship\n\n");
-	
+
 	system("pause");
-
-
+	system("cls");
+	system("color 0A");//black green
+	printf("\n\n");
 }
-
-void intro(){
+void introFX(){
 	int i, j;
 	for (j = 0; j <=1; j++){
 		for (i = 0; i < 12; i++){

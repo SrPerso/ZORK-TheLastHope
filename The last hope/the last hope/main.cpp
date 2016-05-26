@@ -15,32 +15,75 @@
 #include "exits.h"
 #include "player.h"
 
-
+enum main_states
+{
+	MAIN_CREATION,
+	MAIN_START,
+	MAIN_UPDATE,
+	MAIN_FINISH,
+	MAIN_EXIT
+};
 //------------------------------------
-
+world*TheWorld = nullptr;
 int main() {
 
-		//preintro(); //intro
+	ReportMemoryLeaks();
+	main_states state = MAIN_CREATION;
+	int main_return = EXIT_FAILURE;
+
+	while (state != MAIN_EXIT)
+	{
+		switch (state){
+
+		case MAIN_CREATION:
+
+			TheWorld = new world;//for asign dinamic 
+			state = MAIN_START;
+
+			break;
+
+		case MAIN_START:
+
+			if (preintro() == false){
+				introFX();
+			}
+			state = MAIN_UPDATE;
+			intro();
+			break;
+
+
+		case MAIN_UPDATE:
+		{
+			int update_return = kbhit(TheWorld);
+
+			if (update_return == UPDATE_ERROR){
+			
+				state = MAIN_EXIT;
+			}
+
+			else if (update_return == UPDATE_STOP){
+				state = MAIN_FINISH;
+			}
+			state = MAIN_UPDATE;
+		}
+			
+			break;
+
+		case MAIN_FINISH:
+
 		
+			credits();  //credits
+			main_return = EXIT_SUCCESS;
+			state = MAIN_EXIT;
+			
 
-		system("cls");
+			break;
 
-		ReportMemoryLeaks();
+		}
+	}
 
-		world* TheWorld= new world;//for asign dinamic 
+	delete TheWorld;
 
-		bool game_on = true;
-		
-		do{
 
-			game_on = kbhit(TheWorld);
-
-		} while (game_on != false);
-
-		delete TheWorld;
-
-		credits();  //credits
-
-		return 0;
-	
-}//main
+	return 0;
+}

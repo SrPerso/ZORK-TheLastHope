@@ -14,6 +14,28 @@ world::world(){
 	createWorld();
 }//builder
 
+
+world::~world() {
+
+	for (unsigned int i = 0; i < Room.size(); i++){
+		delete Room[i];
+	}
+	for (unsigned int i = 0; i < Exit.size(); i++){
+		delete Exit[i];
+	}
+	for (unsigned int i = 0; i < item.size(); i++){
+		delete item[i];
+	}
+	Room.clear();
+	Exit.clear();
+	item.clear();
+
+}//destroyer
+
+
+
+
+
 void world::createWorld(){
 
 	//ROOOMS
@@ -207,20 +229,3 @@ void world::createWorld(){
 	item[8]->theEntity.push_back(item[7]);
 	
 }
-world::~world() {
-
-	for (unsigned int i = 0; i < Room.size(); i++){
-		delete Room[i];
-	}
-	for (unsigned int i = 0; i < Exit.size(); i++){
-		delete Exit[i];
-	}
-	for (unsigned int i = 0; i < item.size(); i++){
-		delete item[i];
-	}
-	Room.clear();
-	Exit.clear();
-	item.clear();
-
-}//destroyer
-
