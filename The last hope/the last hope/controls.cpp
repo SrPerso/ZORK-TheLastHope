@@ -5,6 +5,7 @@
 #include <string.h>
 #include <Windows.h>
 #include "conio.h"
+#include<time.h>
 //----------includes------------------
 #include "global.h"
 #include "world.h"
@@ -119,6 +120,11 @@ bool world::checkinloop(mString& token1){
 		else if (*command0 == "stats" || *command0 == "Stats" || *command0 == "sta" || *command0 == "STATS"){
 			player[0]->stats();
 		}//CLEAN
+
+		else if (*command0 == "map" || *command0 == "MAP"){
+			map();
+		}//MAP
+
 		else {
 			printf("\n      Maybe you speak Murlok language but im not.. \n");
 		}
@@ -197,6 +203,9 @@ bool world::checkinloop(mString& token1){
 			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
 				player[0]->open(this, DOWN);
 			}
+			else if (*command1 == "map" || *command1 == "MAP"){
+				map();
+			}
 
 		}//open------------------------------------------------------------------------------------
 
@@ -230,7 +239,12 @@ bool world::checkinloop(mString& token1){
 		else if (*command0 == "Drop" || *command0 == "drop" || *command0 == "DROP"){
 			player[0]->drop(*command1);
 
-			if (*command1 == "THEBASS" || *command1 == "thebass"){	intro(); 	}
+			if (*command1 == "THEBASS" || *command1 == "thebass"){	party(); 	}
+		}
+
+		else if (*command0 == "Help" || *command0 == "HELP" || *command0 == "help"){
+			
+			if (*command1 == "Map" || *command1 == "map" || *command1 == "MAP"){ helpmap(); }
 		}
 
 		else if (*command0 == "Equip" || *command0 == "equip")
@@ -294,9 +308,6 @@ bool world::checkinloop(mString& token1){
 }//check in loop
 
 
-
-
-
 void help(){
 
 	printf("\n\t\t________| COMAND LIST |________\n");
@@ -326,27 +337,45 @@ void help(){
 }//help
 
 bool kbhit(world*TheWorld){
-
+		srand(time(NULL));
 		mString Stringcommands;
 
-		char command[COMMANDBUFFER],character;
+		char command[COMMANDBUFFER];
+		char character;
 	
 		bool firsttimeinloop = true, true_or_false = true;
 
-		unsigned int currenttime = 0, initialtime = 0, charcommandnum = 0;
-
+		unsigned int currenttime = 0, initialtime = 0, charcommandnum = 0,TimeSinceWrote=0,TimeWrite=0;
+		
 
 		initialtime = GetTickCount();
-		
-		printf("\n\n\t\t >>");
-		while (1){
+
+		while (true_or_false==true){
 
 			currenttime = GetTickCount();
 
-			if (currenttime >= (initialtime + TIMETOPASS)){
-				printf("\n\t\t mmmh.. maybe you should write something\n");
+			if (currenttime >= (initialtime + TIMETOPASS) || TimeSinceWrote >= TIMETOWAIT){
+				
+				int num = 1 + rand() % (5 - 1);
+					
+				if (num==1){
+					printf("\n\t\t mmmh.. maybe you should write something\n");
+				}
+				
+				if (num == 2){
+					printf("\n\t\t lalala lalala the time goes by.. \n");
+				}
+
+				if (num == 3){
+					printf("\n\t\t It seems that it has remained a good evening\n");
+				}
+
+				if (num == 4){
+					printf("\n\t\t mmmh.. maybe you should write something\n");
+				}
+
 				initialtime = currenttime;
-			}
+			}//if
 		
 			if (_kbhit())
 			{
@@ -355,6 +384,7 @@ bool kbhit(world*TheWorld){
 
 					command[charcommandnum] = _getch();
 
+					
 					//printf(" >> %s",command[charcommandnum]);
 
 					command[charcommandnum + 1] = '\0';
@@ -374,14 +404,17 @@ bool kbhit(world*TheWorld){
 						Stringcommands.buffer = command;
 
 						true_or_false = TheWorld->checkinloop(Stringcommands);
-					}
-				}
+					}//if
+				}//if
 				else{
 					command[COMMANDBUFFER - 1] = '\0';
-									}
-			}
+
+					TimeWrite = GetTickCount();
+					TimeSinceWrote = TimeWrite - currenttime;
+				}//else
+			}//if
 		
 	
-		}
+		}//while
 		return true_or_false;
 }

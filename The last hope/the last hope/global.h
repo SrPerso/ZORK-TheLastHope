@@ -16,6 +16,7 @@ void credits();
 bool kbhit(world*);
 void party();
 void map();
+void helpmap();
 
 #define _ROOMSNUMBER_ 15 //number of Rooms
 #define _PLAYERNUMBER_ 1 //number of PLAYERS
@@ -24,5 +25,5 @@ void map();
 #define _ITEMNUMBER_ 10//number of itms
 #define TIMETOPASS 10000//time to return to ask 1000 == 1 seg
 #define COMMANDBUFFER 50
-
+#define TIMETOWAIT 5000//time that must pass without write something 
 #endif

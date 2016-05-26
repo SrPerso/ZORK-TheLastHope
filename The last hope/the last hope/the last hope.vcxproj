@@ -71,6 +71,7 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="controls.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NPC.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="room.cpp" />
     <ClCompile Include="Strings.cpp" />
@@ -80,6 +81,7 @@
     <ClInclude Include="Creature.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="NPC.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="exits.h" />
     <ClInclude Include="memorytleaks.h" />

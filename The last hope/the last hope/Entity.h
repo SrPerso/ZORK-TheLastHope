@@ -40,6 +40,9 @@ public:
 
 	virtual void look()const;
 	virtual ~entity();
+
+	virtual void Update();
+
 };
 
 

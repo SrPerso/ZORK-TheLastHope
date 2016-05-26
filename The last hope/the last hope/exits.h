@@ -25,8 +25,7 @@ class exits:public entity{
 	bool locked;
 
 public:
-
-
+	
 	exits(const char* name, const char*  description, const char* name_dest, room* src, room* dest, bool open, dir direction);
 	~exits();
 

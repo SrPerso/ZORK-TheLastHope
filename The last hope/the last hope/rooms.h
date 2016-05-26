@@ -14,6 +14,9 @@ public:
 
 	room(const char* name, const char* description);
 	~room();
+
+	void Update();
+
 };//class room 
 
 #endif

@@ -16,4 +16,3 @@ void exits::Look()const{
 	printf("%s to %s\n", &entity::SayMyName, name_dest);
 	printf("%s\n", &entity::SayTheDescription);
 }
-

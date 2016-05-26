@@ -11,3 +11,6 @@ entity(name, description, CREATURE), position(position){
 Creature::~Creature(){
 
 }
+
+void Creature::Update(){
+}

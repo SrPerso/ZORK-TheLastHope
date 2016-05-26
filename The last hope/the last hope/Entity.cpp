@@ -24,3 +24,5 @@ void entity::look()const{
 }//print everywhere the name and the description
 
 entity::~entity(){}
+
+void entity::Update(){}

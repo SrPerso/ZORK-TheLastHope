@@ -15,13 +15,8 @@ public:
 	
 public:
 	Creature(const char*name, const char*descriptiom,room*location, EntityType type);
-	~Creature();
-	
+	virtual ~Creature();
+	void Update();
 };
-
-
-
-
-
 
 #endif
