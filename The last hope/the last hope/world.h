@@ -33,7 +33,9 @@ public:
 	update_status checkinloop(mString&);
 	void createWorld();
 	bool CleanUp(world*TheWorld);
-
+	
 };//class world
+
+extern world* TheWorld;
 
 #endif

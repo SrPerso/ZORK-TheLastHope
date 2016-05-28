@@ -33,7 +33,7 @@ public:
 
 	entity(const char* name, const char* description, EntityType thetype);//MMAYUS
 
-	char* SayMyName()const; //change))
+	char* SayMyName()const; //change
 	char* SayTheDescription()const;
 
 	EntityType SaytheType();

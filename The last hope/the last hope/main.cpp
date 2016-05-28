@@ -25,6 +25,7 @@ enum main_states
 };
 //------------------------------------
 world*TheWorld = nullptr;
+
 int main() {
 
 	ReportMemoryLeaks();

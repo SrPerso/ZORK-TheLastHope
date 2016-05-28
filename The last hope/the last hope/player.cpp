@@ -25,15 +25,15 @@ void Player::go(world*World, const dir tgo){
 
 
 
-	for (uint i = 0; i < (_EXITSNUMBER_); i++){//size
+	for (uint i = 0; i < (EXITSNUMBER); i++){//size
 
-		if (World->Exit[i]->src != position){ continue; }
+		if (((exits*)World->Entities[ROOMSNUMBER + i])->src != position){ continue; }
 
-		else if (World->Exit[i]->direction != tgo){ continue; }
+		else if (((exits*)World->Entities[ROOMSNUMBER + i])->direction != tgo){ continue; }
 
-		if (World->Exit[i]->open == true){
+		if (((exits*)World->Entities[ROOMSNUMBER + i])->open == true){
 
-			position = World->Exit[i]->dest;
+			position = ((exits*)World->Entities[ROOMSNUMBER + i])->dest;
 
 			position->look();
 
@@ -76,15 +76,15 @@ void Player::look()const{
 void Player::look(world* World, dir look)const{
 
 
-	for (int i = 0; i < _EXITSNUMBER_; i++){
+	for (int i = 0; i < EXITSNUMBER; i++){
 
 
-		if (World->Exit[i]->src != position){ continue; }//position player
+		if (((exits*)World->Entities[ROOMSNUMBER + i])->src != position){ continue; }//position player
 
-		else if (World->Exit[i]->direction == look){
+		else if (((exits*)World->Entities[ROOMSNUMBER + i])->direction == look){
 
-			printf("%s\n", World->Exit[i]->name);
-			printf("%s\n", World->Exit[i]->description);
+			printf("%s\n", World->Entities[ROOMSNUMBER + i]->name);
+			printf("%s\n", World->Entities[ROOMSNUMBER + i]->description);
 
 		}//if direction to look
 
@@ -96,20 +96,20 @@ void Player::look(world* World, dir look)const{
 
 void Player::close(world* World, dir close){
 
-	for (int i = 0; i < _EXITSNUMBER_; i++){
+	for (int i = 0; i < EXITSNUMBER; i++){
 
-		if (World->Exit[i]->src != position){ continue; }
+		if (((exits*)World->Entities[ROOMSNUMBER + i])->src != position){ continue; }
 
-		else if (World->Exit[i]->direction != close){ continue; }
+		else if (((exits*)World->Entities[ROOMSNUMBER + i])->direction != close){ continue; }
 
-		else if (World->Exit[i]->open == true){
+		else if (((exits*)World->Entities[ROOMSNUMBER + i])->open == true){
 
-			World->Exit[i]->open = false;
+			((exits*)World->Entities[ROOMSNUMBER + i])->open = false;
 
 			closedoorFX();//FX closing door
 
-			printf("\n\n\t Maybe you close the door too hard...\n\n", World->Exit[i]->dest);
-
+			printf("\n\n\t Maybe you close the door too hard...\n\n", ((exits*)World->Entities[ROOMSNUMBER + i])->dest);
+			 
 		}// close the door
 
 		else{
@@ -124,19 +124,19 @@ void Player::close(world* World, dir close){
 
 void Player::open(world* World, dir open){
 
-	for (int i = 0; i < _EXITSNUMBER_; i++){
+	for (int i = 0; i < EXITSNUMBER; i++){
 
-		if (World->Exit[i]->src != position){ continue; }//position of the player
+		if (((exits*)World->Entities[ROOMSNUMBER + i])->src != position){ continue; }//position of the player
 
-		else if (World->Exit[i]->direction == open){ continue; }//direction to open
+		else if (((exits*)World->Entities[ROOMSNUMBER + i])->direction == open){ continue; }//direction to open
 
-		else if (World->Exit[i]->open == false){
+		else if (((exits*)World->Entities[ROOMSNUMBER + i])->open == false){
 
-			World->Exit[i]->open = true;
+			((exits*)World->Entities[ROOMSNUMBER + i])->open = true;
 
 			opendoorFX();//FX closing door
 
-			printf("\t iii.... the door was open..\n", World->Exit[i]->dest);
+			printf("\t iii.... the door was open..\n", ((exits*)World->Entities[ROOMSNUMBER + i])->dest);
 
 		}// close the door
 
@@ -218,19 +218,19 @@ void Player::drop(const mString item)
 
 void Player::get(world* World, const mString item, const mString box){
 
-	if (position == World->Room[0]){
+	if (position == World->Entities[0]){
 
-		if (PlayerItems.size() < _INVENTORY_SPACE_){
+		if (PlayerItems.size() < INVENTORY_SPACE){
 
-			for (unsigned int i = 0; World->item[8]->theEntity.size() > i; i++){
+			for (unsigned int i = 0; World->Entities[ROOMSNUMBER + 8]->theEntity.size() > i; i++){
 
-				if (item == World->item[8]->theEntity[i]->SayMyName() && World->item[8]->theEntity[i]->type == ITEM){
+				if (item == World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->theEntity[i]->SayMyName() && World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->theEntity[i]->type == ITEM){
 
-					printf("You got a %s from the %s", World->item[8]->theEntity[i]->SayMyName(), box);
+					printf("You got a %s from the %s", World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->theEntity[i]->SayMyName(), box);
 
-					PlayerItems.push_back(World->item[8]->theEntity[i]);//transfer
+					PlayerItems.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->theEntity[i]);//transfer
 
-					World->item[8]->theEntity.Remove(i);//delete
+					World->Entities[ROOMSNUMBER + 8]->theEntity.Remove(i);//delete
 
 					break;
 
@@ -255,7 +255,7 @@ void Player::put(world* World, const mString item, const mString box)
 		{
 			if (item == PlayerItems[i]->SayMyName()){
 
-				World->item[8]->theEntity.push_back(PlayerItems[i]);
+				World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->theEntity.push_back(PlayerItems[i]);
 
 				printf("You put the %s to the %s", PlayerItems[i]->SayMyName(), box);
 
@@ -292,7 +292,7 @@ void Player::equip(world* World, const mString item2){
 
 	if (PlayerItems.size() >= 0){
 
-		for (uint i = 0; i < _ITEMNUMBER_; i++){
+		for (uint i = 0; i < ITEMNUMBER; i++){
 
 			if (item2 == PlayerItems[i]->SayMyName() && ((item2 == "Stick") || (item2 == "Blazzer") || (item2 == "Stone") || (item2 == "Laser_Sword"))){
 
@@ -317,7 +317,7 @@ void Player::unequip(world* World, const mString item2){
 
 	if (PlayerItems.size() >= 0){
 
-		for (uint i = 0; i < _ITEMNUMBER_; i++){
+		for (uint i = 0; i < ITEMNUMBER; i++){
 
 			if (item2 == PlayerItems[i]->SayMyName() && ((item2 == "Stick") || (item2 == "Blazzer") || (item2 == "Stone") || (item2 == "Laser_Sword"))){
 
