@@ -23,9 +23,6 @@ public:
 public:
 
 	int InInventory = false;
-	int attack = 0;
-	int attackspeed = 0;
-
 	
 	EntityType type = ENTITY;// TYPE ENTITY ENTITY
 
@@ -37,6 +34,8 @@ public:
 	char* SayTheDescription()const;
 
 	EntityType SaytheType();
+	int attack = 0;
+	int attackspeed = 0;
 
 	virtual void look()const;
 	virtual ~entity();

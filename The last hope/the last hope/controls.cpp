@@ -1,4 +1,4 @@
-//- -------- system -----------------
+﻿//- -------- system -----------------
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -73,6 +73,14 @@ update_status world::checkinloop(mString& token1){
 
 
 		else if (*command0 == "east" || *command0 == "e" || *command0 == "East" || *command0 == "EAST"){
+			
+			if (player->position == Planet1_West){//TO go THE SPACESHIP IN PLANET 1				
+				if (((exits*)Entities[ROOMSNUMBER + 3])->open == false){
+
+					printf("\n\t You need to open the door! \n");
+					return UPDATE_CONTINUE;
+				}				
+			}			
 			player->go(this, EAST);
 		}//GO
 		else if (*command0 == "north" || *command0 == "n" || *command0 == "North" || *command0 == "NORTH"){
@@ -102,7 +110,7 @@ update_status world::checkinloop(mString& token1){
 		else if (*command0 == "Hello" || *command0 == "hello" || *command0 == "hey" || *command0 == "hi"){
 			printf("Hi!");
 
-		}//�
+		}//¡
 
 
 		else if (*command0 == "close" || *command0 == "c" || *command0 == "Close" || *command0 == "CLOSE"){
@@ -169,6 +177,13 @@ update_status world::checkinloop(mString& token1){
 		else if (*command0 == "go" || *command0 == "g" || *command0 == "Go" || *command0 == "GO"){
 
 			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
+				if (player->position == Planet1_West){//TO go THE SPACESHIP IN PLANET 1				
+					if (((exits*)Entities[ROOMSNUMBER + 3])->open == false){
+
+						printf("\n\t You need to open the door! \n");
+						return UPDATE_CONTINUE;
+					}
+				}				
 				player->go(this, EAST);
 			}
 			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
@@ -192,6 +207,20 @@ update_status world::checkinloop(mString& token1){
 		else if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
 
 			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
+				
+				if (player->position == Planet1_West){//TO LOCK THE SPACESHIP IN PLANET 1
+					for (int i = 0; player->container.size() >= i; i++){
+
+						if (player->container[i] == Entities[ROOMSNUMBER + EXITSNUMBER + 2]){
+							((exits*)Entities[ROOMSNUMBER + 3])->locked = false;
+							player->open(this, EAST);							
+						}
+					}
+
+					printf("You need to take the target from the monkey to open the door");
+					return UPDATE_CONTINUE;
+				}				
+				
 				player->open(this, EAST);
 			}
 			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){

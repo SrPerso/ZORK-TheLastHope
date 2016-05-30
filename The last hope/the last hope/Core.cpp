@@ -6,12 +6,15 @@
 #include "global.h"
 #include <Windows.h>
 #include "conio.h"
+#include "NPC.h"
 
 
 update_status kbhit(world*TheWorld){
 
 	update_status ret = UPDATE_CONTINUE;
 	update_status checkret = UPDATE_CONTINUE;
+	update_npc_movement  Update_npc_movement = UPDATE_NPC_MOVE1;
+
 	srand(time(NULL));
 	mString Stringcommands;
 
@@ -29,7 +32,15 @@ update_status kbhit(world*TheWorld){
 
 		currenttime = GetTickCount();
 
-		if (currenttime >= (initialtime + TIMETOPASS) || TimeSinceWrote >= TIMETOWAIT){
+		if (currenttime >= (initialtime + TIMETOMOVENPC)){
+
+			Update_npc_movement = TheWorld->Android->Move(Update_npc_movement, TheWorld);
+
+			initialtime = currenttime;
+		}//if PASS TIME TO  MOVE THE ANDROID
+
+
+		else if (currenttime >= (initialtime + TIMETOPASS) || TimeSinceWrote >= TIMETOWAIT){
 
 			int num = 1 + rand() % (5 - 1);
 
@@ -51,6 +62,8 @@ update_status kbhit(world*TheWorld){
 
 			initialtime = currenttime;
 		}//if
+
+		
 
 		if (_kbhit())
 		{

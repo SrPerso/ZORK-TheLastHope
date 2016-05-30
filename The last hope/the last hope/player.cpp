@@ -44,7 +44,7 @@ void Player::go(world*World, const dir tgo){
 
 		else{
 
-			printf("hum... this door is close maybe you can open it with a key.. \n");
+			printf("hum... this door is close maybe you can open it \n");
 
 			noStop = false;
 
@@ -132,6 +132,8 @@ void Player::open(world* World, dir open){
 		if (((exits*)World->Entities[ROOMSNUMBER + i])->src != position){ continue; }//position of the player
 
 		else if (((exits*)World->Entities[ROOMSNUMBER + i])->direction == open){ continue; }//direction to open
+	
+		else if (((exits*)World->Entities[ROOMSNUMBER + i])->locked == true){ break; }
 
 		else if (((exits*)World->Entities[ROOMSNUMBER + i])->open == false){
 
@@ -181,16 +183,16 @@ void Player::pick(const mString item)
 
 				PlayerItems.push_back(position->container[i]);
 
-				printf("You picked up the %s", position->container[i]->SayMyName());
+				printf("You picked up the %s\n", position->container[i]->SayMyName());
 				position->container.Remove(i);//delete the object in the position
 
 				break;
 			}
 		}
-		printf("There's nothing that you can pick");
+		//printf("There's nothing that you can pick");
 	}
 	else{
-		printf("You have to many things on your bag");
+		printf("You have to many things on your bag\n");
 	}
 }//pickkkk -----------------------------------
 
@@ -204,17 +206,17 @@ void Player::drop(const mString item)
 
 				position->container.push_back(PlayerItems[i]);
 
-				printf("You droped the %s", PlayerItems[i]->SayMyName());
+				printf("You droped the %s\n", PlayerItems[i]->SayMyName());
 
 				PlayerItems.Remove(i);//delete the object in the position
 
 				break;
 			}
 		}
-		printf("You don't have this item try with otherone");
+		//printf("You don't have this item try with otherone");
 	}
 	else{
-		printf("You Drop all of your objects");
+		printf("You Drop all of your objects\n");
 	}
 }//DROOOPP THE BASSS .----------------------
 
@@ -229,7 +231,7 @@ void Player::get(world* World, const mString item, const mString box){
 
 				if (item == World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]->SayMyName() && World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]->type == ITEM){
 
-					printf("You got a %s from the %s", World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]->SayMyName(), box);
+					printf("You got a %s from the %s\n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]->SayMyName(), box);
 
 					PlayerItems.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]);//transfer
 
@@ -239,11 +241,11 @@ void Player::get(world* World, const mString item, const mString box){
 
 				}
 			}
-			printf("Maybe you are wrong, there is nothing here");
+			printf("Maybe you are wrong, there is nothing here\n");
 		}
 
 		else{
-			printf("You have the bagg full");
+			printf("You have the bagg full\n");
 		}
 	}
 
@@ -260,7 +262,7 @@ void Player::put(world* World, const mString item, const mString box)
 
 				World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container.push_back(PlayerItems[i]);
 
-				printf("You put the %s to the %s", PlayerItems[i]->SayMyName(), box);
+				printf("You put the %s to the %s\n", PlayerItems[i]->SayMyName(), box);
 
 				PlayerItems.Remove(i);
 
@@ -268,12 +270,12 @@ void Player::put(world* World, const mString item, const mString box)
 				break;
 			}
 		}
-		printf("you havent this item ");
+		//printf("you havent this item\n ");
 
 	}
 
 	else{
-		printf("You can't put nothing there because YOU HAVENT ANY ITEM !");
+		printf("You can't put nothing there because YOU HAVENT ANY ITEM !\n");
 	}
 }//puttttttttt
 
@@ -329,7 +331,7 @@ void Player::unequip(world* World, const mString item2){
 				attackspeed -= PlayerItems[i]->attackspeed;
 
 				PlayerEquip.push_back(PlayerItems[i]);
-				printf("You unequip the %s.", PlayerItems[i]->SayMyName());
+				printf("You unequip the %s.\n", PlayerItems[i]->SayMyName());
 				PlayerEquip.Remove(i);
 				return;
 			}

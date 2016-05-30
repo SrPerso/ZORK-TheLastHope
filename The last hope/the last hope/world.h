@@ -26,9 +26,17 @@ public:
 	*/
 
 	Vector<entity*>Entities;
+
+	//used in control.cpp
 	Player* player;
 	Npc*Android;
-
+	room*Planet1_West;
+	room*Planet1_North;
+	room*Planet1_East;
+	room*Planet1_South;
+	Item* Target;
+	
+	
 	world();//build
 	~world();// destroy
 	

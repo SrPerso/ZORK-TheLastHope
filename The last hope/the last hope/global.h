@@ -13,6 +13,15 @@ enum update_status
 	UPDATE_STOP,
 	UPDATE_ERROR
 };
+enum update_npc_movement
+{
+	UPDATE_NPC_MOVE1,
+	UPDATE_NPC_MOVE2,
+	UPDATE_NPC_MOVE3,
+	UPDATE_NPC_MOVE4,
+	UPDATE_NPC_PET,
+	UPDATE_NPC_DEAD
+};
 
 typedef unsigned int uint;
 
@@ -38,7 +47,9 @@ void helpmap();
 
 #define INVENTORY_SPACE 10//number of places in the inventory
 
-#define TIMETOPASS 20000//time to return to ask 1000 == 1 seg
+#define TIMETOMOVENPC 20000 //time to move the npc
+
+#define TIMETOPASS 10000//time to return to ask 1000 == 1 seg
 #define COMMANDBUFFER 50
 #define TIMETOWAIT 10000//time that must pass without write something 
 #endif

@@ -63,10 +63,12 @@ unsigned int mString::capacity()const{
 	return Capacity;
 }
 
+
 void mString::clean()
 {
 	strcpy_s(buffer, Capacity, "");
 }
+
 
 void mString::shrink_to_fit()
 {
@@ -172,4 +174,3 @@ mString mString::operator + (const mString& str)const{
 	return concat;
 
 }
-

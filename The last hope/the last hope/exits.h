@@ -20,7 +20,8 @@ class exits:public entity{
 	dir direction;	
 	mString name_dest;
 
-	bool open;
+	bool open=true;
+	bool locked=false;
 
 public:
 	

@@ -42,16 +42,16 @@ void world::createWorld(){
 	room* Planet1_Ship = new room("\nA buried ship", "This old ship has many arrangements, it seems that fought in various space battles");
 	Entities.push_back(Planet1_Ship);
 
-	room* Planet1_West  = new room("\nWest", "Nice place to do a picnic, the clearing is perfect to see the stars at night and imagine a trip around the galaxy. There is a buried ship at East with it I could travel out the planet.\n Maybe inside there is something interesting (to enter you needs a target)");
+	Planet1_West  = new room("\nWest", "Nice place to do a picnic, the clearing is perfect to see the stars at night and imagine a trip around the galaxy. There is a buried ship at East with it I could travel out the planet.\n Maybe inside there is something interesting (to enter you needs a target)");
 	Entities.push_back(Planet1_West);
 
-	room* Planet1_East = new room("\nEast", "Trees, trees and more trees… well and the ship at West, maybe if I go East to the forest I will found something more");
+	Planet1_East = new room("\nEast", "Trees, trees and more trees… well and the ship at West, maybe if I go East to the forest I will found something more");
 	Entities.push_back(Planet1_East);
 
-	room* Planet1_North = new room("\nNorth", "At the north is the Forest and a cave maybe there is a creature living there, whatever, the buried ship at south seems damaged.");
+	Planet1_North = new room("\nNorth", "At the north is the Forest and a cave maybe there is a creature living there, whatever, the buried ship at south seems damaged.");
 	Entities.push_back(Planet1_North);
 	
-	room* Planet1_South = new room("\nSouth", "Trees, trees and more trees… well and the ship at North, maybe if I go to the forest at South I will found something more…");
+	Planet1_South = new room("\nSouth", "Trees, trees and more trees… well and the ship at North, maybe if I go to the forest at South I will found something more…");
 	Entities.push_back(Planet1_South);
 
 	room* Planet1_Forest = new room("\nForest", "Omg! Omg! Omg!!! There is trees everywhere! Maybe is impossible to go out :O.. but look there is a diamond on the floor");
@@ -104,6 +104,7 @@ void world::createWorld(){
 
 	Entities.push_back(new exits("West", "Ship", "This cool door lead outside", Planet1_Ship, Planet1_West, true, EAST));
 	Entities.push_back(new exits("Ship", "West", "The ship’s door perhaps with a key could open", Planet1_West, Planet1_Ship, true, WEST));
+	((exits*)Entities[ROOMSNUMBER + 3])->locked = true;
 
 	Entities.push_back(new exits("West", "North1", "It seems that the road leads north of the ship", Planet1_West, Planet1_North, true, NORTH));
 	Entities.push_back(new exits("North", "West", "There is a road to go in front of the ship.", Planet1_North, Planet1_West, true, WEST));
@@ -171,7 +172,7 @@ void world::createWorld(){
 	Stick->attackspeed = 2;
 	//]
 
-	Item* Target = new Item("Target", "you can enter to some ship.", Planet1_Cave);
+	Target = new Item("Target", "you can enter to some ship.", Planet1_Cave);
 	Entities.push_back(Target);
 
 	Item* Diamond = new Item("Diamond", "Nice Stone,it seems that belongs to a collection of shiny rocks", Planet1_Forest);
