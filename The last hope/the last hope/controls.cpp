@@ -291,6 +291,7 @@ update_status world::checkinloop(mString& token1){
 		else if (*command0 == "Help" || *command0 == "HELP" || *command0 == "help"){
 			
 			if (*command1 == "Map" || *command1 == "map" || *command1 == "MAP"){ helpmap(); }
+			if (*command1 == "Comand" || *command1 == "comand" || *command1 == "COMAND" ||*command1 == "Comands" || *command1 == "comands" || *command1 == "COMANDS"){ helpComands(); }
 		}
 
 		else if (*command0 == "Equip" || *command0 == "equip")
@@ -355,6 +356,11 @@ update_status world::checkinloop(mString& token1){
 
 
 void help(){
+	printf("\n\t\t	Comadand list :	    help comands\n");
+	printf("\n\t\t	help map :          help map\n");
+}//help
+
+void helpComands(){
 
 	printf("\n\t\t________| COMAND LIST |________\n");
 	printf("\t\t|			        |\n");
@@ -382,5 +388,5 @@ void help(){
 	printf("\t\t|             CLEAN             |\n");
 	printf("\t\t|_______________________________|\n");
 
-}//help
-
+	
+}

@@ -75,11 +75,13 @@ update_status kbhit(world*TheWorld){
 
 				if (charcommandnum < (COMMANDBUFFER - 2)){
 
-
+					
 					command[charcommandnum] = _getch();
 
-
+					
 					//printf(" >> %s",command[charcommandnum]);
+					if (command[0] == '\0'){ continue; }
+
 
 					command[charcommandnum + 1] = '\0';
 
@@ -117,7 +119,7 @@ update_status kbhit(world*TheWorld){
 
 						command[charcommandnum] = _getch();
 
-
+						
 						//printf(" >> %s",command[charcommandnum]);
 
 						command[charcommandnum + 1] = '\0';

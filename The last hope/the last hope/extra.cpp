@@ -342,65 +342,144 @@ void helpmap(){
 }
 
 void DanceAndroid(){
-	
-	printf("\t         ,-----.        \n");
-	printf("\t       ,'_/_|_\_`.      \n");
-	printf("\t      /<<::8[O]::>\     \n");
-	printf("\t     _|-----------|_    \n");
-	printf("\t :::|  | ====-=- |  |:::\n");
-	printf("\t :::|  | -=-==== |  |:::\n");
-	printf("\t :::\  | ::::|()||  /:::\n");
-	printf("\t ::::| | ....|()|| |::::\n");
-	printf("\t     | |_________| |    \n");
-	printf("\t     | |\_______/| |    \n");
-	printf("\t    /   \ /   \ /  |   \n");
-	printf("\t    `---' `---' `---'   \n");
-
-
-
-
-
-
-
-
-
-
-
 	int i, j;
-	for (j = 0; j <= 1; j++){
-		for (i = 0; i < 12; i++){
+	for (j = 0; j <= 2; j++){
+		for (i = 0; i < 28; i++){
 
 			system("cls");
 
 			system("color f0");//white black
 
-			if (i == 1 || i == 2 || i == 3 || i == 6 || i == 8 || i == 10 || i == 11){
-
-			
-
+			if (i == 1 || i == 2 || i == 3 || i ==4){
+				printf("\n\n\n\n\n\n");
+				printf("\t\t\t         ,-----.        \n");
+				printf("\t\t\t       ,'_/_|_\_`.      \n");
+				printf("\t\t\t      /<<::8[O]::>\     \n");
+				printf("\t\t\t     _|-----------|_    \n");
+				printf("\t\t\t :::|  | ====-=- |  |:::\n");
+				printf("\t\t\t :::|  | -=-==== |  |:::\n");
+				printf("\t\t\t :::\  | ::::|()||  /:::\n");
+				printf("\t\t\t ::::| | ....|()|| |::::\n");
+				printf("\t\t\t     | |_________| |    \n");
+				printf("\t\t\t     | |\_______/| |    \n");
+				printf("\t\t\t    /   \ /   \ /  |   \n");
+				printf("\t\t\t    `---' `---' `---'   \n");
+				printf("\n\n\n");
 			}
 
-			else if (i == 2 || i == 4 || i == 7 || i == 9 || i == 12){
-
-			
+			else if (i == 5 || i == 6 || i == 7 || i == 8){
+				printf("\n\n\n\n\n\n");
+				printf("\t\t\t            ,-----.        \n");
+				printf("\t\t\t          ,'_/_|_\_`.      \n");
+				printf("\t\t\t         /<<::8[O]::>\     \n");
+				printf("\t\t\t        _|-----------|_    \n");
+				printf("\t\t\t    :::|  | ====-=- |  |:::\n");
+				printf("\t\t\t    :::|  | -=-==== |  |:::\n");
+				printf("\t\t\t    :::\  | ::::|()||  /:::\n");
+				printf("\t\t\t    ::::| | ....|()|| |::::\n");
+				printf("\t\t\t        | |_________| |    \n");
+				printf("\t\t\t        | |\_______/| |    \n");
+				printf("\t\t\t       /   \ /   \ /  |   \n");
+				printf("\t\t\t       `---' `---' `---'   \n");
+				printf("\n\n\n");
+			}
+			else if (i == 9 || i == 10 || i == 11 || i == 12){
+				printf("\n\n\n\n\n\n");
+				printf("\t\t\t               ,-----.        \n");
+				printf("\t\t\t             ,'_/_|_\_`.      \n");
+				printf("\t\t\t            /<<::8[O]::>\     \n");
+				printf("\t\t\t           _|-----------|_    \n");
+				printf("\t\t\t       :::|  | ====-=- |  |:::\n");
+				printf("\t\t\t       :::|  | -=-==== |  |:::\n");
+				printf("\t\t\t       :::\  | ::::|()||  /:::\n");
+				printf("\t\t\t       ::::| | ....|()|| |::::\n");
+				printf("\t\t\t           | |_________| |    \n");
+				printf("\t\t\t           | |\_______/| |    \n");
+				printf("\t\t\t          /   \ /   \ /  |   \n");
+				printf("\t\t\t          `---' `---' `---'   \n");
+				printf("\n\n\n");
+			}
+			else if (i == 13 || i == 14 || i == 15 || i == 16){
+				printf("\n\n\n\n\n\n");
+				printf("\t\t\t                  ,-----.        \n");
+				printf("\t\t\t                ,'_/_|_\_`.      \n");
+				printf("\t\t\t               /<<::8[O]::>\     \n");
+				printf("\t\t\t              _|-----------|_    \n");
+				printf("\t\t\t          :::|  | ====-=- |  |:::\n");
+				printf("\t\t\t          :::|  | -=-==== |  |:::\n");
+				printf("\t\t\t          :::\  | ::::|()||  /:::\n");
+				printf("\t\t\t          ::::| | ....|()|| |::::\n");
+				printf("\t\t\t              | |_________| |    \n");
+				printf("\t\t\t              | |\_______/| |    \n");
+				printf("\t\t\t             /   \ /   \ /  |   \n");
+				printf("\t\t\t             `---' `---' `---'   \n");
+				printf("\n\n\n");
 			}
 
+			else if (i == 17 || i == 18 || i == 19 || i == 20){
+				printf("\n\n\n\n\n\n");
+				printf("\t\t\t               ,-----.        \n");
+				printf("\t\t\t             ,'_/_|_\_`.      \n");
+				printf("\t\t\t            /<<::8[O]::>\     \n");
+				printf("\t\t\t           _|-----------|_    \n");
+				printf("\t\t\t       :::|  | ====-=- |  |:::\n");
+				printf("\t\t\t       :::|  | -=-==== |  |:::\n");
+				printf("\t\t\t       :::\  | ::::|()||  /:::\n");
+				printf("\t\t\t       ::::| | ....|()|| |::::\n");
+				printf("\t\t\t           | |_________| |    \n");
+				printf("\t\t\t           | |\_______/| |    \n");
+				printf("\t\t\t          /   \ /   \ /  |   \n");
+				printf("\t\t\t          `---' `---' `---'   \n");
+				printf("\n\n\n");
+			}
+			else if (i == 21 || i == 22 || i == 23 || i == 24){
+				printf("\n\n\n\n\n\n");
+				printf("\t\t\t            ,-----.        \n");
+				printf("\t\t\t          ,'_/_|_\_`.      \n");
+				printf("\t\t\t         /<<::8[O]::>\     \n");
+				printf("\t\t\t        _|-----------|_    \n");
+				printf("\t\t\t    :::|  | ====-=- |  |:::\n");
+				printf("\t\t\t    :::|  | -=-==== |  |:::\n");
+				printf("\t\t\t    :::\  | ::::|()||  /:::\n");
+				printf("\t\t\t    ::::| | ....|()|| |::::\n");
+				printf("\t\t\t        | |_________| |    \n");
+				printf("\t\t\t        | |\_______/| |    \n");
+				printf("\t\t\t       /   \ /   \ /  |   \n");
+				printf("\t\t\t       `---' `---' `---'   \n");
+				printf("\n\n\n");
+			}
+			if (i == 25 || i == 26 || i == 27 || i ==28){
+				printf("\n\n\n\n\n\n");
+				printf("\t\t\t         ,-----.        \n");
+				printf("\t\t\t       ,'_/_|_\_`.      \n");
+				printf("\t\t\t      /<<::8[O]::>\     \n");
+				printf("\t\t\t     _|-----------|_    \n");
+				printf("\t\t\t :::|  | ====-=- |  |:::\n");
+				printf("\t\t\t :::|  | -=-==== |  |:::\n");
+				printf("\t\t\t :::\  | ::::|()||  /:::\n");
+				printf("\t\t\t ::::| | ....|()|| |::::\n");
+				printf("\t\t\t     | |_________| |    \n");
+				printf("\t\t\t     | |\_______/| |    \n");
+				printf("\t\t\t    /   \ /   \ /  |   \n");
+				printf("\t\t\t    `---' `---' `---'   \n");
+				printf("\n\n\n");
+
+			}
+			/*
 			else if (i > 4 && i < 8){
 				system("color f4");//white red
 			}//if
-			else if (i >8){
+			else if (i > 8){
 
 				system("color 0A");//black green
 			}//if
 			else{
 				system("color 0A");//black green
 
-			}//else
+			}//else*/
 		}//i for
-	}//j for
-	system("pause");
-
-
-
-
+	}
+	
+	system("color 0A");//black green
+	
 }
