@@ -11,7 +11,7 @@
 
 update_status kbhit(world*TheWorld){
 
-	update_status ret = UPDATE_CONTINUE;
+	
 	update_status checkret = UPDATE_CONTINUE;
 	update_npc_movement  Update_npc_movement = UPDATE_NPC_MOVE1;
 
@@ -22,25 +22,28 @@ update_status kbhit(world*TheWorld){
 	//char character;
 
 	bool firsttimeinloop = true;
+	bool npcstop = true;
+
+	update_status player_talking = UPDATE_NO_TALKING;
 
 	unsigned int currenttime = 0, initialtime = 0, charcommandnum = 0, TimeSinceWrote = 0, TimeWrite = 0;
 
 
 	initialtime = GetTickCount();
 
-	while (checkret == UPDATE_CONTINUE){
+
+	while (checkret != UPDATE_STOP){
+
+
+		if (npcstop == true){
+			npcstop = TheWorld->Android->Update(TheWorld, initialtime, Update_npc_movement, npcstop);
+		}
 
 		currenttime = GetTickCount();
 
-		if (currenttime >= (initialtime + TIMETOMOVENPC)){
+		if (currenttime >= (initialtime + TIMETOPASS) || TimeSinceWrote >= TIMETOWAIT){
 
-			Update_npc_movement = TheWorld->Android->Move(Update_npc_movement, TheWorld);
-
-			initialtime = currenttime;
-		}//if PASS TIME TO  MOVE THE ANDROID
-
-
-		else if (currenttime >= (initialtime + TIMETOPASS) || TimeSinceWrote >= TIMETOWAIT){
+			//TheWorld->Android->Move(Update_npc_movement, TheWorld);
 
 			int num = 1 + rand() % (5 - 1);
 
@@ -59,54 +62,96 @@ update_status kbhit(world*TheWorld){
 			if (num == 4){
 				printf("\n\t\t mmmh.. maybe you should write something\n");
 			}
-
+			npcstop = true;
 			initialtime = currenttime;
+
 		}//if
 
-		
 
-		if (_kbhit())
-		{
-			if (charcommandnum < (COMMANDBUFFER - 2)){
+		if (checkret != UPDATE_TALKING){
 
 
-				command[charcommandnum] = _getch();
+			if (_kbhit()){
+
+				if (charcommandnum < (COMMANDBUFFER - 2)){
 
 
-				//printf(" >> %s",command[charcommandnum]);
+					command[charcommandnum] = _getch();
 
-				command[charcommandnum + 1] = '\0';
 
-				printf("\t\t >> %s\r ", command);
+					//printf(" >> %s",command[charcommandnum]);
 
-				charcommandnum++;
+					command[charcommandnum + 1] = '\0';
 
-				if (command[charcommandnum - 1] == '\r'){
+					printf("\t\t >> %s\r ", command);
 
-					printf("\n\t\t >> %s\n\t\t\n", command);
+					charcommandnum++;
 
-					command[charcommandnum - 1] = '\0';
+					if (command[charcommandnum - 1] == '\r'){
 
-					charcommandnum = 0;
+						printf("\n\t\t >> %s\n\t\t\n", command);
 
-					Stringcommands.buffer = command;
+						command[charcommandnum - 1] = '\0';
 
-					checkret = TheWorld->checkinloop(Stringcommands);
-					if (checkret == UPDATE_STOP){
-						return UPDATE_STOP;
-					}
+						charcommandnum = 0;
 
+						Stringcommands.buffer = command;
+
+						checkret = TheWorld->checkinloop(Stringcommands);
+
+						if (checkret == UPDATE_STOP){
+							return UPDATE_STOP;
+						}
+					
+					}//if
 				}//if
-			}//if
-			else{
-				command[COMMANDBUFFER - 1] = '\0';
+			}
+		}//talking
+		
+		if (checkret == UPDATE_TALKING){
+		
+				if (_kbhit()){
 
-				TimeWrite = GetTickCount();
-				TimeSinceWrote = TimeWrite - currenttime;
-			}//else
-		}//if
+					if (charcommandnum < (COMMANDBUFFER - 2)){
 
 
-	}//while
-	return ret;
+						command[charcommandnum] = _getch();
+
+
+						//printf(" >> %s",command[charcommandnum]);
+
+						command[charcommandnum + 1] = '\0';
+
+						printf("\t\t >> %s\r ", command);
+
+						charcommandnum++;
+
+						if (command[charcommandnum - 1] == '\r'){
+
+							printf("\n\t\t >> %s\n\t\t\n", command);
+
+							command[charcommandnum - 1] = '\0';
+
+							charcommandnum = 0;
+
+							Stringcommands.buffer = command;
+
+							checkret = TheWorld->Android->talkandroid(Stringcommands);
+
+							if (checkret == UPDATE_STOP){
+								return UPDATE_STOP;
+							}
+						
+							
+
+						}//if
+					}//if
+
+				}//kbhit2
+				
+			}//no talking
+
+		}//while
+
+		return checkret;
 }

@@ -21,7 +21,11 @@ public:
 	~Npc();
 
 	bool IsPlayerHere();
+	bool Update(world*World, const int& inittime, update_npc_movement&,bool&);
+	bool talkandroid();
 	update_npc_movement Move(update_npc_movement&update_npc,world*World);
+	update_status talkandroid(mString& token1);
+
 };
 
 #endif

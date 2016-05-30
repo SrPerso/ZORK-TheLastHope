@@ -340,3 +340,67 @@ void helpmap(){
 	printf("\t Nº 6 --->Space_Space ========== Nº 14--->Planet3_Ship \n");
 	printf("\t Nº 7 --->Space_Sun \n");
 }
+
+void DanceAndroid(){
+	
+	printf("\t         ,-----.        \n");
+	printf("\t       ,'_/_|_\_`.      \n");
+	printf("\t      /<<::8[O]::>\     \n");
+	printf("\t     _|-----------|_    \n");
+	printf("\t :::|  | ====-=- |  |:::\n");
+	printf("\t :::|  | -=-==== |  |:::\n");
+	printf("\t :::\  | ::::|()||  /:::\n");
+	printf("\t ::::| | ....|()|| |::::\n");
+	printf("\t     | |_________| |    \n");
+	printf("\t     | |\_______/| |    \n");
+	printf("\t    /   \ /   \ /  |   \n");
+	printf("\t    `---' `---' `---'   \n");
+
+
+
+
+
+
+
+
+
+
+
+	int i, j;
+	for (j = 0; j <= 1; j++){
+		for (i = 0; i < 12; i++){
+
+			system("cls");
+
+			system("color f0");//white black
+
+			if (i == 1 || i == 2 || i == 3 || i == 6 || i == 8 || i == 10 || i == 11){
+
+			
+
+			}
+
+			else if (i == 2 || i == 4 || i == 7 || i == 9 || i == 12){
+
+			
+			}
+
+			else if (i > 4 && i < 8){
+				system("color f4");//white red
+			}//if
+			else if (i >8){
+
+				system("color 0A");//black green
+			}//if
+			else{
+				system("color 0A");//black green
+
+			}//else
+		}//i for
+	}//j for
+	system("pause");
+
+
+
+
+}

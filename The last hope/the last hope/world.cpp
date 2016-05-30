@@ -240,7 +240,7 @@ void world::createWorld(){
 
 	// ---- Player ----
 
-	player = new Player("SO-PERCA", "One normal guy that feels the force", Planet1_West);
+	player = new Player("SO-PERCA", "One normal guy that feels the force", Planet1_East);
 	Entities.push_back(player);
 	// ---- Player ----
 

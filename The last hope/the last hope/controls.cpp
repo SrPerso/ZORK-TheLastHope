@@ -183,7 +183,7 @@ update_status world::checkinloop(mString& token1){
 						printf("\n\t You need to open the door! \n");
 						return UPDATE_CONTINUE;
 					}
-				}				
+				}
 				player->go(this, EAST);
 			}
 			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
@@ -203,6 +203,17 @@ update_status world::checkinloop(mString& token1){
 			}
 
 		}//go------------------------------------------------------------------------------------
+
+		else if (*command0 == "talk" || *command0 == "TALK" || *command0 == "Talk" ){
+
+			if (*command1 == "Android" || *command1 == "android" || *command1 == "ANDROID" || *command1 == "R2D2"){
+				printf("aaa");
+				return UPDATE_TALKING;
+				
+			}
+		}
+	
+
 
 		else if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
 

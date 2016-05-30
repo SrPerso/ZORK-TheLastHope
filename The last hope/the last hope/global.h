@@ -11,6 +11,8 @@ enum update_status
 {
 	UPDATE_CONTINUE = 1,
 	UPDATE_STOP,
+	UPDATE_TALKING,
+	UPDATE_NO_TALKING,
 	UPDATE_ERROR
 };
 enum update_npc_movement
@@ -38,6 +40,7 @@ update_status kbhit(world*);
 void party();
 void map();
 void helpmap();
+void DanceAndroid();
 
 #define ROOMSNUMBER 15 //number of Rooms
 #define PLAYERNUMBER 1 //number of PLAYERS
@@ -47,9 +50,9 @@ void helpmap();
 
 #define INVENTORY_SPACE 10//number of places in the inventory
 
-#define TIMETOMOVENPC 20000 //time to move the npc
+#define TIMETOMOVENPC 15000 //time to move the npc
 
-#define TIMETOPASS 10000//time to return to ask 1000 == 1 seg
+#define TIMETOPASS 20000//time to return to ask 1000 == 1 seg
 #define COMMANDBUFFER 50
 #define TIMETOWAIT 10000//time that must pass without write something 
 #endif

@@ -51,7 +51,7 @@ int main() {
 			}
 					
 			intro();
-			*/
+		*/
 
 			state = MAIN_UPDATE;		
 			break;

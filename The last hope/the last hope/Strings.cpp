@@ -9,6 +9,7 @@ mString::mString(){
 
 mString::mString(const char * str){
 
+
 	Capacity = strlen(str)+1;
 
 	buffer = new char[Capacity];
