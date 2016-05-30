@@ -16,7 +16,7 @@ update_status kbhit(world*TheWorld){
 	mString Stringcommands;
 
 	char command[COMMANDBUFFER];
-	char character;
+	//char character;
 
 	bool firsttimeinloop = true;
 

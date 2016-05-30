@@ -29,7 +29,7 @@ public:
 	
 	EntityType type = ENTITY;// TYPE ENTITY ENTITY
 
-	Vector<entity*> theEntity;//vector of entities 
+	Vector<entity*> container;//vector of entities 
 
 	entity(const char* name, const char* description, EntityType thetype);//MMAYUS
 

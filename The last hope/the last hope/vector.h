@@ -1,7 +1,7 @@
 #ifndef _VECTOR_
 #define _VECTOR_
 
-#define MAX 32 
+#define MAX 100
 
 #include <assert.h>
 class mString;

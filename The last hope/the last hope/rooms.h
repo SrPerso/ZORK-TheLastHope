@@ -1,3 +1,7 @@
+
+#ifndef _ROOMS_
+#define  _ROOMS_
+
 //-----------headers------------------
 #include "vector.h"
 #include "Entity.h"
@@ -5,8 +9,6 @@
 #include "global.h"
 #include "Item.h"
 //------------------------
-#ifndef _ROOMS_
-#define  _ROOMS_
 
 class room:public entity{
 public:

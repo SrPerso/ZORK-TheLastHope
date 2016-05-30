@@ -68,31 +68,31 @@ update_status world::checkinloop(mString& token1){
 	if (size == 1 && command1 == nullptr){
 
 		if (*command0 == "look" || *command0 == "l" || *command0 == "Look" || *command0 == "LOOK"){
-			player[0]->look();
+			player->look();
 		}//LOOK
 
 
 		else if (*command0 == "east" || *command0 == "e" || *command0 == "East" || *command0 == "EAST"){
-			player[0]->go(this, EAST);
+			player->go(this, EAST);
 		}//GO
 		else if (*command0 == "north" || *command0 == "n" || *command0 == "North" || *command0 == "NORTH"){
-			player[0]->go(this, NORTH);
+			player->go(this, NORTH);
 		}//GO
 		else if (*command0 == "west" || *command0 == "w" || *command0 == "West" || *command0 == "WEST"){
-			player[0]->go(this, WEST);
+			player->go(this, WEST);
 		}//GO
 		else if (*command0 == "south" || *command0 == "s" || *command0 == "South" || *command0 == "EAST"){
-			player[0]->go(this, SOUTH);
+			player->go(this, SOUTH);
 		}//GO
 		else if (*command0 == "up" || *command0 == "u" || *command0 == "Up" || *command0 == "UP"){
-			player[0]->go(this, DOWN);
+			player->go(this, DOWN);
 		}//GO
 		else if (*command0 == "down" || *command0 == "d" || *command0 == "Down" || *command0 == "DOWN"){
-			player[0]->go(this, DOWN);
+			player->go(this, DOWN);
 		}//GO
 
 		else if (*command0 == "inventory" || *command0 == "inv" || *command0 == "Inventory" || *command0 == "INVENTORY"){
-			player[0]->Inventory();
+			player->Inventory();
 		}
 
 		else if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
@@ -119,7 +119,7 @@ update_status world::checkinloop(mString& token1){
 		}//CLEAN
 
 		else if (*command0 == "stats" || *command0 == "Stats" || *command0 == "sta" || *command0 == "STATS"){
-			player[0]->stats();
+			player->stats();
 		}//CLEAN
 
 		else if (*command0 == "map" || *command0 == "MAP"){
@@ -140,22 +140,22 @@ update_status world::checkinloop(mString& token1){
 		if (*command0 == "look" || *command0 == "l" || *command0 == "Look" || *command0 == "LOOK"){
 
 			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
-				player[0]->look(this, EAST);
+				player->look(this, EAST);
 			}
 			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
-				player[0]->look(this, NORTH);
+				player->look(this, NORTH);
 			}
 			else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
-				player[0]->look(this, WEST);
+				player->look(this, WEST);
 			}
 			else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
-				player[0]->look(this, SOUTH);
+				player->look(this, SOUTH);
 			}
 			else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
-				player[0]->look(this, DOWN);
+				player->look(this, DOWN);
 			}
 			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
-				player[0]->look(this, DOWN);
+				player->look(this, DOWN);
 			}
 
 		}//look------------------------------------------------------------------------------------
@@ -164,22 +164,22 @@ update_status world::checkinloop(mString& token1){
 		else if (*command0 == "go" || *command0 == "g" || *command0 == "Go" || *command0 == "GO"){
 
 			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
-				player[0]->go(this, EAST);
+				player->go(this, EAST);
 			}
 			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
-				player[0]->go(this, NORTH);
+				player->go(this, NORTH);
 			}
 			else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
-				player[0]->go(this, WEST);
+				player->go(this, WEST);
 			}
 			else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
-				player[0]->go(this, SOUTH);
+				player->go(this, SOUTH);
 			}
 			else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
-				player[0]->go(this, DOWN);
+				player->go(this, DOWN);
 			}
 			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
-				player[0]->go(this, DOWN);
+				player->go(this, DOWN);
 			}
 
 		}//go------------------------------------------------------------------------------------
@@ -187,22 +187,22 @@ update_status world::checkinloop(mString& token1){
 		else if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
 
 			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
-				player[0]->open(this, EAST);
+				player->open(this, EAST);
 			}
 			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
-				player[0]->open(this, NORTH);
+				player->open(this, NORTH);
 			}
 			else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
-				player[0]->open(this, WEST);
+				player->open(this, WEST);
 			}
 			else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
-				player[0]->open(this, SOUTH);
+				player->open(this, SOUTH);
 			}
 			else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
-				player[0]->open(this, DOWN);
+				player->open(this, DOWN);
 			}
 			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
-				player[0]->open(this, DOWN);
+				player->open(this, DOWN);
 			}
 			else if (*command1 == "map" || *command1 == "MAP"){
 				map();
@@ -213,32 +213,32 @@ update_status world::checkinloop(mString& token1){
 		else if (*command0 == "close" || *command0 == "c" || *command0 == "Close" || *command0 == "CLOSE"){
 
 			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
-				player[0]->close(this, EAST);
+				player->close(this, EAST);
 			}
 			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
-				player[0]->close(this, NORTH);
+				player->close(this, NORTH);
 			}
 			else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
-				player[0]->close(this, WEST);
+				player->close(this, WEST);
 			}
 			else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
-				player[0]->close(this, SOUTH);
+				player->close(this, SOUTH);
 			}
 			else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
-				player[0]->close(this, DOWN);
+				player->close(this, DOWN);
 			}
 			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
-				player[0]->close(this, DOWN);
+				player->close(this, DOWN);
 			}
 
 		}//CLOSE------------------------------------------------------------------------------------
 
 		else if (*command0 == "Pick" || *command0 == "pick" || *command0 == "PICK"){
-			player[0]->pick(*command1);
+			player->pick(*command1);
 		}
 
 		else if (*command0 == "Drop" || *command0 == "drop" || *command0 == "DROP"){
-			player[0]->drop(*command1);
+			player->drop(*command1);
 
 			if (*command1 == "THEBASS" || *command1 == "thebass"){	party(); 	}
 		}
@@ -250,11 +250,11 @@ update_status world::checkinloop(mString& token1){
 
 		else if (*command0 == "Equip" || *command0 == "equip")
 		{
-			player[0]->equip(this, *command1);
+			player->equip(this, *command1);
 		}
 		else if (*command0 == "Unequip" || *command0 == "unequip")
 		{
-			player[0]->unequip(this,*command1);
+			player->unequip(this,*command1);
 		}
 
 		else {
@@ -291,7 +291,7 @@ update_status world::checkinloop(mString& token1){
 	else if (size == 4){
 		if ((*command0 == "Get" || *command0 == "get") && (*command2 == "from") && (*command3 == "toolkit" || *command3 == "monkeyshit")){
 		
-			player[0]->get(this, commandments[1]->C_str(), commandments[3]->C_str());
+			player->get(this, commandments[1]->C_str(), commandments[3]->C_str());
 		}
 
 
@@ -302,7 +302,7 @@ update_status world::checkinloop(mString& token1){
 
 
 
-	player[0]->noStop = true;
+	player->noStop = true;
 
 
 	return ret;

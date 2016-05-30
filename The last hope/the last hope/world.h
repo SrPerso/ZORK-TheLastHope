@@ -11,11 +11,11 @@ class exits;
 class Player;
 class Item;
 class Npc;
+class entity;
 
 class world{
 public:
 	
-//	Vector<entity*>World;
 
 	/*
 	Vector<room*> Room;
@@ -26,6 +26,8 @@ public:
 	*/
 
 	Vector<entity*>Entities;
+	Player* player;
+
 
 	world();//build
 	~world();// destroy
@@ -36,6 +38,5 @@ public:
 	
 };//class world
 
-extern world* TheWorld;
 
 #endif

@@ -62,10 +62,10 @@ void Player::look()const{
 
 	printf("\t %s \n\n %s", position->SayMyName(), position->SayTheDescription());
 
-	if (position->theEntity.size() >= 1)
+	if (position->container.size() >= 1)
 	{
-		printf("You can see a %s", position->theEntity[0]->SayMyName());
-		for (uint i = 1; position->theEntity.size() > i; i++)
+		printf("You can see a %s", position->container[0]->SayMyName());
+		for (uint i = 1; position->container.size() > i; i++)
 		{
 			position->look();
 		}
@@ -172,14 +172,14 @@ void Player::pick(const mString item)
 		printf("You can't do that!! :O \n");
 	}
 	if (PlayerItems.size() < 1){
-		for (uint i = 0; position->theEntity.size() > i; i++){
+		for (uint i = 0; position->container.size() > i; i++){
 
-			if (item == position->theEntity[i]->SayMyName()){
+			if (item == position->container[i]->SayMyName()){
 
-				PlayerItems.push_back(position->theEntity[i]);
+				PlayerItems.push_back(position->container[i]);
 
-				printf("You picked up the %s", position->theEntity[i]->SayMyName());
-				position->theEntity.Remove(i);//delete the object in the position
+				printf("You picked up the %s", position->container[i]->SayMyName());
+				position->container.Remove(i);//delete the object in the position
 
 				break;
 			}
@@ -199,7 +199,7 @@ void Player::drop(const mString item)
 		{
 			if (item == PlayerItems[i]->SayMyName()){
 
-				position->theEntity.push_back(PlayerItems[i]);
+				position->container.push_back(PlayerItems[i]);
 
 				printf("You droped the %s", PlayerItems[i]->SayMyName());
 
@@ -222,15 +222,15 @@ void Player::get(world* World, const mString item, const mString box){
 
 		if (PlayerItems.size() < INVENTORY_SPACE){
 
-			for (unsigned int i = 0; World->Entities[ROOMSNUMBER + 8]->theEntity.size() > i; i++){
+			for (unsigned int i = 0; World->Entities[ROOMSNUMBER + 8]->container.size() > i; i++){
 
-				if (item == World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->theEntity[i]->SayMyName() && World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->theEntity[i]->type == ITEM){
+				if (item == World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]->SayMyName() && World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]->type == ITEM){
 
-					printf("You got a %s from the %s", World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->theEntity[i]->SayMyName(), box);
+					printf("You got a %s from the %s", World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]->SayMyName(), box);
 
-					PlayerItems.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->theEntity[i]);//transfer
+					PlayerItems.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]);//transfer
 
-					World->Entities[ROOMSNUMBER + 8]->theEntity.Remove(i);//delete
+					World->Entities[ROOMSNUMBER + 8]->container.Remove(i);//delete
 
 					break;
 
@@ -255,7 +255,7 @@ void Player::put(world* World, const mString item, const mString box)
 		{
 			if (item == PlayerItems[i]->SayMyName()){
 
-				World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->theEntity.push_back(PlayerItems[i]);
+				World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container.push_back(PlayerItems[i]);
 
 				printf("You put the %s to the %s", PlayerItems[i]->SayMyName(), box);
 
