@@ -19,6 +19,8 @@ public:
 	
 	bool noStop = true;
 	bool Item_Equiped = false;
+
+	
 	//Stats
 
 	int hp = 100;

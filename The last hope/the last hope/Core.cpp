@@ -70,7 +70,7 @@ update_status kbhit(world*TheWorld){
 
 				if (command[charcommandnum - 1] == '\r'){
 
-					//printf("\n\t\t >> %s\n\t\t\n", command);
+					printf("\n\t\t >> %s\n\t\t\n", command);
 
 					command[charcommandnum - 1] = '\0';
 

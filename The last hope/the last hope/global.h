@@ -38,7 +38,7 @@ void helpmap();
 
 #define INVENTORY_SPACE 10//number of places in the inventory
 
-#define TIMETOPASS 10000//time to return to ask 1000 == 1 seg
+#define TIMETOPASS 20000//time to return to ask 1000 == 1 seg
 #define COMMANDBUFFER 50
-#define TIMETOWAIT 5000//time that must pass without write something 
+#define TIMETOWAIT 10000//time that must pass without write something 
 #endif

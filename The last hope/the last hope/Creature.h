@@ -1,8 +1,8 @@
 #ifndef _CREATURE_
 #define _CREATURE_
 
-#include "rooms.h"
 #include "Entity.h"
+class room;
 
 class Creature:public entity{
 public:
@@ -16,7 +16,12 @@ public:
 public:
 	Creature(const char*name, const char*descriptiom,room*location, EntityType type);
 	virtual ~Creature();
-	void Update();
+	
+//void Update();
+
+	bool IsAlive()const;
+
+
 };
 
 #endif

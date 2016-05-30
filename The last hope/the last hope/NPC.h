@@ -7,14 +7,12 @@
 class Npc : public Creature{
 public:
 	room*position=nullptr;
-
-
-
 public:
 
 	Npc(const char* name,const char* description, room* src);
 	~Npc();
 
+	bool IsPlayerHere();
 	
 };
 

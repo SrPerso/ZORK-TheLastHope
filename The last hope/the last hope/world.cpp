@@ -10,6 +10,7 @@
 #include "exits.h"
 #include "NPC.h"
 #include "Entity.h"
+#include "Item.h"
 //------------------------
 
 world::world(){
@@ -98,59 +99,59 @@ void world::createWorld(){
 	// ---- EXITS ---------------------------
 
 	//PLANET 1 ------
-	Entities.push_back(new exits("South", "There is a road to go in front of the ship.", "West", Planet1_South, Planet1_West, true, NORTH));
-	Entities.push_back(new exits("West", "It seems that the road leads south of the ship", "South", Planet1_West, Planet1_South, true, SOUTH));
+	Entities.push_back(new exits("South", "West", "There is a road to go in front of the ship.", Planet1_South, Planet1_West, true, NORTH));
+	Entities.push_back(new exits("West", "South", "It seems that the road leads south of the ship", Planet1_West, Planet1_South, true, SOUTH));
 
-	Entities.push_back(new exits("West", "This cool door lead outside", "Ship", Planet1_Ship, Planet1_West, true, WEST));
-	Entities.push_back(new exits("Ship", "The ship’s door perhaps with a key could open", "West", Planet1_West, Planet1_Ship, true, EAST));
+	Entities.push_back(new exits("West", "Ship", "This cool door lead outside", Planet1_Ship, Planet1_West, true, EAST));
+	Entities.push_back(new exits("Ship", "West", "The ship’s door perhaps with a key could open", Planet1_West, Planet1_Ship, true, WEST));
 
-	Entities.push_back(new exits("West", "It seems that the road leads north of the ship", "North", Planet1_West, Planet1_North, true, NORTH));
-	Entities.push_back(new exits("North", "There is a road to go in front of the ship.", "West", Planet1_North, Planet1_West, true, WEST));
+	Entities.push_back(new exits("West", "North1", "It seems that the road leads north of the ship", Planet1_West, Planet1_North, true, NORTH));
+	Entities.push_back(new exits("North", "West", "There is a road to go in front of the ship.", Planet1_North, Planet1_West, true, WEST));
 
-	Entities.push_back(new exits("North", "the light is shining is a good way to go out the cave..", "cave", Planet1_Cave, Planet1_North, true, DOWN));
-	Entities.push_back(new exits("cave", "This hole seems that leads to a cave", "North", Planet1_North, Planet1_Cave, true, UP));
+	Entities.push_back(new exits("North", "cave", "the light is shining is a good way to go out the cave..", Planet1_Cave, Planet1_North, true, DOWN));
+	Entities.push_back(new exits("cave", "North", "This hole seems that leads to a cave", Planet1_North, Planet1_Cave, true, UP));
 
-	Entities.push_back(new exits("North", "The road is leading to the ship’s back maybe there is something…", "East", Planet1_North, Planet1_East, true, WEST));
-	Entities.push_back(new exits("East", "It seems that the road leads north of the ship", "North", Planet1_East, Planet1_North, true, NORTH));
+	Entities.push_back(new exits("North", "East", "The road is leading to the ship’s back maybe there is something…", Planet1_North, Planet1_East, true, EAST));
+	Entities.push_back(new exits("East", "North", "It seems that the road leads north of the ship", Planet1_East, Planet1_North, true, NORTH));
 
-	Entities.push_back(new exits("South", "The road is leading to the ship’s back maybe there is something…", "East", Planet1_South, Planet1_East, true, WEST));
-	Entities.push_back(new exits("East", "It seems that the road leads south of the ship", "South", Planet1_East, Planet1_South, true, SOUTH));
+	Entities.push_back(new exits("South", "East", "The road is leading to the ship’s back maybe there is something…", Planet1_South, Planet1_East, true, EAST));
+	Entities.push_back(new exits("East", "South", "It seems that the road leads south of the ship", Planet1_East, Planet1_South, true, SOUTH));
 
-	Entities.push_back(new exits("West", "There is a road full of herbs and shrubs, it seems to be leading to forest", "Forest", Planet1_West, Planet1_Forest, true, EAST));
-	Entities.push_back(new exits("South", "There is a road full of herbs and shrubs, it seems to be leading to forest", "Forest", Planet1_South, Planet1_Forest, true, NORTH));
-	Entities.push_back(new exits("North", "There is a road full of herbs and shrubs, it seems to be leading to forest", "Forest", Planet1_North, Planet1_Forest, true, NORTH));
-	Entities.push_back(new exits("East", "There is a road full of herbs and shrubs, it seems to be leading to forest", "Forest", Planet1_East, Planet1_Forest, true, NORTH));
+	Entities.push_back(new exits("West", "Forest", "There is a road full of herbs and shrubs, it seems to be leading to forest", Planet1_West, Planet1_Forest, true, WEST));
+	Entities.push_back(new exits("South", "Forest", "There is a road full of herbs and shrubs, it seems to be leading to forest", Planet1_South, Planet1_Forest, true, NORTH));
+	Entities.push_back(new exits("North", "Forest", "There is a road full of herbs and shrubs, it seems to be leading to forest", Planet1_North, Planet1_Forest, true, NORTH));
+	Entities.push_back(new exits("East", "Forest", "There is a road full of herbs and shrubs, it seems to be leading to forest", Planet1_East, Planet1_Forest, true, NORTH));
 	//PLANET 1 ------
 
 	// SPACE----
-	Entities.push_back(new exits("Ship", "i must put all ready to leave the planet", "Space", Planet1_Ship, Space_Space, true, UP));
-	Entities.push_back(new exits("Space", "This lost planet is really nice from space", "Ship in plab", Space_Space, Planet1_Ship, true, DOWN));
+	Entities.push_back(new exits("Ship", "Space", "i must put all ready to leave the planet", Planet1_Ship, Space_Space, true, UP));
+	Entities.push_back(new exits("Space", "Ship in plab", "This lost planet is really nice from space", Space_Space, Planet1_Ship, true, DOWN));
 
-	Entities.push_back(new exits("Space", "mmm this star is perfect for take a SUPER.. HOT.. hollidays", "Sun", Space_Space, Space_Sun, true, NORTH));
+	Entities.push_back(new exits("Space", "Sun", "mmm this star is perfect for take a SUPER.. HOT.. hollidays", Space_Space, Space_Sun, true, NORTH));
 	// SPACE----
 
 	//DANTOOINE- --
-	Entities.push_back(new exits("Space", "this dry planet seems the perfect place for take the fuel", "Dantooine", Space_Space, Planet2_Ship, true, EAST));
-	Entities.push_back(new exits("Dantooine", "space the huge unknown", "Space", Planet2_Ship, Space_Space, true, UP));
+	Entities.push_back(new exits("Space", "Dantooine", "this dry planet seems the perfect place for take the fuel", Space_Space, Planet2_Ship, true, WEST));
+	Entities.push_back(new exits("Dantooine", "Space", "space the huge unknown", Planet2_Ship, Space_Space, true, UP));
 
-	Entities.push_back(new exits("Outside of the castle", "i love that ship", "Ship ", Planet2_Outside, Planet2_Ship, true, EAST));
-	Entities.push_back(new exits("Ship ", "this is like a desert but blue.. (da ba dee da ba daaa.... -eiffel 65)", "Outside of the castle", Planet2_Ship, Planet2_Outside, true, WEST));
+	Entities.push_back(new exits("Outside of the castle", "Ship ", "i love that ship", Planet2_Outside, Planet2_Ship, true, WEST));
+	Entities.push_back(new exits("Ship ", "Outside of the castle", "this is like a desert but blue.. (da ba dee da ba daaa.... -eiffel 65)", Planet2_Ship, Planet2_Outside, true, EAST));
 
-	Entities.push_back(new exits("Outside of the castle", "fiuu fiuu this castle reminds me of the castle disney ... but badly build", "Inside of the castle", Planet2_Outside, Planet2_Kingsroom, true, NORTH));
-	Entities.push_back(new exits("Inside of the castle", "fresh air over there..", "Outside of the castle", Planet2_Kingsroom, Planet2_Outside, true, SOUTH));
+	Entities.push_back(new exits("Outside of the castle", "Inside of the castle", "fiuu fiuu this castle reminds me of the castle disney ... but badly build", Planet2_Outside, Planet2_Kingsroom, true, NORTH));
+	Entities.push_back(new exits("Inside of the castle", "Outside of the castle", "fresh air over there..", Planet2_Kingsroom, Planet2_Outside, true, SOUTH));
 	//DANTOOINE- --
 
 	//DURO--
-	Entities.push_back(new exits("Space", "UOoUOOoo pretty green planet, maybe i will travel ther when i take some fuel", "Duro", Space_Space, Planet3_Ship, true, SOUTH));
-	Entities.push_back(new exits("Duro", "Came on camion! i can not wait to travel to the starss!", "Space", Planet3_Ship, Space_Space, true, UP));
+	Entities.push_back(new exits("Space", "Duro", "UOoUOOoo pretty green planet, maybe i will travel ther when i take some fuel", Space_Space, Planet3_Ship, true, SOUTH));
+	Entities.push_back(new exits("Duro", "Space", "Came on camion! i can not wait to travel to the starss!", Planet3_Ship, Space_Space, true, UP));
 
-	Entities.push_back(new exits("Jail", "Maybe to arrive fastly to the ship you just have to jump down", "Swamp of Duro", Planet3_Jail, Planet3_Ship, true, DOWN));
+	Entities.push_back(new exits("Jail", "Swamp of Duro", "Maybe to arrive fastly to the ship you just have to jump down", Planet3_Jail, Planet3_Ship, true, DOWN));
 
-	Entities.push_back(new exits("Hall", "with this stairs i could ho to the jail", "Jail", Planet2_Hall, Planet3_Jail, true, EAST));
-	Entities.push_back(new exits("Jail", "oing down i will arrive to the hall", "Hall", Planet3_Jail, Planet2_Hall, true, WEST));
+	Entities.push_back(new exits("Hall", "Jail", "with this stairs i could ho to the jail", Planet2_Hall, Planet3_Jail, true, WEST));
+	Entities.push_back(new exits("Jail", "Hall", "oing down i will arrive to the hall", Planet3_Jail, Planet2_Hall, true, EAST));
 
-	Entities.push_back(new exits("Hall", "the ship.. nice way to land off...", "Ship in the Swang", Planet2_Hall, Planet3_Ship, true, SOUTH));
-	Entities.push_back(new exits("Ship in the Swang", "well i think that we just land off in the hall LoL", "Hall", Planet3_Ship, Planet2_Hall, true, NORTH));
+	Entities.push_back(new exits("Hall", "Ship in the Swang", "the ship.. nice way to land off...", Planet2_Hall, Planet3_Ship, true, SOUTH));
+	Entities.push_back(new exits("Ship in the Swang", "Hall", "well i think that we just land off in the hall LoL", Planet3_Ship, Planet2_Hall, true, NORTH));
 	//DURO--
 
 	///----------------------------------------------------------------------------------------
@@ -197,7 +198,7 @@ void world::createWorld(){
 	Item* Cable = new Item("Cable", "maybe could repair a starship", Planet1_South);
 	Entities.push_back(Cable);
 	
-	Item* BOX = new Item("box", "it contains things", Planet1_Ship);
+	Item* BOX = new Item("box", "It contains things", Planet1_Ship);
 	Entities.push_back(BOX);
 
 	// ITEMS_------------------------------
@@ -226,7 +227,7 @@ void world::createWorld(){
 	///----------------------------------NPCS---------------------------------------------
 	///----------------------------------------------------------------------------------------
 
-	Npc* Android = new Npc("Android", "This android seems that wears a diamond inside him \n Maybe i could talk with him...", Planet1_West);
+	Android = new Npc("Android", "This android seems that wears a diamond inside him \n Maybe i could talk with him...", Planet1_West);
 	Entities.push_back(Android);
 
 	Npc* monkey = new Npc("Monkey", "A rare white monkey with a target in his hand \n Perhaps i can convince him to give me the target ", Planet1_Cave);

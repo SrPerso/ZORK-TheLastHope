@@ -9,7 +9,6 @@
 #include "world.h"
 #include "player.h"
 #include "rooms.h"
-#include "vector.h"
 #include "global.h"
 #include "exits.h"
 //------------------------
@@ -64,17 +63,17 @@ void Player::look()const{
 
 	if (position->container.size() >= 1)
 	{
-		printf("You can see a %s", position->container[0]->SayMyName());
-		for (uint i = 1; position->container.size() > i; i++)
+		
+		for (uint i = 1; position->container.size() >= i; i++)
 		{
-			position->look();
+			printf("\n \t /////You can see a %s", position->container[i-1]->SayMyName());
 		}
 		printf(".\n");
 	}
 
 }//look room ------------------------------------------------------------
 void Player::look(world* World, dir look)const{
-
+	int tmp = 0;
 
 	for (int i = 0; i < EXITSNUMBER; i++){
 
@@ -83,15 +82,19 @@ void Player::look(world* World, dir look)const{
 
 		else if (((exits*)World->Entities[ROOMSNUMBER + i])->direction == look){
 
-			printf("%s\n", World->Entities[ROOMSNUMBER + i]->name);
+			//World->Entities[ROOMSNUMBER + i]->look();
+
+			//printf("%s\n", World->Entities[ROOMSNUMBER + i]->name);
 			printf("%s\n", World->Entities[ROOMSNUMBER + i]->description);
 
+			tmp = 1;
 		}//if direction to look
 
-
+		
 	}//for looking every valor
-
-
+	if (tmp == 0){
+		printf("\t\t\tThere's nothing there\n\n");
+	}
 }//look door------------------------------------------------------------
 
 void Player::close(world* World, dir close){
@@ -108,7 +111,7 @@ void Player::close(world* World, dir close){
 
 			closedoorFX();//FX closing door
 
-			printf("\n\n\t Maybe you close the door too hard...\n\n", ((exits*)World->Entities[ROOMSNUMBER + i])->dest);
+			printf("\n\n\t Maybe you close the door too hard...\n\n",((exits*)World->Entities[ROOMSNUMBER + i])->dest);
 			 
 		}// close the door
 

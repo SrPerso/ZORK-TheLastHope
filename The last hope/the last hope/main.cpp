@@ -45,11 +45,15 @@ int main() {
 
 		case MAIN_START:
 
+			/*
 			if (preintro() == false){
 				introFX();
 			}
-			state = MAIN_UPDATE;
+					
 			intro();
+			*/
+
+			state = MAIN_UPDATE;		
 			break;
 
 

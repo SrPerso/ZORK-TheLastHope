@@ -20,9 +20,9 @@ bool preintro(){
 	printf("\t\t\tattacks should skip the intro\n\n");
 
 	while (1){
-	char in[2];
+	char in[50];
 
-	printf("\t Skip the intro? (y/n) \n\n\t\t");
+	printf("\t Skip the intro? (y/n) \n\n \t\t>>");
 	
 	gets_s(in);
 	
@@ -38,7 +38,7 @@ bool preintro(){
 
 		}//if
 		else{			
-			printf("\t mmhh write 'n' or 'y' \nt\t");
+			printf("\t mmhh write 'n' or 'y' \n\t\t>>");
 		}
 
 	}

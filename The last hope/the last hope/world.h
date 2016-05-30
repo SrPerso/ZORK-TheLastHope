@@ -27,7 +27,7 @@ public:
 
 	Vector<entity*>Entities;
 	Player* player;
-
+	Npc*Android;
 
 	world();//build
 	~world();// destroy

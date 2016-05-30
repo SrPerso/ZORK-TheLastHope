@@ -99,6 +99,11 @@ update_status world::checkinloop(mString& token1){
 			printf("try again");
 
 		}//OPEN
+		else if (*command0 == "Hello" || *command0 == "hello" || *command0 == "hey" || *command0 == "hi"){
+			printf("Hi!");
+
+		}//¡
+
 
 		else if (*command0 == "close" || *command0 == "c" || *command0 == "Close" || *command0 == "CLOSE"){
 			printf("try again");
