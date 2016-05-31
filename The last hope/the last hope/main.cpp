@@ -44,7 +44,7 @@ int main() {
 			break;
 
 		case MAIN_START:
-
+			
 			/*
 			if (preintro() == false){
 				introFX();
@@ -63,7 +63,7 @@ int main() {
 		case MAIN_UPDATE:
 		{
 
-			int update_return ;
+			update_status update_return;
 				update_return = kbhit(TheWorld);
 
 			if (update_return == UPDATE_ERROR){

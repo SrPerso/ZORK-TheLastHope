@@ -69,7 +69,7 @@ typedef unsigned int uint;
 
 class world;
 
-int kbhit(world*);
+update_status kbhit(world*);
 
 // INTRO---------------
 bool preintro();
@@ -92,6 +92,8 @@ void helpmap();
 void helpComands();
 void map();
 //OUTTRO------------------
+bool win(world*);
+void Epilogue();
 void credits();
 
 

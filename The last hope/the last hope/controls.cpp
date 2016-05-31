@@ -484,3 +484,39 @@ void helpComands(){
 
 	
 }
+
+bool win(world *World){
+		return World->player->position==World->Entities[13];
+}
+
+void Epilogue(){
+	system("cls");
+	printf("\n\n\n\n\n\n\n\n");
+	printf("\t\t After few month the princess go out of the jail..\n");
+	printf("\t\t Congrats... YOU WIN\n");
+	printf("\t\t The force was with you and showe you the way to victory\n");
+	Sleep(2000);
+	system("cls");
+	printf("\n\t\t	          ____\n");
+	printf("\t\t                 _.' :  `._\n");
+	printf("\t\t             .-.'`.  ;   .'`.-.\n");
+	printf("\t\t    __      / : ___\ ;  /___ ; \      __\n");
+	printf("\t\t ,'_ ''--.:__;'. - .';: :'. - .':__;.--'' _`,\n");
+	printf("\t\t :' `.t''--.. '<@.`;_  ',@>` ..--''j.' `;\n");
+	printf("\t\t      `:-.._J '-.-'L__ `-- ' L_..-;'\n");
+	printf("\t\t        ' - .__;  . - '  ' - .  : __. - '\n");
+	printf("\t\t            L ' /.------.\ ' J\n");
+	printf("\t\t             ' - .   '--'   . - ' \n");
+	printf("\t\t            __.l' - :_JL_; -';.__\n");
+	printf("\t\t         .-j/'.;  ;''''  / .'\'-.\n");
+	printf("\t\t       .' /:`. ' - .:     . - ' .';  `.\n");
+	printf("\t\t     .-' / ;  '-. ' - .. - ' .-'  :    '-.\n");
+	printf("\t\t  .+' - .  : : '-.__.-'; -._   \ \n");
+	printf("\t\t  ; \  `.; ;                    : : ' + .;\n");
+	printf("\t\t  :  ;   ; ;                    : ;  : \:\n");
+	printf("\t\t : `.' - ;;;                  :;, / ;\n");
+	printf("\t\t  ;    -: ;  :                ;  : .-''  :\n\n");
+
+	printf("\t\t\t MAY THE FORCE BE WITH YOU");
+	Sleep(1000);
+}

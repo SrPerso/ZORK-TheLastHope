@@ -9,7 +9,7 @@
 #include "NPC.h"
 
 
-int kbhit(world*TheWorld){
+update_status kbhit(world*TheWorld){
 
 	srand(time(NULL));
 	
@@ -99,6 +99,9 @@ int kbhit(world*TheWorld){
 						Stringcommands.buffer = command;
 						if (checkret != UPDATE_TALKING){ checkret = TheWorld->checkinloop(Stringcommands, monkeytalkstate, monkeybool);	}
 						if (checkret == UPDATE_TALKING){ checkret = TheWorld->Android->talkandroid(Stringcommands);	}
+						/*if (win() == true){
+							Epilogue(); 
+						}*/
 						if (checkret == UPDATE_STOP){	return UPDATE_STOP;}
 					
 					}//if
