@@ -296,51 +296,17 @@ update_status Npc::talkandroid(mString& token1){
 	size = commandments.size();
 
 
-	mString* command0 = nullptr;
-	mString* command1 = nullptr;
-	mString* command2 = nullptr;
-	mString* command3 = nullptr;
-
-
-	if (size == 4)
-	{
-		command0 = commandments[0];
-		command1 = commandments[1];
-		command2 = commandments[2];
-		command3 = commandments[3];
-	}
-	else if (size == 3)
-	{
-		command0 = commandments[0];
-		command1 = commandments[1];
-		command2 = commandments[2];
-	}
-	else if (size == 2)
-	{
-		command0 = commandments[0];
-		command1 = commandments[1];
-	}
-	else if (size == 1)
-	{
-		command0 = commandments[0];
-	}
-	else{
-		printf("\t@#@|^*_#@¨^\n\n");
-		return UPDATE_TALKING;
-	}
-
-
-	if (size == 1 && command1 == nullptr){
-		if (*command0 == "REPRODUCE" || *command0 == "reproduce" || *command0 == "Reproduce"){
+	if (size == 1){
+		if (commandments[0]->S_str() == "REPRODUCE" || commandments[0]->S_str() == "reproduce" || commandments[0]->S_str() == "Reproduce"){
 			printf("\n ---Help me Obi-Wan Kenobi, you' re my only hope!--- \n");
 		}
-		if (*command0 == "DANCE" || *command0 == "dance" || *command0 == "Dance" || *command0 == "Dance"){
+		if (commandments[0]->S_str() == "DANCE" || commandments[0]->S_str() == "dance" || commandments[0]->S_str() == "Dance" || commandments[0]->S_str() == "Dance"){
 			DanceAndroid();
 		}
-		else if (*command0 == "hi" || *command0 == "hey" || *command0 == "HEY" || *command0 == "HI" || *command0 == "HELLO" || *command0 == "hello" || *command0 == "Hello"){
+		else if (commandments[0]->S_str() == "hi" || commandments[0]->S_str() == "hey" || commandments[0]->S_str() == "HEY" || commandments[0]->S_str() == "HI" || commandments[0]->S_str() == "HELLO" || commandments[0]->S_str() == "hello" || commandments[0]->S_str() == "Hello"){
 			printf("\t @__@\n\n");
 		}
-		
+
 		else {
 			printf("\n\t &%$&%&/$%54r98 \n");
 		}
@@ -350,33 +316,18 @@ update_status Npc::talkandroid(mString& token1){
 	//---------------------------------------------------
 
 	//if 2--------------------------------------------------
-	else if (size == 2 && command2 == nullptr){
+	else if (size == 2){
 
-		if (*command0 == "STOP" || *command0 == "stop" || *command0 == "Stop"){
+		if (commandments[0]->S_str() == "STOP" || commandments[0]->S_str() == "stop" || commandments[0]->S_str() == "Stop"){
 
-			if (*command1 == "TALKING" || *command1 == "TALK" || *command1 == "Talk" || *command1 == "Talking" || *command1 == "talking" || *command1 == "talk"){
+			if (commandments[1]->S_str() == "TALKING" || commandments[1]->S_str() == "TALK" || commandments[1]->S_str() == "Talk" || commandments[1]->S_str() == "Talking" || commandments[1]->S_str() == "talking" || commandments[1]->S_str() == "talk"){
 				return UPDATE_NO_TALKING;
 			}
 
 		}//if 2--------------------------------------------------
-
-		// --------------------------------------------------
-
-		//if 3-------------------------
-
-		else if (size == 3){
-
-
+		for (int j = 0; commandments.size() > j; j++){
+			delete commandments[j];
 		}
-		//if 3--------------------------------------------------
-
-		// --------------------------------------------------
-
-		//if 4--------------------------------------------------
-		else if (size == 4){
-
-		}
-
 
 		return UPDATE_TALKING;
 	}

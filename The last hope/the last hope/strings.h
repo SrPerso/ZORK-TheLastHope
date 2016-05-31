@@ -14,7 +14,7 @@ public:
 	mString();
 	mString(const char*str);//builder
 	mString(const mString& str);// copy builder
-	~mString();//destroyer
+	~mString();
 	
 	//methods------------
 
@@ -39,7 +39,8 @@ public:
 	mString operator + (const mString& str)const;
 	
 	Vector<mString*> Tokenize();
-	
+
+	mString S_str()const;
 };
 
 #endif

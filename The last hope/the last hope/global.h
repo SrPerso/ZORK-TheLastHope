@@ -69,7 +69,7 @@ typedef unsigned int uint;
 
 class world;
 
-update_status kbhit(world*);
+void kbhit(world*);
 
 // INTRO---------------
 bool preintro();

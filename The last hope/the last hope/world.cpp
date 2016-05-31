@@ -20,9 +20,21 @@ world::world(){
 
 world::~world() {
 
-	for (unsigned int i = 0; i < Entities.size(); i++){
+	for (unsigned int i = 0; i < (Entities.size() - 9); i++){
 		delete Entities[i];
 	}
+	delete &player;
+	delete &Android;
+	delete &Monkey;
+	delete stormtrooper;
+	delete Planet1_West;
+	delete Space_Space;
+	delete Planet1_North;
+	delete Planet1_East;
+	delete Planet1_South;
+	delete Card;
+	delete Blazzer;
+
 	Entities.clear();
 
 }//destroyer

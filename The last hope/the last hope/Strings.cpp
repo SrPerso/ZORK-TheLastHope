@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include "strings.h"
 #include <iostream>
+#include <ctype.h>
+#include <string.h>
 #define _CRT_SECURE_NO_WARNINGS
 //-------------construuctors--------------- 
 
 mString::mString(){
+	
 }
 
 mString::mString(const char * str){
@@ -33,7 +36,7 @@ mString::mString(const mString & str){
 
 mString::~mString(){
 
-	delete[] buffer;
+delete[] buffer;
 
 }//destroyer
 
@@ -52,6 +55,11 @@ char* mString::C_str()const{
 
 	return buffer;
 
+}
+mString mString::S_str()const{
+
+	mString copy(buffer);
+	return copy;
 }
 
 bool mString::empty()const{
@@ -163,7 +171,7 @@ void mString::operator = (const mString& str){
 
 	}
 }
-
+/*
 mString mString::operator + (const mString& str)const{
 
 	mString concat(buffer);
@@ -174,4 +182,4 @@ mString mString::operator + (const mString& str)const{
 
 	return concat;
 
-}
+}*/
