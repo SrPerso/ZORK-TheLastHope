@@ -231,10 +231,12 @@ void world::createWorld(){
 	Android = new Npc("Android", "This android seems that wears a diamond inside him \n Maybe i could talk with him...", Planet1_West);
 	Entities.push_back(Android);
 
-	Npc* monkey = new Npc("Monkey", "A rare white monkey with a target in his hand \n Perhaps i can convince him to give me the target ", Planet1_Cave);
-	Entities.push_back(monkey);
-	Npc* stormtrooper = new Npc("Stormtrooper", "This imperial soldier have the order to kill you :O", Planet1_West);
-	Entities.push_back(stormtrooper);
+	Monkey = new Npc("Monkey", "A rare white monkey with a target in his hand \n Perhaps i can convince him to give me the target ", Planet1_Cave);
+	Entities.push_back(Monkey);
+
+
+	//Npc* stormtrooper = new Npc("Stormtrooper", "This imperial soldier have the order to kill you :O", Planet1_West);
+	//Entities.push_back(stormtrooper);
 	
 
 

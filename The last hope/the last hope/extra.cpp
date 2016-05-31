@@ -9,6 +9,7 @@
 #include "rooms.h"
 #include "exits.h"
 #include "player.h"
+#include <Windows.h>
 //------------------------
 
 
@@ -45,19 +46,82 @@ bool preintro(){
 
 	
 }
-
 void intro(){
+	
+	
+	Sleep(1500);
 
 	system("cls");
+		printf("\n\n\n\n\n\n");//
+		printf("\n\n\n\n\n\n");
+		printf("\n\n\n\n     The New Empire took over the Galaxy causing a horrible place to live \n\n");
+	
+		Sleep(1300);
 
-	printf("\n\n\n\n\n\tThe New Empire took over the Galaxy causing a horrible place to live \n\n");
-	printf("\tin peace. On a distant planet from the centre of the Galaxy was a kid \n\n");
-	printf("\tcalled Perka whose family was murdered by de New Empire. He found a \n\n");
-	printf("\tmysterious star ship half buried witch he was start a new adventure.\n\n\n\n");
+		system("cls");
+		printf("\n\n\n\n\n\n");//
+		printf("\n\n\n\n");
+		printf("\n\n\n\n\     The New Empire took over the Galaxy causing a horrible place to live \n\n");
+		printf("   in peace. On a distant planet from the centre of the Galaxy was a kid \n\n");
+		
+		Sleep(1300);
+		
+		system("cls");
+		printf("\n\n\n\n\n\n");//
+		printf("\n\n");
+		printf("\n\n\n\n     The New Empire took over the Galaxy causing a horrible place to live \n\n");
+		printf("   in peace. On a distant planet from the centre of the Galaxy was a kid \n\n");
+		printf("   called Perka whose family was murdered by de New Empire. He found a \n\n");
+		
+		Sleep(1300);
+		
+		system("cls");
+		printf("\n\n\n\n\n\n");//
 
-	printf("\t you are in the east of the bured ship\n\n");
+		printf("\n\n\n\n     The New Empire took over the Galaxy causing a horrible place to live \n\n");
+		printf("   in peace. On a distant planet from the centre of the Galaxy was a kid \n\n");
+		printf("   called Perka whose family was murdered by de New Empire. He found a \n\n");
+		printf("   mysterious star ship half buried witch he was start a new adventure.\n\n\n\n");		
+		
+		Sleep(1300);
 
-	system("pause");
+		system("cls");
+		printf("\n\n\n\n\n\n");//
+		printf("\n\n     The New Empire took over the Galaxy causing a horrible place to live \n\n");
+		printf("   in peace. On a distant planet from the centre of the Galaxy was a kid \n\n");
+		printf("   called Perka whose family was murdered by de New Empire. He found a \n\n");
+		printf("   mysterious star ship half buried witch he was start a new adventure.\n\n\n\n");
+
+
+		Sleep(1300);
+		
+		system("cls");
+		printf("\n\n\n\n\n\n");//
+		printf("     The New Empire took over the Galaxy causing a horrible place to live \n\n");
+		printf("   in peace. On a distant planet from the centre of the Galaxy was a kid \n\n");
+		printf("   called Perka whose family was murdered by de New Empire. He found a \n\n");
+		printf("   mysterious star ship half buried witch he was start a new adventure.\n\n\n\n");
+		
+		Sleep(1300);
+		
+		system("cls");
+		printf("\n\n\n\n\n\n");//
+		printf("\n\n   in peace. On a distant planet from the centre of the Galaxy was a kid \n\n");
+		printf("   called Perka whose family was murdered by de New Empire. He found a \n\n");
+		printf("   mysterious star ship half buried witch he was start a new adventure.\n\n\n\n");
+		
+		Sleep(1300);
+		
+		system("cls");
+		printf("\n\n\n\n\n\n");//
+		printf("   called Perka whose family was murdered by de New Empire. He found a \n\n");
+		printf("   mysterious star ship half buried witch he was start a new adventure.\n\n\n\n");
+		printf("   You are in the east of the bured ship\n\n");
+		printf("\n\n\n\n\n\n");//
+		Sleep(1300);
+		
+		system("pause");
+
 	system("cls");
 	system("color 0A");//black green
 	printf("\n\n");
@@ -142,7 +206,7 @@ void introFX(){
 			}//else
 		}//i for
 	}//j for
-	system("pause");
+	system("cls");
 }//intro
 
 
@@ -250,42 +314,44 @@ void opendoorFX(){
 
 void party(){
 	
+	for (int j = 0; j <= 2; j++){
+		for (int i = 0; i < 7; i++){
 
-	for (int i = 0; i < 7; i++){
-
-		system("cls");
-		system("color f0");//white black
+			system("cls");
+			system("color f0");//white black
 
 
-		printf("\n\n\n\n\n");
-		printf("\n\t\t\t#####             __              #####\n");
-		printf("\t\t\t#( )# |          _( )__         | #( )#\n");
-		printf("\t\t\t##### |         /_    /         | #####\n");
-		printf("\t\t\t#| |# |     ___m/__ m/_____     | #| |#\n");
-		printf("\t\t\t# O # | ___#-x./++m/.x- #_____ _| # O #\n");
-		printf("\t\t\t#m.m# |/ @  |||###/||| @ ___ _   | #m.m#\n");
-		printf("\t\t\t#####///    ######/     _######  _ #####\n ");
+			printf("\n\n\tº==============================================================º\n");
+			printf("\n\t\t\t\t#####             __              #####\n");
+			printf("\t\t\t\t#( )# |          _( )__         | #( )#\n");
+			printf("\t\t\t\t##### |         /_    /         | #####\n");
+			printf("\t\t\t\t#| |# |     ___m/__ m/_____     | #| |#\n");
+			printf("\t\t\t\t# O # | ___#-x./++m/.x- #_____ _| # O #\n");
+			printf("\t\t\t\t#m.m# |/ @  |||###/||| @ ___ _   | #m.m#\n");
+			printf("\t\t\t\t#####///    ######/     _######  _ #####\n ");
+			printf("\n\n\tº==============================================================º\n");
+			if (i == 2){
+				system("color 0A");//black green
+			}//if
+			if (i == 4){
 
-		if (i == 2){
-			system("color 0A");//black green
-		}//if
-		if (i == 4){
+				system("color f4");//white red
+			}//if
+			if (i == 6){
+				system("color 0A");//black green
+			}//if
+			else{
 
-			system("color f4");//white red
-		}//if
-		if (i == 6){
-			system("color 0A");//black green
-		}//if
-		else{
+				system("color f4");//white red
 
-			system("color f4");//white red
-
-		}//if
+			}//if
+		}//for
 	}//for
 
 }
 
 void credits(){
+
 	system("cls");
 	system("color 4f");
 	printf("\n\t\t ----------------THANKS 4 PLAY-----------------\n");

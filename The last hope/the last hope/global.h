@@ -42,6 +42,29 @@ enum update_npc_movement
 	UPDATE_NPC_DEAD
 };
 
+enum update_npc_talk
+{
+	UPDATE_NPC_TALK1,
+	UPDATE_NPC_TALK2,
+	UPDATE_NPC_TALK3,
+	UPDATE_NPC_TALK4,
+	UPDATE_NPC_TALK5,
+	UPDATE_NPC_TALK6,
+	UPDATE_NPC_TALK7,
+
+};
+enum moving_text{
+
+	UPDATE_TEXT_1,
+	UPDATE_TEXT_2,
+	UPDATE_TEXT_3,
+	UPDATE_TEXT_4,
+	UPDATE_TEXT_5,
+	UPDATE_TEXT_6,
+	UPDATE_TEXT_7,
+	UPDATE_TEXT_STOP,
+};
+
 typedef unsigned int uint;
 
 class world;
@@ -51,7 +74,9 @@ update_status kbhit(world*);
 // INTRO---------------
 bool preintro();
 void introFX();
+
 void intro();
+//moving_text intro(moving_text&);
 
 
 //EXTRAS-----------------

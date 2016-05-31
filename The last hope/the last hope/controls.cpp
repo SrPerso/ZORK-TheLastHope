@@ -12,9 +12,10 @@
 #include "exits.h"
 #include "player.h"
 #include "vector.h"
+#include "NPC.h"
 //------------------------
 
-update_status world::checkinloop(mString& token1){
+update_status world::checkinloop(mString& token1, update_npc_talk&Update_npc_talk, bool&monkeybool){
 
 	update_status ret = UPDATE_CONTINUE;
 
@@ -207,9 +208,37 @@ update_status world::checkinloop(mString& token1){
 		else if (*command0 == "talk" || *command0 == "TALK" || *command0 == "Talk" ){
 
 			if (*command1 == "Android" || *command1 == "android" || *command1 == "ANDROID" || *command1 == "R2D2"){
-				printf("aaa");
-				return UPDATE_TALKING;
 				
+				
+				if (Android->position == player->position){
+
+					system("cls");
+					printf("\n\n-------------------------------------------------------------------------------");
+					printf("\n\n--------------------------- TALKING WITH THE ANDROID --------------------------");
+					printf("\n\n-------------------------------------------------------------------------------\n");
+					return UPDATE_TALKING;
+				}
+				else{
+					printf("\n There isn't any android here! :O");
+					return UPDATE_CONTINUE;
+				}
+				
+				
+			}
+
+			if (*command1 == "MONKEY" || *command1 == "monkey" || *command1 == "Monkey" ){
+				if (Monkey->position == player->position && monkeybool==true){
+
+					printf("\n UUUU UUUU UUUU UUAAA AUUU III III\n");
+
+					printf("\n seems that you can talk to the monkey... (use <<Talk Monkey 'selection'>>\n");
+					Monkey->talkMonkey(0,Update_npc_talk);
+					Update_npc_talk = UPDATE_NPC_TALK2;
+				}
+				else{
+					printf("\n There isn't any Monkey here! :O");
+					return UPDATE_CONTINUE;
+				}
 			}
 		}
 	

@@ -45,14 +45,15 @@ int main() {
 
 		case MAIN_START:
 
-			/*
+			
 			if (preintro() == false){
 				introFX();
-			}
-					
-			intro();
-		*/
 
+			}
+			system("color 0E");//black yellow
+			intro();
+	
+			system("color 0A");//black green
 			state = MAIN_UPDATE;		
 			break;
 

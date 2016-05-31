@@ -30,6 +30,7 @@ public:
 	//used in control.cpp
 	Player* player;
 	Npc*Android;
+	Npc*Monkey;
 	room*Planet1_West;
 	room*Planet1_North;
 	room*Planet1_East;
@@ -40,7 +41,7 @@ public:
 	world();//build
 	~world();// destroy
 	
-	update_status checkinloop(mString&);
+	update_status checkinloop(mString&, update_npc_talk&, bool&);
 	void createWorld();
 	bool CleanUp(world*TheWorld);
 	
