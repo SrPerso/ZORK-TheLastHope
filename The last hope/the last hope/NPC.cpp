@@ -5,6 +5,7 @@
 #include "global.h"
 #include <stdio.h>
 #include "player.h"
+#include "vector.h"
 
 #include <Windows.h>
 
@@ -381,3 +382,38 @@ update_status Npc::talkandroid(mString& token1){
 	}
 	return UPDATE_TALKING;
 }
+
+
+void Npc::Change(world* World, const mString item, const mString monkey){
+
+	if (position == World->Entities[8]){
+
+		if (container.size() < NPC_INVENTORY_SPACE){
+	
+			for (unsigned int i = 0; World->player->PlayerItems.size() > i; i++){
+
+					if (item == World->player->PlayerItems[i]->SayMyName()){
+
+						printf("You gave a %s to the %s\n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 1]->SayMyName(), monkey);
+
+						printf("The monkey gave you a %s \n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 2]->SayMyName());
+
+						World->player->PlayerItems.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 2]->container[i]);
+						World->Monkey->container.Remove(i);//delete
+
+						World->Monkey->container.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 1]->container[i]);
+						World->player->PlayerItems.Remove(i);//delete
+						
+						break;
+
+					}
+				}
+		
+		}//npc inventory space
+
+		else{
+			printf("The npc has the inventory full\n");
+		}
+	}
+
+}//get ------------------------------------------------------

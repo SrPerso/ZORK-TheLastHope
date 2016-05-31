@@ -102,8 +102,8 @@ void world::createWorld(){
 	Entities.push_back(new exits("South", "West", "There is a road to go in front of the ship.", Planet1_South, Planet1_West, true, NORTH));
 	Entities.push_back(new exits("West", "South", "It seems that the road leads south of the ship", Planet1_West, Planet1_South, true, SOUTH));
 
-	Entities.push_back(new exits("West", "Ship", "This cool door lead outside", Planet1_Ship, Planet1_West, true, EAST));
-	Entities.push_back(new exits("Ship", "West", "The ship’s door perhaps with a key could open", Planet1_West, Planet1_Ship, true, WEST));
+	Entities.push_back(new exits("West", "Ship", "This cool door lead outside", Planet1_Ship, Planet1_West, true, WEST));
+	Entities.push_back(new exits("Ship", "West", "The ship’s door perhaps with a key could open", Planet1_West, Planet1_Ship, true, EAST));
 	((exits*)Entities[ROOMSNUMBER + 3])->locked = true;
 
 	Entities.push_back(new exits("West", "North1", "It seems that the road leads north of the ship", Planet1_West, Planet1_North, true, NORTH));
@@ -119,9 +119,9 @@ void world::createWorld(){
 	Entities.push_back(new exits("East", "South", "It seems that the road leads south of the ship", Planet1_East, Planet1_South, true, SOUTH));
 
 	Entities.push_back(new exits("West", "Forest", "There is a road full of herbs and shrubs, it seems to be leading to forest", Planet1_West, Planet1_Forest, true, WEST));
-	Entities.push_back(new exits("South", "Forest", "There is a road full of herbs and shrubs, it seems to be leading to forest", Planet1_South, Planet1_Forest, true, NORTH));
+	Entities.push_back(new exits("South", "Forest", "There is a road full of herbs and shrubs, it seems to be leading to forest", Planet1_South, Planet1_Forest, true, SOUTH));
 	Entities.push_back(new exits("North", "Forest", "There is a road full of herbs and shrubs, it seems to be leading to forest", Planet1_North, Planet1_Forest, true, NORTH));
-	Entities.push_back(new exits("East", "Forest", "There is a road full of herbs and shrubs, it seems to be leading to forest", Planet1_East, Planet1_Forest, true, NORTH));
+	Entities.push_back(new exits("East", "Forest", "There is a road full of herbs and shrubs, it seems to be leading to forest", Planet1_East, Planet1_Forest, true, EAST));
 	//PLANET 1 ------
 
 	// SPACE----
@@ -148,8 +148,8 @@ void world::createWorld(){
 
 	Entities.push_back(new exits("Jail", "Swamp of Duro", "Maybe to arrive fastly to the ship you just have to jump down", Planet3_Jail, Planet3_Ship, true, DOWN));
 
-	Entities.push_back(new exits("Hall", "Jail", "with this stairs i could ho to the jail", Planet2_Hall, Planet3_Jail, true, WEST));
-	Entities.push_back(new exits("Jail", "Hall", "oing down i will arrive to the hall", Planet3_Jail, Planet2_Hall, true, EAST));
+	Entities.push_back(new exits("Hall", "Jail", "with this stairs i could ho to the jail", Planet2_Hall, Planet3_Jail, true, EAST));
+	Entities.push_back(new exits("Jail", "Hall", "oing down i will arrive to the hall", Planet3_Jail, Planet2_Hall, true, WEST));
 
 	Entities.push_back(new exits("Hall", "Ship in the Swang", "the ship.. nice way to land off...", Planet2_Hall, Planet3_Ship, true, SOUTH));
 	Entities.push_back(new exits("Ship in the Swang", "Hall", "well i think that we just land off in the hall LoL", Planet3_Ship, Planet2_Hall, true, NORTH));
@@ -165,7 +165,7 @@ void world::createWorld(){
 	Stone->attackspeed = 1;
 	//]
 
-	Item* Stick = new Item("Stick", " you can use it for kick someone or something", Planet1_East);
+	Item* Stick = new Item("Stick", "Stick", Planet1_East);
 	Entities.push_back(Stick);
 	//[
 	Stick->attack = 10;
@@ -204,25 +204,7 @@ void world::createWorld(){
 
 	// ITEMS_------------------------------
 
-	Entities[1]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 0]);//stone
-
-	Entities[1]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 1]);//stick
-
-	Entities[8]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 2]);//targed
-
-	Entities[5]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 3]);//diamond
-
-	Entities[0]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 4]);//lasser
-
-	Entities[3]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 5]);//blazzer
-
-	Entities[11]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 6]);//sensor
-
-	Entities[0]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 7]);//cable
-
-	Entities[0]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 8]);// box
-
-	Entities[8]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 7]);
+	
 
 	///----------------------------------------------------------------------------------------
 	///----------------------------------NPCS---------------------------------------------
@@ -235,18 +217,36 @@ void world::createWorld(){
 	Entities.push_back(Monkey);
 
 
-	//Npc* stormtrooper = new Npc("Stormtrooper", "This imperial soldier have the order to kill you :O", Planet1_West);
-	//Entities.push_back(stormtrooper);
+	stormtrooper = new Npc("Stormtrooper", "One Stormtrooper cying... He lost the blazzer..", Planet1_West);
+	Entities.push_back(stormtrooper);
 	
 
 
 	// ---- Player ----
 
-	player = new Player("SO-PERCA", "One normal guy that feels the force", Planet1_East);
+	player = new Player("SO-PERCA", "One normal guy that feels the force", Planet1_West);
 	Entities.push_back(player);
 	// ---- Player ----
 
 
 
+	Entities[1]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 0]);//stone
 
+	Entities[1]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 1]);//stick
+
+	Monkey->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 2]);//targed
+
+	Entities[5]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 3]);//diamond
+
+	Entities[0]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 4]);//lasser
+
+	Entities[3]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 5]);//blazzer
+
+	stormtrooper->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 6]);//sensor
+
+	Entities[0]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 7]);//cable
+
+	Entities[0]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 8]);// box
+
+	Entities[8]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 7]);
 }

@@ -115,7 +115,7 @@ public:
 
 	TYPE operator[](unsigned int &index)const{
 
-		assert(index < num_elements);
+		assert(index < 100);
 
 		return buffer[index];
 
@@ -123,7 +123,7 @@ public:
 
 	TYPE &operator[] (unsigned int index) {
 
-		assert(index < num_elements);
+		assert(index < 100);
 
 		return buffer[index];
 

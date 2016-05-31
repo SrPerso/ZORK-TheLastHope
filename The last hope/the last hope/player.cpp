@@ -176,7 +176,7 @@ void Player::pick(const mString item)
 	if (item == "box"){
 		printf("You can't do that!! :O \n");
 	}
-	if (PlayerItems.size() < 1){
+	if (PlayerItems.size() < INVENTORY_SPACE){
 		for (uint i = 0; position->container.size() > i; i++){
 
 			if (item == position->container[i]->SayMyName()){

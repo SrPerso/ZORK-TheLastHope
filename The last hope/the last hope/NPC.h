@@ -26,7 +26,7 @@ public:
 	void talkMonkey(const mString, update_npc_talk&);
 	update_npc_movement Move(update_npc_movement&update_npc,world*World);
 	update_status talkandroid(mString& token1);
-
+	void Change(world* World, const mString item, const mString npc);
 };
 
 #endif

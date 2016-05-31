@@ -16,10 +16,10 @@ void log(const char file[], int line, const char* format, ...);
 #define NPCNUMBER 3//number of npcs
 
 #define INVENTORY_SPACE 10//number of places in the inventory
+#define NPC_INVENTORY_SPACE 2
+#define TIMETOMOVENPC 25000 //time to move the npc
 
-#define TIMETOMOVENPC 15000 //time to move the npc
-
-#define TIMETOPASS 20000//time to return to ask 1000 == 1 seg
+#define TIMETOPASS 30000//time to return to ask 1000 == 1 seg
 #define COMMANDBUFFER 50
 #define TIMETOWAIT 10000//time that must pass without write something 
 

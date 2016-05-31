@@ -388,6 +388,10 @@ update_status world::checkinloop(mString& token1, update_npc_talk&Update_npc_tal
 			player->get(this, commandments[1]->C_str(), commandments[3]->C_str());
 		}
 
+		if ((*command0 == "Give" || *command0 == "give") && (*command2 == "to") && (*command3 == "monkey" || *command3 == "Monkey")){
+
+			Monkey->Change(this, commandments[1]->C_str(), commandments[3]->C_str());
+		}
 
 		else {
 			printf("Maybe you speak Murlok language but im not.. \n");

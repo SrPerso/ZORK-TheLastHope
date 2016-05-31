@@ -27,10 +27,11 @@ public:
 
 	Vector<entity*>Entities;
 
-	//used in control.cpp
+	//used in 
 	Player* player;
 	Npc*Android;
 	Npc*Monkey;
+	Npc*stormtrooper;
 	room*Planet1_West;
 	room*Planet1_North;
 	room*Planet1_East;
