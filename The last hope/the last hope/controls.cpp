@@ -229,10 +229,14 @@ update_status world::checkinloop(mString& token1, update_npc_talk&Update_npc_tal
 			if (*command1 == "MONKEY" || *command1 == "monkey" || *command1 == "Monkey" ){
 				if (Monkey->position == player->position && monkeybool==true){
 
-					printf("\n UUUU UUUU UUUU UUAAA AUUU III III\n");
+					if (Update_npc_talk == UPDATE_NPC_TALK2 || Update_npc_talk == UPDATE_NPC_TALK1){
+						printf("\n UUUU UUUU UUUU UUAAA AUUU III III\n");
+						printf("\n seems that you can talk to the monkey... (use <<Talk Monkey 'selection'>>\n");
 
-					printf("\n seems that you can talk to the monkey... (use <<Talk Monkey 'selection'>>\n");
-					Monkey->talkMonkey(0,Update_npc_talk);
+					}
+					
+					
+					Monkey->talkMonkey(commandments[1]->C_str(), Update_npc_talk);
 					Update_npc_talk = UPDATE_NPC_TALK2;
 				}
 				else{
@@ -315,7 +319,7 @@ update_status world::checkinloop(mString& token1, update_npc_talk&Update_npc_tal
 			player->drop(*command1);
 
 			if (*command1 == "THEBASS" || *command1 == "thebass"){	party(); 	}
-		}
+		} //EASTEREGG
 
 		else if (*command0 == "Help" || *command0 == "HELP" || *command0 == "help"){
 			
@@ -347,13 +351,28 @@ update_status world::checkinloop(mString& token1, update_npc_talk&Update_npc_tal
 
 			if ((*command1 == "THE" || *command1 == "the") && (*command2 == "BASS" || *command2 == "bass")){
 
-				party(); //EASTEREGG it is going to be modificated
-			}
-			else {
-
-			}
+				party(); //EASTEREGG
+			}		
 
 		}
+
+		else if (*command0 == "talk" || *command0 == "TALK" || *command0 == "Talk"){
+
+			if (*command1 == "MONKEY" || *command1 == "monkey" || *command1 == "Monkey"){
+
+				if (Monkey->position == player->position && monkeybool == true){
+
+					if (Update_npc_talk == UPDATE_NPC_TALK2 || Update_npc_talk == UPDATE_NPC_TALK1){
+						printf("\n UUUU UUUU UUUU UUAAA AUUU III III\n");
+						printf("\n seems that you can talk to the monkey... (use <<Talk Monkey 'selection'>>\n");
+					}
+						Monkey->talkMonkey(commandments[2]->C_str(), Update_npc_talk);
+				
+				}
+
+			}
+		}
+
 		else {
 			printf("Maybe you speak Murlok language but im not.. \n");
 		}

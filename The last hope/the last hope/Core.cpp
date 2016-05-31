@@ -9,7 +9,7 @@
 #include "NPC.h"
 
 
-update_status kbhit(world*TheWorld){
+int kbhit(world*TheWorld){
 
 	srand(time(NULL));
 	

@@ -109,8 +109,8 @@ void world::createWorld(){
 	Entities.push_back(new exits("West", "North1", "It seems that the road leads north of the ship", Planet1_West, Planet1_North, true, NORTH));
 	Entities.push_back(new exits("North", "West", "There is a road to go in front of the ship.", Planet1_North, Planet1_West, true, WEST));
 
-	Entities.push_back(new exits("North", "cave", "the light is shining is a good way to go out the cave..", Planet1_Cave, Planet1_North, true, DOWN));
-	Entities.push_back(new exits("cave", "North", "This hole seems that leads to a cave", Planet1_North, Planet1_Cave, true, UP));
+	Entities.push_back(new exits("North", "cave", "the light is shining is a good way to go out the cave..", Planet1_Cave, Planet1_North, true, UP));
+	Entities.push_back(new exits("cave", "North", "This hole seems that leads to a cave", Planet1_North, Planet1_Cave, true, DOWN));
 
 	Entities.push_back(new exits("North", "East", "The road is leading to the ship’s back maybe there is something…", Planet1_North, Planet1_East, true, EAST));
 	Entities.push_back(new exits("East", "North", "It seems that the road leads north of the ship", Planet1_East, Planet1_North, true, NORTH));

@@ -6,7 +6,7 @@ class mString{
 public:
 
 	char* buffer=nullptr;
-	unsigned int Capacity=100;
+	unsigned int Capacity=200;
 
 public:
 

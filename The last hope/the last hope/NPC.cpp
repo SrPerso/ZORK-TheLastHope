@@ -143,9 +143,13 @@ update_npc_movement Npc::Move(update_npc_movement& update_npc, world*World){
 }
 
 
-bool Npc::talkMonkey(const int&answer,update_npc_talk&Update_npc_talk){
+void Npc::talkMonkey(const mString answer, update_npc_talk&Update_npc_talk){
+	
 
-	if (Update_npc_talk == UPDATE_NPC_TALK1){
+	switch (Update_npc_talk){
+
+	
+		case UPDATE_NPC_TALK1:
 
 		printf("\n\n-------------------------------------------------------------------------------");
 		printf("\n\n 1. Is silly trying to talk to a monkey ");
@@ -156,81 +160,120 @@ bool Npc::talkMonkey(const int&answer,update_npc_talk&Update_npc_talk){
 		printf("\n\n-------------------------------------------------------------------------------");
 		printf("\n\n 4. UUU UUA UUAUAUU AUUAUA");
 		printf("\n\n-------------------------------------------------------------------------------");
+
 		Update_npc_talk = UPDATE_NPC_TALK2;
-		return true;
-	}
-	else if (Update_npc_talk == UPDATE_NPC_TALK2){
 
-		if (answer == 1){ printf("\n\n	AAAU AUAU UAU AAU AU "); }
-		else if (answer == 2){ printf("\n\n	FUFUFUFUU  "); }
-		else if (answer == 3){ printf("\n\n	AAAU AUAU UAU AAU AU  (maybe you must say please..)"); }
-		else if (answer == 4){ printf("\n\n	UAA UAUAU UUA AUUA "); }
-		else{ printf("\n\n	This is not a valid answer "); }
-		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 1. Is silly trying to talk to a monkey ");
-		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 2. WHAT THE FU...");
-		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 3. Give me the target...");
-		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 4. U u uaaA UAA UAAA");
-		printf("\n\n-------------------------------------------------------------------------------");
-		Update_npc_talk = UPDATE_NPC_TALK3;
-		return true;
-
-	}
-	else if (Update_npc_talk == UPDATE_NPC_TALK3){
-
-		if (answer == 1){}
-		else if (answer == 2){}
-		else if (answer == 3){}
-		else if (answer == 4){}
-		else{ printf("\n\n	This is not a valid answer "); }
+		break;
 
 
+		case UPDATE_NPC_TALK2:
 
-		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 1. Is silly trying to talk to a monkey ");
-		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 2. WHAT THE FU...");
-		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 3. Give me the target...PLEASE");
-		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 4. U u uaaA UAA UAAA");
-		printf("\n\n-------------------------------------------------------------------------------");
-		Update_npc_talk = UPDATE_NPC_TALK4;
-		return true;
-	}
-	else if (Update_npc_talk == UPDATE_NPC_TALK4){
+			if (answer == "1"){
+				printf("\n\n	AAAU AUAU UAU AAU AU "); }
+			else if (answer == "2"){ 
+				printf("\n\n	FUFUFUFUU  "); }
+			else if (answer == "3"){
+				printf("\n\n	UA II IUUUAU AUUIA "); }
+			else if (answer == "4"){ 
+				printf("\n\n	UAA UAUAU UUA AUUA "); }
+			else{ 
+				printf("\n\n	This is not a valid answer "); }
 
-		if (answer == 1){}
-		else if (answer == 2){}
-		else if (answer == 3){}
-		else if (answer == 4){}
-		else{ printf("\n\n	This is not a valid answer "); }
-		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 1. Is silly trying to talk to a monkey ");
-		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 2. WHAT THE FU...");
-		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 3. Give me the target...");
-		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 4. AA UU UA UUII III UUU ");
-		printf("\n\n-------------------------------------------------------------------------------");
-		Update_npc_talk = UPDATE_NPC_TALK4;
-		return true;
-	}
-	else if (Update_npc_talk == UPDATE_NPC_TALK5){
-		if (answer == 1){}
-		else if (answer == 2){}
-		else if (answer == 3){}
-		else if (answer == 4){}
-		else{ printf("\n\n	This is not a valid answer "); }
+			printf("\n\n-------------------------------------------------------------------------------");
+			printf("\n\n 1. Is silly trying to talk to a monkey ");
+			printf("\n\n-------------------------------------------------------------------------------");
+			printf("\n\n 2. WHAT THE FU...");
+			printf("\n\n-------------------------------------------------------------------------------");
+			printf("\n\n 3. Give me the target...");
+			printf("\n\n-------------------------------------------------------------------------------");
+			printf("\n\n 4. U u uaaA UAA UAAA");
+			printf("\n\n-------------------------------------------------------------------------------");
 
-		return false;
-	}
+			Update_npc_talk = UPDATE_NPC_TALK3;
 
+		break;
 
+		case UPDATE_NPC_TALK3:
+
+			if (answer == "1"){ 
+				printf("\n\n	AAAU AUAU UAU AAU AU "); }
+			else if (answer == "2"){ 
+				printf("\n\n	FUFUFUFUU  "); }
+			else if (answer == "3"){ 
+				printf("\n\n	AAAU AUAU UAU AAU AU  (maybe you must say please..)"); }
+			else if (answer == "4"){ 
+				printf("\n\n	UAA UAUAAAUAU UUA AUUA "); }
+			else{ 
+				printf("\n\n	This is not a valid answer "); }
+			
+
+			printf("\n\n-------------------------------------------------------------------------------");
+			printf("\n\n 1. Is silly trying to talk to a monkey ");
+			printf("\n\n-------------------------------------------------------------------------------");
+			printf("\n\n 2. WHAT THE FU...");
+			printf("\n\n-------------------------------------------------------------------------------");
+			printf("\n\n 3. Give me the target...PLEASE");
+			printf("\n\n-------------------------------------------------------------------------------");
+			printf("\n\n 4. U u uaaA UAA UAAA");
+			printf("\n\n-------------------------------------------------------------------------------");
+
+			Update_npc_talk = UPDATE_NPC_TALK4;
+
+		break;
+
+		case UPDATE_NPC_TALK4:
+
+			if (answer == "1"){ 
+				printf("\n\n	AAAU AUAU UAU AAU AU "); }
+			else if (answer == "2"){
+				printf("\n\n	FUFUFUFUU  ");
+				Update_npc_talk = UPDATE_NPC_TALK1;	}
+			else if (answer == "3"){ 
+				printf("\n\n	III III III III UUU U U (seems that it doesnt like that you said please shouting "); }
+			else if (answer == "4"){
+				printf("\n\n	UAA UAUAU UUA AUUA "); }
+			else{ 
+				printf("\n\n	This is not a valid answer "); }
+
+			printf("\n\n-------------------------------------------------------------------------------");
+			printf("\n\n 1. Is silly trying to talk to a monkey ");
+			printf("\n\n-------------------------------------------------------------------------------");
+			printf("\n\n 2. WHAT THE FU...");
+			printf("\n\n-------------------------------------------------------------------------------");
+			printf("\n\n 3. Give me the target...please..");
+			printf("\n\n-------------------------------------------------------------------------------");
+			printf("\n\n 4. AA UU UA UUII III UUU ");
+			printf("\n\n-------------------------------------------------------------------------------");
+			
+			Update_npc_talk = UPDATE_NPC_TALK5;
+		
+		break;
+
+		case UPDATE_NPC_TALK5:
+
+			if (answer == "1"){
+				printf("\n\n	AAAU AUAU UAU AAU AU "); }
+			else if (answer == "2"){
+				printf("\n\n	FUFUFUFUU  ");
+				Update_npc_talk = UPDATE_NPC_TALK1; }
+			else if (answer == "3"){ 
+				printf("\n\n	UI U AU AA...  UI U AU AA  (Seems that he want a Stick..)"); }
+			else if (answer == "4"){
+				printf("\n\n	UI U AU AA...  UI U AU AA  (Seems that he want a Stick..)"); }
+			else{ 
+				printf("\n\n	This is not a valid answer "); }
+			
+			Update_npc_talk = UPDATE_NPC_TALK6;
+
+		break;
+		
+		case UPDATE_NPC_TALK6:
+
+			printf("\n\n Seems that is is dancing... a famous spanish song.. i think that Melody sangs it! :O ");
+			printf("\n\nU UA AAA  U U U UU!");
+		break;
+
+	}//switch
 }
 
 

@@ -45,7 +45,7 @@ int main() {
 
 		case MAIN_START:
 
-			
+			/*
 			if (preintro() == false){
 				introFX();
 
@@ -54,13 +54,17 @@ int main() {
 			intro();
 	
 			system("color 0A");//black green
+
+			*/
 			state = MAIN_UPDATE;		
 			break;
 
 
 		case MAIN_UPDATE:
 		{
-			int update_return = kbhit(TheWorld);
+
+			int update_return ;
+				update_return = kbhit(TheWorld);
 
 			if (update_return == UPDATE_ERROR){
 			
