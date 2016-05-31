@@ -85,7 +85,6 @@
     <ClInclude Include="NPC.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="exits.h" />
-    <ClInclude Include="memorytleaks.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="rooms.h" />
     <ClInclude Include="strings.h" />

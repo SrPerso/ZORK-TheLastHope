@@ -98,7 +98,8 @@ if (size == 1){
 	}//HELP
 
 	else if (commandments[0]->S_str() == "quit" || commandments[0]->S_str() == "q" || commandments[0]->S_str() == "Quit" || commandments[0]->S_str() == "QUIT"){
-		return UPDATE_STOP;
+		//exit(0);
+	return UPDATE_STOP;
 	}//QUIT
 
 	else if (commandments[0]->S_str() == "clean" || commandments[0]->S_str() == "Cle" || commandments[0]->S_str() == "Clean" || commandments[0]->S_str() == "CLEAN"){

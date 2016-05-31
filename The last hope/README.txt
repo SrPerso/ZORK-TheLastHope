@@ -65,8 +65,28 @@ Party rocker
 
 #HOW TO WIN
 
+Pick the Stick, go north, go down, talk monkey, give stick to the monkey, go 
+up,pick Blazzer, go west , go east, go up, go west,go west go north, talk stormtrooper,
+ give blazzer go south, go east,  go east, go up go south go west go north and go up.
+
 
 ##CHANGE LOG
 
 
+V 1.0 Added real time game. Added 3 npcs, added conversation in real time, added 
+selection conversation, added exchange with npcs added some Easter Eggs...
+
+v.06 In this update you can pick and drop objects, your PJ have Stats, you can equip/unquip
+ objects, look in your inventary and take items from a box.
+
+V 0.5 This release makes the world of the game, make that the player can go around the
+ world, opening doors and closing it, looking to the diferents ways and the room that the player is.
+
+V 0.1 This version contains the movement around the ship, with 4 positions. (North,South,
+ West and East)
+
+##LINKS
+https://github.com/SrPerso/ZORK-TheLastHope/releases
+https://github.com/SrPerso/ZORK-TheLastHope
+https://github.com/SrPerso/ZORK-TheLastHope/wiki
 by Carlos Peralta Sorolla

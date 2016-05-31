@@ -24,10 +24,10 @@ enum main_states
 	MAIN_EXIT
 };
 //------------------------------------
-world*TheWorld = nullptr;
+
 
 int main() {
-
+	world* TheWorld = nullptr;
 	ReportMemoryLeaks();
 	main_states state = MAIN_CREATION;
 	int main_return = EXIT_FAILURE;
@@ -45,7 +45,7 @@ int main() {
 
 		case MAIN_START:
 			
-			/*
+			
 			if (preintro() == false){
 				introFX();
 
@@ -55,7 +55,7 @@ int main() {
 	
 			system("color 0A");//black green
 
-			*/
+			
 			state = MAIN_UPDATE;		
 			break;
 
@@ -63,25 +63,16 @@ int main() {
 		case MAIN_UPDATE:
 		{
 
-			update_status update_return;
-				update_return = kbhit(TheWorld);
-
-			if (update_return == UPDATE_ERROR){
-			
-				state = MAIN_EXIT;
-			}
-
-			else if (update_return == UPDATE_STOP){
+		kbhit(TheWorld);
 				state = MAIN_FINISH;
-			}
-			state = MAIN_UPDATE;
+
 		}
 			
 			break;
 
 		case MAIN_FINISH:
 
-		
+			Epilogue();
 			credits();  //credits
 			main_return = EXIT_SUCCESS;
 			state = MAIN_EXIT;
@@ -93,7 +84,5 @@ int main() {
 	}
 
 	delete TheWorld;
-
-
 	return 0;
 }

@@ -9,7 +9,7 @@
 #include "NPC.h"
 
 
-update_status kbhit(world*TheWorld){
+void kbhit(world*TheWorld){
 
 	srand(time(NULL));
 	
@@ -41,8 +41,7 @@ update_status kbhit(world*TheWorld){
 
 		if (currenttime >= (initialtime + TIMETOPASS) || TimeSinceWrote >= TIMETOWAIT){
 
-			//TheWorld->Android->Move(Update_npc_movement, TheWorld);
-
+		
 			int num = 1 + rand() % (5 - 1);
 
 			if (num == 1){
@@ -96,19 +95,20 @@ update_status kbhit(world*TheWorld){
 
 						charcommandnum = 0;
 
-						Stringcommands.buffer = command;
-						if (checkret != UPDATE_TALKING){ checkret = TheWorld->checkinloop(Stringcommands, monkeytalkstate, monkeybool);	}
+						Stringcommands = command;
+						if (checkret != UPDATE_TALKING && checkret !=UPDATE_STOP){ checkret = TheWorld->checkinloop(Stringcommands, monkeytalkstate, monkeybool);	}
 						if (checkret == UPDATE_TALKING){ checkret = TheWorld->Android->talkandroid(Stringcommands);	}
-						/*if (win() == true){
-							Epilogue(); 
-						}*/
-						if (checkret == UPDATE_STOP){	return UPDATE_STOP;}
+						if (win(TheWorld) == true ){
+					
+							checkret = UPDATE_STOP;
+						}
+						
+				
 					
 					}//if
 				}//if
 			}
 	
 		}//while
-
-		return checkret;
+	
 }
