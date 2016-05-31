@@ -52,9 +52,9 @@ update_npc_movement Npc::Move(update_npc_movement& update_npc, world*World){
 		{
 		case UPDATE_NPC_MOVE1://East
 
-			if (position == World->player->position){ printf("\t aa1\n"); return UPDATE_NPC_PET; }
+			if (position == World->player->position){ printf("\t An Android has just appeared :O!\n"); return UPDATE_NPC_PET; }
 
-			printf("\t ANDROID IS AT EAST\n");
+			//printf("\t ANDROID IS AT EAST\n");
 
 			if (num == 1){
 				position = World->Planet1_North;
@@ -73,7 +73,7 @@ update_npc_movement Npc::Move(update_npc_movement& update_npc, world*World){
 
 			if (this->position == World->player->position){ printf("\t aa2\n"); return UPDATE_NPC_PET; }
 
-			printf("\tANDROID IS AT SOUTH\n");
+			//printf("\tANDROID IS AT SOUTH\n");
 
 			if (num == 1){
 				position = World->Planet1_East;
@@ -91,7 +91,7 @@ update_npc_movement Npc::Move(update_npc_movement& update_npc, world*World){
 
 			if (this->position == World->player->position){ printf("\t aa3\n"); return UPDATE_NPC_PET; }
 
-			printf("\tANDROID IS AT WEST\n");
+			//printf("\tANDROID IS AT WEST\n");
 
 			if (num == 1){
 				position = World->Planet1_South;
@@ -109,7 +109,7 @@ update_npc_movement Npc::Move(update_npc_movement& update_npc, world*World){
 
 			if (this->position == World->player->position){ printf("\t aa4\n"); return UPDATE_NPC_PET; }
 
-			printf("\tANDROID IS AT NORTH\n");
+			//printf("\tANDROID IS AT NORTH\n");
 
 			if (num == 1){
 				position = World->Planet1_East;
@@ -157,7 +157,7 @@ void Npc::talkMonkey(const mString answer, update_npc_talk&Update_npc_talk){
 		printf("\n\n-------------------------------------------------------------------------------");
 		printf("\n\n 2. WHAT THE FU...");
 		printf("\n\n-------------------------------------------------------------------------------");
-		printf("\n\n 3. Give me the target...");
+		printf("\n\n 3. Give me the Card...");
 		printf("\n\n-------------------------------------------------------------------------------");
 		printf("\n\n 4. UUU UUA UUAUAUU AUUAUA");
 		printf("\n\n-------------------------------------------------------------------------------");
@@ -185,7 +185,7 @@ void Npc::talkMonkey(const mString answer, update_npc_talk&Update_npc_talk){
 			printf("\n\n-------------------------------------------------------------------------------");
 			printf("\n\n 2. WHAT THE FU...");
 			printf("\n\n-------------------------------------------------------------------------------");
-			printf("\n\n 3. Give me the target...");
+			printf("\n\n 3. Give me the Card...");
 			printf("\n\n-------------------------------------------------------------------------------");
 			printf("\n\n 4. U u uaaA UAA UAAA");
 			printf("\n\n-------------------------------------------------------------------------------");
@@ -213,7 +213,7 @@ void Npc::talkMonkey(const mString answer, update_npc_talk&Update_npc_talk){
 			printf("\n\n-------------------------------------------------------------------------------");
 			printf("\n\n 2. WHAT THE FU...");
 			printf("\n\n-------------------------------------------------------------------------------");
-			printf("\n\n 3. Give me the target...PLEASE");
+			printf("\n\n 3. Give me the Card...PLEASE");
 			printf("\n\n-------------------------------------------------------------------------------");
 			printf("\n\n 4. U u uaaA UAA UAAA");
 			printf("\n\n-------------------------------------------------------------------------------");
@@ -241,7 +241,7 @@ void Npc::talkMonkey(const mString answer, update_npc_talk&Update_npc_talk){
 			printf("\n\n-------------------------------------------------------------------------------");
 			printf("\n\n 2. WHAT THE FU...");
 			printf("\n\n-------------------------------------------------------------------------------");
-			printf("\n\n 3. Give me the target...please..");
+			printf("\n\n 3. Give me the Card...please..");
 			printf("\n\n-------------------------------------------------------------------------------");
 			printf("\n\n 4. AA UU UA UUII III UUU ");
 			printf("\n\n-------------------------------------------------------------------------------");
@@ -384,7 +384,7 @@ update_status Npc::talkandroid(mString& token1){
 }
 
 
-void Npc::Change(world* World, const mString item, const mString monkey){
+void Npc::Change(world* World, const mString item, const mString NPC){
 
 	if (position == World->Entities[8]){
 
@@ -393,17 +393,32 @@ void Npc::Change(world* World, const mString item, const mString monkey){
 			for (unsigned int i = 0; World->player->PlayerItems.size() > i; i++){
 
 					if (item == World->player->PlayerItems[i]->SayMyName()){
+						if (NPC.buffer == "monkey" || NPC.buffer == "Monkey"||NPC.buffer == "MONKEY"){
 
-						printf("You gave a %s to the %s\n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 1]->SayMyName(), monkey);
+							printf("You gave a %s to the %s\n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 1]->SayMyName(), NPC);
 
-						printf("The monkey gave you a %s \n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 2]->SayMyName());
+							printf("The monkey gave you a %s \n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 2]->SayMyName());
 
-						World->player->PlayerItems.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 2]->container[i]);
-						World->Monkey->container.Remove(i);//delete
+							World->player->PlayerItems.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 2]->container[i]);
+							World->Monkey->container.Remove(i);//delete
 
-						World->Monkey->container.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 1]->container[i]);
-						World->player->PlayerItems.Remove(i);//delete
-						
+							World->Monkey->container.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 1]->container[i]);
+							World->player->PlayerItems.Remove(i);//delete
+
+						}
+						else if (NPC.buffer == "STORMTROOPER" || NPC.buffer == "Stormtrooper" || NPC.buffer == "stormtrooper"){
+
+							printf("You gave a %s to the %s\n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 5]->SayMyName(), NPC);
+							printf("Thank U 4 all my friend!!  \n");
+							printf("The Stormtrooper gave you a %s \n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 6]->SayMyName());
+
+							World->player->PlayerItems.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 6]->container[i]);
+							World->stormtrooper->container.Remove(i);//delete
+
+							World->stormtrooper->container.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 5]->container[i]);
+							World->player->PlayerItems.Remove(i);//delete
+						}
+				
 						break;
 
 					}

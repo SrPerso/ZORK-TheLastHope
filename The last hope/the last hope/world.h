@@ -29,15 +29,16 @@ public:
 
 	//used in 
 	Player* player;
-	Npc*Android;
-	Npc*Monkey;
-	Npc*stormtrooper;
-	room*Planet1_West;
-	room*Planet1_North;
-	room*Planet1_East;
-	room*Planet1_South;
-	Item* Target;
-	
+	Npc* Android;
+	Npc* Monkey;
+	Npc* stormtrooper;
+	room* Planet1_West;
+	room* Space_Space;
+	room* Planet1_North;
+	room* Planet1_East;
+	room* Planet1_South;
+	Item* Card;
+	Item* Blazzer;
 	
 	world();//build
 	~world();// destroy

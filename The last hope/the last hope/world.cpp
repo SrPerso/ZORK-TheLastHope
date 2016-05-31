@@ -59,7 +59,7 @@ void world::createWorld(){
 	//PLANET 1-----------------------------
 
 	//SPACE---------------- 
-	room* Space_Space = new room("Space", "Space, a place where many would be and contemplate each of the planets that reside in the universe.");
+	 Space_Space = new room("Space", "Space, a place where many would be and contemplate each of the planets that reside in the universe.");
 	Entities.push_back(Space_Space);
 
 	room* Space_Sun = new room("Rother 732423", "The Huge star Rother 732423 can reach to 100 million of degrees. Everything that arrive here can’t return. Mhmm seems that smells burned…");
@@ -103,7 +103,7 @@ void world::createWorld(){
 	Entities.push_back(new exits("West", "South", "It seems that the road leads south of the ship", Planet1_West, Planet1_South, true, SOUTH));
 
 	Entities.push_back(new exits("West", "Ship", "This cool door lead outside", Planet1_Ship, Planet1_West, true, WEST));
-	Entities.push_back(new exits("Ship", "West", "The ship’s door perhaps with a key could open", Planet1_West, Planet1_Ship, true, EAST));
+	Entities.push_back(new exits("Ship", "West", "The ship’s door perhaps with a key could open", Planet1_West, Planet1_Ship, false, EAST));
 	((exits*)Entities[ROOMSNUMBER + 3])->locked = true;
 
 	Entities.push_back(new exits("West", "North1", "It seems that the road leads north of the ship", Planet1_West, Planet1_North, true, NORTH));
@@ -143,7 +143,7 @@ void world::createWorld(){
 	//DANTOOINE- --
 
 	//DURO--
-	Entities.push_back(new exits("Space", "Duro", "UOoUOOoo pretty green planet, maybe i will travel ther when i take some fuel", Space_Space, Planet3_Ship, true, SOUTH));
+	Entities.push_back(new exits("Space", "Duro", "UOoUOOoo pretty green planet, maybe i will travel ther when i take some fuel", Space_Space, Planet3_Ship, false, SOUTH));
 	Entities.push_back(new exits("Duro", "Space", "Came on camion! i can not wait to travel to the starss!", Planet3_Ship, Space_Space, true, UP));
 
 	Entities.push_back(new exits("Jail", "Swamp of Duro", "Maybe to arrive fastly to the ship you just have to jump down", Planet3_Jail, Planet3_Ship, true, DOWN));
@@ -172,8 +172,8 @@ void world::createWorld(){
 	Stick->attackspeed = 2;
 	//]
 
-	Target = new Item("Target", "you can enter to some ship.", Planet1_Cave);
-	Entities.push_back(Target);
+	Card = new Item("Target", "you can enter to some ship.", Planet1_Cave);
+	Entities.push_back(Card);
 
 	Item* Diamond = new Item("Diamond", "Nice Stone,it seems that belongs to a collection of shiny rocks", Planet1_Forest);
 	Entities.push_back(Diamond);
@@ -234,7 +234,7 @@ void world::createWorld(){
 
 	Entities[1]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 1]);//stick
 
-	Monkey->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 2]);//targed
+	Monkey->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 2]);//Card
 
 	Entities[5]->container.push_back(Entities[ROOMSNUMBER + EXITSNUMBER + 3]);//diamond
 

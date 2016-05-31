@@ -91,6 +91,14 @@ update_status world::checkinloop(mString& token1, update_npc_talk&Update_npc_tal
 			player->go(this, WEST);
 		}//GO
 		else if (*command0 == "south" || *command0 == "s" || *command0 == "South" || *command0 == "EAST"){
+			if (player->position == Space_Space){//TO go THE SPACESHIP IN PLANET 1				
+				if (((exits*)Entities[ROOMSNUMBER + 25])->open == false){
+
+					printf("\n\t You need to open the door! \n");
+					return UPDATE_CONTINUE;
+				}
+
+			}
 			player->go(this, SOUTH);
 		}//GO
 		else if (*command0 == "up" || *command0 == "u" || *command0 == "Up" || *command0 == "UP"){
@@ -194,210 +202,245 @@ update_status world::checkinloop(mString& token1, update_npc_talk&Update_npc_tal
 				player->go(this, WEST);
 			}
 			else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
-				player->go(this, SOUTH);
-			}
-			else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
-				player->go(this, DOWN);
-			}
-			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
-				player->go(this, DOWN);
-			}
 
-		}//go------------------------------------------------------------------------------------
+				if (player->position == Space_Space){//TO go THE SPACESHIP IN PLANET 1				
+					if (((exits*)Entities[ROOMSNUMBER + 25])->open == false){
 
-		else if (*command0 == "talk" || *command0 == "TALK" || *command0 == "Talk" ){
-
-			if (*command1 == "Android" || *command1 == "android" || *command1 == "ANDROID" || *command1 == "R2D2"){
-				
-				
-				if (Android->position == player->position){
-
-					system("cls");
-					printf("\n\n-------------------------------------------------------------------------------");
-					printf("\n\n--------------------------- TALKING WITH THE ANDROID --------------------------");
-					printf("\n\n-------------------------------------------------------------------------------\n");
-					return UPDATE_TALKING;
-				}
-				else{
-					printf("\n There isn't any android here! :O");
-					return UPDATE_CONTINUE;
-				}
-				
-				
-			}
-
-			if (*command1 == "MONKEY" || *command1 == "monkey" || *command1 == "Monkey" ){
-				if (Monkey->position == player->position && monkeybool==true){
-
-					if (Update_npc_talk == UPDATE_NPC_TALK2 || Update_npc_talk == UPDATE_NPC_TALK1){
-						printf("\n UUUU UUUU UUUU UUAAA AUUU III III\n");
-						printf("\n seems that you can talk to the monkey... (use <<Talk Monkey 'selection'>>\n");
-
+						printf("\n\t You need to open the door! \n");
+						return UPDATE_CONTINUE;
 					}
 					
-					
-					Monkey->talkMonkey(commandments[1]->C_str(), Update_npc_talk);
-					Update_npc_talk = UPDATE_NPC_TALK2;
 				}
-				else{
-					printf("\n There isn't any Monkey here! :O");
-					return UPDATE_CONTINUE;
+				player->go(this, SOUTH);
+			}
+				else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
+					player->go(this, DOWN);
 				}
+				else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
+					player->go(this, DOWN);
+				}
+
+			}//go------------------------------------------------------------------------------------
+
+			else if (*command0 == "talk" || *command0 == "TALK" || *command0 == "Talk"){
+
+				if (*command1 == "Android" || *command1 == "android" || *command1 == "ANDROID" || *command1 == "R2D2"){
+
+
+					if (Android->position == player->position){
+
+						system("cls");
+						printf("\n\n-------------------------------------------------------------------------------");
+						printf("\n\n--------------------------- TALKING WITH THE ANDROID --------------------------");
+						printf("\n\n-------------------------------------------------------------------------------\n");
+						return UPDATE_TALKING;
+					}
+					else{
+						printf("\n There isn't any android here! :O");
+						return UPDATE_CONTINUE;
+					}
+
+
+				}
+
+				if (*command1 == "MONKEY" || *command1 == "monkey" || *command1 == "Monkey"){
+					if (Monkey->position == player->position && monkeybool == true){
+
+						if (Update_npc_talk == UPDATE_NPC_TALK2 || Update_npc_talk == UPDATE_NPC_TALK1){
+							printf("\n UUUU UUUU UUUU UUAAA AUUU III III\n");
+							printf("\n seems that you can talk to the monkey... (use <<Talk Monkey 'selection'>>\n");
+
+						}
+
+
+						Monkey->talkMonkey(commandments[1]->C_str(), Update_npc_talk);
+						Update_npc_talk = UPDATE_NPC_TALK2;
+					}
+					else{
+						printf("\n There isn't any Monkey here! :O");
+						return UPDATE_CONTINUE;
+					}
+				}
+			}
+
+
+
+			else if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
+
+				if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
+
+					if (player->position == Planet1_West){//TO LOCK THE SPACESHIP IN PLANET 1
+						for (int i = 0; player->container.size() >= i; i++){
+
+							if (player->container[i] == ((exits*)Entities[ROOMSNUMBER + EXITSNUMBER + 2])){
+
+								((exits*)Entities[ROOMSNUMBER + 3])->locked = false;
+								player->open(this, EAST);
+
+							}
+						}
+
+						printf("You need to take the target from the monkey to open the door");
+						return UPDATE_CONTINUE;
+					}
+
+					player->open(this, EAST);
+				}
+				else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
+					player->open(this, NORTH);
+				}
+				else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
+					player->open(this, WEST);
+				}
+				else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "SOUTH"){
+
+					if (player->position == Space_Space){//TO LOCK THE SPACESHIP IN PLANET 1
+
+						for (int i = 0; player->container.size() >= i; i++){
+
+							if (player->container[i] == ((exits*)Entities[ROOMSNUMBER + EXITSNUMBER + 6])){
+
+								((exits*)Entities[ROOMSNUMBER + 25])->locked = false;
+								player->open(this, EAST);
+
+							}
+						}
+
+						printf("You need to take the sensor from the Stormtrooper to open the door");
+						return UPDATE_CONTINUE;
+					}
+
+
+					player->open(this, SOUTH);
+				}
+
+				else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
+					player->open(this, DOWN);
+				}
+				else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
+					player->open(this, DOWN);
+				}
+				else if (*command1 == "map" || *command1 == "MAP"){
+					map();
+				}
+
+			}//open------------------------------------------------------------------------------------
+
+			else if (*command0 == "close" || *command0 == "c" || *command0 == "Close" || *command0 == "CLOSE"){
+
+				if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
+					player->close(this, EAST);
+				}
+				else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
+					player->close(this, NORTH);
+				}
+				else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
+					player->close(this, WEST);
+				}
+				else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
+					player->close(this, SOUTH);
+				}
+				else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
+					player->close(this, DOWN);
+				}
+				else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
+					player->close(this, DOWN);
+				}
+
+			}//CLOSE------------------------------------------------------------------------------------
+
+			else if (*command0 == "Pick" || *command0 == "pick" || *command0 == "PICK"){
+				player->pick(*command1);
+			}
+
+			else if (*command0 == "Drop" || *command0 == "drop" || *command0 == "DROP"){
+				player->drop(*command1);
+
+				if (*command1 == "THEBASS" || *command1 == "thebass"){ party(); }
+			} //EASTEREGG
+
+			else if (*command0 == "Help" || *command0 == "HELP" || *command0 == "help"){
+
+				if (*command1 == "Map" || *command1 == "map" || *command1 == "MAP"){ helpmap(); }
+				if (*command1 == "Comand" || *command1 == "comand" || *command1 == "COMAND" || *command1 == "Comands" || *command1 == "comands" || *command1 == "COMANDS"){ helpComands(); }
+			}
+
+			else if (*command0 == "Equip" || *command0 == "equip")
+			{
+				player->equip(this, *command1);
+			}
+			else if (*command0 == "Unequip" || *command0 == "unequip")
+			{
+				player->unequip(this, *command1);
+			}
+
+			else {
+				printf("Maybe you speak Murlok language but im not.. \n");
+			}
+		}//if 2--------------------------------------------------
+
+		// --------------------------------------------------
+
+		//if 3-------------------------
+
+		else if (size == 3){
+
+			if (*command0 == "Drop" || *command0 == "drop" || *command0 == "DROP"){
+
+				if ((*command1 == "THE" || *command1 == "the") && (*command2 == "BASS" || *command2 == "bass")){
+
+					party(); //EASTEREGG
+				}
+
+			}
+
+			else if (*command0 == "talk" || *command0 == "TALK" || *command0 == "Talk"){
+
+				if (*command1 == "MONKEY" || *command1 == "monkey" || *command1 == "Monkey"){
+
+					if (Monkey->position == player->position && monkeybool == true){
+
+						if (Update_npc_talk == UPDATE_NPC_TALK2 || Update_npc_talk == UPDATE_NPC_TALK1){
+							printf("\n UUUU UUUU UUUU UUAAA AUUU III III\n");
+							printf("\n seems that you can talk to the monkey... (use <<Talk Monkey 'selection'>>\n");
+						}
+						Monkey->talkMonkey(commandments[2]->C_str(), Update_npc_talk);
+
+					}
+
+				}
+
+				if (*command1 == "STORMTROOPER" || *command1 == "stormtrooper" || *command1 == "Stormtrooper"){
+					printf("\n young boy... SNIF SNIF... I lost my Blazzer... SNIF SNIF if you found it give it to me please! SNIF SNIF\n");
+				}
+
+			}
+
+			else {
+				printf("Maybe you speak Murlok language but im not.. \n");
+			}
+		}
+		//if 3--------------------------------------------------
+
+		// --------------------------------------------------
+
+		//if 4--------------------------------------------------
+		else if (size == 4){
+			if ((*command0 == "Get" || *command0 == "get") && (*command2 == "from") && (*command3 == "toolkit" || *command3 == "monkeyshit")){
+
+				player->get(this, commandments[1]->C_str(), commandments[3]->C_str());
+			}
+
+			if ((*command0 == "Give" || *command0 == "give") && (*command2 == "to") && (*command3 == "monkey" || *command3 == "Monkey")){
+
+				Monkey->Change(this, commandments[1]->C_str(), commandments[3]->C_str());
+			}
+
+			else {
+				printf("Maybe you speak Murlok language but im not.. \n");
 			}
 		}
 	
-
-
-		else if (*command0 == "open" || *command0 == "o" || *command0 == "Open" || *command0 == "OPEN"){
-
-			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
-				
-				if (player->position == Planet1_West){//TO LOCK THE SPACESHIP IN PLANET 1
-					for (int i = 0; player->container.size() >= i; i++){
-
-						if (player->container[i] == Entities[ROOMSNUMBER + EXITSNUMBER + 2]){
-							((exits*)Entities[ROOMSNUMBER + 3])->locked = false;
-							player->open(this, EAST);							
-						}
-					}
-
-					printf("You need to take the target from the monkey to open the door");
-					return UPDATE_CONTINUE;
-				}				
-				
-				player->open(this, EAST);
-			}
-			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
-				player->open(this, NORTH);
-			}
-			else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
-				player->open(this, WEST);
-			}
-			else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
-				player->open(this, SOUTH);
-			}
-			else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
-				player->open(this, DOWN);
-			}
-			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
-				player->open(this, DOWN);
-			}
-			else if (*command1 == "map" || *command1 == "MAP"){
-				map();
-			}
-
-		}//open------------------------------------------------------------------------------------
-
-		else if (*command0 == "close" || *command0 == "c" || *command0 == "Close" || *command0 == "CLOSE"){
-
-			if (*command1 == "east" || *command1 == "e" || *command1 == "East" || *command1 == "EAST"){
-				player->close(this, EAST);
-			}
-			else if (*command1 == "north" || *command1 == "n" || *command1 == "North" || *command1 == "NORTH"){
-				player->close(this, NORTH);
-			}
-			else if (*command1 == "west" || *command1 == "w" || *command1 == "West" || *command1 == "WEST"){
-				player->close(this, WEST);
-			}
-			else if (*command1 == "south" || *command1 == "s" || *command1 == "South" || *command1 == "EAST"){
-				player->close(this, SOUTH);
-			}
-			else if (*command1 == "up" || *command1 == "u" || *command1 == "Up" || *command1 == "UP"){
-				player->close(this, DOWN);
-			}
-			else if (*command1 == "down" || *command1 == "d" || *command1 == "Down" || *command1 == "DOWN"){
-				player->close(this, DOWN);
-			}
-
-		}//CLOSE------------------------------------------------------------------------------------
-
-		else if (*command0 == "Pick" || *command0 == "pick" || *command0 == "PICK"){
-			player->pick(*command1);
-		}
-
-		else if (*command0 == "Drop" || *command0 == "drop" || *command0 == "DROP"){
-			player->drop(*command1);
-
-			if (*command1 == "THEBASS" || *command1 == "thebass"){	party(); 	}
-		} //EASTEREGG
-
-		else if (*command0 == "Help" || *command0 == "HELP" || *command0 == "help"){
-			
-			if (*command1 == "Map" || *command1 == "map" || *command1 == "MAP"){ helpmap(); }
-			if (*command1 == "Comand" || *command1 == "comand" || *command1 == "COMAND" ||*command1 == "Comands" || *command1 == "comands" || *command1 == "COMANDS"){ helpComands(); }
-		}
-
-		else if (*command0 == "Equip" || *command0 == "equip")
-		{
-			player->equip(this, *command1);
-		}
-		else if (*command0 == "Unequip" || *command0 == "unequip")
-		{
-			player->unequip(this,*command1);
-		}
-
-		else {
-			printf("Maybe you speak Murlok language but im not.. \n");
-		}
-	}//if 2--------------------------------------------------
-
-	// --------------------------------------------------
-
-	//if 3-------------------------
-
-	else if (size == 3){
-
-		if (*command0 == "Drop" || *command0 == "drop" || *command0 == "DROP"){
-
-			if ((*command1 == "THE" || *command1 == "the") && (*command2 == "BASS" || *command2 == "bass")){
-
-				party(); //EASTEREGG
-			}		
-
-		}
-
-		else if (*command0 == "talk" || *command0 == "TALK" || *command0 == "Talk"){
-
-			if (*command1 == "MONKEY" || *command1 == "monkey" || *command1 == "Monkey"){
-
-				if (Monkey->position == player->position && monkeybool == true){
-
-					if (Update_npc_talk == UPDATE_NPC_TALK2 || Update_npc_talk == UPDATE_NPC_TALK1){
-						printf("\n UUUU UUUU UUUU UUAAA AUUU III III\n");
-						printf("\n seems that you can talk to the monkey... (use <<Talk Monkey 'selection'>>\n");
-					}
-						Monkey->talkMonkey(commandments[2]->C_str(), Update_npc_talk);
-				
-				}
-
-			}
-		}
-
-		else {
-			printf("Maybe you speak Murlok language but im not.. \n");
-		}
-	}		
-	//if 3--------------------------------------------------
-
-	// --------------------------------------------------
-
-	//if 4--------------------------------------------------
-	else if (size == 4){
-		if ((*command0 == "Get" || *command0 == "get") && (*command2 == "from") && (*command3 == "toolkit" || *command3 == "monkeyshit")){
-		
-			player->get(this, commandments[1]->C_str(), commandments[3]->C_str());
-		}
-
-		if ((*command0 == "Give" || *command0 == "give") && (*command2 == "to") && (*command3 == "monkey" || *command3 == "Monkey")){
-
-			Monkey->Change(this, commandments[1]->C_str(), commandments[3]->C_str());
-		}
-
-		else {
-			printf("Maybe you speak Murlok language but im not.. \n");
-		}
-	}
-
 
 
 	player->noStop = true;
@@ -405,7 +448,6 @@ update_status world::checkinloop(mString& token1, update_npc_talk&Update_npc_tal
 
 	return ret;
 }//check in loop
-
 
 void help(){
 	printf("\n\t\t	Comadand list :	    help comands\n");

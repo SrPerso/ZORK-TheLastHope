@@ -30,7 +30,7 @@ void Player::go(world*World, const dir tgo){
 
 		else if (((exits*)World->Entities[ROOMSNUMBER + i])->direction != tgo){ continue; }
 
-		if (((exits*)World->Entities[ROOMSNUMBER + i])->open == true){
+		else if (((exits*)World->Entities[ROOMSNUMBER + i])->open != false){
 
 			position = ((exits*)World->Entities[ROOMSNUMBER + i])->dest;
 
