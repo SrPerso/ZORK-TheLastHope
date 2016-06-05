@@ -3,6 +3,7 @@
 //----------includes------------------
 #include "strings.h"
 #include "vector.h"
+#include "LinkedList.h"
 //------------------------
 enum EntityType{
 
@@ -26,7 +27,7 @@ public:
 	
 	EntityType type = ENTITY;// TYPE ENTITY ENTITY
 
-	Vector<entity*> container;//vector of entities 
+	LinkedList<entity*> container;//vector of entities 
 
 	entity(const char* name, const char* description, EntityType thetype);//MMAYUS
 

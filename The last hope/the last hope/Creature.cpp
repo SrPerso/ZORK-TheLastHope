@@ -11,6 +11,9 @@ entity(name, description, CREATURE), position(position){
 Creature::~Creature(){
 
 }
+void Creature::Update(){
+
+}
 
 bool Creature::IsAlive()const{
 	return hp>0;

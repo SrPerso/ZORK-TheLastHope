@@ -11,6 +11,7 @@
 #include "rooms.h"
 #include "global.h"
 #include "exits.h"
+#include "LinkedList.h"
 //------------------------
 
 Player::Player(const char* name, const char* description, room* position) :
@@ -63,11 +64,14 @@ void Player::look()const{
 
 	if (position->container.size() >= 1)
 	{
-		
-		for (uint i = 1; position->container.size() >= i; i++)
+		LinkedList<entity*>::Node* Object = position->container.first;
+
+
+		for (Object = position->container.first; Object != nullptr; Object = Object->nxt)
 		{
-			printf("\n \t /////You can see a %s", position->container[i-1]->SayMyName());
+			printf("\n \t /////You can see a %s", Object->data->SayMyName());
 		}
+
 		printf(".\n");
 	}
 
@@ -165,10 +169,13 @@ void Player::Inventory()const
 	if (PlayerItems.size() == 0){
 		printf("You haven't any items ry now\n");
 	}
-	for (unsigned int i = 0; PlayerItems.size() > i; i++){
 
-		printf("%s\n", this->PlayerItems[i]->SayMyName());
+	LinkedList<entity*>::Node* Object = position->container.first;
+	for (Object = container.first; Object != nullptr; Object = Object->nxt){
+		printf("%s\n", Object->data->SayMyName());
+
 	}
+
 }//inventoryy ----------------------------------------------------
 
 void Player::pick(const mString item)
@@ -176,15 +183,20 @@ void Player::pick(const mString item)
 	if (item == "box"){
 		printf("You can't do that!! :O \n");
 	}
+
 	if (PlayerItems.size() < INVENTORY_SPACE){
-		for (uint i = 0; position->container.size() > i; i++){
 
-			if (item == position->container[i]->SayMyName()){
+		LinkedList<entity*>::Node* Object = position->container.first;
 
-				PlayerItems.push_back(position->container[i]);
+		for (uint i = 0; Object != nullptr; Object=Object->nxt){
 
-				printf("You picked up the %s\n", position->container[i]->SayMyName());
-				position->container.Remove(i);//delete the object in the position
+			if (item == Object->data->SayMyName()){
+
+				PlayerItems.push_back(Object->data);
+
+				printf("You picked up the %s\n", Object->data->SayMyName());
+
+				position->container.erase(Object);//delete the object in the position
 
 				break;
 			}
@@ -200,15 +212,18 @@ void Player::pick(const mString item)
 void Player::drop(const mString item)
 {
 	if (PlayerItems.size() > 0){
-		for (uint i = 0; PlayerItems.size() > i; i++)
+
+		LinkedList<entity*>::Node* Object = PlayerItems.first;
+
+		for (; Object != nullptr; Object = Object->nxt)
 		{
-			if (item == PlayerItems[i]->SayMyName()){
+			if (item == Object->data->SayMyName()){
 
-				position->container.push_back(PlayerItems[i]);
+				position->container.push_back(Object->data);
 
-				printf("You droped the %s\n", PlayerItems[i]->SayMyName());
+				printf("You droped the %s\n", Object->data->SayMyName());
 
-				PlayerItems.Remove(i);//delete the object in the position
+				PlayerItems.erase(Object);//delete the object in the position
 
 				break;
 			}
@@ -227,15 +242,19 @@ void Player::get(world* World, const mString item, const mString box){
 
 		if (PlayerItems.size() < INVENTORY_SPACE){
 
-			for (unsigned int i = 0; World->Entities[ROOMSNUMBER + 8]->container.size() > i; i++){
+			LinkedList<entity*>::Node* Object_inventory = nullptr;
+			LinkedList<entity*>::Node* Object_room = position->container.first;
+			LinkedList<entity*>::Node* Object_container = nullptr;
 
-				if (item == World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]->SayMyName() && World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]->type == ITEM){
+			for (Object_inventory = PlayerItems.first; Object_inventory != nullptr; Object_inventory = Object_inventory->nxt){
+				
+				if (item == "lazzer" || item == "Lazzer"){
 
-					printf("You got a %s from the %s\n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]->SayMyName(), box);
+					printf("You got a Lazzer from the %s\n", box);
 
-					PlayerItems.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container[i]);//transfer
+					PlayerItems.push_back(Object_inventory->data);//transfer
 
-					World->Entities[ROOMSNUMBER + 8]->container.Remove(i);//delete
+					container.erase(Object_inventory);//delete
 
 					break;
 
@@ -254,28 +273,33 @@ void Player::get(world* World, const mString item, const mString box){
 void Player::put(world* World, const mString item, const mString box)
 {
 
-	if (PlayerItems.size() > 0){
 
-		for (unsigned int i = 0; PlayerItems.size() > i; i++)
-		{
-			if (item == PlayerItems[i]->SayMyName()){
+	if (position == World->Entities[0]){
 
-				World->Entities[ROOMSNUMBER + EXITSNUMBER + 8]->container.push_back(PlayerItems[i]);
-
-				printf("You put the %s to the %s\n", PlayerItems[i]->SayMyName(), box);
-
-				PlayerItems.Remove(i);
+			LinkedList<entity*>::Node* Object_inventory = nullptr;
+			LinkedList<entity*>::Node* Object_room = position->container.first;
 
 
-				break;
+			for (Object_inventory = PlayerItems.first; Object_inventory != nullptr; Object_inventory = Object_inventory->nxt){
+
+				if (item == "lazzer" || item == "Lazzer"){
+
+					printf("You put the %s to the %s\n\n", box);
+
+					container.push_back(Object_inventory->data);//transfer
+					
+					PlayerItems.erase(Object_inventory);//delete
+
+					break;
+
+				}
 			}
-		}
-		//printf("you havent this item\n ");
+			printf("You can put this there.. Only there is space for a Lazzer Sword\n");
 
 	}
 
 	else{
-		printf("You can't put nothing there because YOU HAVENT ANY ITEM !\n");
+		printf("You arent in the place where you must be!! :O\n");
 	}
 }//puttttttttt
 
@@ -295,19 +319,22 @@ void Player::stats()
 
 void Player::equip(world* World, const mString item2){
 
+	LinkedList<entity*>::Node* Object_inventory = nullptr;
+
 	if (PlayerItems.size() >= 0){
 
-		for (uint i = 0; i < ITEMNUMBER; i++){
+		for (; Object_inventory != nullptr; Object_inventory = Object_inventory->nxt){
 
-			if (item2 == PlayerItems[i]->SayMyName() && ((item2 == "Stick") || (item2 == "Blazzer") || (item2 == "Stone") || (item2 == "Laser_Sword"))){
+			if (item2 == Object_inventory->data->SayMyName() && ((item2 == "Stick") || (item2 == "Blazzer") || (item2 == "Stone") || (item2 == "Laser_Sword"))){
 
-				PlayerEquip.push_back(PlayerItems[i]);
+				PlayerEquip.push_back(Object_inventory->data);
 
-				attack += PlayerItems[i]->attack;
-				attackspeed += PlayerItems[i]->attackspeed;
+				//attack += PlayerItems[i]->attack;
+				//attackspeed += PlayerItems[i]->attackspeed;
 
-				printf("You equipped %s \n", PlayerItems[i]->name.C_str());
-				PlayerItems.Remove(i);
+				printf("You equipped %s \n", Object_inventory->data->SayMyName());
+
+				PlayerItems.erase(Object_inventory);
 				return;
 
 			}
@@ -321,18 +348,23 @@ void Player::equip(world* World, const mString item2){
 void Player::unequip(world* World, const mString item2){
 
 	if (PlayerItems.size() >= 0){
+	
+		LinkedList<entity*>::Node* Object_equiped = nullptr;
 
-		for (uint i = 0; i < ITEMNUMBER; i++){
-
-			if (item2 == PlayerItems[i]->SayMyName() && ((item2 == "Stick") || (item2 == "Blazzer") || (item2 == "Stone") || (item2 == "Laser_Sword"))){
+		for (; Object_equiped != nullptr; Object_equiped = Object_equiped->nxt){
 
 
-				attack -= PlayerItems[i]->attack;
-				attackspeed -= PlayerItems[i]->attackspeed;
 
-				PlayerEquip.push_back(PlayerItems[i]);
-				printf("You unequip the %s.\n", PlayerItems[i]->SayMyName());
-				PlayerEquip.Remove(i);
+			if (item2 == Object_equiped->data->SayMyName() && ((item2 == "Stick") || (item2 == "Blazzer") || (item2 == "Stone") || (item2 == "Laser_Sword"))){
+
+
+				//attack -= PlayerItems->attack;
+				//attackspeed -= PlayerItems[i]->attackspeed;
+
+				PlayerEquip.push_back(Object_equiped->data);
+				printf("You unequip the %s.\n", Object_equiped->data->SayMyName());		
+				PlayerEquip.erase(Object_equiped);
+
 				return;
 			}
 

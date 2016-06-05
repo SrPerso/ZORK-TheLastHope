@@ -337,49 +337,108 @@ update_status Npc::talkandroid(mString& token1){
 
 void Npc::Change(world* World, const mString item, const mString NPC){
 
+	bool true_false = false;
+
 	if (position == World->Entities[8]){
 
 		if (container.size() < NPC_INVENTORY_SPACE){
-	
-			for (unsigned int i = 0; World->player->PlayerItems.size() > i; i++){
 
-					if (item == World->player->PlayerItems[i]->SayMyName()){
-						if (NPC.buffer == "monkey" || NPC.buffer == "Monkey"||NPC.buffer == "MONKEY"){
+			LinkedList<entity*>::Node* Object_equiped = nullptr;
+			LinkedList<entity*>::Node* Object_npc = nullptr;
+			for (; Object_npc != nullptr; Object_npc = Object_npc->nxt){
 
-							printf("You gave a %s to the %s\n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 1]->SayMyName(), NPC);
+				if (NPC.buffer == "monkey" || NPC.buffer == "Monkey" || NPC.buffer == "MONKEY"){
 
-							printf("The monkey gave you a %s \n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 2]->SayMyName());
+					if (((Npc*)Object_npc->data)->SayMyName() == "Stick"){
 
-							World->player->PlayerItems.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 2]->container[i]);
-							World->Monkey->container.Remove(i);//delete
+						LinkedList<entity*>::Node* Object_equiped = World->player->PlayerItems.first;
 
-							World->Monkey->container.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 1]->container[i]);
-							World->player->PlayerItems.Remove(i);//delete
+						for (; Object_equiped != nullptr; Object_equiped = Object_equiped->nxt)
+						{
+							if (item == Object_equiped->data->SayMyName()){
+
+								World->player->PlayerItems.push_back(Object_equiped->data);
+								World->Monkey->container.erase(Object_equiped);//delete
+								true_false = true;
+							}
 
 						}
-						else if (NPC.buffer == "STORMTROOPER" || NPC.buffer == "Stormtrooper" || NPC.buffer == "stormtrooper"){
 
-							printf("You gave a %s to the %s\n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 5]->SayMyName(), NPC);
-							printf("Thank U 4 all my friend!!  \n");
-							printf("The Stormtrooper gave you a %s \n", World->Entities[ROOMSNUMBER + EXITSNUMBER + 6]->SayMyName());
+						if (true_false = true){
 
-							World->player->PlayerItems.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 6]->container[i]);
-							World->stormtrooper->container.Remove(i);//delete
+							printf("You gave a Stick to the Monkey\n");
 
-							World->stormtrooper->container.push_back(World->Entities[ROOMSNUMBER + EXITSNUMBER + 5]->container[i]);
-							World->player->PlayerItems.Remove(i);//delete
+							LinkedList<entity*>::Node* Object_monk = World->Monkey->container.first;
+
+							for (; Object_monk != nullptr; Object_monk = Object_monk->nxt)
+							{
+								if ("Card" == Object_monk->data->SayMyName()){
+
+									World->player->PlayerItems.push_back(Object_monk->data);
+									World->Monkey->container.erase(Object_monk);//delete
+								}
+							}
+							printf("The monkey gave you a Card \n");
+
 						}
-				
-						break;
+						else{
+							printf("yo cant give it\n");
+
+						}
 
 					}
+
+					true_false = false;
+					if (NPC.buffer == "STORMTROOPER" || NPC.buffer == "Stormtrooper" || NPC.buffer == "stormtrooper"){
+
+						if (((Npc*)Object_npc->data)->SayMyName() == "Blazzer"){
+
+							LinkedList<entity*>::Node* Object_equiped = World->player->PlayerItems.first;
+
+							for (; Object_equiped != nullptr; Object_equiped = Object_equiped->nxt)
+							{
+								if (item == Object_equiped->data->SayMyName()){
+
+									World->player->PlayerItems.push_back(Object_equiped->data);
+									World->Monkey->container.erase(Object_equiped);//delete
+									true_false = true;
+								}
+
+							}
+
+							if (true_false = true){
+
+								printf("Thank U 4 all my friend!!  \n");
+								printf("You gave a Blazzer to the Storm trooper\n");
+
+								LinkedList<entity*>::Node* Object_monk = World->Monkey->container.first;
+
+								for (; Object_monk != nullptr; Object_monk = Object_monk->nxt)
+								{
+									if ("Sensor" == Object_monk->data->SayMyName()){
+
+										World->player->PlayerItems.push_back(Object_monk->data);
+										World->Monkey->container.erase(Object_monk);//delete
+									}
+								}
+								printf("The Stormtrooper gave you a sensor \n");
+
+							}
+							else{
+								printf("yuo cant give it\n");
+
+							}
+
+						}
+					}
+
+				}//npc inventory space
+
+				else{
+					printf("The npc has the inventory full\n");
 				}
-		
-		}//npc inventory space
+			}
 
-		else{
-			printf("The npc has the inventory full\n");
 		}
-	}
-
-}//get ------------------------------------------------------
+	}//get ------------------------------------------------------
+}

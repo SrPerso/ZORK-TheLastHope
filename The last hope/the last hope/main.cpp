@@ -72,7 +72,7 @@ int main() {
 
 		case MAIN_FINISH:
 
-			Epilogue();
+			
 			credits();  //credits
 			main_return = EXIT_SUCCESS;
 			state = MAIN_EXIT;

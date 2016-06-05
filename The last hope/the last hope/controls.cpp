@@ -237,9 +237,13 @@ else if (size == 2){
 		if (commandments[1]->S_str() == "east" || commandments[1]->S_str() == "e" || commandments[1]->S_str() == "East" || commandments[1]->S_str() == "EAST"){
 
 			if (player->position == Planet1_West){//TO LOCK THE SPACESHIP IN PLANET 1
-				for (int i = 0; player->container.size() >= i; i++){
+				LinkedList<entity*>::Node* Object_equiped = player->PlayerItems.first;
 
-					if (player->container[i] == ((exits*)Entities[ROOMSNUMBER + EXITSNUMBER + 2])){
+		
+				for (; Object_equiped != nullptr; Object_equiped = Object_equiped->nxt){
+
+
+					if (Object_equiped->data == ((exits*)Entities[ROOMSNUMBER + EXITSNUMBER + 2])){
 
 						((exits*)Entities[ROOMSNUMBER + 3])->locked = false;
 						player->open(this, EAST);
@@ -263,9 +267,13 @@ else if (size == 2){
 
 			if (player->position == Space_Space){//TO LOCK THE SPACESHIP IN PLANET 1
 
-				for (int i = 0; player->container.size() >= i; i++){
+				LinkedList<entity*>::Node* Object_equiped = player->PlayerItems.first;
 
-					if (player->container[i] == ((exits*)Entities[ROOMSNUMBER + EXITSNUMBER + 6])){
+
+				for (; Object_equiped != nullptr; Object_equiped = Object_equiped->nxt){
+
+
+					if (Object_equiped->data == ((exits*)Entities[ROOMSNUMBER + EXITSNUMBER + 6])){
 
 						((exits*)Entities[ROOMSNUMBER + 25])->locked = false;
 						player->open(this, EAST);

@@ -169,7 +169,7 @@ void world::createWorld(){
 	Stick->attackspeed = 2;
 	//]
 
-	Card = new Item("Target", "you can enter to some ship.", Planet1_Cave);
+	Card = new Item("Card", "you can enter to some ship.", Planet1_Cave);
 	Entities.push_back(Card);
 
 	Item* Diamond = new Item("Diamond", "Nice Stone,it seems that belongs to a collection of shiny rocks", Planet1_Forest);

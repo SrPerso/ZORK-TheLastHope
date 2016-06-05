@@ -5,6 +5,7 @@
 #include "Entity.h"
 #include "exits.h"
 #include "Creature.h"
+#include "LinkedList.h"
 //------------------------
 class world;
 class room;
@@ -12,8 +13,8 @@ class room;
 class Player:public Creature{
 public:
 
-	Vector <entity*>PlayerItems;
-	Vector <entity*>PlayerEquip;
+	LinkedList <entity*>PlayerItems;
+	LinkedList <entity*>PlayerEquip;
 
 	room* position = nullptr;
 	

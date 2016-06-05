@@ -17,7 +17,7 @@ public:
 	Creature(const char*name, const char*descriptiom,room*location, EntityType type);
 	virtual ~Creature();
 	
-//void Update();
+	void Update();
 
 	bool IsAlive()const;
 

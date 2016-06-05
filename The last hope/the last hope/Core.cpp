@@ -99,7 +99,7 @@ void kbhit(world*TheWorld){
 						if (checkret != UPDATE_TALKING && checkret !=UPDATE_STOP){ checkret = TheWorld->checkinloop(Stringcommands, monkeytalkstate, monkeybool);	}
 						if (checkret == UPDATE_TALKING){ checkret = TheWorld->Android->talkandroid(Stringcommands);	}
 						if (win(TheWorld) == true ){
-					
+							Epilogue();
 							checkret = UPDATE_STOP;
 						}
 						
